@@ -22,19 +22,62 @@
 		{include content}
 	{else}
 		{block menu}
-		<ul>
-			<li>
-				<a href="{link Project:}">Projekty</a>
+		<div class="lt-container">
+			<div class="lt-menu">
 				<ul>
-					<li><a href="{link Project:create}">Nový</a></li>
-					<li><a href="{link Project:}">Seznam</a></li>
+					<li>
+						<a href="{link Project:}">Projekty</a>
+						<ul>
+							<li><a href="{link Project:create}">Nový</a></li>
+							<li><a href="{link Project:}">Seznam</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="{link Project:}">Firmy</a>
+						<ul>
+							<li><a href="{link Project:create}">Nová</a></li>
+							<li><a href="{link Project:}">Seznam</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="{link Project:}">Úkoly</a>
+						<ul>
+							<li><a href="{link Project:create}">Nový</a></li>
+							<li><a href="{link Project:}">Seznam</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="{link Project:}">Test úkoly</a>
+						<ul>
+							<li><a href="{link Project:create}">Nový</a></li>
+							<li><a href="{link Project:}">Seznam</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="{link Project:}">Výsledky</a>
+						<ul>
+							<li><a href="{link Project:}">Seznam</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="{link Project:}">Štítky</a>
+						<ul>
+							<li><a href="{link Project:create}">Nový</a></li>
+							<li><a href="{link Project:}">Seznam</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="{link Project:}">Nastavení</a>
+					</li>
+					<li><a href="{link Sign:out}">Odhlásit</a></li>
 				</ul>
-			</li>
-			<li><a href="{link Sign:out}">Odhlásit</a></li>
-		</ul>
-		{/block}
+			</div>
+			{/block}
 
-		{include content}
+			<div class="lt-content">
+			{include content}
+			</div>
+		</div>
 	{/if}
 
 	{block scripts}
