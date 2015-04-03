@@ -1,0 +1,267 @@
+<?php
+
+/**
+ * @var $translator \DK\NetteTranslator\Translator
+ *
+ * @var $link string
+ *
+ * @var $xhrHeader string
+ *
+ * @var $ajaxActionKey string
+ * @var $ajaxMessageKey string
+ * @var $ajaxTranslationKey string
+ *
+ * @var $ajaxActionLoad string
+ * @var $ajaxActionEdit string
+ *
+ * @var $cookieDebugKey string
+ *
+ * @var $checkMessage callable
+ *
+ * @var $groups array
+ *
+ * @author David Kudera
+ */
+
+?>
+
+<a href="<?php echo $link; ?>" id="dkTranslatorDebug" style="float: right; position: relative; right: 80px;"></a>
+<h1>Translator</h1>
+<table style="clear: both;">
+	<tbody>
+		<tr>
+			<td>
+				<div id="dkTranslatorMessages" style="max-height: 400px; padding-right: 20px; overflow: hidden; overflow-x: hidden; overflow-y: auto;">
+					<?php
+					foreach ($groups as $name => $group) {
+						?>
+						<div>
+							<h2><a href="#" class="dk-translator-group-toggle"><?php echo $name. ' ('. count($group['data']). ')'; ?></a></h2>
+							<table<?php if ($group['collapsed']) { echo ' style="display: none;"'; } ?>>
+								<tbody>
+								<?php
+								foreach ($group['data'] as $name) {
+									?>
+									<tr>
+										<td>
+											<a href="#"<?php if (!$checkMessage($name)) { echo ' style="background-color: red; padding: 2px 5px 2px 5px; color: #FDF5CE;" title="Invalid message name" data-invalid '; } ?>><?php echo $name; ?></a>
+										</td>
+									</tr>
+								<?php
+								}
+								?>
+								</tbody>
+							</table>
+						</div>
+						<?php
+					}
+					?>
+				</div>
+			</td>
+			<td>
+				<div id="dkTranslatorVariants">
+					<?php
+					$forms = $translator->getPluralForms()[$this->translator->getLanguage()]['count'];
+
+					for ($i = 0; $i < $forms; $i++) {
+						switch ($i) {
+							case 0: echo '<h2>1<sup>st</sup> form</h2>'; break;
+							case 1: echo '<h2>2<sup>nd</sup> form</h2>'; break;
+							case 2: echo '<h2>3<sup>rd</sup> form</h2>'; break;
+							default: echo '<h2>'. $i. '<sup>th</sup> form</h2>'; break;
+						}
+						?>
+
+						<textarea cols="100" rows="4" style="background-color: white; border: 1px solid #E6DFBF;"></textarea><br><br>
+
+						<?php
+					}
+					?>
+				</div>
+				<div style="float: right;">
+					<span id="dkTranslatorInfo"></span>
+					<input type="button" id="dkTranslatorSubmitBtn" value="Save" style="display: none; border: 1px solid #E6DFBF; padding: 3px 10px 3px 10px; margin-bottom: 3px; background-color: #E6DFBF;">
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<script type="text/javascript">
+	(function() {
+
+		// from https://developer.mozilla.org/en-US/docs/Web/API/document.cookie
+		var docCookies = {
+			getItem: function (sKey) {
+				return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+			},
+			setItem: function (sKey, sValue, vEnd, sPath, sDomain, bSecure) {
+				if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { return false; }
+				var sExpires = "";
+				if (vEnd) {
+					switch (vEnd.constructor) {
+						case Number:
+							sExpires = vEnd === Infinity ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "; max-age=" + vEnd;
+							break;
+						case String:
+							sExpires = "; expires=" + vEnd;
+							break;
+						case Date:
+							sExpires = "; expires=" + vEnd.toUTCString();
+							break;
+					}
+				}
+				document.cookie = encodeURIComponent(sKey) + "=" + encodeURIComponent(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "");
+				return true;
+			},
+			removeItem: function (sKey, sPath, sDomain) {
+				if (!sKey || !this.hasItem(sKey)) { return false; }
+				document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + ( sDomain ? "; domain=" + sDomain : "") + ( sPath ? "; path=" + sPath : "");
+				return true;
+			},
+			hasItem: function (sKey) {
+				return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
+			},
+			keys: /* optional method: you can safely remove it! */ function () {
+				var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/);
+				for (var nIdx = 0; nIdx < aKeys.length; nIdx++) { aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]); }
+				return aKeys;
+			}
+		};
+
+		var link = '<?php echo $link; ?>';
+
+		var editing = null;
+		var infoTimeout = null;
+
+		var isDebug = docCookies.getItem('<?php echo $cookieDebugKey; ?>');
+		switch (isDebug) {
+			case null: isDebug = false; break;
+			case '0': isDebug = false; break;
+			case '1': isDebug = true; break;
+		}
+
+		var button = document.getElementById('dkTranslatorSubmitBtn');
+		var info = document.getElementById('dkTranslatorInfo');
+		var debug = document.getElementById('dkTranslatorDebug');
+		var variants = document.getElementById('dkTranslatorVariants').getElementsByTagName('textarea');
+		var messages = document.getElementById('dkTranslatorMessages').getElementsByTagName('a');
+		var groups = document.getElementById('dkTranslatorMessages').getElementsByClassName('dk-translator-group-toggle');
+
+		var ajax = function(action, data, fn) {
+			var xhr = window.ActiveXObject ? new ActiveXObject('Microsoft.XMLHTTP') : new XMLHttpRequest;
+
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+						if (xhr.responseText === '') {
+							fn();
+						} else {
+							fn(JSON.parse(xhr.responseText));
+						}
+					} else {
+						alert('Some error occurred during communication with your server.');
+					}
+				}
+			};
+
+			data['<?php echo $ajaxActionKey; ?>'] = action;
+
+			xhr.open('POST', <?php echo json_encode($link); ?>, true);
+			xhr.setRequestHeader('<?php echo $xhrHeader; ?>', 'devel');
+			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+			xhr.send(JSON.stringify(data));
+		};
+
+		var loadTranslation = function(message, fn) {
+			ajax('<?php echo $ajaxActionLoad; ?>', {'<?php echo $ajaxMessageKey; ?>': message}, function(data) {
+				if (button.style.display === 'none') {
+					button.style.display = 'inline';
+				}
+
+				editing = message;
+				fn(data.translation);
+			});
+		};
+
+		var saveTranslation = function(message, translation, fn) {
+			ajax('<?php echo $ajaxActionEdit; ?>', {
+				'<?php echo $ajaxMessageKey; ?>': message,
+				'<?php echo $ajaxTranslationKey; ?>': translation
+			}, fn);
+		};
+
+		var showInfo = function(message) {
+			if (infoTimeout !== null) {
+				clearTimeout(infoTimeout);
+			}
+
+			info.innerHTML = message;
+
+			setTimeout(function() {
+				info.innerHTML = '';
+			}, 1500);
+		};
+
+		for (var i = 0; i < messages.length; i++) {
+			(function(message) {
+				message.onclick = function(e) {
+					if (message.hasAttribute('data-invalid')) {
+						alert('Please put this translation into your dictionary first.');
+					} else {
+						loadTranslation(message.innerHTML, function(translation) {
+							for (var j = 0; j < variants.length; j++) {
+								if (typeof translation[j] !== 'undefined') {
+									variants[j].value = translation[j];
+								}
+							}
+						});
+					}
+
+					e.preventDefault();
+				};
+			})(messages[i]);
+		}
+
+		button.onclick = function() {
+			var translation = [];
+			for (var i = 0; i < variants.length; i++) {
+				if (variants[i].value !== '') {
+					translation.push(variants[i].value);
+				}
+			}
+
+			saveTranslation(editing, translation, function() {
+				showInfo('Saved!');
+			});
+		};
+
+		if (isDebug) {
+			debug.innerHTML = 'Debug mode (on)';
+		} else {
+			debug.innerHTML = 'Debug mode (off)';
+		}
+
+		debug.onclick = function(e) {
+			docCookies.setItem('<?php echo $cookieDebugKey; ?>', isDebug ? 0 : 1);
+
+			window.location.href = window.location.href;
+
+			e.preventDefault();
+		};
+
+		for (var i = 0; i < groups.length; i++) {
+			(function(link) {
+				link.onclick = function(e) {
+					var table = link.parentNode.parentNode.getElementsByTagName('table')[0];
+					var display = table.style.display;
+
+					table.style.display = (display === 'block' || display === '') ? 'none' : 'block';
+
+					e.preventDefault();
+				};
+			})(groups[i]);
+		}
+
+	}).call(window);
+</script>

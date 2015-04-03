@@ -1,0 +1,5 @@
+{
+    "require": {
+        "sakren/nette-translator": "~1.3"
+    }
+}

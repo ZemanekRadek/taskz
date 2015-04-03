@@ -1,0 +1,9 @@
+.idea/
+composer.lock
+vendor
+tests/tmp/
+tests/cache/
+test/NetteTranslator/output
+
+!tests/cache/.gitkeep
+!tests/tmp/.gitkeep

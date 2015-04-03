@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * Test: DK\NetteTranslator\Translator
+ *
+ * @testCase DKTests\NetteTranslator\TranslatorTest
+ * @author David Kudera
+ */
+
+namespace DKTests\NetteTranslator;
+
+use Tester\TestCase;
+use DK\NetteTranslator\Translator;
+use Tester\Assert;
+
+require_once __DIR__. '/bootstrap.php';
+
+/**
+ *
+ * @author David Kudera
+ */
+class TranslatorTest extends TestCase
+{
+
+
+	/** @var \DK\NetteTranslator\Translator */
+	private $translator;
+	
+	public function testOne()
+	{
+		Assert::same(true, false);
+	}
+
+}
+
+\run(new TranslatorTest);

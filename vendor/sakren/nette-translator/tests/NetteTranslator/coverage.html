@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex,noarchive">
+	<meta name="generator" content="Nette Tester">
+
+	<title>Code coverage</title>
+
+	<style type="text/css">
+	html {
+		font: 16px/1.5 sans-serif;
+		border-top: 4.7em solid #F4EBDB;
+	}
+
+	body {
+		max-width: 990px;
+		margin: -4.7em auto 0;
+		background: white;
+		color: #333;
+	}
+
+	h1 {
+		font-size: 1.9em;
+		margin: .5em 0 1.5em;
+		color: #7A7772;
+		text-shadow: 1px 1px 0 white;
+	}
+
+	div.code {
+		font: 14px/1.2 Consolas, monospace;
+		background: #FDF5CE;
+		padding: .4em .7em;
+		border: 1px dotted silver;
+		overflow-x: auto;
+		display: none;
+	}
+
+	span.line {
+		color: #9F9C7F;
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	.t {
+		background: #99f999;
+	}
+
+	.u {
+		background: #f9ac9e;
+	}
+
+	td {
+		vertical-align: middle;
+	}
+
+	small {
+		color: gray;
+	}
+
+	.number {
+		text-align: right;
+		width: 50px;
+	}
+
+	.bar {
+		border: 1px solid #ACACAC;
+		background: #e50400;
+		width: 35px;
+		height: 1em;
+	}
+
+	.bar div {
+		background: #1A7E1E;
+		height: 1em;
+	}
+
+	.light td {
+		opacity: .5;
+	}
+
+	.light td * {
+		color: gray;
+	}
+
+	.not-loaded td * {
+		color: red;
+	}
+	</style>
+</head>
+
+<body>
+	<h1>Code coverage 95&nbsp;%</h1>
+
+		<div>
+		<table>
+		<tr>
+			<td class="number"><small>95 %</small></td>
+			<td><div class="bar"><div style="width: 95%"></div></div></td>
+			<td><a href="#fragment0" onclick="toggle(this)"><span>Translator.php</span></a></td>
+		</tr>
+		</table>
+
+		<div class="code" id="fragment0">
+		<div><span class='line'> 1:    </span><code><span style="color: #06B">
+<span style="color: #000">&lt;?php<br>
+<span class='line'> 2:    </span><br>
+<span class='line'> 3:    </span></span><span style="color: #D24; font-weight: bold">namespace&nbsp;</span><span style="color: #000">DK</span><span style="color: #D24; font-weight: bold">\</span><span style="color: #000">NetteTranslator</span><span style="color: #D24; font-weight: bold">;<br>
+<span class='line'> 4:    </span><br>
+<span class='line'> 5:    </span>use&nbsp;</span><span style="color: #000">DK</span><span style="color: #D24; font-weight: bold">\</span><span style="color: #000">Translator</span><span style="color: #D24; font-weight: bold">\</span><span style="color: #000">Translator&nbsp;</span><span style="color: #D24; font-weight: bold">as&nbsp;</span><span style="color: #000">DKTranslator</span><span style="color: #D24; font-weight: bold">;<br>
+<span class='line'> 6:    </span>use&nbsp;</span><span style="color: #000">Nette</span><span style="color: #D24; font-weight: bold">\</span><span style="color: #000">Localization</span><span style="color: #D24; font-weight: bold">\</span><span style="color: #000">ITranslator</span><span style="color: #D24; font-weight: bold">;<br>
+<span class='line'> 7:    </span>use&nbsp;</span><span style="color: #000">Nette</span><span style="color: #D24; font-weight: bold">\</span><span style="color: #000">Caching</span><span style="color: #D24; font-weight: bold">\</span><span style="color: #000">IStorage</span><span style="color: #D24; font-weight: bold">;<br>
+<span class='line'> 8:    </span>use&nbsp;</span><span style="color: #000">Nette</span><span style="color: #D24; font-weight: bold">\</span><span style="color: #000">Caching</span><span style="color: #D24; font-weight: bold">\</span><span style="color: #000">Cache</span><span style="color: #D24; font-weight: bold">;<br>
+<span class='line'> 9:    </span><br>
+<span class='line'>10:    </span></span><span style="color: #999; font-style: italic">/**<br>
+<span class='line'>11:    </span>&nbsp;*<br>
+<span class='line'>12:    </span>&nbsp;*&nbsp;@author&nbsp;David&nbsp;Kudera<br>
+<span class='line'>13:    </span>&nbsp;*/<br>
+</span></span></code></div>
+<div class='t'><code><span style="color: #06B"><span style="color: #999; font-style: italic"><span class='line'>14:    </span></span><span style="color: #D24; font-weight: bold">class&nbsp;</span><span style="color: #000">Translator&nbsp;</span><span style="color: #D24; font-weight: bold">extends&nbsp;</span><span style="color: #000">DKTranslator&nbsp;</span><span style="color: #D24; font-weight: bold">implements&nbsp;</span><span style="color: #000">ITranslator<br>
+</span></span></code></div>
+<div><code><span style="color: #06B"><span style="color: #000"><span class='line'>15:    </span></span><span style="color: #D24; font-weight: bold">{<br>
+<span class='line'>16:    </span><br>
+<span class='line'>17:    </span><br>
+<span class='line'>18:    </span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #999; font-style: italic">/**&nbsp;@var&nbsp;\Nette\Caching\Cache&nbsp;*/<br>
+<span class='line'>19:    </span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #D24; font-weight: bold">private&nbsp;</span><span style="color: #000">$cache</span><span style="color: #D24; font-weight: bold">;<br>
+<span class='line'>20:    </span><br>
+<span class='line'>21:    </span><br>
+<span class='line'>22:    </span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #999; font-style: italic">/**<br>
+</span></span></code></div>
+<div class='t'><code><span style="color: #06B"><span style="color: #999; font-style: italic"><span class='line'>23:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;\Nette\Caching\IStorage&nbsp;$cacheStorage<br>
+</span></span></code></div>
+<div><code><span style="color: #06B"><span style="color: #999; font-style: italic"><span class='line'>24:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;\DK\NetteTranslator\Translator<br>
+</span></span></code></div>
+<div class='t'><code><span style="color: #06B"><span style="color: #999; font-style: italic"><span class='line'>25:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br>
+<span class='line'>26:    </span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #D24; font-weight: bold">public&nbsp;function&nbsp;</span><span style="color: #000">setCacheStorage</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #000">IStorage&nbsp;$cacheStorage</span><span style="color: #D24; font-weight: bold">)<br>
+</span></span></code></div>
+<div><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>27:    </span>&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+</span></span></code></div>
+<div class='t'><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>28:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">cache&nbsp;</span><span style="color: #D24; font-weight: bold">=&nbsp;new&nbsp;</span><span style="color: #000">Cache</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #000">$cacheStorage</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #080">'translator'</span><span style="color: #D24; font-weight: bold">);<br>
+<span class='line'>29:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">;<br>
+</span></span></code></div>
+<div class='dead'><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>30:    </span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+</span></span></code></div>
+<div><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>31:    </span><br>
+<span class='line'>32:    </span><br>
+<span class='line'>33:    </span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #999; font-style: italic">/**<br>
+<span class='line'>34:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;\Nette\Caching\Cache<br>
+</span></span></code></div>
+<div class='t'><code><span style="color: #06B"><span style="color: #999; font-style: italic"><span class='line'>35:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br>
+<span class='line'>36:    </span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #D24; font-weight: bold">public&nbsp;function&nbsp;</span><span style="color: #000">getCache</span><span style="color: #D24; font-weight: bold">()<br>
+</span></span></code></div>
+<div class='dead'><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>37:    </span>&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+</span></span></code></div>
+<div class='t'><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>38:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">cache</span><span style="color: #D24; font-weight: bold">;<br>
+</span></span></code></div>
+<div class='dead'><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>39:    </span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+</span></span></code></div>
+<div><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>40:    </span><br>
+<span class='line'>41:    </span><br>
+<span class='line'>42:    </span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #999; font-style: italic">/**<br>
+<span class='line'>43:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;\Nette\Caching\Cache&nbsp;$cache<br>
+<span class='line'>44:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;\DK\NetteTranslator\Translator<br>
+</span></span></code></div>
+<div class='u'><code><span style="color: #06B"><span style="color: #999; font-style: italic"><span class='line'>45:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br>
+</span></span></code></div>
+<div class='dead'><code><span style="color: #06B"><span style="color: #999; font-style: italic"><span class='line'>46:    </span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #D24; font-weight: bold">public&nbsp;function&nbsp;</span><span style="color: #000">setCache</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #000">Cache&nbsp;$cache&nbsp;</span><span style="color: #D24; font-weight: bold">=&nbsp;</span><span style="color: #000">null</span><span style="color: #D24; font-weight: bold">)<br>
+</span></span></code></div>
+<div><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>47:    </span>&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+</span></span></code></div>
+<div class='t'><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>48:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">cache&nbsp;</span><span style="color: #D24; font-weight: bold">=&nbsp;</span><span style="color: #000">$cache</span><span style="color: #D24; font-weight: bold">;<br>
+<span class='line'>49:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">;<br>
+</span></span></code></div>
+<div class='u'><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>50:    </span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+</span></span></code></div>
+<div class='dead'><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>51:    </span><br>
+</span></span></code></div>
+<div class='t'><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>52:    </span><br>
+<span class='line'>53:    </span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #999; font-style: italic">/**<br>
+</span></span></code></div>
+<div class='u'><code><span style="color: #06B"><span style="color: #999; font-style: italic"><span class='line'>54:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$path<br>
+</span></span></code></div>
+<div class='t'><code><span style="color: #06B"><span style="color: #999; font-style: italic"><span class='line'>55:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$name<br>
+<span class='line'>56:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$language<br>
+<span class='line'>57:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string<br>
+<span class='line'>58:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br>
+<span class='line'>59:    </span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #D24; font-weight: bold">public&nbsp;function&nbsp;</span><span style="color: #000">_getCachedCategoryName</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #000">$path</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$name</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$language</span><span style="color: #D24; font-weight: bold">)<br>
+<span class='line'>60:    </span>&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+<span class='line'>61:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #000">$language</span><span style="color: #D24; font-weight: bold">.&nbsp;</span><span style="color: #080">':'</span><span style="color: #D24; font-weight: bold">.&nbsp;</span><span style="color: #000">$path</span><span style="color: #D24; font-weight: bold">.&nbsp;</span><span style="color: #080">'/'</span><span style="color: #D24; font-weight: bold">.&nbsp;</span><span style="color: #000">$name</span><span style="color: #D24; font-weight: bold">;<br>
+<span class='line'>62:    </span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span class='line'>63:    </span><br>
+<span class='line'>64:    </span><br>
+<span class='line'>65:    </span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #999; font-style: italic">/**<br>
+<span class='line'>66:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$path<br>
+<span class='line'>67:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$name<br>
+<span class='line'>68:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;null|string&nbsp;$language<br>
+<span class='line'>69:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;array<br>
+<span class='line'>70:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br>
+<span class='line'>71:    </span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #D24; font-weight: bold">public&nbsp;function&nbsp;</span><span style="color: #000">_loadCategory</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #000">$path</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$name</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$language&nbsp;</span><span style="color: #D24; font-weight: bold">=&nbsp;</span><span style="color: #000">null</span><span style="color: #D24; font-weight: bold">)<br>
+<span class='line'>72:    </span>&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+<span class='line'>73:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #000">$language&nbsp;</span><span style="color: #D24; font-weight: bold">===&nbsp;</span><span style="color: #000">null</span><span style="color: #D24; font-weight: bold">)&nbsp;{<br>
+<span class='line'>74:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">$language&nbsp;</span><span style="color: #D24; font-weight: bold">=&nbsp;</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">getLanguage</span><span style="color: #D24; font-weight: bold">();<br>
+<span class='line'>75:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span class='line'>76:    </span><br>
+<span class='line'>77:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">cache&nbsp;</span><span style="color: #D24; font-weight: bold">===&nbsp;</span><span style="color: #000">null</span><span style="color: #D24; font-weight: bold">)&nbsp;{<br>
+<span class='line'>78:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #000">parent</span><span style="color: #D24; font-weight: bold">::</span><span style="color: #000">_loadCategory</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #000">$path</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$name</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$language</span><span style="color: #D24; font-weight: bold">);<br>
+<span class='line'>79:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+</span></span></code></div>
+<div><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>80:    </span><br>
+</span></span></code></div>
+<div class='t'><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>81:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">$cachedName&nbsp;</span><span style="color: #D24; font-weight: bold">=&nbsp;</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">_getCachedCategoryName</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #000">$path</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$name</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$language</span><span style="color: #D24; font-weight: bold">);<br>
+<span class='line'>82:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">$data&nbsp;</span><span style="color: #D24; font-weight: bold">=&nbsp;</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">cache</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">load</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #000">$cachedName</span><span style="color: #D24; font-weight: bold">);<br>
+<span class='line'>83:    </span><br>
+<span class='line'>84:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #000">$data&nbsp;</span><span style="color: #D24; font-weight: bold">===&nbsp;</span><span style="color: #000">null</span><span style="color: #D24; font-weight: bold">)&nbsp;{<br>
+<span class='line'>85:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">$data&nbsp;</span><span style="color: #D24; font-weight: bold">=&nbsp;</span><span style="color: #000">parent</span><span style="color: #D24; font-weight: bold">::</span><span style="color: #000">_loadCategory</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #000">$path</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$name</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$language</span><span style="color: #D24; font-weight: bold">);<br>
+<span class='line'>86:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">cache</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">save</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #000">$cachedName</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$data</span><span style="color: #D24; font-weight: bold">,&nbsp;array(<br>
+<span class='line'>87:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">Cache</span><span style="color: #D24; font-weight: bold">::</span><span style="color: #000">FILES&nbsp;</span><span style="color: #D24; font-weight: bold">=&gt;&nbsp;array(</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">getLoader</span><span style="color: #D24; font-weight: bold">()-&gt;</span><span style="color: #000">getFileSystemPath</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #000">$path</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$name</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$language</span><span style="color: #D24; font-weight: bold">))<br>
+<span class='line'>88:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;));<br>
+<span class='line'>89:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span class='line'>90:    </span><br>
+<span class='line'>91:    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #000">$data</span><span style="color: #D24; font-weight: bold">;<br>
+<span class='line'>92:    </span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span class='line'>93:    </span><br>
+</span></span></code></div>
+</div>
+	</div>
+	
+	<footer>
+		<p>Generated by <a href="https://github.com/nette/tester">Nette Tester</a> at 2014/02/03 14:13:03</p>
+	</footer>
+
+	<script>
+	function toggle(link) {
+		var el = document.getElementById(link.href.split('#')[1]);
+		if (el.style.display === 'block') {
+			el.style.display = 'none';
+			return false;
+		} else {
+			el.style.display = 'block';
+		}
+	}
+	</script>
+</body>
+</html>

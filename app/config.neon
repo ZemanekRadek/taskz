@@ -22,3 +22,7 @@ database:
 services:
 	- App\Model\Authenticator
 	- App\Model\User
+
+extensions:
+	translator: DK\NetteTranslator\TranslatorExtension
+	

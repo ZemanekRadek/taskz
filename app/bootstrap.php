@@ -4,10 +4,13 @@ use Nette\Application\Routers\Route,
 	Nette\Application\Routers\SimpleRouter;
 
 
+	require __DIR__ . '/../vendor/autoload.php';
+/*
 // Load Nette Framework
 if (@!include __DIR__ . '/../../Nette/loader.php') {
 	die('Install Nette using `composer update`');
 }
+*/
 
 // Configure application
 $configurator = new Nette\Configurator;
