@@ -1,0 +1,24 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# http://nette.org/security-warning
+#
+php:
+	date.timezone: Europe/Prague
+
+application:
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+database:
+	default:
+		dsn:          "mysql:host=127.0.0.1;dbname=taskz"
+		user:         "root"
+		password:     ""
+		options:      [PDO::MYSQL_ATTR_COMPRESS = true]
+		debugger:     true        # panel v debugger baru
+		explain:      true        # explain dotazů v debugger bar
+		autowired:    true
+		
+services:
+	- App\Model\Authenticator
+	- App\Model\User

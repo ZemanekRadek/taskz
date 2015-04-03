@@ -1,0 +1,47 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>{ifset title}{include title|striptags} | {/ifset}Taskz</title>
+
+	<link rel="stylesheet" href="{$basePath}/img/css/index.css">
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+	{block head}{/block}
+</head>
+
+<body>
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+	
+	{if !$user->isLoggedIn()}
+		{include content}
+	{else}
+		{block menu}
+		<ul>
+			<li>
+				<a href="{link Project:}">Projekty</a>
+				<ul>
+					<li><a href="{link Project:create}">Nový</a></li>
+					<li><a href="{link Project:}">Seznam</a></li>
+				</ul>
+			</li>
+			<li><a href="{link Sign:out}">Odhlásit</a></li>
+		</ul>
+		{/block}
+
+		{include content}
+	{/if}
+
+	{block scripts}
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
+	<script src="{$basePath}/img/js/bootstrap.min.js"></script>
+	<script src="{$basePath}/img/js/main.js"></script>
+	{/block}
+</body>
+</html>
