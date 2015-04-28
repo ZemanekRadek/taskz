@@ -6,4 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'l10n\\' => array($vendorDir . '/zemistr/l10n/src/l10n'),
+    'l10nNetteTranslator\\' => array($vendorDir . '/zemistr/l10n-nette-translator/src/l10nNetteTranslator'),
 );

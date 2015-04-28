@@ -6,6 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'DK\\Translator' => array($vendorDir . '/sakren/translator/src'),
-    'DK\\NetteTranslator' => array($vendorDir . '/sakren/nette-translator/src'),
 );

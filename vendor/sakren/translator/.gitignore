@@ -1,6 +1,0 @@
-.idea/
-vendor
-test/tmp/*
-test/Translator/output
-
-!test/tmp/.gitkeep

@@ -4,68 +4,8 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "da1e26804b1349824859d89874cd4bd9",
+    "hash": "89a06f25139576e3a749c7d57aa851e0",
     "packages": [
-        {
-            "name": "latte/latte",
-            "version": "v2.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/latte.git",
-                "reference": "6ff30144454e73fa1affc476c268ff196d918e22"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/6ff30144454e73fa1affc476c268ff196d918e22",
-                "reference": "6ff30144454e73fa1affc476c268ff196d918e22",
-                "shasum": ""
-            },
-            "require": {
-                "ext-tokenizer": "*",
-                "php": ">=5.3.1"
-            },
-            "require-dev": {
-                "nette/tester": "~1.3"
-            },
-            "suggest": {
-                "ext-fileinfo": "to use filter |datastream",
-                "ext-mbstring": "to use filters like lower, upper, capitalize, ..."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "Latte: the amazing template engine for PHP",
-            "homepage": "http://latte.nette.org",
-            "keywords": [
-                "templating",
-                "twig"
-            ],
-            "time": "2015-03-27 10:53:51"
-        },
         {
             "name": "nette/application",
             "version": "v2.3.2",
@@ -132,77 +72,6 @@
             "description": "Nette Application MVC Component",
             "homepage": "http://nette.org",
             "time": "2015-03-23 22:45:31"
-        },
-        {
-            "name": "nette/bootstrap",
-            "version": "v2.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/bootstrap.git",
-                "reference": "e24c5000c022336b8c0a6409bfd8d1ff63ede8f6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/bootstrap/zipball/e24c5000c022336b8c0a6409bfd8d1ff63ede8f6",
-                "reference": "e24c5000c022336b8c0a6409bfd8d1ff63ede8f6",
-                "shasum": ""
-            },
-            "require": {
-                "nette/di": "~2.3",
-                "nette/utils": "~2.2",
-                "php": ">=5.3.1"
-            },
-            "conflict": {
-                "nette/nette": "<2.2"
-            },
-            "require-dev": {
-                "latte/latte": "~2.2",
-                "nette/application": "~2.3",
-                "nette/caching": "~2.3",
-                "nette/database": "~2.3",
-                "nette/forms": "~2.3",
-                "nette/http": "~2.3",
-                "nette/mail": "~2.3",
-                "nette/robot-loader": "~2.2",
-                "nette/safe-stream": "~2.2",
-                "nette/security": "~2.3",
-                "nette/tester": "~1.3",
-                "tracy/tracy": "~2.3"
-            },
-            "suggest": {
-                "nette/robot-loader": "to use Configurator::createRobotLoader()",
-                "tracy/tracy": "to use Configurator::enableDebugger()"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "Nette Bootstrap",
-            "homepage": "http://nette.org",
-            "time": "2015-03-09 23:19:17"
         },
         {
             "name": "nette/caching",
@@ -311,121 +180,6 @@
             "description": "Nette Component Model",
             "homepage": "http://nette.org",
             "time": "2015-02-06 14:13:18"
-        },
-        {
-            "name": "nette/database",
-            "version": "v2.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/database.git",
-                "reference": "e057c958af31dce354f92729f67da540d572e11d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/database/zipball/e057c958af31dce354f92729f67da540d572e11d",
-                "reference": "e057c958af31dce354f92729f67da540d572e11d",
-                "shasum": ""
-            },
-            "require": {
-                "ext-pdo": "*",
-                "nette/caching": "~2.2",
-                "nette/utils": "~2.2",
-                "php": ">=5.3.1"
-            },
-            "conflict": {
-                "nette/nette": "<2.2"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9.1",
-                "nette/di": "~2.3",
-                "nette/tester": "~1.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "Nette Database Component",
-            "homepage": "http://nette.org",
-            "time": "2015-03-26 17:01:24"
-        },
-        {
-            "name": "nette/deprecated",
-            "version": "v2.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/deprecated.git",
-                "reference": "147bc67d7e3de7aecefb8995245c20b2bd8404b9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/deprecated/zipball/147bc67d7e3de7aecefb8995245c20b2bd8404b9",
-                "reference": "147bc67d7e3de7aecefb8995245c20b2bd8404b9",
-                "shasum": ""
-            },
-            "require-dev": {
-                "latte/latte": "~2.2",
-                "nette/application": "~2.2",
-                "nette/bootstrap": "~2.2, >=2.2.1",
-                "nette/caching": "~2.2",
-                "nette/forms": "~2.2",
-                "nette/mail": "~2.2",
-                "nette/robot-loader": "~2.2",
-                "nette/safe-stream": "~2.2",
-                "nette/tester": "~1.1",
-                "nette/utils": "~2.2",
-                "tracy/tracy": "~2.2"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ],
-                "files": [
-                    "src/loader.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "APIs and features removed from Nette Framework",
-            "homepage": "http://nette.org",
-            "time": "2015-03-23 22:54:37"
         },
         {
             "name": "nette/di",
@@ -540,66 +294,6 @@
             "time": "2015-02-17 20:36:43"
         },
         {
-            "name": "nette/forms",
-            "version": "v2.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/forms.git",
-                "reference": "ed3088fee3728a723551aa95c67117141fa1defb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/forms/zipball/ed3088fee3728a723551aa95c67117141fa1defb",
-                "reference": "ed3088fee3728a723551aa95c67117141fa1defb",
-                "shasum": ""
-            },
-            "require": {
-                "nette/component-model": "~2.2",
-                "nette/http": "~2.2",
-                "nette/utils": "~2.2",
-                "php": ">=5.3.1"
-            },
-            "conflict": {
-                "nette/nette": "<2.2"
-            },
-            "require-dev": {
-                "latte/latte": "~2.3",
-                "nette/di": "~2.3",
-                "nette/tester": "~1.3",
-                "tracy/tracy": "~2.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "Nette Forms: greatly facilitates web forms",
-            "homepage": "http://nette.org",
-            "time": "2015-03-23 21:04:13"
-        },
-        {
             "name": "nette/http",
             "version": "v2.3.0",
             "source": {
@@ -659,66 +353,6 @@
             "time": "2015-02-25 00:17:52"
         },
         {
-            "name": "nette/mail",
-            "version": "v2.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/mail.git",
-                "reference": "19d7e1cb8f583c6fe49e896e9a341498decb385d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/mail/zipball/19d7e1cb8f583c6fe49e896e9a341498decb385d",
-                "reference": "19d7e1cb8f583c6fe49e896e9a341498decb385d",
-                "shasum": ""
-            },
-            "require": {
-                "ext-iconv": "*",
-                "nette/utils": "~2.2",
-                "php": ">=5.3.1"
-            },
-            "conflict": {
-                "nette/nette": "<2.2"
-            },
-            "require-dev": {
-                "nette/di": "~2.3",
-                "nette/tester": "~1.3"
-            },
-            "suggest": {
-                "ext-fileinfo": "to detect type of attached files"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "Nette Mail: Sending E-mails",
-            "homepage": "http://nette.org",
-            "time": "2015-02-24 22:24:13"
-        },
-        {
             "name": "nette/neon",
             "version": "v2.3.1",
             "source": {
@@ -769,86 +403,6 @@
             "description": "Nette NEON: parser & generator for Nette Object Notation",
             "homepage": "http://ne-on.org",
             "time": "2015-03-26 20:37:13"
-        },
-        {
-            "name": "nette/nette",
-            "version": "v2.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/nette.git",
-                "reference": "27d7428e2c8d421ae50c9fe6d676221696f72896"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/nette/zipball/27d7428e2c8d421ae50c9fe6d676221696f72896",
-                "reference": "27d7428e2c8d421ae50c9fe6d676221696f72896",
-                "shasum": ""
-            },
-            "require": {
-                "latte/latte": "2.3.1",
-                "nette/application": "2.3.2",
-                "nette/bootstrap": "2.3.1",
-                "nette/caching": "2.3.1",
-                "nette/component-model": "2.2.1",
-                "nette/database": "2.3.1",
-                "nette/deprecated": "2.3.0",
-                "nette/di": "2.3.1",
-                "nette/finder": "2.3.0",
-                "nette/forms": "2.3.1",
-                "nette/http": "2.3.0",
-                "nette/mail": "2.3.0",
-                "nette/neon": "2.3.1",
-                "nette/php-generator": "2.3.0",
-                "nette/reflection": "2.3.0",
-                "nette/robot-loader": "2.3.0",
-                "nette/safe-stream": "2.3.0",
-                "nette/security": "2.3.0",
-                "nette/tokenizer": "2.2.0",
-                "nette/utils": "2.3.1",
-                "tracy/tracy": "2.3.1"
-            },
-            "require-dev": {
-                "nette/tester": "~1.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "Nette/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "Nette Framework - innovative framework for fast and easy development of secured web applications in PHP. Write less, have cleaner code and your work will bring you joy.",
-            "homepage": "http://nette.org",
-            "keywords": [
-                "Forms",
-                "database",
-                "debugging",
-                "framework",
-                "mailing",
-                "mvc",
-                "templating"
-            ],
-            "time": "2015-03-27 10:59:15"
         },
         {
             "name": "nette/php-generator",
@@ -964,117 +518,6 @@
             "time": "2015-02-16 15:33:50"
         },
         {
-            "name": "nette/robot-loader",
-            "version": "v2.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/robot-loader.git",
-                "reference": "0ae50d98dff4adbf1a0d756bf61f7f7c37d36651"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/robot-loader/zipball/0ae50d98dff4adbf1a0d756bf61f7f7c37d36651",
-                "reference": "0ae50d98dff4adbf1a0d756bf61f7f7c37d36651",
-                "shasum": ""
-            },
-            "require": {
-                "nette/caching": "~2.2",
-                "nette/finder": "~2.3",
-                "nette/utils": "~2.2",
-                "php": ">=5.3.1"
-            },
-            "conflict": {
-                "nette/nette": "<2.2"
-            },
-            "require-dev": {
-                "nette/tester": "~1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "Nette RobotLoader: comfortable autoloading",
-            "homepage": "http://nette.org",
-            "time": "2015-02-05 13:03:37"
-        },
-        {
-            "name": "nette/safe-stream",
-            "version": "v2.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/safe-stream.git",
-                "reference": "2881ad56880e9231a2456a7bf41b174df4ab320a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/safe-stream/zipball/2881ad56880e9231a2456a7bf41b174df4ab320a",
-                "reference": "2881ad56880e9231a2456a7bf41b174df4ab320a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.1"
-            },
-            "conflict": {
-                "nette/nette": "<2.2"
-            },
-            "require-dev": {
-                "nette/tester": "~1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/loader.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "Nette SafeStream: Atomic Operations",
-            "homepage": "http://nette.org",
-            "time": "2015-01-27 13:35:41"
-        },
-        {
             "name": "nette/security",
             "version": "v2.3.0",
             "source": {
@@ -1125,55 +568,6 @@
             "description": "Nette Security: Access Control Component",
             "homepage": "http://nette.org",
             "time": "2015-02-24 20:35:28"
-        },
-        {
-            "name": "nette/tokenizer",
-            "version": "v2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/tokenizer.git",
-                "reference": "962b2b6f08c17018f5e37a85f8de631091eb3398"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/tokenizer/zipball/962b2b6f08c17018f5e37a85f8de631091eb3398",
-                "reference": "962b2b6f08c17018f5e37a85f8de631091eb3398",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.1"
-            },
-            "conflict": {
-                "nette/nette": "<2.2"
-            },
-            "require-dev": {
-                "nette/tester": "~1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "Nette Tokenizer",
-            "homepage": "http://nette.org",
-            "time": "2014-05-25 06:19:43"
         },
         {
             "name": "nette/utils",
@@ -1236,101 +630,6 @@
             "time": "2015-03-17 21:49:28"
         },
         {
-            "name": "sakren/nette-translator",
-            "version": "1.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sakren/nette-translator.git",
-                "reference": "4a9a3dd5b9f1f529d2dd33179b67044224a534b3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sakren/nette-translator/zipball/4a9a3dd5b9f1f529d2dd33179b67044224a534b3",
-                "reference": "4a9a3dd5b9f1f529d2dd33179b67044224a534b3",
-                "shasum": ""
-            },
-            "require": {
-                "nette/nette": ">=v2.1.0",
-                "php": ">=5.3.0",
-                "sakren/translator": "1.7.0"
-            },
-            "require-dev": {
-                "nette/tester": "v0.9.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "DK\\NetteTranslator": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Kudera",
-                    "email": "sakren@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Translator for Nette framework",
-            "homepage": "https://github.com/sakren/nette-translator",
-            "keywords": [
-                "i18n",
-                "localization",
-                "nette",
-                "translator"
-            ],
-            "time": "2014-04-18 10:20:45"
-        },
-        {
-            "name": "sakren/translator",
-            "version": "1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sakren/php-translator.git",
-                "reference": "cd4e5bfa2af39a097628cdbbaa6a304b7ad981cd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sakren/php-translator/zipball/cd4e5bfa2af39a097628cdbbaa6a304b7ad981cd",
-                "reference": "cd4e5bfa2af39a097628cdbbaa6a304b7ad981cd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "nette/tester": "v0.9.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "DK\\Translator": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Kudera",
-                    "email": "sakren@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Translator for PHP",
-            "homepage": "https://github.com/sakren/php-translator",
-            "keywords": [
-                "i18n",
-                "localization",
-                "translator"
-            ],
-            "time": "2014-04-18 08:10:47"
-        },
-        {
             "name": "tracy/tracy",
             "version": "v2.3.1",
             "source": {
@@ -1389,6 +688,100 @@
                 "nette"
             ],
             "time": "2015-03-27 10:21:19"
+        },
+        {
+            "name": "zemistr/l10n",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Zemistr/l10n.git",
+                "reference": "8545d3c1dfcea722ed0b34a0b6d55bc3022c9cda"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Zemistr/l10n/zipball/8545d3c1dfcea722ed0b34a0b6d55bc3022c9cda",
+                "reference": "8545d3c1dfcea722ed0b34a0b6d55bc3022c9cda",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "l10n\\": "src/l10n"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Zeman (Zemistr)",
+                    "homepage": "http://zemistr.eu"
+                }
+            ],
+            "description": "Localization, plurals and simple translator",
+            "homepage": "https://github.com/zemistr/l10n",
+            "keywords": [
+                "l10n",
+                "localization",
+                "plurals",
+                "translator"
+            ],
+            "time": "2015-03-29 12:41:14"
+        },
+        {
+            "name": "zemistr/l10n-nette-translator",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Zemistr/l10n-nette-translator.git",
+                "reference": "8b52d2305f0bb2ddb1543f2103c5295286463196"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Zemistr/l10n-nette-translator/zipball/8b52d2305f0bb2ddb1543f2103c5295286463196",
+                "reference": "8b52d2305f0bb2ddb1543f2103c5295286463196",
+                "shasum": ""
+            },
+            "require": {
+                "nette/application": "2.3.*",
+                "nette/di": "2.3.*",
+                "nette/http": "2.3.*",
+                "nette/php-generator": "2.3.*",
+                "nette/utils": "2.3.*",
+                "php": ">=5.4.0",
+                "tracy/tracy": "2.3.*",
+                "zemistr/l10n": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "l10nNetteTranslator\\": "src/l10nNetteTranslator"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Zeman (Zemistr)",
+                    "homepage": "http://zemistr.eu"
+                }
+            ],
+            "description": "Simple l10n translator panel for Tracy",
+            "homepage": "https://github.com/Zemistr/l10n-nette-translator",
+            "keywords": [
+                "l10n",
+                "localization",
+                "nette",
+                "tracy",
+                "translator"
+            ],
+            "time": "2015-04-05 01:48:22"
         }
     ],
     "packages-dev": [],

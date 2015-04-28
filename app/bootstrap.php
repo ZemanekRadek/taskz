@@ -4,13 +4,20 @@ use Nette\Application\Routers\Route,
 	Nette\Application\Routers\SimpleRouter;
 
 
-	require __DIR__ . '/../vendor/autoload.php';
-/*
 // Load Nette Framework
+
 if (@!include __DIR__ . '/../../Nette/loader.php') {
 	die('Install Nette using `composer update`');
 }
-*/
+
+
+
+if (@!include __DIR__ . '/../vendor/autoload.php') {
+	die('Install Nette using `composer update`');
+}
+
+
+
 
 // Configure application
 $configurator = new Nette\Configurator;
@@ -32,8 +39,9 @@ $container = $configurator->createContainer();
 
 // Setup router using mod_rewrite detection
 $router = $container->getService('router');
-$router[] = new Route('index.php', 'Dashboard:default', Route::ONE_WAY);
-$router[] = new Route('<presenter>/<action>[/<id>]', 'Dashboard:default');
+// $router[] = new Route('[<lang=cs [a-z]{2}>/]<project>/<presenter>/<action>', "Dashboard:default");
+$router[] = new Route('[<lang=cs [a-z]{2}>/]<presenter>/<action>', "Dashboard:default");
+// $router[] = new Route('', "Error:default");
 // $router[] = new Route('login', 'Sign:default');
 
 return $container;

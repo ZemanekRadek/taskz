@@ -9,6 +9,8 @@ application:
 	mapping:
 		*: App\*Module\Presenters\*Presenter
 
+	errorPresenter: "Error"
+
 database:
 	default:
 		dsn:          "mysql:host=127.0.0.1;dbname=taskz"
@@ -18,11 +20,41 @@ database:
 		debugger:     true        # panel v debugger baru
 		explain:      true        # explain dotazů v debugger bar
 		autowired:    true
-		
+
+extensions:
+	translator: l10nNetteTranslator\ApplicationDI\Extension
+
+translator:
+	## languages are required
+	languages:
+		-
+			lang: l10n\Language\CzechLanguage ## must implements l10n\Language\ILanguage
+			plural: l10n\Plural\PluralRule8 ## must implements l10n\Plural\IPlural
+			default: true
+		-
+			lang: l10n\Language\SlovakLanguage ## if language implements l10n\Plural\IPlural, you can ignore plural section
+
+		-
+			lang: l10n\Language\EnglishLanguage
+
+	## storage is optional
+	storage: @translator_simple_nette_storage ## must implements l10nNetteTranslator\Storage\IStorage
+
+
 services:
 	- App\Model\Authenticator
 	- App\Model\User
-
-extensions:
-	translator: DK\NetteTranslator\TranslatorExtension
+	- App\Model\UserList
+	- App\Model\Project
+	- App\Model\Task
+	- App\Model\TaskList
+	- App\Model\Tag
+	- App\Model\TagList
+	- App\Model\StateList
+	- App\Model\Language
 	
+	translator_nette_storage:
+		class: Nette\Caching\Storages\FileStorage(%appDir%/locale) ## Texts will be saved in %appDir%/Texts as file named by ISO 639-1
+		autowired: false
+
+	translator_simple_nette_storage: l10nNetteTranslator\Storage\SimpleNetteStorage(@translator_nette_storage)

@@ -1,5 +1,5 @@
 {
     "require": {
-        "sakren/nette-translator": "~1.3"
+        "zemistr/l10n-nette-translator": "~1.0"
     }
 }
