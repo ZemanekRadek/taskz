@@ -1,0 +1,28 @@
+{var $robots = noindex}
+
+{block content}
+
+<h1 n:block="title">{_'tag new'}</h1>
+
+{form tagForm class=>'form form-horizontal'}
+
+	<div class="clearfix">
+		<div class="col-sm-10">
+			<a href="{link Tag:list}">{_'back to taglist'}</a>
+		</div>
+		<div class="col-sm-2">
+			<button n:name=tg_send class="btn btn-default"></button>
+		</div>
+	</div>
+
+	
+	<div class="clearfix">
+		<div class="form-group">
+			{label tg_title class=>'control-label col-sm-3'}{/label}
+			<div class="col-sm-6">
+				<input type="text" n:name=tg_title class="form-control" />
+			</div>
+		</div>
+	</div>
+	
+{/form}

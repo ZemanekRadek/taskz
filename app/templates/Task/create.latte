@@ -1,0 +1,120 @@
+{var $robots = noindex}
+
+{block content}
+
+<h1 n:block="title">{_'task new'}</h1>
+
+{form taskForm class=>'form form-horizontal'}
+
+	<div class="clearfix">
+		<div class="col-sm-10">
+			<a href="{link Task:list}">{_'back to tasklist'}</a>
+		</div>
+		<div class="col-sm-2">
+			<button n:name=ta_send class="btn btn-default"></button>
+		</div>
+	</div>
+
+	
+	<div class="clearfix">
+		<div class="form-group">
+			{label ta_name class=>'control-label col-sm-3'}{/label}
+			<div class="col-sm-6">
+				<input type="text" n:name=ta_name class="form-control" />
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="clearfix">
+		<div class="col-sm-4">
+			<div class="col-xs-6">
+				<div class="form-group">
+					<select n:name=ta_state class="form-control"></select>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="form-group">
+					<div class="checkbox">
+						{label ta_urgent}
+							<input type="checkbox" n:name=ta_urgent />
+							{_'urgent'}
+						{/label}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="form-group">
+				{label ta_timeTo class=>'control-label col-sm-6'}{/label}
+				<div class="col-sm-6">
+					<input type="date" n:name="ta_timeTo" class="datepicker form-control" />
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="form-group">
+				{label ta_users class=>'control-label col-sm-6'}{/label}
+				
+				<div class="col-sm-6">
+					{foreach $form[ta_users]->items  as $key => $value}
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" n:name="ta_users:$key" value="{$key}" />
+							{$value}
+						</label>
+					</div>
+					{/foreach}
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="clearfix">
+		<div class="col-sm-8">
+			<div class="form-group">
+				{label ta_tags class=>'control-label col-sm-6'}{/label}
+				
+				<div class="col-sm-6">
+					{foreach $form[ta_tags]->items  as $key => $value}
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" n:name="ta_tags:$key" value="{$key}" />
+							{$value}
+						</label>
+					</div>
+					{/foreach}
+				</div>
+			</div>
+			
+		</div>
+		<div class="col-sm-4">
+			
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="clearfix">
+			{label ta_description class=>'control-label col-sm-3'}{/label}
+			<div class="col-sm-6">
+				<textarea n:name=ta_description class="form-control"></textarea>
+			</div>
+		</div>
+	</div>
+{/form}
+<script type="text/javascript">
+(function() {
+	$('.datepicker').each(function(){
+		var $elm = $(this);
+		
+		if ($elm.attr('type') == 'date') {
+			$elm.attr('type', 'text');
+		}
+		
+		$elm.datepicker({
+			
+		})
+	});
+})(jQuery);
+
+</script>

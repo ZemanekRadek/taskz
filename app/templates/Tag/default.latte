@@ -1,0 +1,10 @@
+{block content}
+
+
+{foreach $tags as $key => $title}
+<div class="item">
+	<div class="column">{$title}</div>
+	<div class="column"><a href="{link Tag:edit $key}">{_'edit tag'}</a></div>
+	<div class="column"><a href="{link Tag:delete $key}">{_'delete tag'}</a></div>
+</div>
+{/foreach}
