@@ -13,10 +13,15 @@ class Localization extends Nette\Object  {
 	
 	private $table = 'localization';
 	
+	const PREFIX = 'lo_';
+	
 	private $data = array(
-		'primary' => 'lo_ID'
+		'primary' => 'lo_ID',
+		'locales' => array(
+			'lo_CS', 'lo_EN'
+		)
 	);
-
+	
 	/**
 	 * @param Nette\Database\Connection $db
 	 * @param Model\Language $language
@@ -37,13 +42,23 @@ class Localization extends Nette\Object  {
 	public function save($value, $ID = null) {
 		
 		if (!is_array($value)) {
-			$value = array(
-				'lo_CS' => $value,
-				'lo_EN' => $value
-			);
+			$arr = array();
+			foreach($this->data['locales'] as $loc) {
+				$arr[$loc] = $value;
+			}
+			$value = $arr;
 		}
 		
-		$row = $this->DB->table($this->table)->insert($value);
+		$row = $this->DB->table($this->table);
+		
+		if ($ID) {
+			$row->where('lo_ID', $ID)->update($value);
+			
+			return $ID;
+		}
+		else {
+			$row = $row->insert($value);
+		}
 		
 		
 		if (!$row->lo_ID) {
@@ -54,7 +69,7 @@ class Localization extends Nette\Object  {
 	}
 	
 	public function delete($ID) {
-		return $this->table($this->table)->where($this->data['primary'], $ID)->delete();
+		return $this->DB->table($this->table)->where($this->data['primary'], $ID)->delete();
 	}
 	
 	
