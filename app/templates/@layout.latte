@@ -9,9 +9,44 @@
 	<meta charset="utf-8">
 
 	<title>{ifset title}{include title|striptags} | {/ifset}Taskz</title>
+	
+	{block css}
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/dark-hive/jquery-ui.css">
+	{/block}
 
 	<link rel="stylesheet" href="{$basePath}/img/css/index.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+	
+	{block scripts}
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		$.datepicker.regional['cs'] = {
+			closeText: 'Zavřít',
+			prevText: '&#x3c;Dříve',
+			nextText: 'Později&#x3e;',
+			currentText: 'Nyní',
+			monthNames: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen',
+			    'září', 'říjen', 'listopad', 'prosinec'],
+			monthNamesShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
+			dayNames: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
+			dayNamesShort: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
+			dayNamesMin: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
+			weekHeader: 'Týd',
+			dateFormat: 'dd. mm. yy',
+			firstDay: 1,
+			isRTL: false,
+			showMonthAfterYear: false,
+			yearSuffix: ''
+		};
+		$.datepicker.setDefaults($.datepicker.regional['cs']);
+	</script>
+	
+	
+	<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
+	<script src="{$basePath}/img/js/bootstrap.min.js"></script>
+	<script src="{$basePath}/img/js/main.js"></script>
+	{/block}
 	{block head}{/block}
 </head>
 
@@ -26,10 +61,10 @@
 			<div class="lt-menu">
 				<ul>
 					<li>
-						<a href="{link Project:}">Projekty</a>
+						<a href="{link Project: lang=>$presenter->lang}">{_'projects name'}</a>
 						<ul>
-							<li><a href="{link Project:create}">Nový</a></li>
-							<li><a href="{link Project:}">Seznam</a></li>
+							<li><a href="{link Project:create lang=>$presenter->lang}">{_'projects new'}</a></li>
+							<li><a href="{link Project: lang=>$presenter->lang}">{_'projects list'}</a></li>
 						</ul>
 					</li>
 					<li>
@@ -40,10 +75,10 @@
 						</ul>
 					</li>
 					<li>
-						<a href="{link Project:}">Úkoly</a>
+						<a href="{link Task:list}">Úkoly</a>
 						<ul>
-							<li><a href="{link Project:create}">Nový</a></li>
-							<li><a href="{link Project:}">Seznam</a></li>
+							<li><a href="{link Task:create}">Nový</a></li>
+							<li><a href="{link Task:list}">Seznam</a></li>
 						</ul>
 					</li>
 					<li>
@@ -60,10 +95,10 @@
 						</ul>
 					</li>
 					<li>
-						<a href="{link Project:}">Štítky</a>
+						<a href="{link Tag:}">Štítky</a>
 						<ul>
-							<li><a href="{link Project:create}">Nový</a></li>
-							<li><a href="{link Project:}">Seznam</a></li>
+							<li><a href="{link Tag:create}">Nový</a></li>
+							<li><a href="{link Tag:}">Seznam</a></li>
 						</ul>
 					</li>
 					<li>
@@ -80,11 +115,5 @@
 		</div>
 	{/if}
 
-	{block scripts}
-	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-	<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
-	<script src="{$basePath}/img/js/bootstrap.min.js"></script>
-	<script src="{$basePath}/img/js/main.js"></script>
-	{/block}
 </body>
 </html>
