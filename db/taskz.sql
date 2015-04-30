@@ -1,7 +1,9 @@
-﻿-- Adminer 4.2.0 MySQL dump
+-- Adminer 4.2.0 MySQL dump
 
 SET NAMES utf8mb4;
 SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 DROP TABLE IF EXISTS `languages`;
 CREATE TABLE `languages` (
@@ -12,6 +14,9 @@ CREATE TABLE `languages` (
   KEY `la_name` (`la_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
+INSERT INTO `languages` (`la_ID`, `la_key`, `la_name`) VALUES
+(1,	'cs',	0),
+(2,	'en',	0);
 
 DROP TABLE IF EXISTS `localization`;
 CREATE TABLE `localization` (
@@ -21,6 +26,14 @@ CREATE TABLE `localization` (
   PRIMARY KEY (`lo_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
+INSERT INTO `localization` (`lo_ID`, `lo_CS`, `lo_EN`) VALUES
+(1,	'Nový',	'New'),
+(2,	'Přečtený',	'Read'),
+(3,	'Rozpracovaný',	'In progress'),
+(4,	'Hotový',	'Done'),
+(14,	'test ke smazani',	'test ke smazani'),
+(17,	'test 2',	'test 2'),
+(18,	'muj stitek blablabala',	'muj stitek blablabala');
 
 DROP TABLE IF EXISTS `projects`;
 CREATE TABLE `projects` (
@@ -29,6 +42,9 @@ CREATE TABLE `projects` (
   PRIMARY KEY (`pr_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
+INSERT INTO `projects` (`pr_ID`, `pr_name`) VALUES
+(1,	'test'),
+(2,	'test2');
 
 DROP TABLE IF EXISTS `states`;
 CREATE TABLE `states` (
@@ -39,6 +55,11 @@ CREATE TABLE `states` (
   CONSTRAINT `states_ibfk_1` FOREIGN KEY (`st_title`) REFERENCES `localization` (`lo_ID`) ON DELETE SET NULL ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
+INSERT INTO `states` (`st_ID`, `st_title`) VALUES
+(1,	1),
+(2,	2),
+(3,	3),
+(4,	4);
 
 DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
@@ -52,6 +73,10 @@ CREATE TABLE `tags` (
   CONSTRAINT `tags_ibfk_1` FOREIGN KEY (`tg_title`) REFERENCES `localization` (`lo_ID`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
+INSERT INTO `tags` (`tg_ID`, `tg_isSystem`, `tg_business`, `tg_title`, `tg_created`) VALUES
+(6,	0,	NULL,	14,	'2015-04-28 17:54:06'),
+(9,	0,	NULL,	17,	'2015-04-28 17:56:19'),
+(10,	0,	NULL,	18,	'2015-04-29 13:47:26');
 
 DROP TABLE IF EXISTS `tasks`;
 CREATE TABLE `tasks` (
@@ -80,6 +105,10 @@ CREATE TABLE `users` (
   KEY `us_groupID` (`us_groupID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
+INSERT INTO `users` (`us_ID`, `us_email`, `us_name`, `us_surname`, `us_password`, `us_groupID`) VALUES
+(42,	'tester@corben.cz',	'František',	NULL,	'dd67c1301ef2fb02b99d4b6fea627644debfae24',	1),
+(43,	'info@corben.cz',	'Katka',	NULL,	'dd67c1301ef2fb02b99d4b6fea627644debfae24',	1),
+(44,	'info2222@corben.cz',	'xcvzxdvxcd',	NULL,	'dd67c1301ef2fb02b99d4b6fea627644debfae24',	1);
 
 DROP TABLE IF EXISTS `users_group`;
 CREATE TABLE `users_group` (
@@ -90,4 +119,4 @@ CREATE TABLE `users_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
--- 2015-04-30 10:25:17
+-- 2015-04-30 11:45:04
