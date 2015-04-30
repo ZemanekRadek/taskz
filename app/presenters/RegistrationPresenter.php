@@ -8,7 +8,7 @@ use Nette,
 
 class RegistrationPresenter extends Nette\Application\UI\Presenter {        
 	/** @persistent */
-	public $backlink = '';
+	public $backlink = ''; 
 	
 	/** @var \App\Model\User @inject */
 	public $user;
