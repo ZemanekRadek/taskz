@@ -3,13 +3,16 @@
 namespace App\Presenters;
 
 use Nette,
+	App\Model,
 	Nette\Application\UI;
 
 
 class SignPresenter extends Nette\Application\UI\Presenter {
 	
+	
 	/** @persistent */
 	public $backlink = '';
+	
 	
 	/**
 	 * Sign-in form factory.
@@ -48,5 +51,6 @@ class SignPresenter extends Nette\Application\UI\Presenter {
 	public function actionOut() {
 		$this->getUser()->logout();
 	}
+
 
 }
