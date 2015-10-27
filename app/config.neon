@@ -42,6 +42,7 @@ translator:
 
 
 services:
+	- App\Model\Language(@httpRequest)
 	- App\Model\Authenticator
 	- App\Model\User
 	- App\Model\UserList
@@ -51,7 +52,6 @@ services:
 	- App\Model\Tag
 	- App\Model\TagList
 	- App\Model\StateList
-	- App\Model\Language
 	
 	translator_nette_storage:
 		class: Nette\Caching\Storages\FileStorage(%appDir%/locale) ## Texts will be saved in %appDir%/Texts as file named by ISO 639-1

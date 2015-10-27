@@ -13,6 +13,29 @@ class SignPresenter extends Nette\Application\UI\Presenter {
 	/** @persistent */
 	public $backlink = '';
 	
+	/** @var \l10nNetteTranslator\Translator @inject */
+	public $translator;
+	
+	public function __construct(\App\Model\Language $Language) {
+	}
+
+	protected function startup() {
+		parent::startup();
+		
+		$this->autoCanonicalize = false;
+		
+		// localization
+			$this->translator->testLanguageCode(\App\Model\Language::get());
+			$this->translator->setActiveLanguageCode(\App\Model\Language::get());
+
+		if ($this->getUser()->isLoggedIn()) {
+			$this->getUser()->logout();
+			//$this->redirect('Sign:in', array('backlink' => $this->storeRequest()));
+			//$this->redirect('Sign:in', array('backlink' => $this->storeRequest()));
+		}
+		
+	}
+	
 	
 	/**
 	 * Sign-in form factory.
@@ -50,6 +73,11 @@ class SignPresenter extends Nette\Application\UI\Presenter {
 
 	public function actionOut() {
 		$this->getUser()->logout();
+	}
+	
+	function beforeRender() {
+		$this->template->lang = \App\Model\Language::get();
+		$this->template->setTranslator($this->translator);
 	}
 
 

@@ -6,33 +6,23 @@ use Nette,
 	
 class BasePresenter extends Nette\Application\UI\Presenter {
 	
-	private $defaultLang = 'cs';
-	
-	public $lang = 'cs';
-	
 	/** @var \l10nNetteTranslator\Translator @inject */
 	public $translator;
+	
+	public $language;
+	
+	public $lang;
+	
+	public function __construct(\App\Model\Language $lang) {
+		$this->language = $lang;
+	}
 
 	protected function startup() {
 		parent::startup();
 		
-		
 		// localization
-		try {
-			
-			$this->lang = $this->getParameter('lang')
-					? $this->getParameter('lang')
-					: $this->defaultLang;
-
-			$this->translator->testLanguageCode($this->lang);
-			$this->translator->setActiveLanguageCode($this->lang);
-			
-			\App\Model\Language::set($this->lang);
-			
-		} catch(Nette\InvalidStateException $E) {
-			throw new Nette\Application\BadRequestException;
-			return;
-		}
+			$this->translator->testLanguageCode($this->language->getLang());
+			$this->translator->setActiveLanguageCode($this->language->getLang());
 
 		if (!$this->getUser()->isLoggedIn()) {
 			$this->redirect('Sign:in', array('backlink' => $this->storeRequest()));
@@ -41,6 +31,7 @@ class BasePresenter extends Nette\Application\UI\Presenter {
 	}
 	
 	function beforeRender() {
+		$this->template->lang = $this->language->getLang();
 		$this->template->setTranslator($this->translator);
 	}
 
