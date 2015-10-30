@@ -1,6 +1,5 @@
 // Core variables and mixins
 @import "bootstrap/variables.less";
-@import 'variables.less'; 
 @import "bootstrap/mixins.less";
 
 // Reset and dependencies
@@ -49,19 +48,18 @@
 // Utility classes
 @import "bootstrap/utilities.less";
 @import "bootstrap/responsive-utilities.less";
+@import 'variables.less';
+@import 'objects.less';
 
-@import 'variables.less'; 
-@import 'objects.less'; 
-
-@media (max-width: @screen-xs-max) { 
-	@import 'xs.less'; 
+@media (max-width: @screen-xs-max) {
+  @import 'xs.less';
 }
-@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { 
-	@import 'sm.less'; 
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+  @import 'sm.less';
 }
-@media (min-width: @screen-md-min) and (max-width: @screen-md-max) { 
-	@import 'md.less'; 
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+  @import 'md.less';
 }
 @media (min-width: @screen-lg-min) {
-	@import 'lg.less'; 
+  @import 'lg.less';
 }
