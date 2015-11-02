@@ -3,56 +3,55 @@
 {block content}
 
 	<div class="login-header">
-	  <h1><span id="tazkie-logo"></span></h1>
+		<h1><span id="tazkie-logo"></span></h1>
 	</div>
 
 	<div class="form-login">
-			<div class="container-fluid">
-				<div class="row">
-					 <div class="col-md-6 col-md-offset-3">
-						 <div class="box">
-							 <h2 class="text-center"><strong>Welcome!</strong> For continue, please login.</h2>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="box">
+						<h2 class="text-center"><strong>Welcome!</strong> For continue, please login.</h2>
 
-								 <a class="btn btn-block btn-social btn-facebook">
-							     <i class="fa fa-facebook"></i> Login with Facebook
-							   </a>
-								 <a class="btn btn-block btn-social btn-google">
-									 <i class="fa fa-google"></i> Login with Google
-								 </a>
+						<a class="btn btn-block btn-social btn-facebook" href="#logfcb">
+							<i class="fa fa-facebook"></i> Login with Facebook
+						</a>
+						
+						<a class="btn btn-block btn-social btn-google">
+							<i class="fa fa-google"></i> Login with Google
+						</a>
 
-									<div class="clearfix"></div>
-									<h2 class="text-center"><strong>or</strong></h2>
-									<form role="form">
+						<div class="clearfix"></div>
+						
+						<h2 class="text-center"><strong>or</strong></h2>
+						
+						{form signInForm}
 
-										<div class="form-group">
-											<input type="email" required>
-											<span class="highlight"></span>
-											<span class="bar"></span>
-	 										<label>Your E-mail address</label>
-										</div>
-										<div class="form-group">
-											<input type="password" required>
-											<span class="highlight"></span>
-											<span class="bar"></span>
-											<label>Your Tazkie Password</label>
-										</div>
-										<button type="submit" class="btn-block btn btn-lg btn-primary">Log me in!</button>
-											<br />
-										<p class="text-center"><a href="#">Forgot your password?</a></p>
-									</form>
-								</div>
+							<div class="form-group">
+								<input type="email" n:name=us_email class="form-control" />
+								<span class="highlight"></span>
+								<span class="bar"></span>
+	 							<label for="us_email">Your E-mail address</label>
 							</div>
-						</div>
+							
+							<div class="form-group">
+								<input type="password" n:name=us_password class="form-control" />
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label for="us_password">Your Tazkie Password</label>
+							</div>
+
+							<button type="submit" class="btn-block btn btn-lg btn-primary">Log me in!</button>
+
+							<!-- co to je? :D .... na button dej margin ;) -->
+							<br />
+
+							<p class="text-center"><a href="#">Forgot your password?</a></p>
+						{/form}
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+	
 	<p class="text-center">You agree to the <strong>Terms & Conditions</strong>.</p>
-
-<div class="page-sign">
-	<h1 n:block="title">{_'signin'}</h1>
-
-	{control signInForm}
-
-	<p>Default username is <i>demo</i>, with password <i>xxx</i></p>
-
-	<p><a href="{link Registration:}">Registrace</a> | <a href="">Zapomněl jsem heslo</a></p>
-</div>

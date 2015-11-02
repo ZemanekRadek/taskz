@@ -14,94 +14,105 @@
 
 /* MAIN STYLEZZ - GLOBAL ------------------------------- */
 #tazkie-logo {
-    background:url(/img/tazkie-logo.png) center top;
-		width:111px;
-		height:32px;
-		display: block;
-    margin-left: auto;
-    margin-right: auto;
+	background:url(/img/tazkie-logo.png) center top;
+	width:111px;
+	height:32px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 a {
-font-weight:600;
-text-decoration: underline;
+	font-weight:600;
+	text-decoration: underline;
 }
 
 /* MAIN STYLES - BUTTONZZ  ------------------------------- */
 .btn {
-    padding: 14px 20px;
-    border: 0 none;
-    font-weight: 600;
-    text-transform: uppercase;
+	padding: 14px 20px;
+	border: 0 none;
+	font-weight: 600;
+	text-transform: uppercase;
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
-    outline: 0 none;
+	outline: 0 none;
 }
 
 .btn-primary {
-		background: rgba(73,106,195,0.50);
-		box-shadow: inset 0px -3px 0px 0px rgba(54,79,146,0.50);
-    color: #ffffff;
+	background: rgba(73,106,195,0.50);
+	.box-shadow(inset 0px -3px 0px 0px rgba(54,79,146,0.50));
+	color: #ffffff;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #4A6BC3;
-		box-shadow: inset 0px -3px 0px 0px #364F92;
+	background: #4A6BC3;
+	.box-shadow(inset 0px -3px 0px 0px #364F92);
 }
 
 .btn-primary:active, .btn-primary.active {
-		background: rgba(73,106,195,0.70);
-		box-shadow: inset 0px -3px 0px 0px rgba(54,79,146,0.70);
-		margin-bottom: -3px;
-    margin-top: 3px;
+	background: rgba(73,106,195,0.70);
+	.box-shadow(inset 0px -3px 0px 0px rgba(54,79,146,0.70));
+	margin-bottom: -3px;
+	margin-top: 3px;
 }
 
 /* SOCIAL BUTTONZ STYLEZZ ------------------------------- */
 
 .btn-facebook{
 	background: rgba(59,88,152,0.50);
-	box-shadow: inset 0px -3px 0px 0px rgba(35,55,112,0.50);
+	.box-shadow(inset 0px -3px 0px 0px rgba(35,55,112,0.50));
 }
 
 .btn-facebook:hover, .btn-facebook:focus, .btn-facebook:active, .btn-facebook.active, .open > .dropdown-toggle.btn-facebook {
-    background: #3B5998;
-		box-shadow: inset 0px -3px 0px 0px #233870;
-		color: #ffffff;
+	background: #3B5998;
+	.box-shadow(inset 0px -3px 0px 0px #233870);
+	color: #ffffff;
 }
 
 .btn-google{
 	background: rgba(231,79,58,0.50);
-	box-shadow: inset 0px -3px 0px 0px rgba(194,31,7,0.50);
+	.box-shadow(inset 0px -3px 0px 0px rgba(194,31,7,0.50));
 }
 
 .btn-google:hover, .btn-google:focus, .btn-google:active, .btn-google.active, .open > .dropdown-toggle.btn-google {
-    background: #E8503A;
-		box-shadow: inset 0px -3px 0px 0px #C22008;
-		color: #ffffff;
+	background: #E8503A;
+	.box-shadow(inset 0px -3px 0px 0px #C22008);
+	color: #ffffff;
 }
 
 /* MAIN STYLEZZ - INPUT FORM ------------------------------- */
+.form-control:focus,
+*:focus, *:active {
+	.box-shadow(none);
+	outline: none;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+	border: none;
+	.box-shadow(none);
+	border-bottom: 2px solid #E0DFDE;
+	.border-radius(0px);
+}
+
 .form-group{
-  position:relative;
+	position:relative;
 	margin-top: 10%;
-  margin-bottom: 10%;
+	margin-bottom: 10%;
 }
 input{
-  font-size:1em;
+	font-size:1em;
 	font-weight: 600;
-  padding:10px 10px 10px 5px;
-  display:block;
-  border:none;
-  border-bottom:1px solid #E0DFDE;
+	padding:10px 10px 10px 5px;
+	display:block;
+	border:none;
+	border-bottom:1px solid #E0DFDE;
 }
 
 .form-group input{
-  width:100%;
-}
-
-input:focus{
-	outline:none;
+	width:100%;
 }
 
 label{
@@ -116,38 +127,44 @@ label{
   transition:0.2s ease all;
 }
 
+/** nevim co je ta vlnovka, ale jsi si jisty ze to ma podporu alespon 80% prohlizecu? :) **/
 input:focus ~ label, input:valid ~ label     {
-  top:-20px;
-  font-size:1em;
-  color: rgba(73,106,195,0.70);
+	top:-20px;
+	font-size:1em;
+	color: rgba(73,106,195,0.70);
 }
 
-.bar  { position:relative; display:block; width:100%; }
-.bar:before, .bar:after   {
-  content:'';
-  height:2px;
-  width:0;
-  bottom:1px;
-  position:absolute;
-	top:25%;
-  background:rgba(73,106,195,0.70);
-  transition:0.2s ease all;
+.bar  {
+	position:relative; display:block; width:100%;
+	&:before, &:after {
+		content:'';
+		height:2px;
+		width:0;
+		bottom:1px;
+		position:absolute;
+		top:25%;
+		background:rgba(73,106,195,0.70);
+		transition:0.2s ease all;
+	}
+	
+	&:before {
+		left: 50%;
+	}
+	
+	&:after {
+		right: 50%;
+	}
 }
-.bar:before {
-  left:50%;
-}
-.bar:after {
-  right:50%;
-}
+
 
 .highlight {
-  position:absolute;
-  height:60%;
-  width:100%;
-  top:25%;
-  left:0;
-  pointer-events:none;
-  opacity:0.5;
+	position:absolute;
+	height:60%;
+	width:100%;
+	top:25%;
+	left:0;
+	pointer-events:none;
+	opacity:0.5;
 }
 
 input:focus ~ .highlight {
@@ -170,27 +187,27 @@ input:focus ~ label, input:valid ~ label {
 }
 
 /* LOGIN PAGE STYLEZZ  ------------------------------- */
-.box .col-xs-6 {
-	padding-left: 8px;
-	padding-right: 8px;
-}
-
 .login-header {
-text-align: center !important;
-padding-top: 7%;
-height: 100%;
-width: 100%;
+	text-align: center !important;
+	padding-top: 7%;
+	height: 100%;
+	width: 100%;
 }
 
 .form-login {
-padding: 15px;
-margin: 0 auto;
+	padding: 15px;
+	margin: 0 auto;
 }
 
 .box {
 	padding: 25px 40px;
 	background: #FFFFFF;
-	box-shadow: 0px 0px 2px 0px rgba(123,117,112,0.70), 0px 2px 5px 0px rgba(123,117,112,0.70);
+	.box-shadow(0px 2px 5px 0px rgba(123,117,112,0.70));
+	
+	.col-xs-6 {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
 }
 
 .input-group {
@@ -198,6 +215,6 @@ margin: 0 auto;
 }
 
 .divider-form {
-    border: 1px solid #E0DFDE;
-    margin: 15px -40px 10px;
+	border: 1px solid #E0DFDE;
+	margin: 15px -40px 10px;
 }
