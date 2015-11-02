@@ -1,1 +1,177 @@
-.lt-container{display:table;width:100%}.lt-container .lt-menu{display:table-cell;width:300px}.lt-container .lt-content{display:table-cell;width:0%}#tazkie-logo{background:url(/img/tazkie-logo.png) center top;width:111px;height:32px;display:block;margin-left:auto;margin-right:auto}a{font-weight:600;text-decoration:underline}.btn{padding:14px 20px;border:0 none;font-weight:600;text-transform:uppercase}.btn:focus,.btn:active:focus,.btn.active:focus{outline:0 none}.btn-primary{background:rgba(73,106,195,0.5);box-shadow:inset 0 -3px 0 0 rgba(54,79,146,0.5);color:#ffffff}.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open>.dropdown-toggle.btn-primary{background:#4A6BC3;box-shadow:inset 0 -3px 0 0 #364f92}.btn-primary:active,.btn-primary.active{background:rgba(73,106,195,0.7);box-shadow:inset 0 -3px 0 0 rgba(54,79,146,0.7);margin-bottom:-3px;margin-top:3px}.form-group{position:relative;margin-top:10%;margin-bottom:10%}input{font-size:1em;font-weight:600;padding:10px 10px 10px 5px;display:block;border:none;border-bottom:1px solid #E0DFDE}.form-group input{width:100%}input:focus{outline:none}label{color:#E0DFDE;text-transform:uppercase;font-size:1em;font-weight:400;position:absolute;pointer-events:none;left:5px;top:10px;transition:0.2s ease all}input:focus~label,input:valid~label{top:-20px;font-size:1em;color:rgba(73,106,195,0.7)}.bar{position:relative;display:block;width:100%}.bar:before,.bar:after{content:'';height:2px;width:0;bottom:1px;position:absolute;top:25%;background:rgba(73,106,195,0.7);transition:0.2s ease all}.bar:before{left:50%}.bar:after{right:50%}.highlight{position:absolute;height:60%;width:100%;top:25%;left:0;pointer-events:none;opacity:0.5}input:focus~.highlight{animation:inputHighlighter 0.3s ease}@keyframes inputHighlighter{from{background:rgba(73,106,195,0.7)}to{width:0;background:transparent}}input:focus~.bar:before,input:focus~.bar:after{width:50%}input:focus~label,input:valid~label{top:-20px;font-size:1em;color:rgba(73,106,195,0.7)}.box .col-xs-6{padding-left:8px;padding-right:8px}.login-header{text-align:center !important;padding-top:7%;height:100%;width:100%}.form-login{padding:15px;margin:0 auto}.box{padding:25px 40px;background:#FFFFFF;box-shadow:0 0 2px 0 rgba(123,117,112,0.7),0 2px 5px 0 rgba(123,117,112,0.7)}.input-group{margin:32px 0px}.divider-form{border:1px solid #E0DFDE;margin:15px -40px 10px}
+.lt-container {
+  display: table;
+  width: 100%;
+}
+.lt-container .lt-menu {
+  display: table-cell;
+  width: 300px;
+}
+.lt-container .lt-content {
+  display: table-cell;
+  width: 0%;
+}
+/* MAIN STYLEZZ - GLOBAL ------------------------------- */
+#tazkie-logo {
+  background: url(/img/tazkie-logo.png) center top;
+  width: 111px;
+  height: 32px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+/* MAIN STYLES - BUTTONZZ  ------------------------------- */
+.btn {
+  padding: 14px 20px;
+  border: 0 none;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+  outline: 0 none;
+}
+.btn-primary {
+  background: rgba(73, 106, 195, 0.5);
+  box-shadow: inset 0px -3px 0px 0px rgba(54, 79, 146, 0.5);
+  color: #ffffff;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  background: #4A6BC3;
+  box-shadow: inset 0px -3px 0px 0px #364F92;
+}
+.btn-primary:active,
+.btn-primary.active {
+  background: rgba(73, 106, 195, 0.7);
+  box-shadow: inset 0px -3px 0px 0px rgba(54, 79, 146, 0.7);
+  margin-bottom: -3px;
+  margin-top: 3px;
+}
+.btn-social {
+  text-decoration: none;
+}
+/* MAIN STYLEZZ - INPUT FORM ------------------------------- */
+.form-group {
+  position: relative;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+input {
+  font-size: 1em;
+  font-weight: 600;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #E0DFDE;
+}
+.form-group input {
+  width: 100%;
+}
+input:focus {
+  outline: none;
+}
+label {
+  color: #E0DFDE;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 400;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+}
+input:focus ~ label,
+input:valid ~ label {
+  top: -20px;
+  font-size: 1em;
+  color: rgba(73, 106, 195, 0.7);
+}
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.bar:before,
+.bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  top: 25%;
+  background: rgba(73, 106, 195, 0.7);
+  transition: 0.2s ease all;
+}
+.bar:before {
+  left: 50%;
+}
+.bar:after {
+  right: 50%;
+}
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100%;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+input:focus ~ .highlight {
+  animation: inputHighlighter 0.3s ease;
+}
+@keyframes inputHighlighter {
+  from {
+    background: rgba(73, 106, 195, 0.7);
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+input:focus ~ .bar:before,
+input:focus ~ .bar:after {
+  width: 50%;
+}
+input:focus ~ label,
+input:valid ~ label {
+  top: -20px;
+  font-size: 1em;
+  color: rgba(73, 106, 195, 0.7);
+}
+/* LOGIN PAGE STYLEZZ  ------------------------------- */
+.box .col-xs-6 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.login-header {
+  text-align: center !important;
+  padding-top: 7%;
+  height: 100%;
+  width: 100%;
+}
+.form-login {
+  padding: 15px;
+  margin: 0 auto;
+}
+.box {
+  padding: 25px 40px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 2px 0px rgba(123, 117, 112, 0.7), 0px 2px 5px 0px rgba(123, 117, 112, 0.7);
+}
+.input-group {
+  margin: 32px 0px;
+}
+.divider-form {
+  border: 1px solid #E0DFDE;
+  margin: 15px -40px 10px;
+}
