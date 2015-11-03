@@ -1,3 +1,6 @@
+@colorButtonDefault: rgba(73, 106, 195, 0.5);
+
+
 .lt-container {
 	display: table;
 	width: 100%;
@@ -15,8 +18,8 @@
 /* MAIN STYLEZZ - GLOBAL ------------------------------- */
 #tazkie-logo {
 	background:url(/img/tazkie-logo.png) center top;
-	width:111px;
-	height:32px;
+	width: 111px;
+	height: 32px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -33,29 +36,39 @@ a {
 	border: 0 none;
 	font-weight: 600;
 	text-transform: uppercase;
+	
+	&:focus, 
+	&:active:focus, 
+	&.active:focus {
+		outline: 0 none;
+	}
+
+	&.btn-primary {
+		background: @colorButtonDefault;
+		.box-shadow(inset 0px -3px 0px 0px rgba(54,79,146,0.50));
+		color: #ffffff;
+	}
+	
+	&.btn-primary:hover, 
+	&.btn-primary:focus, 
+	&.btn-primary:active, 
+	&.btn-primary.active, 
+	&.open > .dropdown-toggle.btn-primary {
+		background: #4A6BC3;
+		.box-shadow(inset 0px -3px 0px 0px #364F92);
+	}
+
+	&.btn-primary:active, 
+	&.btn-primary.active {
+		background: rgba(73,106,195,0.70);
+		.box-shadow(inset 0px -3px 0px 0px rgba(54,79,146,0.70));
+		margin-bottom: -3px;
+		margin-top: 3px;
+	}
 }
 
-.btn:focus, .btn:active:focus, .btn.active:focus {
-	outline: 0 none;
-}
 
-.btn-primary {
-	background: rgba(73,106,195,0.50);
-	.box-shadow(inset 0px -3px 0px 0px rgba(54,79,146,0.50));
-	color: #ffffff;
-}
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-	background: #4A6BC3;
-	.box-shadow(inset 0px -3px 0px 0px #364F92);
-}
-
-.btn-primary:active, .btn-primary.active {
-	background: rgba(73,106,195,0.70);
-	.box-shadow(inset 0px -3px 0px 0px rgba(54,79,146,0.70));
-	margin-bottom: -3px;
-	margin-top: 3px;
-}
 
 /* SOCIAL BUTTONZ STYLEZZ ------------------------------- */
 
@@ -117,11 +130,11 @@ input{
 
 label{
   color:#4C453E;
-	text-transform: uppercase;
+  text-transform: uppercase;
   font-size:1em;
   font-weight:400;
   position:absolute;
-  pointer-events:none;
+  pointer-events: none;
   left:5px;
   top:10px;
   transition:0.2s ease all;
@@ -190,6 +203,7 @@ input:focus ~ label, input:valid ~ label {
 .login-header {
 	text-align: center !important;
 	padding-top: 7%;
+	padding-top: 7vh;
 	height: 100%;
 	width: 100%;
 }
@@ -197,9 +211,16 @@ input:focus ~ label, input:valid ~ label {
 .form-login {
 	padding: 15px;
 	margin: 0 auto;
+	
+	button[type="submit"] {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
 }
 
 .box {
+	max-width: 500px;
+	margin: 0 auto;
 	padding: 25px 40px;
 	background: #FFFFFF;
 	.box-shadow(0px 2px 5px 0px rgba(123,117,112,0.70));
