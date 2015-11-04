@@ -1,7 +1,4 @@
-@btn-primary-color: #ffffff;
-@btn-primary-bg: rgba(73,106,195,0.50);
-
-/* FONT SETTINGS ------------------------------- */
+/* FONT & TEXT SETTINGS ------------------------------- */
 @font-family-base: 'Open Sans', sans-serif;
 
 @text-color: #4C453E;
@@ -24,10 +21,38 @@
 @headings-color: inherit;
 
 /* LINK STYLE SETTINGS ------------------------------- */
-@link-color: rgba(73,106,195,0.70);
-@link-hover-color: #4A6BC3;
+@link-color: @colorFunctionActive;
+@link-hover-color: @colorFunctionHover;
 @link-hover-decoration: none;
+@link-decoration: underline;
 
+/* FUNCTIONS - GLOBAL ------------------------------- */
+@colorFunctionDefault: rgba(73, 106, 195, 0.50);
+@colorFunctionActive: rgba(73,106,195,0.70);
+@colorFunctionHover: #4A6BC3;
+
+@shadowFunctionDefault: rgba(54,79,146,0.50);
+@shadowFunctionActive: rgba(54,79,146,0.70);
+@shadowFunctionHover: #364F92;
+
+@colorBorderDefault: #E0DFDE;
+@shadowBorderDefault: rgba(123,117,112,0.70);
+
+@ucolorPositive: #FFFFFF;
+
+@colorValidationError: #FF5722;
+@colorValidationSuccess: #8BC34A;
+
+/* BUTTONS - SPECIFIC PARTZZ ------------------------------- */
+@colorFButtonDefault: rgba(59,88,152,0.50);
+@colorFButtonHover: #3B5998;
+@shadowFButtonDefault: rgba(35,55,112,0.50);
+@shadowFButtonHover: #233870;
+
+@colorGButtonDefault: rgba(231,79,58,0.50);
+@colorGButtonHover: #E8503A;
+@shadowGButtonDefault: rgba(194,31,7,0.50);
+@shadowGButtonHover: #C22008;
 
 /* BODY SETTINGS ------------------------------- */
 @body-bg: #EEEDEC;
