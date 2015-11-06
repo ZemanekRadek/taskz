@@ -15,12 +15,15 @@
   						<h2 class="text-center"><strong>Create account</strong> <br />takes you only a while</h2>
 
                 {form registrationForm}
-                  <ul class="errors" n:if="$form->hasErrors()">
-                    <li n:foreach="$form->errors as $error">{$error}</li>
-                  </ul>
+                  <div class="errors" n:if="$form->hasErrors()">
+                   <h3><i class="icon-warning"></i></h3>
+                    <ul>
+                      <li n:foreach="$form->errors as $error">{$error}</li>
+                    </ul>
+                  </div>
 
                   <div class="form-group">
-                    <input type="text" n:name=us_name class="form-control" />
+                    <input type="text" n:name=us_name class="form-control"  required=" " />
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label for="frm-registrationForm-us_name">Name and Surname</label>
@@ -30,26 +33,28 @@
                     <input type="email" n:name=us_email class="form-control" />
                     <span class="highlight"></span>
                     <span class="bar"></span>
-                    <label for="frm-registrationForm-us_email">Login E-mail <span class="required">*</span></label>
+                    <label for="frm-registrationForm-us_email">Login E-mail <span class="label-required">*</span></label>
                   </div>
 
                   <div class="form-group">
                     <input type="password" n:name=us_password class="form-control" />
                     <span class="highlight"></span>
                     <span class="bar"></span>
-                    <label for="frm-registrationForm-us_password">Tazkie Password <span class="required">*</span></label>
+                    <label for="frm-registrationForm-us_password">Tazkie Password <span class="label-required">*</span></label>
                   </div>
 
                   <div class="form-group">
-                    <input type="password" n:name=us_password2 class="form-control" />
+                    <input type="password" n:name=us_password2 class="form-control" required=" " />
                     <span class="highlight"></span>
                     <span class="bar"></span>
-                    <label for="frm-registrationForm-us_password2">Tazkie Password Verify<span class="required">*</span></label>
+                    <label for="frm-registrationForm-us_password2">Tazkie Password Verify <span class="label-required">*</span></label>
                   </div>
+
+                  <p class="hint-text"><span class="label-required">*</span> Oh, yes. You quess right - this is required.</p>
 
                   <button type="submit" class="btn-block btn btn-lg btn-primary">Let's finish it!</button>
 
-                    <p class="text-center"><a href="/signin">Have an account? Let's login.</a></p>
+                    <p class="text-center"><a href="/">Have an account? Let's login.</a></p>
 
     						{/form}
 

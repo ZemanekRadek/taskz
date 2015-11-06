@@ -28,24 +28,29 @@
 
 
 						{form signInForm}
-
-							<ul class="errors" n:if="$form->hasErrors()">
-								<li n:foreach="$form->errors as $error">{$error}</li>
-							</ul>
+							<div class="errors" n:if="$form->hasErrors()">
+								 <p class="text-center"><i class="ico-validation icon-evil"></i></p>
+								 <h3 class="text-center">Something wrong? Sometimes it's just happened</h3>
+								 <ul>
+									 <li n:foreach="$form->errors as $error">{$error}</li>
+									</ul>
+							</div>
 
 							<div class="form-group">
 								<input type="email" n:name=us_email class="form-control" />
 								<span class="highlight"></span>
 								<span class="bar"></span>
-	 							<label for="us_email">Login E-mail <span class="required">*</span></label>
+	 							<label for="us_email">Login E-mail <span class="label-required">*</span></label>
 							</div>
 
 							<div class="form-group">
 								<input type="password" n:name=us_password class="form-control" />
 								<span class="highlight"></span>
 								<span class="bar"></span>
-								<label for="us_password">Tazkie Password <span class="required">*</span></label>
+								<label for="us_password">Tazkie Password <span class="label-required">*</span></label>
 							</div>
+
+							<p class="hint-text"><span class="label-required">*</span> Oh, yes. You quess right - this is required.</p>
 
 							<button type="submit" class="btn-block btn btn-lg btn-primary">Log me in!</button>
 
