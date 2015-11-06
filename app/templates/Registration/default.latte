@@ -20,24 +20,31 @@
                   </ul>
 
                   <div class="form-group">
-                    <input type="text" n:name=us_password class="form-control" />
+                    <input type="text" n:name=us_name class="form-control" />
                     <span class="highlight"></span>
                     <span class="bar"></span>
-                    <label for="us_email">Name and Surname</label>
+                    <label for="frm-registrationForm-us_name">Name and Surname</label>
                   </div>
 
                   <div class="form-group">
                     <input type="email" n:name=us_email class="form-control" />
                     <span class="highlight"></span>
                     <span class="bar"></span>
-                    <label for="us_email">Login E-mail <span class="required">*</span></label>
+                    <label for="frm-registrationForm-us_email">Login E-mail <span class="required">*</span></label>
                   </div>
 
                   <div class="form-group">
                     <input type="password" n:name=us_password class="form-control" />
                     <span class="highlight"></span>
                     <span class="bar"></span>
-                    <label for="us_password">Tazkie Password <span class="required">*</span></label>
+                    <label for="frm-registrationForm-us_password">Tazkie Password <span class="required">*</span></label>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="password" n:name=us_password2 class="form-control" />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="frm-registrationForm-us_password2">Tazkie Password Verify<span class="required">*</span></label>
                   </div>
 
                   <button type="submit" class="btn-block btn btn-lg btn-primary">Let's finish it!</button>
@@ -63,5 +70,3 @@
     	});
     })(jQuery);
     </script>
-
-{control registrationForm}
