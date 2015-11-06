@@ -13,6 +13,8 @@ class BasePresenter extends Nette\Application\UI\Presenter {
 	
 	public $lang;
 	
+	public $user;
+	
 	public function __construct(\App\Model\Language $lang) {
 		$this->language = $lang;
 	}
@@ -23,10 +25,12 @@ class BasePresenter extends Nette\Application\UI\Presenter {
 		// localization
 			$this->translator->testLanguageCode($this->language->getLang());
 			$this->translator->setActiveLanguageCode($this->language->getLang());
-
-		if (!$this->getUser()->isLoggedIn()) {
+			$this->user = $this->getUser();
+			
+		if (!$this->user->isLoggedIn()) {
 			$this->redirect('Sign:in', array('backlink' => $this->storeRequest()));
 		}
+		
 		
 	}
 	

@@ -5,9 +5,9 @@ use Nette,
 	Nette\Application\UI,
 	Nette\Database\Context,
 	Tracy\Debugger as Debugger;
-	
+
 class Task extends Nette\Object  {
-	
+
 	/** @var Nette\Database\Context @inject */
 	private $DB;
 
@@ -27,14 +27,14 @@ class Task extends Nette\Object  {
 	}
 
 	private $table = "tasks";
-	
+
 	private $data  = array(
 		'ta_ID'   => null,
 	);
-	
+
 	public function getForm() {
-		
-		
+
+
 
 		$form   = new UI\Form;
 		$states = new StateList($this->DB);
@@ -44,29 +44,28 @@ class Task extends Nette\Object  {
 		$form->addText('ta_name', 'Název úkolu', 128)
 			->addRule(UI\Form::FILLED, 'Vyplňte název úkolu')
 			->addCondition(UI\Form::FILLED);
-		
+
 		$form->addTextArea('ta_description', 'Popis úkolu');
-		
+
 		$form->addSelect('ta_state', 'Stav', $states->get());
 		$form->addText('ta_urgent', 'Urgent');
-		
+
 		$form->addText('ta_timeTo', 'Splnit do')
 			->addRule(UI\Form::PATTERN, 'Špatný formát datumu', '[0-9]{2}\.[0-9]{2}\.[0-9]{4}');
-		
+
 		$form->addCheckboxList('ta_users', 'Uživatelé', $users->getAll());
 		$form->addCheckboxList('ta_tags', 'Tagy', $tags->getAll(true));
-		
+
 		$form->addHidden('ta_ID');
 		$form->addHidden('ta_created');
 		$form->addHidden('ta_author', $this->User->getId());
 
 		$form->addSubmit('ta_send', 'Uložit');
-		
+
 		$form->onSuccess[] = array($this, 'saveTask');
-		
+
 		return $form;
 	}
-
 	
 	public function save($values) {
 		
@@ -100,7 +99,5 @@ class Task extends Nette\Object  {
 		
 		return true;
 	}
-	
-	
 
 }
