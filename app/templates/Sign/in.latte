@@ -11,24 +11,24 @@
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
 					<div class="box">
-						<h2 class="text-center"><strong>Welcome!</strong> For continue, please login.</h2>
+						<h2 class="text-center"><strong>Login and work on</strong>, <br />but first fill your credentials</h2>
 
 						<a class="btn btn-block btn-social btn-facebook" href="#logfcb">
-							<i class="fa fa-facebook"></i> Login with Facebook
-						</a>
-						
-						<a class="btn btn-block btn-social btn-google">
-							<i class="fa fa-google"></i> Login with Google
+							<i class="icon-facebook"></i> Login with Facebook
 						</a>
 
-						<div class="clearfix"></div>
-						
+						<a class="btn btn-block btn-social btn-google">
+							<i class="icon-google"></i> Login with Google
+						</a>
+
+
+
 						<h2 class="text-center"><strong>or</strong></h2>
-						
-						
-						
+
+
+
 						{form signInForm}
-						
+
 							<ul class="errors" n:if="$form->hasErrors()">
 								<li n:foreach="$form->errors as $error">{$error}</li>
 							</ul>
@@ -37,14 +37,14 @@
 								<input type="email" n:name=us_email class="form-control" />
 								<span class="highlight"></span>
 								<span class="bar"></span>
-	 							<label for="us_email">Your E-mail address</label>
+	 							<label for="us_email">Login E-mail <span class="required">*</span></label>
 							</div>
-							
+
 							<div class="form-group">
 								<input type="password" n:name=us_password class="form-control" />
 								<span class="highlight"></span>
 								<span class="bar"></span>
-								<label for="us_password">Your Tazkie Password</label>
+								<label for="us_password">Tazkie Password <span class="required">*</span></label>
 							</div>
 
 							<button type="submit" class="btn-block btn btn-lg btn-primary">Log me in!</button>
@@ -56,13 +56,13 @@
 			</div>
 		</div>
 	</div>
-	
-	
-	
-	<p class="text-center">You agree to the <strong>Terms & Conditions</strong>.</p>
-	
+
+
+
+	<p class="text-center">Don't want social login? <strong><a href="/registration">Create account the old way</a></strong>.</p>
+
 <script type="text/javascript">
-(function(){ 
+(function(){
 	$('label').click(function(E) {
 		var $id = $(this).attr("for");
 		$('*[id="frm-signInForm-' + $id +'"]').focus();

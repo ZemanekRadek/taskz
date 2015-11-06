@@ -1,6 +1,67 @@
-{block content}
 {var $robots = noindex}
 
-<h1 n:block="title">Registration</h1>
+{block content}
+
+
+  	<div class="login-header">
+  		<h1><span id="tazkie-logo"></span></h1>
+  	</div>
+
+    <div class="form-registration">
+  		<div class="container-fluid">
+  			<div class="row">
+  				<div class="col-md-6 col-md-offset-3">
+  					<div class="box">
+  						<h2 class="text-center"><strong>Create account</strong> <br />takes you only a while</h2>
+
+                {form registrationForm}
+                  <ul class="errors" n:if="$form->hasErrors()">
+                    <li n:foreach="$form->errors as $error">{$error}</li>
+                  </ul>
+
+                  <div class="form-group">
+                    <input type="text" n:name=us_password class="form-control" />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="us_email">Name and Surname</label>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="email" n:name=us_email class="form-control" />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="us_email">Login E-mail <span class="required">*</span></label>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="password" n:name=us_password class="form-control" />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="us_password">Tazkie Password <span class="required">*</span></label>
+                  </div>
+
+                  <button type="submit" class="btn-block btn btn-lg btn-primary">Let's finish it!</button>
+
+                    <p class="text-center"><a href="/signin">Have an account? Let's login.</a></p>
+
+    						{/form}
+
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
+
+    	<p class="text-center">Creating account you agreed to the <strong>Terms &amp; Conditions</strong>.</p>
+
+    <script type="text/javascript">
+    (function(){
+    	$('label').click(function(E) {
+    		var $id = $(this).attr("for");
+    		$('*[id="frm-signInForm-' + $id +'"]').focus();
+    	});
+    })(jQuery);
+    </script>
 
 {control registrationForm}
