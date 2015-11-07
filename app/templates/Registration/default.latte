@@ -15,11 +15,15 @@
   						<h2 class="text-center"><strong>Create account</strong> <br />takes you only a while</h2>
 
                 {form registrationForm}
+
                   <div class="errors" n:if="$form->hasErrors()">
-                   <h3><i class="icon-warning"></i></h3>
-                    <ul>
-                      <li n:foreach="$form->errors as $error">{$error}</li>
-                    </ul>
+                     <p class="text-center"><i class="ico-validation icon-evil"></i></p>
+                     <h3>Something wrong? Sometimes it's just happened</h3>
+                     <p class="errors-list"> <!-- tohle musi prijit pod inputy s chybami! -->
+                      <ul>
+                       <li n:foreach="$form->errors as $error">{$error}</li>
+                      </ul>
+                    </p> <!-- tohle musi prijit pod inputy s chybami! -->
                   </div>
 
                   <div class="form-group">
