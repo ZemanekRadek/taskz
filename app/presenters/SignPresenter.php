@@ -4,6 +4,7 @@ namespace App\Presenters;
 
 use Nette,
 	App\Model,
+	Tracy\Debugger as Debugger,
 	Nette\Application\UI;
 
 
@@ -59,10 +60,13 @@ class SignPresenter extends Nette\Application\UI\Presenter {
 
 	public function signInFormSucceseded($form, $values)
 	{
+		
+		Debugger::barDump($form->getComponent('us_email'));
 		try {
 			$this->getUser()->login($values->us_email, $values->us_password);
 			
 		} catch (Nette\Security\AuthenticationException $e) {
+			$form->getComponent('us_email')->addError('user_invalid');
 			$form->addError($e->getMessage());
 			return;
 		}

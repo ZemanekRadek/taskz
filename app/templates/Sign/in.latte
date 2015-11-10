@@ -43,6 +43,9 @@
 								<span class="highlight"></span>
 								<span class="bar"></span>
 	 							<label for="us_email">Login E-mail <span class="label-required">*</span></label>
+	 							<span class="error" n:if="$form['us_email']->hasErrors()">
+	 								{_($form['us_email']->getError())}
+	 							</span>
 							</div>
 
 							<div class="form-group">

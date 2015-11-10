@@ -14,7 +14,7 @@
   					<div class="box">
   						<h2 class="text-center"><strong>Create account</strong> <br />takes you only a while</h2>
 
-                {form registrationForm}
+						{form registrationForm}
 
                   <div class="errors" n:if="$form->hasErrors()">
                      <p class="text-center"><i class="ico-validation icon-evil"></i></p>
@@ -34,7 +34,7 @@
                   </div>
 
                   <div class="form-group">
-                    <input type="email" n:name=us_email class="form-control" />
+                    <input type="email" n:name=us_email class="form-control" required="reqruired" />
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label for="frm-registrationForm-us_email">Login E-mail <span class="label-required">*</span></label>
@@ -48,7 +48,7 @@
                   </div>
 
                   <div class="form-group">
-                    <input type="password" n:name=us_password2 class="form-control" required=" " />
+                    <input type="password" n:name=us_password2 class="form-control" required="reqruired" />
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label for="frm-registrationForm-us_password2">Tazkie Password Verify <span class="label-required">*</span></label>

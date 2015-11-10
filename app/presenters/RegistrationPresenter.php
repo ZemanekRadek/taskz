@@ -18,7 +18,7 @@ class RegistrationPresenter extends Nette\Application\UI\Presenter {
 		$form->addText('us_name', 'Jméno');
 		
 		$form->addText('us_email', 'E-mail: *', 64)
-				->setEmptyValue('@')
+				// ->setEmptyValue('@')
 				->addCondition(UI\Form::FILLED)
 				->addRule(UI\Form::FILLED, 'Vyplňte Váš email')
 				->addRule(UI\Form::EMAIL, 'Neplatná emailová adresa');
