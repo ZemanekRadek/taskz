@@ -55,6 +55,11 @@ class RegistrationPresenter extends Nette\Application\UI\Presenter {
 			if (!$this->user->registration($values)) {
 				return;
 			}
+			
+			// nahrani defaultnich seznamu
+			// $TaskFactory
+			
+			
 		} catch (Nette\Security\AuthenticationException $e) {
 			$form->addError($e->getMessage());
 			return;

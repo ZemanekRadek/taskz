@@ -14,6 +14,8 @@ class User extends Nette\Object  {
 	
 	public static $salt = 'xXy';
 	
+	public static $identity = null;
+	
 	/**
 	 * @param Nette\Database\Connection $db
 	 * @throws Nette\InvalidStateException
@@ -45,6 +47,9 @@ class User extends Nette\Object  {
 			
 			
 		return isset($field['us_ID']) && $field['us_ID'];
-
+	}
+	
+	public function getIdentity() {
+		return self::$identity;
 	}
 }
