@@ -49,6 +49,7 @@ services:
 	- App\Model\Project
 	- App\Model\Task
 	- App\Model\TaskList
+	- App\Model\TaskListFactory
 	- App\Model\Tag
 	- App\Model\TagList
 	- App\Model\StateList

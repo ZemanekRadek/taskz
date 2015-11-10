@@ -67,46 +67,18 @@
 		{block menu}
 		<div class="lt-container">
 			<div class="lt-menu">
+				
+				
 				<ul>
+					{foreach $taskListFactory->getAll() as $list}
+					<li><a href="{link List: editID=>$list->tl_name,lang=>$presenter->lang}">{$list->tl_name}</a></li>
+					{/foreach}
+
 					<li>
 						<a href="{link Project: lang=>$presenter->lang}">{_'projects name'}</a>
 						<ul>
 							<li><a href="{link Project:create lang=>$presenter->lang}">{_'projects new'}</a></li>
 							<li><a href="{link Project: lang=>$presenter->lang}">{_'projects list'}</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="{link Project:}">Firmy</a>
-						<ul>
-							<li><a href="{link Project:create}">Nová</a></li>
-							<li><a href="{link Project:}">Seznam</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="{link Task:list}">Úkoly</a>
-						<ul>
-							<li><a href="{link Task:create}">Nový</a></li>
-							<li><a href="{link Task:list}">Seznam</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="{link Project:}">Test úkoly</a>
-						<ul>
-							<li><a href="{link Project:create}">Nový</a></li>
-							<li><a href="{link Project:}">Seznam</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="{link Project:}">Výsledky</a>
-						<ul>
-							<li><a href="{link Project:}">Seznam</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="{link Tag:}">Štítky</a>
-						<ul>
-							<li><a href="{link Tag:create}">Nový</a></li>
-							<li><a href="{link Tag:}">Seznam</a></li>
 						</ul>
 					</li>
 					<li>

@@ -10,8 +10,12 @@ class ComponentTaskList extends Control {
 	
 	private $List;
 	
-	public function __construct(\App\Model\TaskList $List) {
+	public function __construct(\App\Model\TaskListFactory $List) {
 		$this->List = $List;
+	}
+	
+	public function getTaksList() {
+		return $this->List->getAll();
 	}
 	
 	public function render() {
