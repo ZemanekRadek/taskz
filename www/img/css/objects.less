@@ -28,8 +28,15 @@ a {
 	text-decoration: @link-decoration;
 }
 
-.required {
-	color: @colorValidationError;
+.label-required {
+	color: @colorRequirement;
+	text-transform: lowercase;
+	font-style: italic;
+}
+
+.hint-text {
+	color: rgba(76,69,61,0.50);
+	font-weight:400;
 }
 
 /* MAIN STYLES - BUTTONZZ  ------------------------------- */
@@ -106,7 +113,7 @@ a {
 }
 
 
-/* MAIN STYLEZZ - INPUT FORM ------------------------------- */
+/* MAIN STYLEZZ - INPUT & FORM ------------------------------- */
 .form-control:focus,
 *:focus,
 *:active {
@@ -124,10 +131,11 @@ a {
 	margin: 32px 0px;
 }
 
-input{
+input {
 	width:100%;
 	font-size:1em;
 	font-weight: 600;
+	color: @text-color-focus;
 	padding:10px 10px 10px 5px;
 	display:block;
 	border:none;
@@ -142,7 +150,6 @@ input{
 		color: @colorFunctionActive;
 	}
 
-
 	&:focus ~ .highlight {
 	  animation:inputHighlighter 700ms ease;
 	}
@@ -150,13 +157,6 @@ input{
 	&:focus ~ .bar:before,
 	&:focus ~ .bar:after {
 	  width:50%;
-	}
-
-	&:focus ~ label,
-	&:valid ~ label {
-	  top:-20px;
-	  font-size:1em;
-	  color:@colorFunctionActive;
 	}
 
 	&[type="text"],
@@ -220,6 +220,30 @@ label{
 	opacity:0.5;
 }
 
+/* MAIN STYLES - VALIDATION  ------------------------------- */
+.errors{
+	width: 100%;
+	padding: 20px 10px 10px;
+	background-color: @colorValidationError;
+	color: @ucolorPositive;
+
+	.ico-validation {
+			font-size: 4em;
+			color: rgba(255,255,255,0.70);
+		}
+
+	h3 {
+		text-align: center;
+		margin-top: 0px;
+		padding-top: 5px;
+	}
+
+	ul {
+		padding-left: 4em;
+	}
+
+}
+
 /* LOGIN PAGE STYLEZZ  ------------------------------- */
 .login-header {
 	text-align: center !important;
@@ -235,7 +259,7 @@ label{
 	margin: 0 auto;
 
 	button[type="submit"] {
-		margin-top: 10px;
+		margin-top: 15px;
 		margin-bottom: 15px;
 	}
 }
@@ -243,7 +267,7 @@ label{
 .box {
 	max-width: 580px;
 	margin: 0 auto;
-	padding: 25px 40px;
+	padding: 20px 35px;
 	background: @ucolorPositive;
 	.box-shadow(0px 0px 2px 0px @shadowBorderDefault, 0px 2px 5px 0px @shadowBorderDefault);
 
