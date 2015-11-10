@@ -8,7 +8,7 @@ use Nette,
 	
 class Language extends Nette\Object  {
 	
-	public static $lang = '';
+	public static $lang = 'cs';
 	
 	public static $_cachePrefix = array();
 	

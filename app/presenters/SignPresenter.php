@@ -61,12 +61,12 @@ class SignPresenter extends Nette\Application\UI\Presenter {
 	{
 		try {
 			$this->getUser()->login($values->us_email, $values->us_password);
-
+			
 		} catch (Nette\Security\AuthenticationException $e) {
 			$form->addError($e->getMessage());
 			return;
 		}
-
+		
 		$this->restoreRequest($this->backlink);
 		$this->redirect('Dashboard:');
 	}
