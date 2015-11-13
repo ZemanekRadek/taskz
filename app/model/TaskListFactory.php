@@ -12,6 +12,8 @@ class TaskListFactory extends Nette\Object  {
 	
 	private $User;
 	
+	private $Project;
+	
 	private $table = 'tasks_list';
 	
 	private $tableUser = 'tasks_list_user';
@@ -22,10 +24,14 @@ class TaskListFactory extends Nette\Object  {
 	 */
 	public function __construct(
 		\Nette\Database\Context $DB,
-		\App\Model\User $User
+		\App\Model\User $User,
+		\App\Model\Project $Project
 	) {
-		$this->DB = $DB;
-		$this->User = $User;
+		$this->DB      = $DB;
+		$this->User    = $User;
+		$this->Project = $Project;
+		
+		Debugger::barDump($Project);
 	}
 	
 	public function getAll() {
@@ -37,10 +43,10 @@ class TaskListFactory extends Nette\Object  {
 		$data = array();
 		
 		foreach($selection as $list) {
-			$data[] = new \App\Model\TaskList($this->DB, $this->User, $list->tlu_tl_ID);
+			$data[] = new \App\Model\TaskList($this->DB, $this->User, $this->Project, $list->tlu_tl_ID);
 		}
 		
-		Debugger::barDump($data);
+		// Debugger::barDump($data);
 		
 		return $data;
 		

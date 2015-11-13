@@ -12,6 +12,8 @@ class TaskList extends Nette\Object  {
 	
 	private $User;
 	
+	public $Project;
+	
 	private $table = 'tasks';
 	
 	private $tableUser = 'tasks_user';
@@ -24,7 +26,8 @@ class TaskList extends Nette\Object  {
 		'tl_inserted'         => null,
 		'tl_ico'              => null,
 		'tl_order'            => null,
-		'tl_systemIdentifier' => null
+		'tl_systemIdentifier' => null,
+		'tl_path'             => null
 	);
 
 	/**
@@ -34,13 +37,21 @@ class TaskList extends Nette\Object  {
 	public function __construct(
 		\Nette\Database\Context $DB,
 		\App\Model\User $User,
+		\App\Model\Project $Project,
 		$ID = null
 	) {
-		$this->DB = $DB;
-		$this->User = $User;
+		$this->DB      = $DB;
+		$this->User    = $User;
+		$this->Project = $Project;
+		
+		if (!$this->Project->pr_ID) {
+			$this->Project->loadDefault();
+		}
 		
 		if ($ID) {
-			$this->init($this->DB->table('tasks_list')->where('tl_ID', $ID)->fetch());
+			$this->init($this->DB->table('tasks_list')->where(array(
+				'tl_ID'      => $ID,
+			))->fetch());
 		}
 	}
 	
