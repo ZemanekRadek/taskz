@@ -13,9 +13,9 @@ application:
 
 database:
 	default:
-		dsn:          "mysql:host=127.0.0.1;dbname=taskz"
-		user:         "root"
-		password:     ""
+		dsn:          "mysql:host=217.31.57.185;dbname=corben_2"
+		user:         "corben"
+		password:     "NPVVKcNPJFVnqb"
 		options:      [PDO::MYSQL_ATTR_COMPRESS = true]
 		debugger:     true        # panel v debugger baru
 		explain:      true        # explain dotazů v debugger bar
@@ -46,13 +46,13 @@ services:
 	- App\Model\Authenticator
 	- App\Model\User
 	- App\Model\UserList
-	- App\Model\Project
 	- App\Model\Task
 	- App\Model\TaskList
 	- App\Model\TaskListFactory
 	- App\Model\Tag
 	- App\Model\TagList
 	- App\Model\StateList
+	- App\Model\Project
 	
 	translator_nette_storage:
 		class: Nette\Caching\Storages\FileStorage(%appDir%/locale) ## Texts will be saved in %appDir%/Texts as file named by ISO 639-1
