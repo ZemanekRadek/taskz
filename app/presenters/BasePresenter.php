@@ -16,8 +16,16 @@ class BasePresenter extends Nette\Application\UI\Presenter {
 	
 	public $user;
 	
-	public function __construct(\App\Model\Language $lang) {
+	// public $project;
+	
+	public $DB;
+	
+	public function __construct(
+		\App\Model\Language $lang,
+		\Nette\Database\Context $DB
+	) {
 		$this->language = $lang;
+		$this->DB       = $DB;
 	}
 
 	public function startup() {
@@ -32,8 +40,14 @@ class BasePresenter extends Nette\Application\UI\Presenter {
 			$this->redirect('Sign:in', array('backlink' => $this->storeRequest()));
 		}
 		
+		// identity
 		\App\Model\User::$identity = $this->user->getIdentity();
 		
+		// project
+		if ($this->getRequest()->getPresenterName() == 'List') {
+
+		}
+		// Debugger::barDump($this->project);
 		
 	}
 	

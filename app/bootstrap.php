@@ -40,8 +40,14 @@ $container = $configurator->createContainer();
 // Setup router using mod_rewrite detection
 $router = $container->getService('router');
 // $router[] = new Route('[<lang=cs [a-z]{2}>/]<project>/<presenter>/<action>', "Dashboard:default");
-$router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]list/<editID>/', "List:default");
+
+$router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]<project>/<action>/<editID>/', "List:list");
+$router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]<project>/', "List:default");
+$router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]project/<action>', "Project:default");
+
 $router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]<presenter>/<action>[/<editID (\d+)>]', "Dashboard:default");
+
+
 //$router[] = new Route('[<lang=cs [a-z]{2}>/]<presenter>/<action>[/<editID (\d+)>]', "Dashboard:default");
 // $router[] = new Route('', "Error:default");
 // $router[] = new Route('login', 'Sign:default');

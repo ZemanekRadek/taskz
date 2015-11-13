@@ -11,11 +11,27 @@ class ProjectPresenter extends BasePresenter {
 	/** @var \App\Model\Project */
 	private $Project;
 	
+	private $TaskListFactory;
 	
-	public function __construct(\App\Model\Project $Project) {
-		$this->Project = $Project;
+	
+	public function __construct(
+		\App\Model\Language $lang,
+		\Nette\Database\Context $DB,
+		\App\Model\Project $Project,
+		\App\Model\TaskListFactory $TaskListFactory
+	) {
+		parent::__construct($lang, $DB);
+		
+		$this->Project         = $Project;
+		$this->TaskListFactory = $TaskListFactory;
 	} 
-
+	
+	public function startup() {
+		parent::startup();
+		
+		$this->template->taskListFactory = $this->TaskListFactory;
+	}
+	
 	protected function createComponentProjectForm() {
 		return $this->Project->getForm();
 	}

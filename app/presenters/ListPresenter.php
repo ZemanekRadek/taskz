@@ -22,9 +22,10 @@ class ListPresenter extends BasePresenter {
 		\App\Model\TaskListFactory $TaskListFactory, 
 		\App\Model\Language $lang,
 		\App\Model\Project $Project,
-		\App\Model\TaskList $TaskList
+		\App\Model\TaskList $TaskList,
+		\Nette\Database\Context $DB
 	) {
-		parent::__construct($lang);
+		parent::__construct($lang, $DB);
 		
 		$this->TaskListFactory = $TaskListFactory;
 	}

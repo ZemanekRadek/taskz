@@ -8,8 +8,12 @@ class DashboardPresenter extends BasePresenter {
 	
 	private $TaskListFactory;
 	
-	public function __construct(\App\Model\TaskListFactory $TaskListFactory, \App\Model\Language $lang) {
-		parent::__construct($lang);
+	public function __construct(
+		\App\Model\TaskListFactory $TaskListFactory, 
+		\App\Model\Language $lang,
+		\Nette\Database\Context $DB
+	) {
+		parent::__construct($lang, $DB, null);
 		
 		$this->TaskListFactory = $TaskListFactory;
 	}

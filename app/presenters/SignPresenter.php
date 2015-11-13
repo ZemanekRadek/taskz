@@ -64,9 +64,11 @@ class SignPresenter extends Nette\Application\UI\Presenter {
 		Debugger::barDump($form->getComponent('us_email'));
 		try {
 			$this->getUser()->login($values->us_email, $values->us_password);
-			
 		} catch (Nette\Security\AuthenticationException $e) {
+			
 			$form->getComponent('us_email')->addError('user_invalid');
+			$form->getComponent('us_password')->addError('password_invalid');
+			
 			$form->addError($e->getMessage());
 			return;
 		}
