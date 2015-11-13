@@ -22,14 +22,14 @@
   text-decoration: none;
   > :first-child {
     position: absolute;
-    left: 0;
+    left: 5px;
     top: 0;
+    padding-top: 3px;
     bottom: 0;
     width: @bs-height-base;
     line-height: (@bs-height-base + 2);
-    font-size: 1.6em;
-    text-align: center;
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 2em;
+    border-right: 1px solid rgba(123,117,112,0.6);
   }
   &.btn-lg {
     padding-left: (@bs-height-lg + @padding-large-horizontal);
@@ -89,7 +89,7 @@
 
 .btn-social(@color-bg, @color: #fff) {
   background-color: @color-bg;
-  .button-variant(@color, @color-bg, rgba(0,0,0,.2));
+  .button-variant(@color, @color-bg, rgba(123,117,112,0.60));
 }
 
 .btn-adn           { .btn-social(#d87a68); }
