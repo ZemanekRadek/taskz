@@ -33,7 +33,9 @@
 								 <h3>Something wrong? Sometimes it's just happened</h3>
 								 <p class="errors-list"> <!-- tohle musi prijit pod inputy s chybami! -->
 									<ul>
-									 <li n:foreach="$form->errors as $error">{$error}</li>
+									 <li n:foreach="$form->errors as $error">
+									 	{_($error)}
+									 </li>
 									</ul>
 								</p> <!-- tohle musi prijit pod inputy s chybami! -->
 							</div>
@@ -53,6 +55,11 @@
 								<span class="highlight"></span>
 								<span class="bar"></span>
 								<label for="us_password">Tazkie Password <span class="label-required">*</span></label>
+								
+	 							<span class="error" n:if="$form['us_password']->hasErrors()">
+	 								{_($form['us_password']->getError())}
+	 							</span>
+
 							</div>
 
 							<p class="hint-text"><span class="label-required">*</span> Oh, yes. You quess right - this is required.</p>

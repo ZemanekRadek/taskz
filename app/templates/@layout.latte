@@ -54,6 +54,7 @@
 	<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
 	<script src="{$basePath}/img/js/bootstrap.min.js"></script>
 	<script src="{$basePath}/img/js/main.js"></script>
+	
 	{/block}
 	{block head}{/block}
 </head>
@@ -71,7 +72,10 @@
 				
 				<ul>
 					{foreach $taskListFactory->getAll() as $list}
-					<li><a href="{link List: editID=>$list->tl_name,lang=>$presenter->lang}">{$list->tl_name}</a></li>
+					
+					<li>
+						<a href="{link List:list project=>$list->Project->pr_path,editID=>$list->tl_path,lang=>$presenter->lang}">{$list->tl_name}</a>
+					</li>
 					{/foreach}
 
 					<li>
