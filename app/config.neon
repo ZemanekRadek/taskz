@@ -53,6 +53,7 @@ services:
 	- App\Model\TagList
 	- App\Model\StateList
 	- App\Model\Project
+	- App\Model\ProjectFactory
 	
 	translator_nette_storage:
 		class: Nette\Caching\Storages\FileStorage(%appDir%/locale) ## Texts will be saved in %appDir%/Texts as file named by ISO 639-1
