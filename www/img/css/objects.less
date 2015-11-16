@@ -14,6 +14,8 @@
 }
 
 /* MAIN STYLEZZ - BASIC ------------------------------- */
+body{background: radial-gradient(@colorBorderDefault, @body-bg) !important;}
+
 #tazkie-logo {
 	background:url(/img/tazkie-logo.png) center top;
 	width: 111px;
@@ -74,11 +76,8 @@ a {
 			margin-bottom: -3px;
 			margin-top: 3px;
 		}
-
 	}
-
 	/* SOCIAL BUTTONZ STYLEZZ ------------------------------- */
-
 	&.btn-facebook{
 		background: @colorFButtonDefault;
 		padding: 15px 45px;
@@ -99,7 +98,6 @@ a {
 		background: @colorGButtonDefault;
 		padding: 15px 45px;
 		.box-shadow(inset 0px -3px 0px 0px @shadowGButtonDefault, 0px 1px 3px 0px @shadowBorderDefault);
-
 			&:hover,
 			&:focus,
 			&:active,
@@ -109,16 +107,12 @@ a {
 				.box-shadow(inset 0px -3px 0px 0px @shadowGButtonHover);
 				color: @ucolorPositive;
 			}
-
 				.google-fix{
 					padding-top: 7px;
 					left: 6px;
 				}
-
 	}
-
 }
-
 
 /* MAIN STYLEZZ - INPUT & FORM ------------------------------- */
 .form-control:focus,
@@ -166,9 +160,7 @@ input {
 	  width:50%;
 	}
 
-	&[type="text"],
-	&[type="password"],
-	&[type="email"] {
+	&[type]{
 		border: none;
 		.box-shadow(none);
 		border-bottom: 2px solid @colorBorderDefault;
@@ -183,15 +175,15 @@ input {
 }
 
 label{
-  color:@text-color;
-  text-transform: uppercase;
-  font-size:1em;
-  font-weight:400;
-  position:absolute;
-  pointer-events: none;
-  left:5px;
-  top:10px;
-  transition: 500ms ease all;
+	color:@text-color;
+	text-transform: uppercase;
+	font-size:1em;
+	font-weight:400;
+	position:absolute;
+	pointer-events: none;
+	left:5px;
+	top:10px;
+	transition: 500ms ease all;
 }
 
 .bar  {
@@ -231,7 +223,7 @@ label{
 .errors{
 	width: 100%;
 	padding: 20px 10px 10px;
-	background-color: @colorValidationError;
+	background-color: @colorRequirement;
 	color: @ucolorPositive;
 
 	.ico-validation {
@@ -302,4 +294,4 @@ label{
 }
 
 
-body{background: radial-gradient(@colorBorderDefault, @body-bg) !important;}
+/* TASK LIST PAGE STYLEZZ  ------------------------------- */
