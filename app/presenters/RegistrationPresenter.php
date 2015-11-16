@@ -6,12 +6,24 @@ use Nette,
 	Nette\Application\UI;
 
 
-class RegistrationPresenter extends Nette\Application\UI\Presenter {        
+class RegistrationPresenter extends Nette\Application\UI\Presenter {
 	/** @persistent */
 	public $backlink = ''; 
 	
 	/** @var \App\Model\User @inject */
 	public $user;
+	
+	public $DB;
+	
+	public $language;
+	
+	public function __construct(
+		\App\Model\Language $lang,
+		\Nette\Database\Context $DB
+	) {
+		$this->language = $lang;
+		$this->DB       = $DB;
+	}
 	
 	protected function createComponentRegistrationForm() {
 		$form = new UI\Form;;
@@ -52,12 +64,36 @@ class RegistrationPresenter extends Nette\Application\UI\Presenter {
 				return;
 			}
 			
-			if (!$this->user->registration($values)) {
+			$this->DB->beginTransaction();
+			
+			if (!$userID = $this->user->registration($values)) {
 				return;
 			}
 			
-			// nahrani defaultnich seznamu
-			// $TaskFactory
+			// nahrani defaultnich seznamu a projektu pri registraci
+			$Project = new \App\Model\Project($this->DB, $this->user);
+			$Project
+				->init(array(
+					'pr_name'   => 'MyProject',
+					'pr_author' => $userID
+				));
+			$Project
+				->save();
+				
+				
+			foreach(\App\Model\TaskList::$system as $system) {
+				
+				$system['tl_author'] = $userID;
+				
+				$List = new \App\Model\TaskList($this->DB, $this->user, $Project);
+				$List
+					->init($system)
+					->addProject($Project->pr_ID)
+					->save();
+			}
+			
+			$this->DB->commit();
+			
 			
 			
 		} catch (Nette\Security\AuthenticationException $e) {
