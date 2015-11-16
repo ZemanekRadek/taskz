@@ -3,6 +3,7 @@ namespace App\Presenters;
 
 use Nette,
 	Nette\Application\UI,
+	Tracy\Debugger as Debugger,
 	App\Model;
 	
 class ProjectPresenter extends BasePresenter {
@@ -13,41 +14,52 @@ class ProjectPresenter extends BasePresenter {
 	
 	private $TaskListFactory;
 	
+	private $ProjectFactory;
+	
 	
 	public function __construct(
 		\App\Model\Language $lang,
 		\Nette\Database\Context $DB,
 		\App\Model\Project $Project,
-		\App\Model\TaskListFactory $TaskListFactory
+		\App\Model\TaskListFactory $TaskListFactory,
+		\App\Model\ProjectFactory $ProjectFactory
 	) {
 		parent::__construct($lang, $DB);
 		
 		$this->Project         = $Project;
 		$this->TaskListFactory = $TaskListFactory;
+		$this->ProjectFactory  = $ProjectFactory;
 	} 
 	
 	public function startup() {
 		parent::startup();
 		
-		$this->template->taskListFactory = $this->TaskListFactory;
+		$this->template->TaskListFactory = $this->TaskListFactory;
+		$this->template->ProjectFactory  = $this->ProjectFactory;
 	}
 	
 	protected function createComponentProjectForm() {
-		return $this->Project->getForm();
+		$form = $this->Project->getForm();
+		$form->onSuccess = array(array($this, 'saveProject'));
+		
+		return $form;
 	}
 
 	public function saveProject($form, $values) {
 		
-		if ($this->Project->existFromName($values->pr_name)) {
-			$form->addError('Tento projekt již existuje');
-			return false;
-		}
-
-		if (!$this->Project->save($values)) {
+		$values = $form->getValues();
+		$values['pr_author'] = $this->user->getIdentity()->getId();
+		$this->Project->init($values);
+		
+		if (!$this->Project->save()) {
 			return false;
 		}
 		
-		$this->redirect('Dashboard:');
+		$this->redirect('List:default', array(
+			'projectID'   => $this->Project->pr_ID,
+			'projectName' => $this->Project->pr_path
+		));
+		
 		
 		return true;
 	}

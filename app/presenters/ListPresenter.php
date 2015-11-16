@@ -3,6 +3,7 @@ namespace App\Presenters;
 
 use Nette,
 	Nette\Application\UI,
+	Tracy\Debugger as Debugger,
 	App\Model;
 	
 class ListPresenter extends BasePresenter {
@@ -17,26 +18,48 @@ class ListPresenter extends BasePresenter {
 	/** @var \App\Model\TaskList */
 	private $TaskListFactory;
 	
+	private $ProjectFactory;
+	
+	private $User;
 	
 	public function __construct(
+		\App\Model\ProjectFactory $ProjectFactory, 
 		\App\Model\TaskListFactory $TaskListFactory, 
 		\App\Model\Language $lang,
-		\App\Model\Project $Project,
 		\App\Model\TaskList $TaskList,
+		\App\Model\User $User,
 		\Nette\Database\Context $DB
 	) {
 		parent::__construct($lang, $DB);
 		
 		$this->TaskListFactory = $TaskListFactory;
+		$this->ProjectFactory  = $ProjectFactory;
+		$this->User = $User;
 	}
 	
 	public function startup() {
 		parent::startup();
 		
-		$this->template->taskListFactory = $this->TaskListFactory;
+		$this->template->TaskListFactory = $this->TaskListFactory;
+		$this->template->ProjectFactory  = $this->ProjectFactory;
 	}
 
+	public function actionDefault() {
+		$this->Project = new \App\Model\Project($this->DB, $this->User, $this->getParameter('projectID'));
+		$this->TaskListFactory->setProject($this->Project);
+	}
+	
+	public function actionList() {
+		$this->Project = new \App\Model\Project($this->DB, $this->User, $this->getParameter('projectID'));
+		$this->TaskListFactory->setProject($this->Project);
+	}
 
+	
+	public function beforeRender() {
+		$this->template->Project = $this->Project;
+	}
+	
+	/*
 	protected function createComponentTaskForm() {
 		return $this->Task->getForm();
 	}
@@ -51,4 +74,5 @@ class ListPresenter extends BasePresenter {
 		
 		return true;
 	}
+	*/
 }

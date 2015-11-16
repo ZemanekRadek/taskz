@@ -8,7 +8,12 @@ class DashboardPresenter extends BasePresenter {
 	
 	private $TaskListFactory;
 	
+	private $ProjectFactory;
+	
+	private $Project = null;
+	
 	public function __construct(
+		\App\Model\ProjectFactory $ProjectFactory, 
 		\App\Model\TaskListFactory $TaskListFactory, 
 		\App\Model\Language $lang,
 		\Nette\Database\Context $DB
@@ -16,12 +21,22 @@ class DashboardPresenter extends BasePresenter {
 		parent::__construct($lang, $DB, null);
 		
 		$this->TaskListFactory = $TaskListFactory;
+		$this->ProjectFactory  = $ProjectFactory;
 	}
 	
 	public function startup() {
 		parent::startup();
 		
-		$this->template->taskListFactory = $this->TaskListFactory;
+		$this->template->TaskListFactory = $this->TaskListFactory;
+		$this->template->ProjectFactory  = $this->ProjectFactory;
+	}
+	
+	public function actionDefault() {
+		/*
+		$this->Project = new \App\Model\Project($this->DB, $this->User);
+		$this->Project->loadDefault();
+		$this->TaskListFactory->setProject($this->Project);
+		*/
 	}
 	
 	

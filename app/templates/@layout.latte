@@ -68,22 +68,30 @@
 		{block menu}
 		<div class="lt-container">
 			<div class="lt-menu">
-				
-				
+
+				<strong>Projekty</strong>
 				<ul>
-					{foreach $taskListFactory->getAll() as $list}
-					
+					{foreach $ProjectFactory->getAll() as $project}
 					<li>
-						<a href="{link List:list project=>$list->Project->pr_path,editID=>$list->tl_path,lang=>$presenter->lang}">{$list->tl_name}</a>
+						<a href="{link List:default projectID=>$project->pr_ID, projectName=>$project->pr_path,lang=>$presenter->lang}">{$project->pr_name}</a>
+					</li>
+					{/foreach}
+				</ul>
+				
+				<strong>Navigace</strong>
+				<ul>
+					{foreach $TaskListFactory->getAll() as $list}
+					<li>
+						<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">{$list->tl_name}</a>
 					</li>
 					{/foreach}
 
+
 					<li>
-						<a href="{link Project: lang=>$presenter->lang}">{_'projects name'}</a>
-						<ul>
-							<li><a href="{link Project:create lang=>$presenter->lang}">{_'projects new'}</a></li>
-							<li><a href="{link Project: lang=>$presenter->lang}">{_'projects list'}</a></li>
-						</ul>
+						<a href="{link Project:create}">Nový projekt</a>
+					</li>
+					<li>
+						<a href="{link List:new}">Nový taskList</a>
 					</li>
 					<li>
 						<a href="{link Project:}">Nastavení</a>
