@@ -30,8 +30,10 @@ class TaskListFactory extends Nette\Object  {
 		$this->DB      = $DB;
 		$this->User    = $User;
 		$this->Project = $Project;
-		
-		Debugger::barDump($Project);
+	}
+	
+	public function setProject(\App\Model\Project $Project) {
+		$this->Project = $Project;
 	}
 	
 	public function getAll() {
