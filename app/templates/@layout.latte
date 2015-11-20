@@ -9,7 +9,7 @@
 	<meta charset="utf-8" />
 	<meta name="author" content="Shopero www.shopero.cz" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	
+
 	<meta name="HandheldFriendly" content="True" />
 	<meta name="MobileOptimized" content="320" />
 	<meta name="format-detection" content="telephone=no" />
@@ -17,14 +17,14 @@
 	<meta name="mobile-web-app-capable" content="no">
 
 	<title>{ifset title}{include title|striptags} | {/ifset}Taskz</title>
-	
+
 	{block css}
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/dark-hive/jquery-ui.css">
 	{/block}
 
 	<link rel="stylesheet" href="{$basePath}/img/css/index.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
-	
+
 	{block scripts}
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -49,19 +49,19 @@
 		};
 		$.datepicker.setDefaults($.datepicker.regional['cs']);
 	</script>
-	
-	
+
+
 	<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
 	<script src="{$basePath}/img/js/bootstrap.min.js"></script>
 	<script src="{$basePath}/img/js/main.js"></script>
-	
+
 	{/block}
 	{block head}{/block}
 </head>
 
 <body>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
-	
+
 	{if !$user->isLoggedIn()}
 		{include content}
 	{else}
@@ -70,7 +70,7 @@
 			<div class="lt-menu">
 
 				{if $Project}
-				
+
 				<h1><strong>{$Project->pr_name}</h1>
 				<p>
 					<a href="{link Dashboard:}">Zpět na dashboard</a>
@@ -85,7 +85,7 @@
 					{/foreach}
 				</ul>
 				{/if}
-				
+
 				<p>
 				<strong>Navigace</strong>
 				</p>

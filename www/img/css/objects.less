@@ -33,8 +33,8 @@ a {
 
 /* Icomoon.com */
 
-.gn-menu-main,
-.gn-menu-main ul {
+.tl-menu-main,
+.tl-menu-main ul {
 		margin: 0;
 		padding: 0;
 		background: @colorNavBackground;
@@ -45,7 +45,7 @@ a {
 		line-height: 50px;
 }
 
-.gn-menu-main {
+.tl-menu-main {
 
 	position: fixed;
 	top: 0;
@@ -100,14 +100,14 @@ a {
 
 }
 
-.no-touch .gn-menu-main a:hover {
+.no-touch .tl-menu-main a:hover {
 		background: @colorValidationError;
 		color: @colorNavLink;
 }
 
 /* icon-only trigger (menu item) */
 
-.gn-menu-wrapper {
+.tl-menu-wrapper {
 		position: fixed;
 		top: 4em;
 		bottom: 0;
@@ -121,28 +121,28 @@ a {
 		transform: translateX(-60px);
 		-webkit-transition: -webkit-transform 0.3s, width 0.3s;
 		-moz-transition: -moz-transform 0.3s, width 0.3s;
-		transition: transform 0.3s, width 0.3s;
+		.transition(transform 0.3s, width 0.3s);
 }
 
-.gn-scroller {
+.tl-scroller {
 		position: absolute;
 		overflow-y: scroll;
 		width: 370px;
 		height: 100%;
 }
 
-.gn-menu {
+.tl-menu {
 		border-bottom: 1px solid @colorNavBackground;
 		text-align: left;
 		font-size: 18px;
 
 	& li:not(:first-child),
-	& .gn-menu li li {
+	& .tl-menu li li {
 			box-shadow: inset 0 1px @colorNavBackground;
 	}
 }
 
-.gn-icon::before {
+.tl-icon::before {
 		display: inline-block;
 		width: 60px;
 		text-align: center;
@@ -150,60 +150,20 @@ a {
 		-webkit-font-smoothing: antialiased;
 }
 
-.gn-icon-help::before {
-		content: ""
-}
-
-.gn-icon-earth::before {
-		content: "\e004"
-}
-
-.gn-icon-cog::before {
-		content: "\e006"
-}
-
-.gn-icon-search::before {
-		content: "\e005"
-}
-
-.gn-icon-download::before {
-		content: "\e07a"
-}
-
-.gn-icon-photoshop::before {
-		content: "\e001"
-}
-
-.gn-icon-illustrator::before {
-		content: "\e002"
-}
-
-.gn-icon-archive::before {
-		content: "\e00d"
-}
-
-.gn-icon-article::before {
-		content: "\e003"
-}
-
-.gn-icon-pictures::before {
-		content: "\e008"
-}
-
-.gn-icon-videos::before {
-		content: "\e009"
+.tl-icon-inbox::before {
+		content: "\e07a";
 }
 
 /* if an icon anchor has a span, hide the span */
 
-.gn-icon span {
+.tl-icon span {
 		width: 0;
 		height: 0;
 		display: block;
 		overflow: hidden;
 }
 
-.gn-icon-menu::before {
+.tl-icon-menu::before {
 		margin-left: -15px;
 		vertical-align: -2px;
 		width: 30px;
@@ -213,43 +173,43 @@ a {
 		content: '';
 }
 
-.no-touch .gn-icon-menu:hover::before,
-.no-touch .gn-icon-menu.gn-selected:hover::before {
+.no-touch .tl-icon-menu:hover::before,
+.no-touch .tl-icon-menu.tl-selected:hover::before {
 		background: red;
 		box-shadow: 0 3px #5f6f81, 0 -6px white, 0 -9px #5f6f81, 0 -12px white;
 }
 
-.gn-icon-menu.gn-selected::before {
+.tl-icon-menu.gn-selected::before {
 		background: #5993cd;
 		box-shadow: 0 3px white, 0 -6px #5993cd, 0 -9px white, 0 -12px #5993cd;
 }
 
 /* styles for opening menu */
 
-.gn-menu-wrapper.gn-open-all,
-.gn-menu-wrapper.gn-open-part {
+.tl-menu-wrapper.tl-open-all,
+.tl-menu-wrapper.tl-open-part {
 		-webkit-transform: translateX(0px);
 		-moz-transform: translateX(0px);
 		transform: translateX(0px);
 }
 
-.gn-menu-wrapper.gn-open-all {
+.tl-menu-wrapper.tl-open-all {
 		width: 340px
 }
 
-.gn-menu-wrapper.gn-open-all .gn-submenu li {
+.tl-menu-wrapper.tl-open-all .tl-submenu li {
 		height: 60px
 }
 
 @media screen and (max-width: 422px) {
-	.gn-menu-wrapper.gn-open-all {
+	.tl-menu-wrapper.tl-open-all {
 			-webkit-transform: translateX(0px);
 			-moz-transform: translateX(0px);
 			transform: translateX(0px);
 			width: 100%;
 	}
 
-	.gn-menu-wrapper.gn-open-all .gn-scroller {
+	.tl-menu-wrapper.tl-open-all .tl-scroller {
 			width: 130%
 	}
 }
@@ -283,8 +243,7 @@ a {
     margin: 0 auto;
     padding: 10px 20px;
 
-    background: #fff;
-    border-radius: 5px;
+    background: @colorNavBackground;
     box-shadow: 0 1px 0 rgba(0,0,0,0.2);
     cursor: pointer;
     outline: none;
@@ -302,7 +261,7 @@ a {
     margin-top: -3px;
     border-width: 6px 6px 0 6px;
     border-style: solid;
-    border-color: #4cbeff transparent;
+    border-color: @colorNavLink transparent;
 }
 
 .wrapper-dropdown .dropdown {
@@ -319,7 +278,6 @@ a {
 
     /* Styles */
     background: #fff;
-    border-radius: 0 0 5px 5px;
     border: 1px solid rgba(0,0,0,0.2);
     border-top: none;
     border-bottom: none;
@@ -358,7 +316,7 @@ a {
 		    vertical-align: middle;
 		}
 		&li:hover a {
-		    color: #57a9d9;
+		    color: red;
 		}
 }
 
@@ -366,14 +324,14 @@ a {
 /* Active state */
 
 .wrapper-dropdown.active {
-    border-radius: 5px 5px 0 0;
-    background: #4cbeff;
+    background: #332E2A;
     box-shadow: none;
     border-bottom: none;
     color: white;
 
 		&::after{
-		    border-color: #82d1ff transparent;
+			  border-width: 0 6px 6px 6px;
+		    border-color: @colorNavLink transparent;
 		}
 
 		.dropdown{

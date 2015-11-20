@@ -1,22 +1,22 @@
 
 {block content}
 		<div class="container">
-			<ul id="gn-menu" class="gn-menu-main">
-				<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-					<nav class="gn-menu-wrapper">
-						<div class="gn-scroller">
-							<ul class="gn-menu">
+			<ul id="tl-menu" class="tl-menu-main">
+				<li class="tl-trigger">
+					<a class="tl-icon tl-icon-menu"><span>Menu</span></a>
+					<nav class="tl-menu-wrapper">
+						<div class="tl-scroller">
+							<ul class="tl-menu">
 								{foreach $TaskListFactory->getAll() as $list}
 								<li>
-									<a class="gn-icon gn-icon-download" href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">{$list->tl_name}</a>
+									<a class="tl-icon tl-icon-inbox" href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">{$list->tl_name}</a>
 								</li>
 								{/foreach}
 								<li>
-									<a class="gn-icon" href="{link List:new}"><i class="icon-inbox"></i>Nový taskList</a>
+									<a class="tl-icon" href="{link List:new}"><i class="icon-inbox"></i>Nový taskList</a>
 								</li>
 							</ul>
-						</div><!-- /gn-scroller -->
+						</div><!-- /tl-scroller -->
 					</nav>
 				</li>
 				<li id="dd" class="wrapper-dropdown" tabindex="1">AKTUÁLNÍ PROJEKT
@@ -33,7 +33,7 @@
 				<li><a href="{link Sign:out}"><span>Logout</span></a></li>
 			</ul>
 			<header>
-				<p>Google Nexus Website Menu <span>A sidebar menu as seen on the <a href="http://www.google.com/nexus/index.html">Google Nexus 7</a> page</span></p>
+				<p>Oh no! There are no tasks in Tazkie! <br />... but you can create <a href="http://www.google.com/nexus/index.html">new one</p>
 			</header>
 		</div><!-- /container -->
 
@@ -42,7 +42,7 @@
 		<script src="{$basePath}/img/js/classie.js"></script>
 		<script src="{$basePath}/img/js/tasklist-menu.js"></script>
 		<script>
-			new gnMenu( document.getElementById( 'gn-menu' ) );
+			new tlMenu( document.getElementById( 'tl-menu' ) );
 		</script>
 
 		<!-- JQUERY DROPDOWN -->

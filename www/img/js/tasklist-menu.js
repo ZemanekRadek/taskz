@@ -19,15 +19,15 @@
 		return check;
 	}
 
-	function gnMenu( el, options ) {	
+	function tlMenu( el, options ) {	
 		this.el = el;
 		this._init();
 	}
 
-	gnMenu.prototype = {
+	tlMenu.prototype = {
 		_init : function() {
-			this.trigger = this.el.querySelector( 'a.gn-icon-menu' );
-			this.menu = this.el.querySelector( 'nav.gn-menu-wrapper' );
+			this.trigger = this.el.querySelector( 'a.tl-icon-menu' );
+			this.menu = this.el.querySelector( 'nav.tl-menu-wrapper' );
 			this.isMenuOpen = false;
 			this.eventtype = mobilecheck() ? 'touchstart' : 'click';
 			this._initEvents();
@@ -65,28 +65,28 @@
 			this.menu.addEventListener( this.eventtype, function(ev) { ev.stopPropagation(); } );
 		},
 		_openIconMenu : function() {
-			classie.add( this.menu, 'gn-open-part' );
+			classie.add( this.menu, 'tl-open-part' );
 		},
 		_closeIconMenu : function() {
-			classie.remove( this.menu, 'gn-open-part' );
+			classie.remove( this.menu, 'tl-open-part' );
 		},
 		_openMenu : function() {
 			if( this.isMenuOpen ) return;
-			classie.add( this.trigger, 'gn-selected' );
+			classie.add( this.trigger, 'tl-selected' );
 			this.isMenuOpen = true;
-			classie.add( this.menu, 'gn-open-all' );
+			classie.add( this.menu, 'tl-open-all' );
 			this._closeIconMenu();
 		},
 		_closeMenu : function() {
 			if( !this.isMenuOpen ) return;
-			classie.remove( this.trigger, 'gn-selected' );
+			classie.remove( this.trigger, 'tl-selected' );
 			this.isMenuOpen = false;
-			classie.remove( this.menu, 'gn-open-all' );
+			classie.remove( this.menu, 'tl-open-all' );
 			this._closeIconMenu();
 		}
 	}
 
 	// add to global namespace
-	window.gnMenu = gnMenu;
+	window.tlMenu = tlMenu;
 
 } )( window );
