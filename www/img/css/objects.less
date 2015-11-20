@@ -1,18 +1,3 @@
-
-.lt-container {
-	display: table;
-	width: 100%;
-
-	.lt-menu {
-		display: table-cell;
-		width: 300px;
-	}
-	.lt-content {
-		display: table-cell;
-		width: 0%;
-	}
-}
-
 /* MAIN STYLEZZ - BASIC ------------------------------- */
 body{background: radial-gradient(@colorBorderDefault, @body-bg) !important;}
 
@@ -41,13 +26,370 @@ a {
 	font-weight:400;
 }
 
+/* TASK LIST CONTENT STYLEZZ - FLEXBOX ------------------------------- */
+
+
+/* TASK LIST SIDEBAR MENU ------------------------------- */
+
+/* Icomoon.com */
+
+.gn-menu-main,
+.gn-menu-main ul {
+		margin: 0;
+		padding: 0;
+		background: @colorNavBackground;
+		color: @colorNavLink;
+		list-style: none;
+		text-transform: none;
+		font-weight: 300;
+		line-height: 50px;
+}
+
+.gn-menu-main {
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4em;
+
+	& a {
+			display: block;
+			height: 100%;
+			color: @colorNavLink;
+			text-decoration: none;
+			cursor: pointer;
+	}
+
+
+	& > li {
+		display: block;
+		float: left;
+		height: 100%;
+		text-align: center;
+	}
+
+	& li.gn-trigger {
+			position: relative;
+			width: 60px;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+	}
+
+	& > li:last-child {
+			float: right;
+			border-right: none;
+	}
+
+	& > li > a {
+			padding: 0 30px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-weight: bold;
+	}
+
+	&:after {
+			display: table;
+			clear: both;
+			content: "";
+	}
+
+}
+
+.no-touch .gn-menu-main a:hover {
+		background: @colorValidationError;
+		color: @colorNavLink;
+}
+
+/* icon-only trigger (menu item) */
+
+.gn-menu-wrapper {
+		position: fixed;
+		top: 4em;
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+		width: 60px;
+		border-top: 1px solid @colorNavBackground;
+		background: @colorNavBackground;
+		-webkit-transform: translateX(-60px);
+		-moz-transform: translateX(-60px);
+		transform: translateX(-60px);
+		-webkit-transition: -webkit-transform 0.3s, width 0.3s;
+		-moz-transition: -moz-transform 0.3s, width 0.3s;
+		transition: transform 0.3s, width 0.3s;
+}
+
+.gn-scroller {
+		position: absolute;
+		overflow-y: scroll;
+		width: 370px;
+		height: 100%;
+}
+
+.gn-menu {
+		border-bottom: 1px solid @colorNavBackground;
+		text-align: left;
+		font-size: 18px;
+
+	& li:not(:first-child),
+	& .gn-menu li li {
+			box-shadow: inset 0 1px @colorNavBackground;
+	}
+}
+
+.gn-icon::before {
+		display: inline-block;
+		width: 60px;
+		text-align: center;
+		speak: none;
+		-webkit-font-smoothing: antialiased;
+}
+
+.gn-icon-help::before {
+		content: ""
+}
+
+.gn-icon-earth::before {
+		content: "\e004"
+}
+
+.gn-icon-cog::before {
+		content: "\e006"
+}
+
+.gn-icon-search::before {
+		content: "\e005"
+}
+
+.gn-icon-download::before {
+		content: "\e07a"
+}
+
+.gn-icon-photoshop::before {
+		content: "\e001"
+}
+
+.gn-icon-illustrator::before {
+		content: "\e002"
+}
+
+.gn-icon-archive::before {
+		content: "\e00d"
+}
+
+.gn-icon-article::before {
+		content: "\e003"
+}
+
+.gn-icon-pictures::before {
+		content: "\e008"
+}
+
+.gn-icon-videos::before {
+		content: "\e009"
+}
+
+/* if an icon anchor has a span, hide the span */
+
+.gn-icon span {
+		width: 0;
+		height: 0;
+		display: block;
+		overflow: hidden;
+}
+
+.gn-icon-menu::before {
+		margin-left: -15px;
+		vertical-align: -2px;
+		width: 30px;
+		height: 3px;
+		background: #5f6f81;
+		box-shadow: 0 3px white, 0 -6px #5f6f81, 0 -9px white, 0 -12px #5f6f81;
+		content: '';
+}
+
+.no-touch .gn-icon-menu:hover::before,
+.no-touch .gn-icon-menu.gn-selected:hover::before {
+		background: red;
+		box-shadow: 0 3px #5f6f81, 0 -6px white, 0 -9px #5f6f81, 0 -12px white;
+}
+
+.gn-icon-menu.gn-selected::before {
+		background: #5993cd;
+		box-shadow: 0 3px white, 0 -6px #5993cd, 0 -9px white, 0 -12px #5993cd;
+}
+
+/* styles for opening menu */
+
+.gn-menu-wrapper.gn-open-all,
+.gn-menu-wrapper.gn-open-part {
+		-webkit-transform: translateX(0px);
+		-moz-transform: translateX(0px);
+		transform: translateX(0px);
+}
+
+.gn-menu-wrapper.gn-open-all {
+		width: 340px
+}
+
+.gn-menu-wrapper.gn-open-all .gn-submenu li {
+		height: 60px
+}
+
+@media screen and (max-width: 422px) {
+	.gn-menu-wrapper.gn-open-all {
+			-webkit-transform: translateX(0px);
+			-moz-transform: translateX(0px);
+			transform: translateX(0px);
+			width: 100%;
+	}
+
+	.gn-menu-wrapper.gn-open-all .gn-scroller {
+			width: 130%
+	}
+}
+
+
+/* MAIN STYLEZZ - DROPDOWNS ------------------------------- */
+
+*,
+*:after,
+*:before {
+    .box-sizing(border-box);
+    padding: 0;
+    margin: 0;
+}
+
+::selection {
+    background: transparent;
+}
+
+::-moz-selection {
+    background: transparent;
+}
+
+.wrapper-dropdown {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+
+    position: relative;
+    width: 20em;
+    margin: 0 auto;
+    padding: 10px 20px;
+
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+    outline: none;
+		-ms-transition: all 0.3s ease-out;
+    .transition(all 0.3s ease-out);
+}
+
+.wrapper-dropdown:after { /* DROPDOWN ARROW STYLEZZ */
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #4cbeff transparent;
+}
+
+.wrapper-dropdown .dropdown {
+    /* Size & position */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+		.flexbox();
+		.flex-flow(column wrap);
+		justify-content: space-around;
+		width:100%;
+
+    /* Styles */
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-top: none;
+    border-bottom: none;
+    list-style: none;
+    -ms-transition: all 0.3s ease-out;
+    .transition (all 0.3s ease-out);
+
+    /* Hiding */
+    max-height: 0;
+    overflow: hidden;
+}
+
+.wrapper-dropdown .dropdown li {
+		.flex(1 0 auto);
+		padding: 0 10px;
+		postion: relative;
+
+		a {
+		    display: block;
+		    text-decoration: none;
+		    color: #333;
+		    padding: 10px 0;
+				-ms-transition: all 0.3s ease-out;
+		    .transition(all 0.3s ease-out);
+		    border-bottom: 1px solid #e6e8ea;
+		}
+
+		&:last-of-type a {
+		    border: none;
+		}
+
+		i {
+		    margin-right: 5px;
+				font-size: 2em;
+		    color: inherit;
+		    vertical-align: middle;
+		}
+		&li:hover a {
+		    color: #57a9d9;
+		}
+}
+
+
+/* Active state */
+
+.wrapper-dropdown.active {
+    border-radius: 5px 5px 0 0;
+    background: #4cbeff;
+    box-shadow: none;
+    border-bottom: none;
+    color: white;
+
+		&::after{
+		    border-color: #82d1ff transparent;
+		}
+
+		.dropdown{
+		    border-bottom: 1px solid rgba(0,0,0,0.2);
+		    max-height: 400px;
+		}
+}
+
 /* MAIN STYLES - BUTTONZZ  ------------------------------- */
 .btn {
 	padding: 15px 20px;
 	border: 0 none;
 	font-weight: 600;
 	text-transform: uppercase;
-	transition: 600ms;
+	-ms-transition: all 0.6s ease-out;
+	.transition(600ms);
 
 	&:focus,
 	&:active.focus,
@@ -141,7 +483,8 @@ input {
 	display:block;
 	border:none;
 	border-bottom:1px solid @colorBorderDefault;
-	transition: 500ms;
+	-ms-transition: all 0.5s ease-out;
+	.transition(500ms);
 
 	&:focus ~ label,
 	&:hover ~ label,
@@ -183,7 +526,8 @@ label{
 	pointer-events: none;
 	left:5px;
 	top:10px;
-	transition: 500ms ease all;
+	-ms-transition: all 0.5s ease;
+	.transition(500ms ease all);
 }
 
 .bar  {
@@ -197,7 +541,8 @@ label{
 		position:absolute;
 		top:25%;
 		background: @colorFunctionActive;
-		transition: 700ms ease all;
+		-ms-transition: all 0.7s ease;
+		.transition(700ms ease all);
 	}
 
 	&:before {
