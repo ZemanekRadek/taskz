@@ -20,6 +20,8 @@ class ListPresenter extends BasePresenter {
 	
 	private $ProjectFactory;
 	
+	public $DB;
+	
 	private $User;
 	
 	public function __construct(
@@ -34,7 +36,8 @@ class ListPresenter extends BasePresenter {
 		
 		$this->TaskListFactory = $TaskListFactory;
 		$this->ProjectFactory  = $ProjectFactory;
-		$this->User = $User;
+		$this->DB              = $DB;
+		$this->User            = $User;
 	}
 	
 	public function startup() {
@@ -42,6 +45,7 @@ class ListPresenter extends BasePresenter {
 		
 		$this->template->TaskListFactory = $this->TaskListFactory;
 		$this->template->ProjectFactory  = $this->ProjectFactory;
+		$this->template->Project         = $this->Project;
 	}
 
 	public function actionDefault() {
@@ -52,6 +56,11 @@ class ListPresenter extends BasePresenter {
 	public function actionList() {
 		$this->Project = new \App\Model\Project($this->DB, $this->User, $this->getParameter('projectID'));
 		$this->TaskListFactory->setProject($this->Project);
+	}
+	
+	public function createComponentNewList() {
+		$List = new \App\Model\TaskList($this->DB, $this->User, $this->Project);
+		return $List->getForm();
 	}
 
 	

@@ -3,6 +3,7 @@ namespace App\Model;
 
 use Nette,
 	Nette\Database\Context,
+	Nette\Application\UI,
 	Tracy\Debugger as Debugger;
 	
 class TaskList extends Nette\Object  {
@@ -22,9 +23,9 @@ class TaskList extends Nette\Object  {
 	
 	// system list identifier
 	public static $system = array(
-		'inbox'     => array('tl_name' => 'Inbox', 'tl_ico'    => 'ico-inbox', 'tl_systemIdentifier'    => 'inbox', 'tl_path' => 'inbox'),
-		'urgent'    => array('tl_name' => 'Urgent', 'tl_ico'   => 'ico-urgent', 'tl_systemIdentifier'   => 'urgent', 'tl_path' => 'urgent'),
-		'finished'  => array('tl_name' => 'Finished', 'tl_ico' => 'ico-finished', 'tl_systemIdentifier' => 'finished', 'tl_path' => 'finished'),
+		'inbox'     => array('tl_name' => 'Inbox', 'tl_ico'    => 'ico-inbox', 'tl_systemIdentifier'    => 'inbox', 'tl_path' => 'inbox', 'tl_color' => '0000ff'),
+		'urgent'    => array('tl_name' => 'Urgent', 'tl_ico'   => 'ico-urgent', 'tl_systemIdentifier'   => 'urgent', 'tl_path' => 'urgent', 'tl_color' => 'ff0000'),
+		'finished'  => array('tl_name' => 'Finished', 'tl_ico' => 'ico-finished', 'tl_systemIdentifier' => 'finished', 'tl_path' => 'finished', '00ff00'),
 	);
 	
 	private $data = array(
@@ -35,7 +36,8 @@ class TaskList extends Nette\Object  {
 		'tl_order'            => null,
 		'tl_systemIdentifier' => null,
 		'tl_path'             => null,
-		'tl_author'           => null
+		'tl_author'           => null,
+		'tl_color'            => null,
 	);
 	
 	private $users    = array();
@@ -49,7 +51,7 @@ class TaskList extends Nette\Object  {
 	public function __construct(
 		\Nette\Database\Context $DB,
 		\App\Model\User $User,
-		\App\Model\Project $Project,
+		\App\Model\Project $Project = null,
 		$ID = null
 	) {
 		$this->DB      = $DB;
@@ -89,6 +91,57 @@ class TaskList extends Nette\Object  {
 		return $this;
 	}
 	
+	public function getForm() {
+		
+		$members = $this->DB->table('users')->fetchPairs('us_ID', 'us_name');
+		
+		$form = new UI\Form;;
+		$form->addText('tl_name', 'Jméno', 64)
+			->addRule(UI\Form::FILLED, 'Vyplňte jméno listu')
+			->addCondition(UI\Form::FILLED);
+			
+		$form->addText('tl_color', 'Barva', 16);
+			
+		$form->addRadioList('tl_ico', 'Ikona', array(
+			'ico-inbox'          => 'Inbox',
+			'ico-urgent'         => 'Urgent',
+			'ico-finished'       => 'Finished',
+			'icon-error_outline' => 'Alert',
+			'icon-drafts'        => 'Drafts',
+			'icon-access_time'   => 'Access_time',
+			'icon-folder_open'   => 'Folder',
+		));
+			
+		$form->addCheckboxList('tl_users', 'Members', $members);
+			
+		$form->addHidden('tl_ID');
+
+		$form->addSubmit('send', 'Uložit');
+		
+		$form->onSuccess[] = function($values) {
+			foreach($values as $k => $v) {
+				if (!in_array($k, array_keys($this->data))) {
+					
+					if ($k == 'tl_users') {
+						foreach($v as $user) {
+							$this->addUser($user);
+						}
+					}
+					
+					continue;
+				}
+				
+				$this->data[$k] = $v;
+			}
+			
+			$this->data['tl_author'] = $this->User->getIdentity()->getId();
+
+			return $this->save();
+		};
+		
+		return $form;
+	}
+	
 	public function setProject(\App\Model\Project $Project) {
 		$this->Project = $Project;
 		return $this;
@@ -106,7 +159,6 @@ class TaskList extends Nette\Object  {
 	}
 
 	public function save() {
-		
 		
 		$this->data['tl_path'] = \App\Tools::friendly_url($this->data['tl_name']);
 		

@@ -36,6 +36,7 @@ class ProjectPresenter extends BasePresenter {
 		
 		$this->template->TaskListFactory = $this->TaskListFactory;
 		$this->template->ProjectFactory  = $this->ProjectFactory;
+		$this->template->Project         = $this->Project;
 	}
 	
 	protected function createComponentProjectForm() {

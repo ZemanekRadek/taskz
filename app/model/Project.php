@@ -119,6 +119,19 @@ class Project extends Nette\Object  {
 			}
 			
 			$this->data['pr_ID'] = $row['pr_ID'];
+			
+			// systemove slozky
+			foreach(\App\Model\TaskList::$system as $system) {
+				
+				$system['tl_author'] = $this->data['pr_author'];
+				
+				$List = new \App\Model\TaskList($this->DB, $this->User, $this);
+				$List
+					->init($system)
+					->addProject($this->data['pr_ID'])
+					->save();
+			}
+
 		}
 		
 		// uzivatele

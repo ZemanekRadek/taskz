@@ -79,18 +79,6 @@ class RegistrationPresenter extends Nette\Application\UI\Presenter {
 				));
 			$Project
 				->save();
-				
-				
-			foreach(\App\Model\TaskList::$system as $system) {
-				
-				$system['tl_author'] = $userID;
-				
-				$List = new \App\Model\TaskList($this->DB, $this->user, $Project);
-				$List
-					->init($system)
-					->addProject($Project->pr_ID)
-					->save();
-			}
 			
 			$this->DB->commit();
 			
