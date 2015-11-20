@@ -29,6 +29,7 @@ class DashboardPresenter extends BasePresenter {
 		
 		$this->template->TaskListFactory = $this->TaskListFactory;
 		$this->template->ProjectFactory  = $this->ProjectFactory;
+		$this->template->Project         = null;
 	}
 	
 	public function actionDefault() {

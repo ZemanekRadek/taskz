@@ -69,6 +69,13 @@
 		<div class="lt-container">
 			<div class="lt-menu">
 
+				{if $Project}
+				
+				<h1><strong>{$Project->pr_name}</h1>
+				<p>
+					<a href="{link Dashboard:}">Zpět na dashboard</a>
+				</p>
+				{else}
 				<strong>Projekty</strong>
 				<ul>
 					{foreach $ProjectFactory->getAll() as $project}
@@ -77,8 +84,11 @@
 					</li>
 					{/foreach}
 				</ul>
+				{/if}
 				
+				<p>
 				<strong>Navigace</strong>
+				</p>
 				<ul>
 					{foreach $TaskListFactory->getAll() as $list}
 					<li>
