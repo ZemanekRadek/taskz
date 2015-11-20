@@ -1,2 +1,41 @@
 {block content}
 <h1>Nový tasklist</h1>
+{form newList}
+
+<div class="form-tasklist">
+  <div class="form-group">
+    <input type="text" n:name=tl_name class="form-control"  required=" " />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label for="frm-registrationForm-us_name">Name</label>
+  </div>
+
+  <div class="form-group">
+    <label>Ico</label>
+    {foreach $form[tl_ico]->items as $key => $value}
+    <label n:name="tl_ico:$key"><input n:name="tl_ico:$key"/>{$value}</label>
+    {/foreach}
+  </div>
+  
+  <div class="form-group">
+    <input type="text" n:name=tl_color class="form-control"  required=" " />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label n:name="tl_color">Color</label>
+  </div>
+  
+  
+  <div class="form-group">
+    <label>Members</label>
+    {foreach $form[tl_users]->items as $key => $value}
+    <label n:name="tl_users:$key"><input n:name="tl_users:$key"/>{$value}</label>
+    {/foreach}
+    <span class="highlight"></span>
+    <span class="bar"></span>
+  </div>
+  
+  <div class="form-group">
+  	<button type="submit" class="btn-block btn btn-lg btn-primary">Save</button>
+  </div>
+</div>
+{/form}
