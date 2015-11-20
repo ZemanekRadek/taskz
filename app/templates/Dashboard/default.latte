@@ -1,77 +1,8 @@
 
 {block content}
 		<div class="container">
-			<ul id="tl-menu" class="tl-menu-main">
-				<li class="tl-trigger">
-					<a class="tl-icon tl-icon-menu"><span>Menu</span></a>
-					<nav class="tl-menu-wrapper">
-						<div class="tl-scroller">
-							<ul class="tl-menu">
-								{foreach $TaskListFactory->getAll() as $list}
-								<li>
-									<a class="tl-icon tl-icon-inbox" href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">{$list->tl_name}</a>
-								</li>
-								{/foreach}
-								<li>
-									<a class="tl-icon" href="{link List:new}"><i class="icon-inbox"></i>Nový taskList</a>
-								</li>
-							</ul>
-						</div><!-- /tl-scroller -->
-					</nav>
-				</li>
-				<li id="dd" class="wrapper-dropdown" tabindex="1">AKTUÁLNÍ PROJEKT
-						<ul class="dropdown">
-							{foreach $ProjectFactory->getAll() as $project}
-							<li>
-								<a href="{link List:default projectID=>$project->pr_ID, projectName=>$project->pr_path,lang=>$presenter->lang}">{$project->pr_name}</a>
-							</li>
-							{/foreach}
-							<li><a href="{link Project:create}"><i class="icon-add_box"></i>New Project</a></li>
-						</ul>
-				</li>
-				<li><a href="link Project:}"><span>Project Settings</span></a></li>
-				<li><a href="{link Sign:out}"><span>Logout</span></a></li>
-			</ul>
 			<header>
 				<p>Oh no! There are no tasks in Tazkie! <br />... but you can create <a href="http://www.google.com/nexus/index.html">new one</p>
 			</header>
 		</div><!-- /container -->
 
-		<!-- JQUERY MENU -->
-		<script src="{$basePath}/img/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-		<script src="{$basePath}/img/js/classie.js"></script>
-		<script src="{$basePath}/img/js/tasklist-menu.js"></script>
-		<script>
-			new tlMenu( document.getElementById( 'tl-menu' ) );
-		</script>
-
-		<!-- JQUERY DROPDOWN -->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script type="text/javascript">
-
-			function DropDown(el) {
-				this.dd = el;
-				this.initEvents();
-			}
-			DropDown.prototype = {
-				initEvents : function() {
-					var obj = this;
-
-					obj.dd.on('click', function(event){
-						$(this).toggleClass('active');
-						event.stopPropagation();
-					});
-				}
-			}
-
-			$(function() {
-
-				var dd = new DropDown( $('#dd') );
-
-				$(document).click(function() {
-					$('.wrapper-dropdown').removeClass('active');
-				});
-
-			});
-
-		</script>

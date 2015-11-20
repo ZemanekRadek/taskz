@@ -54,6 +54,10 @@
 	<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
 	<script src="{$basePath}/img/js/bootstrap.min.js"></script>
 	<script src="{$basePath}/img/js/main.js"></script>
+	<script src="{$basePath}/img/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	<script src="{$basePath}/img/js/classie.js"></script>
+	<script src="{$basePath}/img/js/tasklist-menu.js"></script>
+
 
 	{/block}
 	{block head}{/block}
@@ -66,54 +70,95 @@
 		{include content}
 	{else}
 		{block menu}
+		<div class="lt-menu">
+			<ul id="tl-menu" class="tl-menu-main">
+				<li class="tl-trigger">
+					<a class="tl-icon tl-icon-menu"><span>Menu</span></a>
+					<nav class="tl-menu-wrapper">
+						<div class="tl-scroller">
+							<ul class="tl-menu">
+								{foreach $TaskListFactory->getAll() as $list}
+								<li>
+									<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
+										<span class="{$list->tl_ico}"></span>
+										{$list->tl_name}
+									</a>
+								</li>
+								{/foreach}
+								<li>
+									<a class="tl-icon" href="{link List:new}"><span class="icon-inbox"></span>Nový taskList</a>
+								</li>
+								
+								{if $Project}
+								<li>
+									<a href="{link Dashboard:}"><span class="icon-back"></span>Zpět na dashboard</a>
+								</li>
+								{/if}
+							</ul>
+						</div><!-- /tl-scroller -->
+					</nav>
+				</li>
+				<li id="dd" class="wrapper-dropdown" tabindex="1">
+					{if $Project}{$Project->pr_name}{else}Projekt není vybrán{/if}
+						<ul class="dropdown">
+							{foreach $ProjectFactory->getAll() as $project}
+							<li>
+								<a href="{link List:default projectID=>$project->pr_ID, projectName=>$project->pr_path,lang=>$presenter->lang}">{$project->pr_name}</a>
+							</li>
+							{/foreach}
+							<li><a href="{link Project:create}"><i class="icon-add_box"></i>New Project</a></li>
+						</ul>
+				</li>
+				<li><a href="{link Project:}"><span>Project Settings</span></a></li>
+				<li><a href="{link Sign:out}"><span>Logout</span></a></li>
+			</ul>
+		</div>
+			
+
+		<!-- JQUERY MENU -->
+		<script>
+			new tlMenu( document.getElementById( 'tl-menu' ) );
+		</script>
+
+		<!-- JQUERY DROPDOWN -->
+		
+		<script type="text/javascript">
+
+			function DropDown(el) {
+				this.dd = el;
+				this.initEvents();
+			}
+			DropDown.prototype = {
+				initEvents : function() {
+					var obj = this;
+
+					obj.dd.on('click', function(event){
+						$(this).toggleClass('active');
+						event.stopPropagation();
+					});
+				}
+			}
+
+			$(function() {
+
+				var dd = new DropDown( $('#dd') );
+
+				$(document).click(function() {
+					$('.wrapper-dropdown').removeClass('active');
+				});
+
+			});
+
+		</script>
+			
+			
 		<div class="lt-container">
-			<div class="lt-menu">
 
-				{if $Project}
+		</div>
+		{/block}
 
-				<h1><strong>{$Project->pr_name}</h1>
-				<p>
-					<a href="{link Dashboard:}">Zpět na dashboard</a>
-				</p>
-				{else}
-				<strong>Projekty</strong>
-				<ul>
-					{foreach $ProjectFactory->getAll() as $project}
-					<li>
-						<a href="{link List:default projectID=>$project->pr_ID, projectName=>$project->pr_path,lang=>$presenter->lang}">{$project->pr_name}</a>
-					</li>
-					{/foreach}
-				</ul>
-				{/if}
-
-				<p>
-				<strong>Navigace</strong>
-				</p>
-				<ul>
-					{foreach $TaskListFactory->getAll() as $list}
-					<li>
-						<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">{$list->tl_name}</a>
-					</li>
-					{/foreach}
-
-
-					<li>
-						<a href="{link Project:create}">Nový projekt</a>
-					</li>
-					<li>
-						<a href="{link List:new}">Nový taskList</a>
-					</li>
-					<li>
-						<a href="{link Project:}">Nastavení</a>
-					</li>
-					<li><a href="{link Sign:out}">Odhlásit</a></li>
-				</ul>
-			</div>
-			{/block}
-
-			<div class="lt-content">
-			{include content}
-			</div>
+		<div class="lt-content">
+		{include content}
 		</div>
 	{/if}
 
