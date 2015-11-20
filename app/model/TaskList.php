@@ -103,9 +103,9 @@ class TaskList extends Nette\Object  {
 		$form->addText('tl_color', 'Barva', 16);
 			
 		$form->addRadioList('tl_ico', 'Ikona', array(
-			'ico-inbox'          => 'Inbox',
-			'ico-urgent'         => 'Urgent',
-			'ico-finished'       => 'Finished',
+			'icon-inbox'          => 'Inbox',
+			'icon-urgent'         => 'Urgent',
+			'icon-finished'       => 'Finished',
 			'icon-error_outline' => 'Alert',
 			'icon-drafts'        => 'Drafts',
 			'icon-access_time'   => 'Access_time',
