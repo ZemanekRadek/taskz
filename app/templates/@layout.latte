@@ -58,6 +58,9 @@
 	<script src="{$basePath}/img/js/classie.js"></script>
 	<script src="{$basePath}/img/js/tasklist-menu.js"></script>
 
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 
 	{/block}
 	{block head}{/block}
@@ -86,12 +89,12 @@
 								</li>
 								{/foreach}
 								<li>
-									<a class="tl-icon" href="{link List:new}"><span class="icon-inbox"></span>Nový taskList</a>
+									<a class="tl-icon" "icon-inbox" href="{link List:new}">New Task List</a>
 								</li>
-								
+
 								{if $Project}
 								<li>
-									<a href="{link Dashboard:}"><span class="icon-back"></span>Zpět na dashboard</a>
+									<a href="{link Dashboard:}"><span class="icon-back"></span>Back to Dashboard</a>
 								</li>
 								{/if}
 							</ul>
@@ -99,7 +102,7 @@
 					</nav>
 				</li>
 				<li id="dd" class="wrapper-dropdown" tabindex="1">
-					{if $Project}{$Project->pr_name}{else}Projekt není vybrán{/if}
+				{if $Project}{$Project->pr_name}{else}No project selected{/if}
 						<ul class="dropdown">
 							{foreach $ProjectFactory->getAll() as $project}
 							<li>
@@ -113,7 +116,7 @@
 				<li><a href="{link Sign:out}"><span>Logout</span></a></li>
 			</ul>
 		</div>
-			
+
 
 		<!-- JQUERY MENU -->
 		<script>
@@ -121,7 +124,7 @@
 		</script>
 
 		<!-- JQUERY DROPDOWN -->
-		
+
 		<script type="text/javascript">
 
 			function DropDown(el) {
@@ -150,8 +153,8 @@
 			});
 
 		</script>
-			
-			
+
+
 		<div class="lt-container">
 
 		</div>

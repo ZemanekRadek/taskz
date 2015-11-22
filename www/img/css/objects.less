@@ -41,8 +41,8 @@ a {
 		color: @colorNavLink;
 		list-style: none;
 		text-transform: none;
-		font-weight: 300;
-		line-height: 50px;
+		font-weight: 400;
+		line-height: 4em;
 }
 
 .tl-menu-main {
@@ -89,7 +89,6 @@ a {
 			padding: 0 30px;
 			text-transform: uppercase;
 			letter-spacing: 1px;
-			font-weight: bold;
 	}
 
 	&:after {
@@ -101,7 +100,7 @@ a {
 }
 
 .no-touch .tl-menu-main a:hover {
-		background: @colorValidationError;
+		background: @colorNavBarHover;
 		color: @colorNavLink;
 }
 
@@ -134,7 +133,8 @@ a {
 .tl-menu {
 		border-bottom: 1px solid @colorNavBackground;
 		text-align: left;
-		font-size: 18px;
+		font-size: 1.2em;
+		font-weight: 400;
 
 	& li:not(:first-child),
 	& .tl-menu li li {
@@ -168,20 +168,22 @@ a {
 		vertical-align: -2px;
 		width: 30px;
 		height: 3px;
-		background: #5f6f81;
-		box-shadow: 0 3px white, 0 -6px #5f6f81, 0 -9px white, 0 -12px #5f6f81;
-		content: '';
+
+		content: "\e20e";
 }
 
 .no-touch .tl-icon-menu:hover::before,
 .no-touch .tl-icon-menu.tl-selected:hover::before {
-		background: red;
+		background: @colorNavBarHover;
 		box-shadow: 0 3px #5f6f81, 0 -6px white, 0 -9px #5f6f81, 0 -12px white;
 }
 
-.tl-icon-menu.gn-selected::before {
-		background: #5993cd;
-		box-shadow: 0 3px white, 0 -6px #5993cd, 0 -9px white, 0 -12px #5993cd;
+.tl-icon-menu.tl-selected::before {
+	content: "\e209";
+	background: @colorNavBarSelected;
+	color: @ucolorPositive;
+	.box-shadow(inset 0px 3px 0px 0px @ucolorPositive);
+	.transition(600ms);
 }
 
 /* styles for opening menu */
@@ -316,7 +318,7 @@ a {
 		    vertical-align: middle;
 		}
 		&li:hover a {
-		    color: red;
+		    color: @colorNavBarHover;
 		}
 }
 
@@ -324,10 +326,12 @@ a {
 /* Active state */
 
 .wrapper-dropdown.active {
-    background: #332E2A;
+    background: @colorNavBarSelected;
+		color: @ucolorPositive;
     box-shadow: none;
     border-bottom: none;
-    color: white;
+		.box-shadow(inset 0px 3px 0px 0px @ucolorPositive);
+		.transition(600ms);
 
 		&::after{
 			  border-width: 0 6px 6px 6px;
@@ -559,15 +563,23 @@ label{
 }
 
 /* LOGIN PAGE STYLEZZ  ------------------------------- */
+.dialog-header,
 .login-header {
 	text-align: center !important;
 	padding-top: 7%;
 	padding-top: 7vh;
 	height: 100%;
 	width: 100%;
+	font-weight: 600;
+
+	.h1 {
+		margin-bottom: 0;
+	}
 }
 
+.form,
 .form-login,
+.form-newproject,
 .form-registration {
 	padding: 15px;
 	margin: 0 auto;

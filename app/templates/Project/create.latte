@@ -2,6 +2,36 @@
 
 {block content}
 
+  <div class="dialog-header">
+		<h1>Create new project</h1>
+	</div>
+
+  <div class="form-newproject">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="box">
+						<h2 class="text-center">Wanna new project? Just fill it's name</h2>
+
+            <div class="form-group">
+              <input type="text" size="64" id=frm-projectForm-pr_name class="form-control" required />
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label for="frm-projectForm-pr_name">Project name<span class="label-required">*</span></label>
+              <span class="error">
+              </span>
+            </div>
+
+            <p class="hint-text"><span class="label-required">*</span> Oh, yes. You quess right - this is required.</p>
+
+            <button type="submit" class="btn-block btn btn-lg btn-primary">Create project</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <h1 n:block="title">{_'projects new'}</h1>
 
 {control projectForm}
