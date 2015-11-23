@@ -58,6 +58,9 @@
 	<script src="{$basePath}/img/js/classie.js"></script>
 	<script src="{$basePath}/img/js/tasklist-menu.js"></script>
 
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 
 	{/block}
 	{block head}{/block}
@@ -91,11 +94,13 @@
 								</li>
 								
 								{if isset($Task)&&$Task}
+								<li>
 								<a href="{link List:list projectID=>$Project->pr_ID, projectName=>$Project->pr_path,taskListID=>$TaskList->tl_ID, taskListName=>$TaskList->tl_path,lang=>$presenter->lang}">{_'back to tasklist'}</a>
+								</li>
 								{/if}
 								
 								<li>
-									<a href="{link Dashboard:}"><span class="icon-back"></span>Zpět na dashboard</a>
+									<a href="{link Dashboard:}"><span class="icon-back"></span>Back to Dashboard</a>
 								</li>
 								{/if}
 							</ul>
@@ -103,7 +108,7 @@
 					</nav>
 				</li>
 				<li id="dd" class="wrapper-dropdown" tabindex="1">
-					{if $Project}{$Project->pr_name}{else}Projekt není vybrán{/if}
+				{if $Project}{$Project->pr_name}{else}No project selected{/if}
 						<ul class="dropdown">
 							{foreach $ProjectFactory->getAll() as $pr}
 							<li>
@@ -117,7 +122,7 @@
 				<li><a href="{link Sign:out}"><span>Logout</span></a></li>
 			</ul>
 		</div>
-			
+
 
 		<!-- JQUERY MENU -->
 		<script>
@@ -125,7 +130,7 @@
 		</script>
 
 		<!-- JQUERY DROPDOWN -->
-		
+
 		<script type="text/javascript">
 
 			function DropDown(el) {
@@ -154,9 +159,6 @@
 			});
 
 		</script>
-			
-			
-			
 		<div class="lt-container">
 		{if $Project&&$TaskList}
 			<div class="lt-searcher">
