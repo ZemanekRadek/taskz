@@ -24,6 +24,8 @@ class ListPresenter extends BasePresenter {
 	
 	private $User;
 	
+	private $TaskList;
+	
 	public function __construct(
 		\App\Model\ProjectFactory $ProjectFactory, 
 		\App\Model\TaskListFactory $TaskListFactory, 
@@ -38,24 +40,33 @@ class ListPresenter extends BasePresenter {
 		$this->ProjectFactory  = $ProjectFactory;
 		$this->DB              = $DB;
 		$this->User            = $User;
+		
+		
 	}
 	
 	public function startup() {
 		parent::startup();
 		
+		$this->Project = new \App\Model\Project($this->DB, $this->User, $this->getParameter('projectID'));
+		$this->TaskListFactory->setProject($this->Project);
+
+		$this->TaskList = new \App\Model\TaskList($this->DB, $this->User, $this->Project, $this->getParameter('taskListID'));
+		
 		$this->template->TaskListFactory = $this->TaskListFactory;
 		$this->template->ProjectFactory  = $this->ProjectFactory;
 		$this->template->Project         = $this->Project;
+		$this->template->TaskList        = $this->TaskList;
+		
+		Debugger::barDump($this->TaskList);
 	}
 
 	public function actionDefault() {
-		$this->Project = new \App\Model\Project($this->DB, $this->User, $this->getParameter('projectID'));
-		$this->TaskListFactory->setProject($this->Project);
 	}
 	
 	public function actionList() {
-		$this->Project = new \App\Model\Project($this->DB, $this->User, $this->getParameter('projectID'));
-		$this->TaskListFactory->setProject($this->Project);
+	}
+	
+	public function actionNew() {
 	}
 	
 	public function createComponentNewList() {
