@@ -13,6 +13,10 @@ class Task extends Nette\Object  {
 
 	/** @var Nette\Security\User @inject */
 	private $User;
+	
+	private $TaskList;
+	
+	private $Project;
 
 	/**
 	 * @param Nette\Database\Connection $db
@@ -20,10 +24,23 @@ class Task extends Nette\Object  {
 	 */
 	public function __construct(
 		\Nette\Database\Context $DB,
-		\Nette\Security\User $User
+		\App\Model\User $User,
+		\App\Model\Project $Project = null,
+		\App\Model\TaskList $TaskList = null,
+		$ID = null
 	) {
-		$this->DB   = $DB;
-		$this->User = $User;
+		$this->DB      = $DB;
+		$this->User    = $User;
+		$this->Project = $Project;
+		$this->TaskList = $TaskList;
+		
+		if ($ID) {
+			/*
+			$this->init($this->DB->table('tasks_list')->where(array(
+				'tl_ID'      => $ID,
+			))->fetch());
+			*/
+		}
 	}
 
 	private $table = "tasks";
@@ -34,12 +51,10 @@ class Task extends Nette\Object  {
 
 	public function getForm() {
 
-
-
 		$form   = new UI\Form;
-		$states = new StateList($this->DB);
+		// $states = new StateList($this->DB);
 		$users  = new UserList($this->DB);
-		$tags   = new TagList($this->DB);
+		// $tags   = new TagList($this->DB);
 
 		$form->addText('ta_name', 'Název úkolu', 128)
 			->addRule(UI\Form::FILLED, 'Vyplňte název úkolu')
@@ -47,18 +62,18 @@ class Task extends Nette\Object  {
 
 		$form->addTextArea('ta_description', 'Popis úkolu');
 
-		$form->addSelect('ta_state', 'Stav', $states->get());
+		$form->addSelect('ta_state', 'Stav', array()); //$states->get());
 		$form->addText('ta_urgent', 'Urgent');
 
 		$form->addText('ta_timeTo', 'Splnit do')
 			->addRule(UI\Form::PATTERN, 'Špatný formát datumu', '[0-9]{2}\.[0-9]{2}\.[0-9]{4}');
 
 		$form->addCheckboxList('ta_users', 'Uživatelé', $users->getAll());
-		$form->addCheckboxList('ta_tags', 'Tagy', $tags->getAll(true));
+		$form->addCheckboxList('ta_tags', 'Tagy', array()); //$tags->getAll(true));
 
 		$form->addHidden('ta_ID');
 		$form->addHidden('ta_created');
-		$form->addHidden('ta_author', $this->User->getId());
+		$form->addHidden('ta_author', $this->User->getIdentity()->getId());
 
 		$form->addSubmit('ta_send', 'Uložit');
 

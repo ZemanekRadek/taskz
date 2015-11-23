@@ -41,7 +41,9 @@ $container = $configurator->createContainer();
 $router = $container->getService('router');
 // $router[] = new Route('[<lang=cs [a-z]{2}>/]<project>/<presenter>/<action>', "Dashboard:default");
 
+$router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]<projectID>-<projectName>/<taskListID>-<taskListName>/new/', "Task:new");
 $router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]<projectID>-<projectName>/<taskListID>-<taskListName>/', "List:list");
+$router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]<projectID>-<projectName>/new/', "List:new");
 $router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]<projectID>-<projectName>/', "List:default");
 $router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]project/<action>', "Project:default");
 
