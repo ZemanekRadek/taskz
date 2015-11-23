@@ -130,6 +130,33 @@ a {
 		height: 100%;
 }
 
+.tl-icon-menu {
+	
+	line-height: 1.75em;
+	font-size: 2em;
+	
+	.icon-menu {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.icon-close {
+		display: none;
+	}
+	&.tl-selected {
+		.icon-menu {
+			display: none;
+		}
+		
+		.icon-close {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+}
+
+
+
+/*
 .tl-menu {
 		border-bottom: 1px solid @colorNavBackground;
 		text-align: left;
@@ -153,14 +180,17 @@ a {
 .tl-icon-inbox::before {
 		content: "\e07a";
 }
+*/
 
 /* if an icon anchor has a span, hide the span */
 
+/*
 .tl-icon span {
 		width: 0;
 		height: 0;
 		display: block;
 		overflow: hidden;
+		font-family: 'tazkie_final';
 }
 
 .tl-icon-menu::before {
@@ -185,6 +215,7 @@ a {
 	.box-shadow(inset 0px 3px 0px 0px @ucolorPositive);
 	.transition(600ms);
 }
+*/
 
 /* styles for opening menu */
 
