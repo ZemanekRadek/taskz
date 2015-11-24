@@ -5,9 +5,10 @@
 {block content}
 
   <div class="dialog-header">
-		<h1>Create new project</h1>
+		<h1 n:block="title">{_'projects new'}</h1>
 	</div>
 
+	{form projectForm}
   <div class="form-newproject">
     <div class="container-fluid">
       <div class="row">
@@ -16,10 +17,10 @@
 						<h2 class="text-center">Wanna new project? Just fill it's name</h2>
 
             <div class="form-group">
-              <input type="text" size="64" id=frm-projectForm-pr_name class="form-control" required />
+              <input type="text" size="64" n:name="pr_name" class="form-control" required />
               <span class="highlight"></span>
               <span class="bar"></span>
-              <label for="frm-projectForm-pr_name">Project name<span class="label-required">*</span></label>
+              <label n:name="pr_name">Project name<span class="label-required">*</span></label>
               <span class="error">
               </span>
             </div>
@@ -33,7 +34,4 @@
       </div>
     </div>
   </div>
-
-<h1 n:block="title">{_'projects new'}</h1>
-
-{control projectForm}
+  {/form}

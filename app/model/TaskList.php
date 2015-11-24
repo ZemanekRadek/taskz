@@ -25,8 +25,8 @@ class TaskList extends Nette\Object  {
 	public static $system = array(
 		'inbox'     => array('tl_name' => 'Inbox', 'tl_ico'    => 'ico-inbox', 'tl_systemIdentifier'    => 'inbox', 'tl_path' => 'inbox', 'tl_color' => '0000ff'),
 		'urgent'    => array('tl_name' => 'Urgent', 'tl_ico'   => 'ico-urgent', 'tl_systemIdentifier'   => 'urgent', 'tl_path' => 'urgent', 'tl_color' => 'ff0000'),
-		'finished'  => array('tl_name' => 'Finished', 'tl_ico' => 'ico-finished', 'tl_systemIdentifier' => 'finished', 'tl_path' => 'finished', '00ff00'),
-		'deleted'   => array('tl_name' => 'Deleted', 'tl_ico' => 'ico-deleted', 'tl_systemIdentifier' => 'finished', 'tl_path' => 'deleted', '000000'),
+		'finished'  => array('tl_name' => 'Finished', 'tl_ico' => 'ico-finished', 'tl_systemIdentifier' => 'finished', 'tl_path' => 'finished', 'tl_color'=>'00ff00'),
+		'deleted'   => array('tl_name' => 'Deleted', 'tl_ico' => 'ico-deleted', 'tl_systemIdentifier' => 'finished', 'tl_path' => 'deleted', 'tl_color'=>'000000'),
 	);
 	
 	private $data = array(
@@ -172,6 +172,7 @@ class TaskList extends Nette\Object  {
 
 		}
 		else {
+			Debugger::barDump($this->data);
 			$this->data['tl_ID'] = null;
 			
 			$row = $this->DB
