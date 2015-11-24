@@ -12,7 +12,10 @@ body{background: radial-gradient(@colorBorderDefault, @body-bg) !important;}
 
 a {
 	font-weight:600;
+	-ms-transition: all 0.3s ease-out;
+	.transition(all 0.3s ease-out);
 	text-decoration: @link-decoration;
+	cursor: pointer;
 }
 
 .label-required {
@@ -131,10 +134,10 @@ a {
 }
 
 .tl-icon-menu {
-	
+
 	line-height: 1.75em;
 	font-size: 2em;
-	
+
 	.icon-menu {
 		display: inline-block;
 		vertical-align: middle;
@@ -146,7 +149,7 @@ a {
 		.icon-menu {
 			display: none;
 		}
-		
+
 		.icon-close {
 			display: inline-block;
 			vertical-align: middle;
@@ -596,16 +599,32 @@ label{
 /* LOGIN PAGE STYLEZZ  ------------------------------- */
 .dialog-header,
 .login-header {
-	text-align: center !important;
-	padding-top: 7%;
-	padding-top: 7vh;
 	height: 100%;
 	width: 100%;
 	font-weight: 600;
+	position: relative;
 
+	.heading {
+		text-align: center !important;
+		padding-top: 7%;
+		padding-top: 7vh;
+	}
 	.h1 {
 		margin-bottom: 0;
 	}
+
+	.closebox {
+		position: fixed;
+		right: 2em;
+		top: 0;
+
+		a {
+				text-decoration: none;
+				font-size: 4em;
+		}
+
+	}
+
 }
 
 .form,

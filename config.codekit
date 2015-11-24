@@ -20,6 +20,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/app\/controls\/ColorPicker.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/app\/controls\/ColorPicker.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/app\/model\/Authenticator.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -6515,6 +6524,26 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
+	"\/www\/img\/css\/jquery\/jquery.tinycolorbox.less": {
+		"allowInsecureImports": 0,
+		"createSourceMap": 0,
+		"disableJavascript": 0,
+		"fileType": 1,
+		"ieCompatibility": 1,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/css\/jquery\/jquery.tinycolorbox.less",
+		"outputAbbreviatedPath": "\/www\/img\/css\/css\/jquery.tinycolorbox.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"relativeURLS": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"strictImports": 0,
+		"strictMath": 0,
+		"strictUnits": 0
+		},
 	"\/www\/img\/css\/lesshat.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
@@ -6775,6 +6804,17 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
+	"\/www\/img\/gfx\/jquery\/tinycolorpicker.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 10965,
+		"inputAbbreviatedPath": "\/www\/img\/gfx\/jquery\/tinycolorpicker.png",
+		"outputAbbreviatedPath": "\/www\/img\/gfx\/jquery\/tinycolorpicker.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/www\/img\/js\/bootstrap.min.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -6792,6 +6832,39 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/www\/img\/js\/classie.js",
 		"outputAbbreviatedPath": "\/www\/img\/js\/min\/classie-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/www\/img\/js\/jquery\/jquery-1.11.3.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/js\/jquery\/jquery-1.11.3.min.js",
+		"outputAbbreviatedPath": "\/www\/img\/js\/jquery\/min\/jquery-1.11.3.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/www\/img\/js\/jquery\/jquery-ui.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/js\/jquery\/jquery-ui.min.js",
+		"outputAbbreviatedPath": "\/www\/img\/js\/jquery\/min\/jquery-ui.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/www\/img\/js\/jquery\/jquery.tinycolorpicker.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/js\/jquery\/jquery.tinycolorpicker.min.js",
+		"outputAbbreviatedPath": "\/www\/img\/js\/jquery\/min\/jquery.tinycolorpicker.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -6836,6 +6909,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/www\/img\/js\/modernizr-custom.js",
 		"outputAbbreviatedPath": "\/www\/img\/js\/min\/modernizr-custom-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/www\/img\/js\/netteForms.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/js\/netteForms.min.js",
+		"outputAbbreviatedPath": "\/www\/img\/js\/min\/netteForms.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
