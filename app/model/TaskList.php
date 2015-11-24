@@ -101,7 +101,10 @@ class TaskList extends Nette\Object  {
 			->addRule(UI\Form::FILLED, 'Vyplňte jméno listu')
 			->addCondition(UI\Form::FILLED);
 			
-		$form->addText('tl_color', 'Barva', 16);
+		// $form->addText('tl_color', 'Barva', 16);
+		
+		$form['tl_color'] = new \App\Controls\ColorPicker('Barva:');
+		$form['tl_color']->setValue('#000000');
 			
 		$form->addRadioList('tl_ico', 'Ikona', array(
 			'icon-inbox'          => 'Inbox',
