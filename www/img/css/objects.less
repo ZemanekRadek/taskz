@@ -142,9 +142,11 @@ a {
 		display: inline-block;
 		vertical-align: middle;
 	}
+
 	.icon-close {
 		display: none;
 	}
+
 	&.tl-selected {
 		.icon-menu {
 			display: none;
@@ -378,7 +380,7 @@ a {
 		}
 }
 
-/* MAIN STYLES - BUTTONZZ  ------------------------------- */
+/* BUTTON STYLEZZ ------------------------------- */
 .btn {
 	padding: 15px 20px;
 	border: 0 none;
@@ -452,7 +454,7 @@ a {
 	}
 }
 
-/* MAIN STYLEZZ - INPUT & FORM ------------------------------- */
+/* INPUT & FORM STYLEZZ ------------------------------- */
 .form-control:focus,
 *:focus,
 *:active {
@@ -560,7 +562,52 @@ label{
 	opacity:0.5;
 }
 
-/* MAIN STYLES - VALIDATION  ------------------------------- */
+.static-label{
+	color:@text-color;
+	text-transform: uppercase;
+	font-size:1em;
+	font-weight:400;
+	margin-bottom: 10px;
+
+}
+
+/* FORM ELEMENTS - ICON BOX  ------------------------------- */
+
+.icon-box {
+    width: 40px;
+		height: 40px;
+    display:inline-block;
+		vertical-align: middle;
+    float:left;
+		font-family: 'tazkie_final';
+		font-size: 1.7em;
+		line-height: 1.4em;
+		padding-left: 0.5em;
+
+		input{
+			visibility:hidden;
+
+			&:focus + label,
+			&:hover + label {
+			-ms-transition: all 0.5s ease;
+			.transition(500ms ease all);
+			background: #FFFFFF;
+			border: 1px solid @colorFunctionHover;
+			.box-shadow(0px 0px 2px 0px rgba(123,117,112,0.30), 0px 2px 5px 0px rgba(123,117,112,0.50));
+
+			}
+
+			&:checked + label {
+			background: #FAF9F8;
+			border: 1px solid rgba(123,117,112,0.25);
+			.box-shadow(inset 0px 0px 5px 0px rgba(123,117,112,0.25));
+
+			}
+		}
+}
+
+
+/* INPUT - VALIDATION  ------------------------------- */
 .errors{
 	width: 100%;
 	padding: 20px 10px 10px;
@@ -630,6 +677,7 @@ label{
 .form,
 .form-login,
 .form-newproject,
+.form-tasklist,
 .form-registration {
 	padding: 15px;
 	margin: 0 auto;

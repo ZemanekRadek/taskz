@@ -1,41 +1,60 @@
 {block topMenu}{/block}
 
 {block content}
-<h1>Nový tasklist</h1>
-{form newList}
+  <div class="dialog-header">
+    <div class="closebox">
+        <a href="#"><i class="icon-close"></i><span class="sr-only">Close</span></a>
+    </div>
+    <div class="heading">
+		    <h1>New Task List</h1>
+    </div>
+	</div>
 
-<div class="form-tasklist">
-  <div class="form-group">
-    <input type="text" n:name=tl_name class="form-control"  required=" " />
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label for="frm-registrationForm-us_name">Name</label>
-  </div>
+	{form newList}
+	  <div class="form-tasklist">
+	    <div class="container-fluid">
+	      <div class="row">
+	        <div class="col-md-6 col-md-offset-3">
+	          <div class="box">
+							<h2 class="text-center">Too many tasks? Let's manage them</h2>
 
-  <div class="form-group">
-    <label>Ico</label>
-    {foreach $form[tl_ico]->items as $key => $value}
-    <label n:name="tl_ico:$key"><input n:name="tl_ico:$key"/>{$value}</label>
-    {/foreach}
-  </div>
-  
-  <div class="form-group">
-  	{$form[tl_color]->getControl()}
-    <label n:name="tl_color">Color</label>
-  </div>
-  
-  
-  <div class="form-group">
-    <label>Members</label>
-    {foreach $form[tl_users]->items as $key => $value}
-    <label n:name="tl_users:$key"><input n:name="tl_users:$key"/>{$value}</label>
-    {/foreach}
-    <span class="highlight"></span>
-    <span class="bar"></span>
-  </div>
-  
-  <div class="form-group">
-  	<button type="submit" class="btn-block btn btn-lg btn-primary">Save</button>
-  </div>
-</div>
-{/form}
+						  <div class="form-group">
+						    <input type="text" n:name=tl_name class="form-control"  required=" " />
+						    <span class="highlight"></span>
+						    <span class="bar"></span>
+						    <label for="frm-registrationForm-us_name">Task List Name <span class="label-required">*</span></label>
+						  </div>
+
+						  <div class="form-group">
+						    <h3 class="static-label">Task List Icon</h3>
+
+						    {foreach $form[tl_ico]->items as $key => $value}
+						    <label class="radio-inline icon-box" n:name="tl_ico:$key"><input n:name="tl_ico:$key"/>{$value}</label>
+						    {/foreach}
+						  </div>
+
+						  <div class="form-group">
+						  	{$form[tl_color]->getControl()}
+						    <h3 class="static-label" n:name="tl_color">Task List Color</h3>
+						  </div>
+
+
+						  <div class="form-group">
+						    <h3 class="static-label">Members</h3>
+						    {foreach $form[tl_users]->items as $key => $value}
+						    <label n:name="tl_users:$key"><input n:name="tl_users:$key"/>{$value}</label>
+						    {/foreach}
+						    <span class="highlight"></span>
+						    <span class="bar"></span>
+						  </div>
+
+							<p class="hint-text"><span class="label-required">*</span> Oh, yes. You quess right - this is required.</p>
+
+					  	<button type="submit" class="btn-block btn btn-lg btn-primary">Create Task List</button>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{/form}

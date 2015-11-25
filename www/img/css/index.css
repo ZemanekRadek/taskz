@@ -9163,7 +9163,7 @@ a {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   max-height: 400px;
 }
-/* MAIN STYLES - BUTTONZZ  ------------------------------- */
+/* BUTTON STYLEZZ ------------------------------- */
 .btn {
   padding: 15px 20px;
   border: 0 none;
@@ -9247,7 +9247,7 @@ a {
   padding-top: 7px;
   left: 6px;
 }
-/* MAIN STYLEZZ - INPUT & FORM ------------------------------- */
+/* INPUT & FORM STYLEZZ ------------------------------- */
 .form-control:focus,
 *:focus,
 *:active {
@@ -9365,7 +9365,49 @@ label {
   pointer-events: none;
   opacity: 0.5;
 }
-/* MAIN STYLES - VALIDATION  ------------------------------- */
+.static-label {
+  color: rgba(76, 69, 61, 0.7);
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+/* FORM ELEMENTS - ICON BOX  ------------------------------- */
+.icon-box {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+  font-family: 'tazkie_final';
+  font-size: 1.7em;
+  line-height: 1.4em;
+  padding-left: 0.5em;
+}
+.icon-box input {
+  visibility: hidden;
+}
+.icon-box input:focus + label,
+.icon-box input:hover + label {
+  -ms-transition: all 0.5s ease;
+  -moz-transition: 500ms ease all;
+  -webkit-transition: 500ms ease all;
+  -o-transition: 500ms ease all;
+  transition: 500ms ease all;
+  background: #FFFFFF;
+  border: 1px solid #4A6BC3;
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(123, 117, 112, 0.3), 0px 2px 5px 0px rgba(123, 117, 112, 0.5);
+  -moz-box-shadow: 0px 0px 2px 0px rgba(123, 117, 112, 0.3), 0px 2px 5px 0px rgba(123, 117, 112, 0.5);
+  box-shadow: 0px 0px 2px 0px rgba(123, 117, 112, 0.3), 0px 2px 5px 0px rgba(123, 117, 112, 0.5);
+}
+.icon-box input:checked + label {
+  background: #FAF9F8;
+  border: 1px solid rgba(123, 117, 112, 0.25);
+  -moz-box-shadow: inset 0px 0px 5px 0px rgba(123, 117, 112, 0.25);
+  -webkit-box-shadow: inset 0px 0px 5px 0px rgba(123, 117, 112, 0.25);
+  box-shadow: inset 0px 0px 5px 0px rgba(123, 117, 112, 0.25);
+}
+/* INPUT - VALIDATION  ------------------------------- */
 .errors {
   width: 100%;
   padding: 20px 10px 10px;
@@ -9422,16 +9464,10 @@ label {
   text-decoration: none;
   font-size: 4em;
 }
-.dialog-header .closebox .box,
-.login-header .closebox .box {
-  -moz-box-shadow: 0px 0px 2px 0px rgba(123, 117, 112, 0.7);
-  -webkit-box-shadow: 0px 0px 2px 0px rgba(123, 117, 112, 0.7);
-  box-shadow: 0px 0px 2px 0px rgba(123, 117, 112, 0.7);
-  padding: 10px 15px;
-}
 .form,
 .form-login,
 .form-newproject,
+.form-tasklist,
 .form-registration {
   padding: 15px;
   margin: 0 auto;
@@ -9439,6 +9475,7 @@ label {
 .form button[type="submit"],
 .form-login button[type="submit"],
 .form-newproject button[type="submit"],
+.form-tasklist button[type="submit"],
 .form-registration button[type="submit"] {
   margin-top: 15px;
   margin-bottom: 15px;
