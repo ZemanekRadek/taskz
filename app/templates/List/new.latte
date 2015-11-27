@@ -26,8 +26,7 @@
 						  </div>
 
 						  <div class="form-group">
-						    <h3 class="static-label">Task List Icon</h3>
-
+						    <label class="static-label">Task List Icon</label>
 						    {foreach $form[tl_ico]->items as $key => $value}
 						    <label class="radio-inline icon-box" n:name="tl_ico:$key"><input n:name="tl_ico:$key"/>{$value}</label>
 						    {/foreach}
@@ -35,12 +34,11 @@
 
 						  <div class="form-group">
 						  	{$form[tl_color]->getControl()}
-						    <h3 class="static-label" n:name="tl_color">Task List Color</h3>
+						    <label class="static-label" n:name="tl_color">Task List Color</label>
 						  </div>
 
-
 						  <div class="form-group">
-						    <h3 class="static-label">Members</h3>
+						    <label class="static-label">Members</label>
 						    {foreach $form[tl_users]->items as $key => $value}
 						    <label n:name="tl_users:$key"><input n:name="tl_users:$key"/>{$value}</label>
 						    {/foreach}

@@ -1,6 +1,7 @@
-<div class="lt-menu">
-	<ul id="tl-menu" class="tl-menu-main">
-		<li class="tl-trigger">
+<div class="topnav">
+	<div id="tl-menu" class="tl-topnav">
+
+		<div class="topnav-item">
 			<a class="tl-icon tl-icon-menu">
 				<span class="icon-menu"></span>
 				<span class="icon-close"></span>
@@ -21,13 +22,13 @@
 						<li>
 							<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><span class="icon-inbox"></span>Nový taskList</a>
 						</li>
-						
+
 						{if isset($Task)&&$Task}
 						<li>
 						<a href="{link List:list projectID=>$Project->pr_ID, projectName=>$Project->pr_path,taskListID=>$TaskList->tl_ID, taskListName=>$TaskList->tl_path,lang=>$presenter->lang}">{_'back to tasklist'}</a>
 						</li>
 						{/if}
-						
+
 						<li>
 							<a href="{link Dashboard:}"><span class="icon-back"></span>Back to Dashboard</a>
 						</li>
@@ -35,8 +36,9 @@
 					</ul>
 				</div><!-- /tl-scroller -->
 			</nav>
-		</li>
-		<li id="dd" class="wrapper-dropdown" tabindex="1">
+		</div>
+
+		<div id="dd" class="wrapper-dropdown" tabindex="1">
 		{if $Project}{$Project->pr_name}{else}No project selected{/if}
 				<ul class="dropdown">
 					{foreach $ProjectFactory->getAll() as $pr}
@@ -46,10 +48,11 @@
 					{/foreach}
 					<li><a href="{link Project:create}"><i class="icon-add_box"></i>New Project</a></li>
 				</ul>
-		</li>
-		<li><a href="{link Project:}"><span>Project Settings</span></a></li>
-		<li><a href="{link Sign:out}"><span>Logout</span></a></li>
-	</ul>
+		</div>
+
+		<div class="topnav-item"><a href="{link Project:}"><span>Project Settings</span></a></div>
+		<div class="topnav-item"><a href="{link Sign:out}"><span>Logout</span></a></div>
+	</div>
 </div>
 
 
