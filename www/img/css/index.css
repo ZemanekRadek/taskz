@@ -8913,24 +8913,9 @@ a {
   height: 100%;
   text-align: center;
 }
-.topnav .tl-topnav li.tl-trigger {
-  position: relative;
-  width: 60px;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 .topnav .tl-topnav .topnav-item:last-child {
   float: right;
   border-right: none;
-}
-.topnav .tl-topnav:after {
-  display: table;
-  clear: both;
-  content: "";
 }
 .topnav .tl-topnav a:hover {
   background: rgba(255, 255, 255, 0.1);
@@ -8959,10 +8944,37 @@ a {
   width: 370px;
   height: 100%;
 }
-.topnav .tl-icon-menu {
-  line-height: 1.4em;
+.topnav .tl-scroller li {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  postion: relative;
+}
+.topnav .tl-scroller li a {
+  display: block;
+  text-decoration: none;
+  height: 50px;
+  -ms-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.topnav .tl-scroller li:last-of-type a {
+  border-top: 1px solid rgba(123, 117, 112, 0.7);
+}
+.topnav .tl-scroller li i {
+  padding-right: 5px;
+  padding-bottom: 5px;
   font-size: 2.57em;
-  width: 50px;
+  color: inherit;
+  vertical-align: middle;
+}
+.topnav .tl-icon-menu {
+  line-height: 1.3em;
+  font-size: 2.57em;
 }
 .topnav .tl-icon-menu .icon-menu {
   display: inline-block;
@@ -9089,7 +9101,6 @@ a {
   margin: 0 auto;
   padding: 0 20px;
   background: #4C453E;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   outline: none;
   -ms-transition: all 0.3s ease-out;
@@ -9109,7 +9120,29 @@ a {
   margin-top: -3px;
   border-width: 6px 6px 0 6px;
   border-style: solid;
+  border-color: #7B7570 transparent;
+}
+.wrapper-dropdown.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  -moz-box-shadow: inset 0px 3px 0px 0px #FFFFFF;
+  -webkit-box-shadow: inset 0px 3px 0px 0px #FFFFFF;
+  box-shadow: inset 0px 3px 0px 0px #FFFFFF;
+  -moz-transition: 600ms;
+  -webkit-transition: 600ms;
+  -o-transition: 600ms;
+  transition: 600ms;
+}
+.wrapper-dropdown.active::after {
+  border-width: 0 6px 6px 6px;
   border-color: rgba(255, 255, 255, 0.5) transparent;
+}
+.wrapper-dropdown.active .dropdown {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  max-height: 400px;
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(123, 117, 112, 0.7), 0px 2px 5px 0px rgba(123, 117, 112, 0.7);
+  -moz-box-shadow: 0px 0px 2px 0px rgba(123, 117, 112, 0.7), 0px 2px 5px 0px rgba(123, 117, 112, 0.7);
+  box-shadow: 0px 0px 2px 0px rgba(123, 117, 112, 0.7), 0px 2px 5px 0px rgba(123, 117, 112, 0.7);
 }
 .wrapper-dropdown .dropdown {
   /* Size & position */
@@ -9142,7 +9175,7 @@ a {
   width: 100%;
   /* Styles */
   background: #5D5751;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid #5D5751;
   border-top: none;
   border-bottom: none;
   list-style: none;
@@ -9165,48 +9198,23 @@ a {
 }
 .wrapper-dropdown .dropdown li a {
   display: block;
-  text-decoration: none;
   height: 50px;
+  text-decoration: none;
   -ms-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 .wrapper-dropdown .dropdown li:last-of-type a {
-  border: none;
+  border-top: 1px solid rgba(123, 117, 112, 0.7);
 }
 .wrapper-dropdown .dropdown li i {
   padding-right: 5px;
+  padding-bottom: 5px;
   font-size: 2em;
   color: inherit;
   vertical-align: middle;
-}
-.wrapper-dropdown .dropdown lili:hover a {
-  color: rgba(51, 46, 42, 0.9);
-}
-/* Active state */
-.wrapper-dropdown.active {
-  background: rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
-  box-shadow: none;
-  border-bottom: none;
-  -moz-box-shadow: inset 0px 3px 0px 0px #FFFFFF;
-  -webkit-box-shadow: inset 0px 3px 0px 0px #FFFFFF;
-  box-shadow: inset 0px 3px 0px 0px #FFFFFF;
-  -moz-transition: 600ms;
-  -webkit-transition: 600ms;
-  -o-transition: 600ms;
-  transition: 600ms;
-}
-.wrapper-dropdown.active::after {
-  border-width: 0 6px 6px 6px;
-  border-color: rgba(255, 255, 255, 0.5) transparent;
-}
-.wrapper-dropdown.active .dropdown {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  max-height: 400px;
 }
 /* BUTTON STYLEZZ ------------------------------- */
 .btn {
