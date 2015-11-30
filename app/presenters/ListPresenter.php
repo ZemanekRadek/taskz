@@ -26,6 +26,8 @@ class ListPresenter extends BasePresenter {
 	
 	private $TaskList;
 	
+	private $backlink;
+	
 	public function __construct(
 		\App\Model\ProjectFactory $ProjectFactory, 
 		\App\Model\TaskListFactory $TaskListFactory, 
@@ -56,6 +58,8 @@ class ListPresenter extends BasePresenter {
 		$this->template->ProjectFactory  = $this->ProjectFactory;
 		$this->template->Project         = $this->Project;
 		$this->template->TaskList        = $this->TaskList;
+		
+		$this->backlink = $this->storeRequest();
 		
 		Debugger::barDump($this->TaskList);
 	}
