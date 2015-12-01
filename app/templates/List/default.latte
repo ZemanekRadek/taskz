@@ -1,4 +1,20 @@
-{block topMenu}{include ../topMenu.latte}{/block}
+
+{block topMenu}<div id="wrapper">{include ../topMenu.latte}{/block}
 {block content}
-<h1>{$Project->pr_name}</h1>
-tady bude vypis projektu
+
+	<button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+			<span class="hamb-top"></span>
+			<span class="hamb-middle"></span>
+			<span class="hamb-bottom"></span>
+	</button>
+
+	<div class="container">
+			<div class="row">
+					<div class="col-lg-8 col-lg-offset-2">
+						<h1>{$Project->pr_name}</h1>
+						tady bude vypis projektu
+
+					</div>
+			</div>
+	</div>
+</div>
