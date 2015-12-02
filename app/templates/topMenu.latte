@@ -1,6 +1,7 @@
-<div class="lt-menu">
-	<ul id="tl-menu" class="tl-menu-main">
-		<li class="tl-trigger">
+<div class="topnav">
+	<div id="tl-menu" class="tl-topnav">
+
+		<div class="topnav-item">
 			<a class="tl-icon tl-icon-menu">
 				<span class="icon-menu"></span>
 				<span class="icon-close"></span>
@@ -12,31 +13,30 @@
 						{foreach $TaskListFactory->getAll() as $list}
 						<li>
 							<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
-								<span class="{$list->tl_ico}"></span>
+								<i class="{$list->tl_ico}"></i>
 								{$list->tl_name}
 							</a>
 						</li>
 						{/foreach}
 						{if $Project}
 						<li>
-							<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><span class="icon-inbox"></span>Nový taskList</a>
+							<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i>New Task List</a>
 						</li>
-						
+
 						{if isset($Task)&&$Task}
 						<li>
 						<a href="{link List:list projectID=>$Project->pr_ID, projectName=>$Project->pr_path,taskListID=>$TaskList->tl_ID, taskListName=>$TaskList->tl_path,lang=>$presenter->lang}">{_'back to tasklist'}</a>
 						</li>
 						{/if}
-						
-						<li>
-							<a href="{link Dashboard:}"><span class="icon-back"></span>Back to Dashboard</a>
-						</li>
+
+
 						{/if}
 					</ul>
 				</div><!-- /tl-scroller -->
 			</nav>
-		</li>
-		<li id="dd" class="wrapper-dropdown" tabindex="1">
+		</div>
+
+		<div id="dd" class="wrapper-dropdown" tabindex="1">
 		{if $Project}{$Project->pr_name}{else}No project selected{/if}
 				<ul class="dropdown">
 					{foreach $ProjectFactory->getAll() as $pr}
@@ -44,12 +44,14 @@
 						<a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}">{$pr->pr_name}</a>
 					</li>
 					{/foreach}
+					<li><a href="{link Dashboard:}"><span class="icon-back"></span>Back to Dashboard</a></li>
 					<li><a href="{link Project:create}"><i class="icon-add_box"></i>New Project</a></li>
 				</ul>
-		</li>
-		<li><a href="{link Project:}"><span>Project Settings</span></a></li>
-		<li><a href="{link Sign:out}"><span>Logout</span></a></li>
-	</ul>
+		</div>
+
+		<div class="topnav-item"><a href="{link Project:}"><span>Project Settings</span></a></div>
+		<div class="topnav-item"><a href="{link Sign:out}"><span>Logout</span></a></div>
+	</div>
 </div>
 
 
