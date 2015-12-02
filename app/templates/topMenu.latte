@@ -1,3 +1,16 @@
+{block bodyClass}
+<body class="is-navigation">
+{/block}
+	<div class="topnav">
+		<div class="topnav-item"><a href="{link Project:}"><span>Project Settings</span></a></div>
+			<div class="topnav-item"><a href="{link Sign:out}"><span>Logout</span></a></div>
+	</div>
+
+	<button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+			<span class="hamb-top"></span>
+			<span class="hamb-middle"></span>
+			<span class="hamb-bottom"></span>
+	</button>
 
 	<!-- Sidebar -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
@@ -41,6 +54,8 @@
 <!-- JQUERY sideMenu -->
 <script type="text/javascript">
 $(document).ready(function () {
+	var $body = $('body');
+	
   var trigger = $('.hamburger'),
       overlay = $('.overlay'),
      isClosed = false;
@@ -53,11 +68,13 @@ $(document).ready(function () {
 
       if (isClosed == true) {
         overlay.hide();
+        $body.removeClass('is-open');
         trigger.removeClass('is-open');
         trigger.addClass('is-closed');
         isClosed = false;
       } else {
         overlay.show();
+        $body.addClass('is-open');
         trigger.removeClass('is-closed');
         trigger.addClass('is-open');
         isClosed = true;

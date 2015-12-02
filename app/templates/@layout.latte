@@ -66,18 +66,24 @@
 
 	{/block}
 	{block head}{/block}
+	
+	
 </head>
 
+{block body}
 <body>
+{/block}
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 	{if !$user->isLoggedIn()}
 		{include content}
 	{else}
+	<div id="wrapper">
 		{include topMenu}
 		<div class="lt-content">
 		{include content}
 		</div>
+	</div>
 	{/if}
 
 </body>

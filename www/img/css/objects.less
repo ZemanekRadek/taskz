@@ -46,6 +46,7 @@ a {
 	padding: 0;
 	top: 0;
 	left: 0;
+	.transition(500ms);
 
 	background: @colorTopNavBackground;
 	color: @colorNavLink;
@@ -68,7 +69,7 @@ a {
 	}
 
 
-	& .topnav-item {
+	.topnav-item {
 		.inline-flexbox();
 		.justify-content(flex-start);
 
@@ -76,12 +77,18 @@ a {
 		float: left;
 		height: 100%;
 		text-align: center;
+		
+		&:first-child {
+			margin-left: 60px;
+		}
+		
+		&:last-child {
+				float: right;
+				border-right: none;
+		}
+
 	}
 
-	& .topnav-item:last-child {
-			float: right;
-			border-right: none;
-	}
 
 	a:hover {
 			background: @colorNavBarSelected;
@@ -89,6 +96,19 @@ a {
 	}
 }
 
+body {
+	&.is-navigation {
+		padding-top: 60px;
+	}
+	&.is-open {
+		.topnav {
+			left: 300px;
+		}
+		.lt-content {
+			left: 300px;
+		}
+	}
+}
 
 
 /* TASK LIST SIDER & WRAPPER STYLEZZ ------------------------------- */
@@ -156,6 +176,8 @@ a {
 		    line-height: 1.42em;
 		    display: inline-block;
 		    width: 100%;
+		    
+		    
 
 				&:before {
 					content: '';
@@ -165,7 +187,7 @@ a {
 					z-index: -1;
 					height: 100%;
 					width: 0;
-				  background-color: @colorNavLinkBGSelected;
+					background-color: @colorNavLinkBGSelected;
 					 -ms-transition:  width .3s ease-in;
 					.transition(width .3s ease-in);
 				}
@@ -184,24 +206,56 @@ a {
 						font-size: 2.57em;
 						vertical-align: middle;
 				}
+				
+				&:first-child {
+					a {
+						// padding: 18px 15px 18px 30px;
+						line-height: 37px;
+					}
+				}
+
 		}
 
-		& li:hover:before,
-		& li.open:hover:before {
-			width: 100%;
-			-ms-transition:  width .3s ease-in;
-			.transition(width .3s ease-in);
-		}
-
-	& li a:hover,
-	& li a:active,
-	& li a:focus,
-	& li.open a:hover,
-	& li.open a:active,
-	& li.open a:focus{
+		
+	li:hover:before,
+	li.open:hover:before {
+		width: 100%;
+		-ms-transition:  width .3s ease-in;
+		.transition(width .3s ease-in);
+	}
+	
+	li a:hover,
+	li a:active,
+	li a:focus,
+	li.open a:hover,
+	li.open a:active,
+	li.open a:focus{
 		color: @colorNavBackground;
 		text-decoration: none;
 		background-color: transparent;
+	}
+	
+	li.open {
+		&:before {
+			background: white !important;
+			color: black !important;
+		}
+		
+		&:hover {
+			background: white !important;
+			color: black !important;
+		}
+		
+		a, a:hover {
+			background: white !important;
+			color: black !important;
+		}
+		
+		ul li a {
+			&:hover {
+				background: red !important;
+			}
+		}
 	}
 
 }
@@ -538,8 +592,8 @@ label{
 	text-transform: uppercase;
 	font-size:1em;
 	font-weight:400;
-	position: absolute;
-	top: -20px;
+	position: inherit;
+	display: block;
 
 }
 

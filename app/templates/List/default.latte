@@ -1,25 +1,13 @@
 
-{block topMenu}<div id="wrapper">{include ../topMenu.latte}{/block}
+{block topMenu}{include ../topMenu.latte}{/block}
 {block content}
-
-	<button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-			<span class="hamb-top"></span>
-			<span class="hamb-middle"></span>
-			<span class="hamb-bottom"></span>
-	</button>
-
 	<div class="container">
-		<div class="topnav">
-			<div class="topnav-item"><a href="{link Project:}"><span>Project Settings</span></a></div>
-				<div class="topnav-item"><a href="{link Sign:out}"><span>Logout</span></a></div>
-		</div>
 
 			<div class="row">
 					<div class="col-lg-8 col-lg-offset-2">
 						<h1>{$Project->pr_name}</h1>
 						tady bude vypis projektu
-
 					</div>
 			</div>
 	</div>
-</div>
+
