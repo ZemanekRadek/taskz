@@ -1,69 +1,78 @@
-<div class="topnav">
-	<div id="tl-menu" class="tl-topnav">
 
-		<div class="topnav-item">
-			<a class="tl-icon tl-icon-menu">
-				<span class="icon-menu"></span>
-				<span class="icon-close"></span>
-				<span class="sr-only">Menu</span>
-			</a>
-			<nav class="tl-menu-wrapper">
-				<div class="tl-scroller">
-					<ul class="tl-menu">
-						{foreach $TaskListFactory->getAll() as $list}
-						<li>
-							<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
-								<i class="{$list->tl_ico}"></i>
-								{$list->tl_name}
-							</a>
-						</li>
+	<!-- Sidebar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+
+			<ul class="nav sidebar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{if $Project}{$Project->pr_name}{else}No project selected{/if}<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						{foreach $ProjectFactory->getAll() as $pr}
+							<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}">{$pr->pr_name}</a></li>
 						{/foreach}
-						{if $Project}
-						<li>
-							<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i>New Task List</a>
-						</li>
-
-						{if isset($Task)&&$Task}
-						<li>
-						<a href="{link List:list projectID=>$Project->pr_ID, projectName=>$Project->pr_path,taskListID=>$TaskList->tl_ID, taskListName=>$TaskList->tl_path,lang=>$presenter->lang}">{_'back to tasklist'}</a>
-						</li>
-						{/if}
-
-
-						{/if}
+						<li><a href="{link Dashboard:}"><i class="icon-back"></i>Back to Dashboard</a></li>
+						<li><a href="{link Project:create}"><i class="icon-add_box"></i>New Project</a></li>
 					</ul>
-				</div><!-- /tl-scroller -->
-			</nav>
-		</div>
-
-		<div id="dd" class="wrapper-dropdown" tabindex="1">
-		{if $Project}{$Project->pr_name}{else}No project selected{/if}
-				<ul class="dropdown">
-					{foreach $ProjectFactory->getAll() as $pr}
+				</li>
+				{foreach $TaskListFactory->getAll() as $list}
 					<li>
-						<a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}">{$pr->pr_name}</a>
+						<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
+							<i class="{$list->tl_ico}"></i>
+							{$list->tl_name}
+						</a>
 					</li>
 					{/foreach}
-					<li><a href="{link Dashboard:}"><span class="icon-back"></span>Back to Dashboard</a></li>
-					<li><a href="{link Project:create}"><i class="icon-add_box"></i>New Project</a></li>
-				</ul>
-		</div>
+					{if $Project}
+					<li>
+						<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i>New Task List</a>
+					</li>
 
-		<div class="topnav-item"><a href="{link Project:}"><span>Project Settings</span></a></div>
-		<div class="topnav-item"><a href="{link Sign:out}"><span>Logout</span></a></div>
-	</div>
-</div>
+					{if isset($Task)&&$Task}
+					<li>
+					<a href="{link List:list projectID=>$Project->pr_ID, projectName=>$Project->pr_path,taskListID=>$TaskList->tl_ID, taskListName=>$TaskList->tl_path,lang=>$presenter->lang}">{_'back to tasklist'}</a>
+					</li>
+					{/if}
+				{/if}
+
+			</ul>
+	</nav>
+	<!-- /#sidebar-wrapper -->
 
 
-<!-- JQUERY MENU -->
-<script>
-	new tlMenu( document.getElementById( 'tl-menu' ) );
+<!-- JQUERY sideMenu -->
+<script type="text/javascript">
+$(document).ready(function () {
+  var trigger = $('.hamburger'),
+      overlay = $('.overlay'),
+     isClosed = false;
+
+    trigger.click(function () {
+      hamburger_cross();
+    });
+
+    function hamburger_cross() {
+
+      if (isClosed == true) {
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
+      }
+  }
+
+  $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+  });
+});
 </script>
 
 <!-- JQUERY DROPDOWN -->
 
 <script type="text/javascript">
-
 	function DropDown(el) {
 		this.dd = el;
 		this.initEvents();
@@ -88,17 +97,4 @@
 		});
 
 	});
-
 </script>
-<div class="lt-container">
-{if isset($Project) && $Project && isset($TaskList) && $TaskList}
-	<div class="lt-searcher">
-		<br /><br />
-		<br /><br />
-		<br /><br />
-		<a href="{link Task:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path,lang=>$presenter->lang,taskListID=>$TaskList->tl_ID,taskListName=>$TaskList->tl_name}">
-			Nový úkol
-		</a>
-	</div>
-{/if}
-</div>
