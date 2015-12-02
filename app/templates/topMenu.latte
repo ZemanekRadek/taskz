@@ -1,23 +1,18 @@
 
-<div class="topnav">
 	<!-- Sidebar -->
-	<div class="topnav-item">
 	<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
 
 			<ul class="nav sidebar-nav">
-					<li id="dd" class="wrapper-dropdown" tabindex="1">
-						{if $Project}{$Project->pr_name}{else}No project selected{/if}
-								<ul class="dropdown">
-									{foreach $ProjectFactory->getAll() as $pr}
-									<li>
-										<a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}">{$pr->pr_name}</a>
-									</li>
-									{/foreach}
-									<li><a href="{link Dashboard:}"><span class="icon-back"></span>Back to Dashboard</a></li>
-									<li><a href="{link Project:create}"><i class="icon-add_box"></i>New Project</a></li>
-								</ul>
-					</li>
-
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{if $Project}{$Project->pr_name}{else}No project selected{/if}<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						{foreach $ProjectFactory->getAll() as $pr}
+							<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}">{$pr->pr_name}</a></li>
+						{/foreach}
+						<li><a href="{link Dashboard:}"><i class="icon-back"></i>Back to Dashboard</a></li>
+						<li><a href="{link Project:create}"><i class="icon-add_box"></i>New Project</a></li>
+					</ul>
+				</li>
 				{foreach $TaskListFactory->getAll() as $list}
 					<li>
 						<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
@@ -40,15 +35,11 @@
 
 			</ul>
 	</nav>
-</div>
 	<!-- /#sidebar-wrapper -->
 
-	<div class="topnav-item"><a href="{link Project:}"><span>Project Settings</span></a></div>
-			<div class="topnav-item"><a href="{link Sign:out}"><span>Logout</span></a></div>
-</div>
 
-<!-- JQUERY MENU -->
-<script>
+<!-- JQUERY sideMenu -->
+<script type="text/javascript">
 $(document).ready(function () {
   var trigger = $('.hamburger'),
       overlay = $('.overlay'),
