@@ -23,10 +23,10 @@ class TaskList extends Nette\Object  {
 	
 	// system list identifier
 	public static $system = array(
-		'inbox'     => array('tl_name' => 'Inbox', 'tl_ico'    => 'ico-inbox', 'tl_systemIdentifier'    => 'inbox', 'tl_path' => 'inbox', 'tl_color' => '0000ff'),
-		'urgent'    => array('tl_name' => 'Urgent', 'tl_ico'   => 'ico-urgent', 'tl_systemIdentifier'   => 'urgent', 'tl_path' => 'urgent', 'tl_color' => 'ff0000'),
-		'finished'  => array('tl_name' => 'Finished', 'tl_ico' => 'ico-finished', 'tl_systemIdentifier' => 'finished', 'tl_path' => 'finished', 'tl_color'=>'00ff00'),
-		'deleted'   => array('tl_name' => 'Deleted', 'tl_ico' => 'ico-deleted', 'tl_systemIdentifier' => 'finished', 'tl_path' => 'deleted', 'tl_color'=>'000000'),
+		'inbox'     => array('tl_name' => 'Inbox', 'tl_ico'    => 'icon-inbox', 'tl_systemIdentifier'    => 'inbox', 'tl_path' => 'inbox', 'tl_color' => '0000ff'),
+		'urgent'    => array('tl_name' => 'Urgent', 'tl_ico'   => 'icon-assignment_late', 'tl_systemIdentifier'   => 'urgent', 'tl_path' => 'urgent', 'tl_color' => 'ff0000'),
+		'finished'  => array('tl_name' => 'Finished', 'tl_ico' => 'icon-assignment_turned_in', 'tl_systemIdentifier' => 'finished', 'tl_path' => 'finished', 'tl_color'=>'00ff00'),
+		'deleted'   => array('tl_name' => 'Deleted', 'tl_ico'  => 'icon-broken_image', 'tl_systemIdentifier' => 'finished', 'tl_path' => 'deleted', 'tl_color'=>'000000'),
 	);
 	
 	private $data = array(
