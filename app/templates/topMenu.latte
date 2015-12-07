@@ -36,7 +36,7 @@
 					{/foreach}
 					{if $Project}
 					<li>
-						<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i>New Task List</a>
+						<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i> New Task List</a>
 					</li>
 
 					{if isset($Task)&&$Task}
@@ -55,7 +55,7 @@
 <script type="text/javascript">
 $(document).ready(function () {
 	var $body = $('body');
-	
+
   var trigger = $('.hamburger'),
       overlay = $('.overlay'),
      isClosed = false;
