@@ -8802,12 +8802,11 @@ button.close {
 /* FONT & TEXT SETTINGS ------------------------------- */
 /* By default, this inherits from the `<body>`.------------------------------- */
 /* LINK STYLE SETTINGS ------------------------------- */
+/* BODY SETTINGS ------------------------------- */
+/* TOPNAV & NAVBAR SELECTIONS & HOVERS ------------------------------- */
 /* FUNCTIONS - GLOBAL ------------------------------- */
 /* VALIDATION COLORZZ ------------------------------- */
 /* BUTTONS - SPECIFIC PARTZZ ------------------------------- */
-/* BODY SETTINGS ------------------------------- */
-/* LINK SETTINGS COLOR ------------------------------- */
-/* TOPNAV & NAVBAR SELECTIONS & HOVERS ------------------------------- */
 /* MAIN STYLEZZ - BASIC ------------------------------- */
 body,
 html {
@@ -8842,6 +8841,19 @@ a {
   color: rgba(76, 69, 61, 0.5);
   font-weight: 400;
 }
+.body-text {
+  padding: 0 0 0 140px;
+  font-size: 2.28em;
+  line-height: 1.3em;
+  color: rgba(76, 69, 62, 0.5);
+}
+.body-text h1 {
+  font-size: 2em;
+  color: rgba(76, 69, 62, 0.25);
+}
+.body-text .center {
+  text-align: center;
+}
 /* TASK TOPNAV MENU ------------------------------- */
 .topnav {
   display: -webkit-box;
@@ -8866,7 +8878,10 @@ a {
   -webkit-transition: 500ms;
   -o-transition: 500ms;
   transition: 500ms;
-  background: rgba(76, 69, 62, 0.1);
+  -moz-box-shadow: inset 0px -1px 0px 0px rgba(76, 69, 62, 0.25);
+  -webkit-box-shadow: inset 0px -1px 0px 0px rgba(76, 69, 62, 0.25);
+  box-shadow: inset 0px -1px 0px 0px rgba(76, 69, 62, 0.25);
+  background: rgba(255, 255, 255, 0.5);
   color: rgba(255, 255, 255, 0.5);
   list-style: none;
   text-transform: none;
@@ -8982,8 +8997,8 @@ body.is-open .lt-content {
   position: absolute;
   top: 0;
   width: 300px;
-  margin: 0;
   padding: 0;
+  margin: 0 0 40px 0;
   list-style: none;
 }
 .sidebar-nav li {
@@ -9042,21 +9057,31 @@ body.is-open .lt-content {
   text-decoration: none;
   background-color: transparent;
 }
+.sidebar-nav li.open {
+  background: rgba(51, 46, 42, 0.7) !important;
+}
 .sidebar-nav li.open:before {
-  background: white !important;
+  background: rgba(51, 46, 42, 0.7) !important;
   color: black !important;
 }
 .sidebar-nav li.open:hover {
-  background: white !important;
+  background: rgba(51, 46, 42, 0.7) !important;
   color: black !important;
 }
-.sidebar-nav li.open a,
 .sidebar-nav li.open a:hover {
-  background: white !important;
+  background: rgba(51, 46, 42, 0.7) !important;
   color: black !important;
+}
+.sidebar-nav li.open ul li a {
+  background: rgba(51, 46, 42, 0.7) !important;
 }
 .sidebar-nav li.open ul li a:hover {
-  background: red !important;
+  background: #EEEDEC !important;
+}
+.sidebar-nav .position-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 .sidebar-nav .dropdown-menu {
   position: relative;

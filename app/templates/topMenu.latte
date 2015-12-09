@@ -22,8 +22,8 @@
 						{foreach $ProjectFactory->getAll() as $pr}
 							<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}">{$pr->pr_name}</a></li>
 						{/foreach}
-						<li><a href="{link Dashboard:}"><i class="icon-back"></i>Back to Dashboard</a></li>
-						<li><a href="{link Project:create}"><i class="icon-add_box"></i>New Project</a></li>
+						<li><a href="{link Dashboard:}"><i class="icon-back"></i> Back to Dashboard</a></li>
+						<li><a href="{link Project:create}"><i class="icon-add_box"></i> New Project</a></li>
 					</ul>
 				</li>
 				{foreach $TaskListFactory->getAll() as $list}
@@ -35,7 +35,7 @@
 					</li>
 					{/foreach}
 					{if $Project}
-					<li>
+					<li class="position-bottom">
 						<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i> New Task List</a>
 					</li>
 

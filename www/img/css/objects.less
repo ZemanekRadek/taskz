@@ -34,6 +34,23 @@ a {
 	font-weight:400;
 }
 
+.body-text {
+	padding: 0 0 0 140px;
+	font-size: 2.28em;
+	line-height: 1.3em;
+	color: @colorPrimaryHalf;
+
+		h1 {
+			font-size: 2em;
+			color: @colorPrimaryQuater;
+		}
+
+		.center {
+			text-align: center;
+		}
+
+}
+
 /* TASK TOPNAV MENU ------------------------------- */
 
 .topnav{
@@ -47,6 +64,7 @@ a {
 	top: 0;
 	left: 0;
 	.transition(500ms);
+	.box-shadow(inset 0px -1px 0px 0px @colorPrimaryQuater);
 
 	background: @colorTopNavBackground;
 	color: @colorNavLink;
@@ -58,7 +76,7 @@ a {
 	& a {
 			display: block;
 			height: 100%;
-			color: @colorTopNavLink;
+			color: @colorPrimaryHalf;
 
 
 
@@ -144,7 +162,7 @@ body {
     margin-left: -300px;
     overflow-y: auto;
     overflow-x: hidden;
-    background: @colorNavBackground;
+    background: @colorPrimaryFull;
 		-ms-transition: all 0.5s ease;
     .transition(all 0.5s ease);
 		.box-shadow(0px 2px 5px 0px @shadowBorderDefault, 0px 2px 5px 0px @shadowBorderDefault);
@@ -167,8 +185,8 @@ body {
     position: absolute;
     top: 0;
     width: 300px;
-    margin: 0;
     padding: 0;
+    margin: 0 0 40px 0;
     list-style: none;
 
 		& li {
@@ -230,35 +248,47 @@ body {
 	li.open a:hover,
 	li.open a:active,
 	li.open a:focus{
-		color: @colorNavBackground;
+		color: @colorPrimaryFull;
 		text-decoration: none;
 		background-color: transparent;
 	}
 
 	li.open {
+		background: @colorTopNavDropdownBackground !important;
+
 		&:before {
-			background: white !important;
+			background: @colorTopNavDropdownBackground !important;
 			color: black !important;
 		}
 
 		&:hover {
-			background: white !important;
+			background: @colorTopNavDropdownBackground !important;
 			color: black !important;
 		}
 
-		a, a:hover {
-			background: white !important;
+		a:hover {
+			background: @colorTopNavDropdownBackground !important;
 			color: black !important;
 		}
 
 		ul li a {
+			background: @colorTopNavDropdownBackground !important;
+
 			&:hover {
-				background: red !important;
+				background: @colorNavLinkBGSelected !important;
 			}
 		}
 	}
 
+.position-bottom {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+
 }
+
+}
+
 
 .sidebar-nav .dropdown-menu {
 		position: relative;
@@ -270,7 +300,7 @@ body {
 
 		& li {
 			line-height: 1.42em;
-			background-color: @colorNavBarHover;
+			background-color: @colorPrimary3Quater;
 			box-shadow: none;
 		}
 }
@@ -330,7 +360,7 @@ body {
 	&.is-closed .hamb-top,
 	&.is-closed .hamb-middle,
 	&.is-closed .hamb-bottom {
-		background-color: @colorTopNavLink;
+		background-color: @colorPrimaryHalf;
 	}
 
 	&.is-closed .hamb-top {
@@ -361,7 +391,7 @@ body {
 	&.is-open .hamb-top,
 	&.is-open .hamb-middle,
 	&.is-open .hamb-bottom {
-		background-color: @colorTopNavLinkSelected;
+		background-color: @colorPrimary3Quater;
 	}
 
 	&.is-open .hamb-top,
