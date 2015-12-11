@@ -47,6 +47,7 @@ a {
 
 		.center {
 			text-align: center;
+			padding-top: 70px;
 		}
 
 }
@@ -55,6 +56,7 @@ a {
 
 .topnav{
 	.flexbox();
+	.justify-content(space-between);
 
 	width: 100%;
 	height: 4em;
@@ -78,32 +80,35 @@ a {
 			height: 100%;
 			color: @colorPrimaryHalf;
 
-
-
 			padding: 0 20px;
 			text-transform: uppercase;
 			font-weight: 400;
 			text-align:left;
 	}
 
-
-	.topnav-item {
+	.right {
 		.inline-flexbox();
 		.justify-content(flex-start);
 
+		position: fixed;
+		padding-left: 82%;
+	}
 
-		float: left;
+	.left {
+		.inline-flexbox();
+		.justify-content(flex-start);
+
+		position: fixed;
+		padding-left: 8%;
+	}
+
+	.topnav-item {
 		height: 100%;
 		text-align: center;
 
-		&:first-child {
-			margin-left: 120px;
-		}
-
-		&:last-child {
-				float: right;
-				border-right: none;
-		}
+		/* &:first-child {
+			padding-left: 80%;
+		} */
 
 	}
 
@@ -205,8 +210,8 @@ body {
 					z-index: -1;
 					height: 100%;
 					width: 0;
-					background-color: @colorNavLinkBGSelected;
-					 -ms-transition:  width .3s ease-in;
+					background: @colorNavLinkBGSelected;
+					 -ms-transition: width .3s ease-in;
 					.transition(width .3s ease-in);
 				}
 
@@ -228,7 +233,7 @@ body {
 				&:first-child {
 					a {
 						// padding: 18px 15px 18px 30px;
-						line-height: 37px;
+						line-height: 2.5em;
 					}
 				}
 
@@ -250,7 +255,7 @@ body {
 	li.open a:focus{
 		color: @colorPrimaryFull;
 		text-decoration: none;
-		background-color: transparent;
+		background: transparent;
 	}
 
 	li.open {
@@ -258,17 +263,17 @@ body {
 
 		&:before {
 			background: @colorTopNavDropdownBackground !important;
-			color: black !important;
+			color: @colorPrimaryFull !important;
 		}
 
 		&:hover {
 			background: @colorTopNavDropdownBackground !important;
-			color: black !important;
+			color: @colorPrimaryFull !important;
 		}
 
 		a:hover {
 			background: @colorTopNavDropdownBackground !important;
-			color: black !important;
+			color: @colorPrimaryFull !important;
 		}
 
 		ul li a {
