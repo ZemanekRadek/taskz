@@ -55,8 +55,8 @@ a {
 /* TASK TOPNAV MENU ------------------------------- */
 
 .topnav{
-	.flexbox();
-	.justify-content(space-between);
+	/* .flexbox();
+	.justify-content(space-between); */
 
 	width: 100%;
 	height: 4em;
@@ -78,6 +78,7 @@ a {
 	& a {
 			display: block;
 			height: 100%;
+			font-size: 1.14em;
 			color: @colorPrimaryHalf;
 
 			padding: 0 20px;
@@ -86,37 +87,19 @@ a {
 			text-align:left;
 	}
 
-	.right {
-		.inline-flexbox();
-		.justify-content(flex-start);
-
-		position: fixed;
-		padding-left: 82%;
-	}
-
-	.left {
-		.inline-flexbox();
-		.justify-content(flex-start);
-
-		position: fixed;
-		padding-left: 8%;
-	}
-
-	.topnav-item {
-		height: 100%;
-		text-align: center;
-
-		/* &:first-child {
-			padding-left: 80%;
-		} */
-
-	}
-
-
 	a:hover {
-			background: @colorNavBarSelected;
-			color: @colorNavLink;
+		font-weight: 500;
+		color: @colorPrimaryFull;
+		.box-shadow(inset 0px -5px 0px 0px @colorPrimaryFull);
 	}
+
+	a:active {
+		font-weight: 500;
+		background: @ucolorPositive;
+		color: @colorPrimaryFull;
+		.box-shadow(inset 0px -5px 0px 0px @colorPrimaryFull);
+	}
+
 }
 
 body {
@@ -200,8 +183,6 @@ body {
 		    display: inline-block;
 		    width: 100%;
 
-
-
 				&:before {
 					content: '';
 					position: absolute;
@@ -230,11 +211,25 @@ body {
 						vertical-align: middle;
 				}
 
+				& .icon-projectname {
+					padding: 0 5px 5px 5px;
+					background: @DropDownProjectName;
+					vertical-align: middle;
+					font-size: 1.7em;
+
+					&:before {
+						content:"PP";
+					}
+
+				}
+
 				&:first-child {
 					a {
 						// padding: 18px 15px 18px 30px;
+						background: @colorTopNavDropdownBackground;
 						line-height: 2.5em;
 					}
+
 				}
 
 		}
@@ -259,7 +254,6 @@ body {
 	}
 
 	li.open {
-		background: @colorTopNavDropdownBackground !important;
 
 		&:before {
 			background: @colorTopNavDropdownBackground !important;
@@ -285,12 +279,24 @@ body {
 		}
 	}
 
-.position-bottom {
-	position: fixed;
-	bottom: 0;
-	left: 0;
+	.position-bottom {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 240px;
 
-}
+			&.is-closed {
+				width: -240px;
+				overflow-y: auto;
+				overflow-x: hidden;
+				}
+		}
+
+		.caret{
+			border-width: 8px;
+			margin-left: 16px;
+		}
+
 
 }
 
@@ -306,22 +312,23 @@ body {
 		& li {
 			line-height: 1.42em;
 			background-color: @colorPrimary3Quater;
-			box-shadow: none;
+			.box-shadow(none);
 		}
 }
+
 
 /*-------------------------------*/
 /*  Hamburger-Cross & Animations */
 /*-------------------------------*/
 
 .hamburger {
-	position: fixed;
+	position: relative;
 	top: 10px;
 	z-index: 999;
 	display: block;
 	width: 35px;
 	height: 35px;
-	margin-left: 75px;
+	margin-left: 60px;
 	background: transparent;
 	border: none;
 
@@ -368,6 +375,12 @@ body {
 		background-color: @colorPrimaryHalf;
 	}
 
+	&.is-closed:hover .hamb-top,
+	&.is-closed:hover .hamb-middle,
+	&.is-closed:hover .hamb-bottom {
+		background-color: @colorPrimaryFull;;
+	}
+
 	&.is-closed .hamb-top {
 		top: 5px;
 		.transition(all .35s ease-in-out);
@@ -396,7 +409,7 @@ body {
 	&.is-open .hamb-top,
 	&.is-open .hamb-middle,
 	&.is-open .hamb-bottom {
-		background-color: @colorPrimary3Quater;
+		background-color: @colorPrimaryFull;;
 	}
 
 	&.is-open .hamb-top,
