@@ -3,13 +3,13 @@
 {/block}
 	<div class="navbar topnav">
 		<div class="container-fluid">
-			<div class="nav navbar-nav">
+			<div class="nav navbar-nav nav-hamburger">
 				<button type="button" class="nav navbar-nav hamburger is-closed" data-toggle="offcanvas">
 						<span class="hamb-top"></span>
 						<span class="hamb-middle"></span>
 						<span class="hamb-bottom"></span>
 				</button>
-	    </div>
+	    	</div>
 
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#"><span>Tasks</span></a></li>
@@ -102,6 +102,11 @@ $(document).ready(function () {
 
   $('[data-toggle="offcanvas"]').click(function () {
         $('#wrapper').toggleClass('toggled');
+  });
+
+
+  $('.sidebar-nav .dropdown:first-child a:first-child').click(function(E) {
+	  $('.nav-hamburger button.hamburger').trigger('click');
   });
 });
 </script>

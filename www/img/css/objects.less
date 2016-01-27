@@ -109,10 +109,10 @@ body {
 	}
 	&.is-open {
 		.topnav {
-			left: 240px;
+			padding-left: 240px;
 		}
 		.lt-content {
-			left: 240px;
+			padding-left: 240px;
 		}
 	}
 }
@@ -217,6 +217,9 @@ body {
 					background: @DropDownProjectName;
 					vertical-align: middle;
 					font-size: 1.7em;
+					margin-right: 15px;
+					line-height: 100%;
+					display: inline-block;
 
 					&:before {
 						content:"PP";
@@ -229,6 +232,7 @@ body {
 						// padding: 18px 15px 18px 30px;
 						background: @colorTopNavDropdownBackground;
 						line-height: 2.5em;
+						padding: 10px 15px 10px 10px;
 					}
 
 				}
@@ -314,6 +318,7 @@ body {
 			line-height: 1.42em;
 			background-color: @colorPrimary3Quater;
 			.box-shadow(none);
+
 		}
 }
 
@@ -321,7 +326,6 @@ body {
 /*-------------------------------*/
 /*  Hamburger-Cross & Animations */
 /*-------------------------------*/
-
 .hamburger {
 	position: relative;
 	top: 10px;
@@ -330,6 +334,7 @@ body {
 	width: 35px;
 	height: 35px;
 	margin-left: 60px;
+	margin-right: 20px;
 	background: transparent;
 	border: none;
 
