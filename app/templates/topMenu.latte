@@ -1,31 +1,45 @@
 {block bodyClass}
 <body class="is-navigation">
 {/block}
-	<div class="topnav">
-		<div class="topnav-item"><a href="{link Project:}"><span>Project Settings</span></a></div>
-			<div class="topnav-item"><a href="{link Sign:out}"><span>Logout</span></a></div>
-	</div>
+	<div class="navbar topnav">
+		<div class="container-fluid">
+			<div class="nav navbar-nav">
+				<button type="button" class="nav navbar-nav hamburger is-closed" data-toggle="offcanvas">
+						<span class="hamb-top"></span>
+						<span class="hamb-middle"></span>
+						<span class="hamb-bottom"></span>
+				</button>
+	    </div>
 
-	<button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-			<span class="hamb-top"></span>
-			<span class="hamb-middle"></span>
-			<span class="hamb-bottom"></span>
-	</button>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#"><span>Tasks</span></a></li>
+				<li><a href="#"><span>Files</span></a></li>
+				<li><a href="#"><span>Users</span></a></li>
+				<li><a href="#"><span>Progress</span></a></li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="{link Project:}"><span>Project Settinsg</span></a></li>
+				<li><a href="{link Sign:out}"><span>Log out</span></a></li>
+			</ul>
+		</div>
+	</div>
 
 	<!-- Sidebar -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
 
 			<ul class="nav sidebar-nav">
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{if $Project}{$Project->pr_name}{else}No project selected{/if}<span class="caret"></span></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-projectname"></i>{if $Project}{$Project->pr_name}{else}No project selected{/if}<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						{foreach $ProjectFactory->getAll() as $pr}
-							<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}">{$pr->pr_name}</a></li>
+							<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}"><i class="icon-projectname"></i>{$pr->pr_name}</a></li>
 						{/foreach}
-						<li><a href="{link Dashboard:}"><i class="icon-back"></i>Back to Dashboard</a></li>
-						<li><a href="{link Project:create}"><i class="icon-add_box"></i>New Project</a></li>
+						<li><a href="{link Dashboard:}"><i class="icon-back"></i> Back to Dashboard</a></li>
+						<li><a href="{link Project:create}"><i class="icon-add_box"></i> New Project</a></li>
 					</ul>
 				</li>
+
 				{foreach $TaskListFactory->getAll() as $list}
 					<li>
 						<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
@@ -33,9 +47,10 @@
 							{$list->tl_name}
 						</a>
 					</li>
-				{/foreach}
+					{/foreach}
 					{if $Project}
-					<li>
+
+					<li class="position-bottom">
 						<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i> New Task List</a>
 					</li>
 
