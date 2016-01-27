@@ -13,10 +13,25 @@ class Task extends Nette\Object  {
 
 	/** @var Nette\Security\User @inject */
 	private $User;
-	
+
+	/** @var App\Model\Tasklistk @inject */
 	private $TaskList;
-	
+
+	/** @var App\Model\Project @inject */
 	private $Project;
+
+	private $table = "tasks";
+
+	private $tableUser = "tasks_user";
+
+	private $data  = array(
+		'ta_ID'      => null,
+		'ta_author'  => null,
+		'ta_timeTo'  => null,
+		'ta_created' => null
+	);
+
+	private $users = array();
 
 	/**
 	 * @param Nette\Database\Connection $db
@@ -33,7 +48,7 @@ class Task extends Nette\Object  {
 		$this->User    = $User;
 		$this->Project = $Project;
 		$this->TaskList = $TaskList;
-		
+
 		if ($ID) {
 			/*
 			$this->init($this->DB->table('tasks_list')->where(array(
@@ -43,17 +58,12 @@ class Task extends Nette\Object  {
 		}
 	}
 
-	private $table = "tasks";
-
-	private $data  = array(
-		'ta_ID'   => null,
-	);
-
 	public function getForm() {
 
 		$form   = new UI\Form;
 		// $states = new StateList($this->DB);
 		$users  = new UserList($this->DB);
+		$lists  = new TaskListFactory($this->DB, $this->User, $this->Project);
 		// $tags   = new TagList($this->DB);
 
 		$form->addText('ta_name', 'Název úkolu', 128)
@@ -62,56 +72,81 @@ class Task extends Nette\Object  {
 
 		$form->addTextArea('ta_description', 'Popis úkolu');
 
-		$form->addSelect('ta_state', 'Stav', array()); //$states->get());
-		$form->addText('ta_urgent', 'Urgent');
-
 		$form->addText('ta_timeTo', 'Splnit do')
 			->addRule(UI\Form::PATTERN, 'Špatný formát datumu', '[0-9]{2}\.[0-9]{2}\.[0-9]{4}');
 
 		$form->addCheckboxList('ta_users', 'Uživatelé', $users->getAll());
-		$form->addCheckboxList('ta_tags', 'Tagy', array()); //$tags->getAll(true));
+
+		$form->addCheckboxList('ta_taskLists', 'Seznamy', $lists->getAll());
 
 		$form->addHidden('ta_ID');
 		$form->addHidden('ta_created');
-		$form->addHidden('ta_author', $this->User->getIdentity()->getId());
-
 		$form->addSubmit('ta_send', 'Uložit');
 
-		$form->onSuccess[] = array($this, 'saveTask');
+		$form->onSuccess[] = function($values) {
+
+			foreach($values as $k => $v) {
+				if (!in_array($k, array_keys($this->data))) {
+					if ($k == 'ta_users') {
+						foreach($v as $user) {
+							$this->addUser($user);
+						}
+					}
+
+					continue;
+				}
+
+				$this->data[$k] = $v;
+			}
+
+
+			$this->data['ta_author'] = $this->User->getIdentity()->getId();
+
+			return $this->save();
+		};
 
 		return $form;
 	}
-	
-	public function save($values) {
-		
-		$dataKeys = array_keys($this->data);
-		
-		foreach(array_keys((array) $values) as $k) {
-			if (!in_array($k, $dataKeys)) {
-				throw Nette\InvalidArgumentException('Invalid keys for save');
-			}
-		}
-		
-		if ($values->ta_ID > 0) {
+
+	public function addUser($ID) {
+		$this->users[] = array('us_ID' => $ID);
+		return $this;
+	}
+
+	public function save() {
+
+		if ($this->data['ta_ID'] > 0) {
 
 			$this->db
 				->table($this->table)
-					->where('ta_ID', $values['ta_ID'])
-					->update($values);
+					->where('ta_ID', $this->data['ta_ID'])
+					->update($this->data);
 
 		}
 		else {
+			unset($values['ta_ID']);
 			$this->db
 				->table($this->table)
-				->insert($values);
-				
-			if (!$values['ta_ID'] = $this->db->getInsertId()) {
+				->insert($this->data);
+
+			if (!$this->data['ta_ID'] = $this->db->getInsertId()) {
 				throw Nette\InvalidArgumentException('Invalid keys for save');
 			}
 		}
-		
+
+		// uzivatele
+		{
+			$this->DB->table($this->tableUser)->where('tu_ta_ID', $this->data['ta_ID'])->delete();
+
+			foreach($this->users as $user) {
+				$row = $this->DB->table($this->tableUser)->insert(array(
+					'tu_ta_ID' => $this->data['ta_ID'],
+					'tu_us_ID' => $user['us_ID']
+				));
+			}
+		}
 		$this->data = $values;
-		
+
 		return true;
 	}
 

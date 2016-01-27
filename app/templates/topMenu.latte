@@ -33,10 +33,14 @@
 							{$list->tl_name}
 						</a>
 					</li>
-					{/foreach}
+				{/foreach}
 					{if $Project}
 					<li>
 						<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i> New Task List</a>
+					</li>
+
+					<li>
+						<a class="tl-icon" href="{link Task:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i> New Tak</a>
 					</li>
 
 					{if isset($Task)&&$Task}
