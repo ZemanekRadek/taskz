@@ -461,7 +461,8 @@ body {
 
 /* BUTTON STYLEZZ ------------------------------- */
 .btn {
-	padding: 15px 20px;
+	/* padding: 15px 20px; */
+	padding: 10px 20px;
 	border: 0 none;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -735,12 +736,41 @@ label{
 
 .footer {
   position: fixed;
+	font-size: 18px;
+	padding-top: 3px;
   bottom: 0;
   width: 100%;
 	height: 50px;
-  background-color: #f5f5f5;
-	background: #F6F6F5;
+  background-color: @fFooterBackground;
+	background: @fFooterTextColor;
 	.box-shadow(inset 0px -1px 0px 0px @colorPrimaryQuater);
+
+	& .fpane-left{
+		padding: 10px 0px 0px 35px;
+		vertical-align: middle;
+	}
+
+	& .fpane-right{
+		padding: 10px 0px 0px 35px;
+		vertical-align: middle;
+	}
+
+	& .closebox {
+		text-decoration: none;
+
+		i {
+				position: relative;
+				top: -6px;
+				font-size: 2em;
+		}
+		& .text {
+			position: relative;
+			top: -14px;
+			text-decoration: underline;;
+		}
+
+	}
+
 }
 
 
@@ -761,7 +791,7 @@ label{
 		margin-bottom: 0;
 	}
 
-	.closebox {
+	/* .closebox {
 		position: fixed;
 		right: 2em;
 		top: 0;
@@ -771,7 +801,7 @@ label{
 				font-size: 4em;
 		}
 
-	}
+	} */
 
 }
 
@@ -792,7 +822,7 @@ label{
 .box {
 	max-width: 580px;
 	margin: 0 auto;
-	padding: 20px 35px;
+	padding: 10px 20px 30px 30px;
 	background: @ucolorPositive;
 	.box-shadow(0px 0px 2px 0px @shadowBorderDefault, 0px 2px 5px 0px @shadowBorderDefault);
 
@@ -803,6 +833,7 @@ label{
 
 	h2{
 		margin-bottom: 20px;
+		line-height: 1.4em;
 	}
 
 }

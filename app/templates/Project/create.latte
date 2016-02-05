@@ -5,9 +5,6 @@
 {block content}
 
 <div class="dialog-header">
-	<div class="closebox">
-		<a href="#"><i class="icon-close"></i><span class="sr-only">Close</span></a>
-	</div>
 	<div class="heading">
 		<h1 n:block="title">{_'projects new'}</h1>
     </div>
@@ -19,7 +16,7 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="box">
-						<h2 class="text-center">Wanna new project? Just fill a few information</h2>
+						<h2 class="text-center">Wanna <strong>new project</strong>? <br /> Just fill a few information</h2>
 
             <div class="form-group">
               <input type="text" size="64" n:name="pr_name" class="form-control" required />
@@ -47,13 +44,13 @@
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
 
-				<div class="col-md-3">.col-sm-8</div>
+				<div class="col-md-4 fpane-left"><a href="#">Delete project</a></div>
 
-				<div class="col-md-6 text-center">
-							<button type="submit" class="btn-block btn btn-lg btn-primary btn-auto">Create project</button>
+				<div class="col-md-4 text-center">
+							<button type="submit" class="btn-block btn btn-lg btn-primary btn-auto center-block">Create project</button>
 				</div>
 
-				<div class="col-md-3">Close</div>
+				<div class="col-md-4 fpane-right"><a class="closebox" href=""><i class="icon-close"></i><span class="sr-only">Close</span><span class="text">Close</span></a></div>
 
 				</div>
 			</div>
