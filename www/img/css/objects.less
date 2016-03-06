@@ -93,6 +93,7 @@ a {
 		font-weight: 500;
 		color: @colorPrimaryFull;
 		.box-shadow(inset 0px -5px 0px 0px @colorPrimaryFull);
+		text-decoration: none;
 	}
 
 	a:active {
@@ -537,6 +538,44 @@ body {
 		}
 	}
 
+
+		/*-------------------------------*/
+		/*  Radio Button Stylezz */
+		/*-------------------------------*/
+
+		&.btn-radio {
+			border-radius: 0px;
+			background: transparent;
+			color: @colorFunctionDefault;
+
+			&:hover,
+			&:focus,
+			&:active,
+			&.active,
+			&.open > .dropdown-toggle.btn-radio {
+				background: @ucolorPositive;
+				color: @colorFunctionHover;
+				border: 1px solid @shadowFunctionHover;
+			}
+
+			&:active,
+			&.active {
+				background: @ucolorPositiveHalf;
+				color: @colorFunctionActive;
+				font-weight: 600;
+				border: 1px solid @colorPrimaryHalf;
+				.box-shadow(inset 0px 0px 5px 1px @colorPrimaryQuater);
+			}
+
+			& span{
+				background: #000;
+	 			width: 30%;
+	 			height: 30%;
+			}
+		}
+
+
+
 	/*-------------------------------*/
 	/*    SOCIAL BUTTONS STYLEZZ     */
 	/*-------------------------------*/
@@ -628,6 +667,11 @@ body {
 	position:relative;
 	margin-top: 40px;
 	margin-bottom: 40px;
+
+	&.tight{
+	margin-top: 10px;
+	margin-bottom: 25px;
+	}
 }
 
 .input-group {
@@ -639,20 +683,23 @@ input {
 	font-size:1em;
 	font-weight: 600;
 	color: @text-color-focus;
-	background-color: @ucolorPositive !important;
 	padding:10px 10px 10px 5px;
 	display:block;
 	border:none;
-	border-bottom:1px solid @colorBorderDefault;
+	border-bottom:1px solid @colorInputBorderDefault;
 	-ms-transition: all 0.5s ease-out;
 	.transition(500ms);
 
 	&:focus ~ label,
 	&:hover ~ label,
-	&:valid ~ label     {
+	&:valid ~ label{
 		top:-20px;
 		font-size:1em;
 		color: @colorFunctionActive;
+	}
+
+	&:not(:focus) ~ label{
+		color: @text-color;
 	}
 
 	&:focus ~ .highlight {
@@ -667,8 +714,12 @@ input {
 	&[type]{
 		border: none;
 		.box-shadow(none);
-		border-bottom: 2px solid @colorBorderDefault;
+		border-bottom: 2px solid @colorInputBorderDefault;
 		.border-radius(0px);
+	}
+
+	&.form-control{
+			background: transparent;
 	}
 
 }
@@ -679,7 +730,7 @@ input {
 }
 
 label{
-	color:@text-color;
+	color:@text-color-focus;
 	text-transform: uppercase;
 	font-size:1em;
 	font-weight:400;
@@ -726,12 +777,16 @@ label{
 }
 
 .static-label{
-	color:@text-color;
+	color:@text-color-focus;
 	text-transform: uppercase;
 	font-size:1em;
 	font-weight:400;
 	position: inherit;
 	display: block;
+
+	&.outofinput{
+		padding-bottom: 10px;
+	}
 
 }
 
@@ -835,9 +890,9 @@ label{
 	a {
 			color: @FooterTextColorNoHover;
 			font-weight: 400;
+
 			&:hover{
 				color: @FooterTextColor;
-				direction: none;
 			}
 	}
 
@@ -846,7 +901,7 @@ label{
 
 		i {
 				position: relative;
-				/* top: -4px; */
+				top: -2px;
 				font-size: 1.4em;
 		}
 		& .text {
@@ -854,12 +909,15 @@ label{
 			bottom: 5px;
 		  left: 5px;
 			text-decoration: underline;;
+
+			&:hover{
+				text-decoration: none;
+			}
 		}
 
 	}
 
 }
-
 
 /* LOGIN PAGE STYLEZZ  ------------------------------- */
 .dialog-header,
@@ -873,6 +931,11 @@ label{
 		text-align: center !important;
 		padding-top: 7%;
 		padding-top: 7vh;
+
+		h2{
+			margin: 0px;
+			color: @colorPrimaryHalf;
+		}
 	}
 	.h1 {
 		margin-bottom: 0;
@@ -926,6 +989,10 @@ label{
 		h2{
 			margin-bottom: 20px;
 			line-height: 1.4em;
+		}
+
+		input{
+			background-color: @ucolorPositive;
 		}
 	}
 

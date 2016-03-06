@@ -4,6 +4,7 @@
   <div class="dialog-header">
     <div class="heading">
 		    <h1 n:block="title">Create <strong>New Task List</strong></h1>
+				<h2 class="text-center">Too many tasks? Let's manage them</h2>
     </div>
 	</div>
 
@@ -12,9 +13,6 @@
 	    <div class="container-fluid">
 	      <div class="row">
 	        <div class="col-md-6 col-md-offset-3">
-	          <div class="box box-dialog styled">
-							<h2 class="text-center">Too many tasks? Let's manage them</h2>
-
 						  <div class="form-group">
 						    <input type="text" n:name=tl_name class="form-control"  required=" " />
 						    <span class="highlight"></span>
@@ -22,44 +20,46 @@
 						    <label for="frm-registrationForm-us_name">Task List Name <span class="label-required">*</span></label>
 						  </div>
 
-						  <div class="form-group">
-						    <label class="static-label">Task List Icon</label>
-						    {foreach $form[tl_ico]->items as $key => $value}
-						    <label class="radio-inline icon-box" n:name="tl_ico:$key"><input n:name="tl_ico:$key"/>{$value}</label>
-						    {/foreach}
+						  <div class="form-group tight">
+						    <label class="static-label outofinput">Task List Icon</label>
+								<div class="btn-group" data-toggle="buttons-radio">
+							    {foreach $form[tl_ico]->items as $key => $value}
+							    <button type="button" class="btn btn-radio" n:name="tl_ico:$key">{$value}</button>
+							    {/foreach}
+									<input type="hidden" id="buttonvalue"/>
+						  	</div>
+							</div>
+
+						  <div class="form-group tight">
+
+						    <label class="static-label outofinput" n:name="tl_color">Task List Color</label>
+								<div class="btn-group" data-toggle="buttons-radio">
+								<button type="button" class="btn btn-radio"><span class="sr-only">COLOR-VALUE list</span><span>&nbsp;</span></button>
+								<button type="button" class="btn btn-radio"><span class="sr-only">COLOR-VALUE list</span><span>{$form[tl_color]->getControl()};</span></button>
 						  </div>
 
-						  <div class="form-group">
-						  	{$form[tl_color]->getControl()}
-						    <label class="static-label" n:name="tl_color">Task List Color</label>
-						  </div>
-
-						  <div class="form-group">
-						    <label class="static-label">Members</label>
+						  <div class="form-group tight">
+						    <label class="static-label outofinput">Members</label>
 						    {foreach $form[tl_users]->items as $key => $value}
 						    <label n:name="tl_users:$key"><input n:name="tl_users:$key"/>{$value}</label>
 						    {/foreach}
-						    <span class="highlight"></span>
-						    <span class="bar"></span>
 						  </div>
 
 							<p class="hint-text"><span class="label-required">*</span> Oh, yes. You quess right - this is required.</p>
 
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+</div>
 	{/form}
 
 	<div class="footer controls">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-					  <div class="box box-dialog">
-							<div class="col-md-6 text-left"><a class="closebox" href=""><i class="icon-navigate_before"></i><span class="sr-only">Cancel and back to task list</span><span class="text">Cancel and back</span></a></div>
-							<div class="col-md-6 text-right"><button type="submit" class="btn btn-lg btn-white btn-auto btn-small">Create task list</button></div>
-					</div>
+						<div class="col-md-6 text-left"><a class="closebox" href=""><i class="icon-navigate_before"></i><span class="sr-only">Cancel and back to task list</span><span class="text">Cancel this</span></a></div>
+						<div class="col-md-6 text-right"><button type="submit" class="btn btn-lg btn-white btn-auto btn-small">Create task list</button></div>
 				</div>
 			</div>
 		</div>
