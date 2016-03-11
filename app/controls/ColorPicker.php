@@ -4,11 +4,11 @@ namespace App\Controls;
 
 use Nette\Forms\Form,
 	Nette\Utils\Html;
-	
+
 class ColorPicker extends \Nette\Forms\Controls\BaseControl {
-	
+
 	private $color = '#000000';
-	
+
 	public function __construct($label = NULL)
 	{
 		parent::__construct($label);
@@ -32,7 +32,7 @@ class ColorPicker extends \Nette\Forms\Controls\BaseControl {
 	 */
 	public function getControl() {
 		$name = $this->getHtmlName();
-		
+
 		/*
 		<div id="colorPicker">
 			<a class="color"><div class="colorInner"></div></a>
@@ -89,7 +89,7 @@ class ColorPicker extends \Nette\Forms\Controls\BaseControl {
 	/**
 	 * @return bool
 	 */
-	public static function validateColor(Nette\Forms\IControl $control) {
+	public static function validateColor($control) {
 		return true;
 	}
 }
