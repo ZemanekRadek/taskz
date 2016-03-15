@@ -1,5 +1,6 @@
 {
     "require": {
-        "zemistr/l10n-nette-translator": "~1.0"
+        "zemistr/l10n-nette-translator": "~1.0",
+        "twbs/bootstrap": "~3.3"
     }
 }
