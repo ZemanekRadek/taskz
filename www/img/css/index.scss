@@ -1,4 +1,14 @@
+/* ==========================================================================
+   IMPORT BASE STYLESHEET
+   ========================================================================== */
+
 @import '../../../vendor/twbs/bootstrap/assets/stylesheets/_bootstrap.scss';
+
+@import 'base/mixins-breakpoint.scss';
+
+@import 'base/placeholders.scss';
+@import 'base/variables.scss';
+
 
 body {
 

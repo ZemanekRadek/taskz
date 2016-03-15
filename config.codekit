@@ -1,6 +1,6 @@
 {
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
-"creatorBuild": "19102",
+"creatorBuild": "19115",
 "files": {
 	"\/app\/bootstrap.php": {
 		"fileType": 8192,
@@ -255,6 +255,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1
+		},
+	"\/config.rb": {
+		"fileType": 131072,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/config.rb",
+		"outputAbbreviatedPath": "\/config.rb",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
 		},
 	"\/media-queries.css": {
 		"fileType": 16,
@@ -3178,8 +3187,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/_bootstrap-mincer.scss": {
@@ -3194,8 +3203,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/_bootstrap-sprockets.scss": {
@@ -3210,8 +3219,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/_bootstrap.scss": {
@@ -3226,8 +3235,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_alerts.scss": {
@@ -3242,8 +3251,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_badges.scss": {
@@ -3258,8 +3267,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_breadcrumbs.scss": {
@@ -3274,8 +3283,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_button-groups.scss": {
@@ -3290,8 +3299,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_buttons.scss": {
@@ -3306,8 +3315,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_carousel.scss": {
@@ -3322,8 +3331,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_close.scss": {
@@ -3338,8 +3347,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_code.scss": {
@@ -3354,8 +3363,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_component-animations.scss": {
@@ -3370,8 +3379,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_dropdowns.scss": {
@@ -3386,8 +3395,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_forms.scss": {
@@ -3402,8 +3411,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_glyphicons.scss": {
@@ -3418,8 +3427,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_grid.scss": {
@@ -3434,8 +3443,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_input-groups.scss": {
@@ -3450,8 +3459,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_jumbotron.scss": {
@@ -3466,8 +3475,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_labels.scss": {
@@ -3482,8 +3491,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_list-group.scss": {
@@ -3498,8 +3507,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_media.scss": {
@@ -3514,8 +3523,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_mixins.scss": {
@@ -3530,8 +3539,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_modals.scss": {
@@ -3546,8 +3555,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_navbar.scss": {
@@ -3562,8 +3571,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_navs.scss": {
@@ -3578,8 +3587,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_normalize.scss": {
@@ -3594,8 +3603,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_pager.scss": {
@@ -3610,8 +3619,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_pagination.scss": {
@@ -3626,8 +3635,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_panels.scss": {
@@ -3642,8 +3651,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_popovers.scss": {
@@ -3658,8 +3667,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_print.scss": {
@@ -3674,8 +3683,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_progress-bars.scss": {
@@ -3690,8 +3699,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_responsive-embed.scss": {
@@ -3706,8 +3715,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_responsive-utilities.scss": {
@@ -3722,8 +3731,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_scaffolding.scss": {
@@ -3738,8 +3747,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_tables.scss": {
@@ -3754,8 +3763,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_theme.scss": {
@@ -3770,8 +3779,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_thumbnails.scss": {
@@ -3786,8 +3795,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_tooltip.scss": {
@@ -3802,8 +3811,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_type.scss": {
@@ -3818,8 +3827,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_utilities.scss": {
@@ -3834,8 +3843,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_variables.scss": {
@@ -3850,8 +3859,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/_wells.scss": {
@@ -3866,8 +3875,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_alerts.scss": {
@@ -3882,8 +3891,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_background-variant.scss": {
@@ -3898,8 +3907,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_border-radius.scss": {
@@ -3914,8 +3923,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_buttons.scss": {
@@ -3930,8 +3939,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_center-block.scss": {
@@ -3946,8 +3955,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_clearfix.scss": {
@@ -3962,8 +3971,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_forms.scss": {
@@ -3978,8 +3987,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_gradients.scss": {
@@ -3994,8 +4003,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_grid-framework.scss": {
@@ -4010,8 +4019,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_grid.scss": {
@@ -4026,8 +4035,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_hide-text.scss": {
@@ -4042,8 +4051,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_image.scss": {
@@ -4058,8 +4067,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_labels.scss": {
@@ -4074,8 +4083,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_list-group.scss": {
@@ -4090,8 +4099,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_nav-divider.scss": {
@@ -4106,8 +4115,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_nav-vertical-align.scss": {
@@ -4122,8 +4131,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_opacity.scss": {
@@ -4138,8 +4147,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_pagination.scss": {
@@ -4154,8 +4163,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_panels.scss": {
@@ -4170,8 +4179,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_progress-bar.scss": {
@@ -4186,8 +4195,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_reset-filter.scss": {
@@ -4202,8 +4211,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_reset-text.scss": {
@@ -4218,8 +4227,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_resize.scss": {
@@ -4234,8 +4243,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_responsive-visibility.scss": {
@@ -4250,8 +4259,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_size.scss": {
@@ -4266,8 +4275,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_tab-focus.scss": {
@@ -4282,8 +4291,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_table-row.scss": {
@@ -4298,8 +4307,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_text-emphasis.scss": {
@@ -4314,8 +4323,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_text-overflow.scss": {
@@ -4330,8 +4339,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/assets\/stylesheets\/bootstrap\/mixins\/_vendor-prefixes.scss": {
@@ -4346,8 +4355,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/bower.json": {
@@ -4469,8 +4478,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": false
 		},
 	"\/vendor\/twbs\/bootstrap\/templates\/project\/styles.sass": {
@@ -4485,8 +4494,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": false
 		},
 	"\/vendor\/twbs\/bootstrap\/test\/dummy_node_mincer\/apple-touch-icon-144-precomposed.png": {
@@ -4512,8 +4521,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/vendor\/twbs\/bootstrap\/test\/dummy_node_mincer\/manifest.js": {
@@ -4550,8 +4559,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": false
 		},
 	"\/vendor\/twbs\/bootstrap\/test\/dummy_rails\/app\/views\/layouts\/application.html.erb": {
@@ -4589,8 +4598,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": false
 		},
 	"\/vendor\/zemistr\/l10n-nette-translator\/composer.json": {
@@ -6265,6 +6274,54 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/www\/img\/css\/base\/mixins-breakpoint.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/css\/base\/mixins-breakpoint.scss",
+		"outputAbbreviatedPath": "\/www\/img\/css\/css\/mixins-breakpoint.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
+		"useLibsass": 0
+		},
+	"\/www\/img\/css\/base\/placeholders.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/css\/base\/placeholders.scss",
+		"outputAbbreviatedPath": "\/www\/img\/css\/css\/placeholders.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
+		"useLibsass": 0
+		},
+	"\/www\/img\/css\/base\/variables.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/css\/base\/variables.scss",
+		"outputAbbreviatedPath": "\/www\/img\/css\/css\/variables.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
+		"useLibsass": 0
+		},
 	"\/www\/img\/css\/bootstrap\/backup\/alerts.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
@@ -6279,8 +6336,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6299,8 +6356,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6319,8 +6376,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6348,8 +6405,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6368,8 +6425,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6388,8 +6445,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6408,8 +6465,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6428,8 +6485,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6448,8 +6505,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6468,8 +6525,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6488,8 +6545,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6508,8 +6565,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6528,8 +6585,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6548,8 +6605,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6568,8 +6625,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6588,8 +6645,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6608,8 +6665,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6628,8 +6685,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6657,8 +6714,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6677,8 +6734,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6697,8 +6754,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6717,8 +6774,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6737,8 +6794,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6757,8 +6814,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6777,8 +6834,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6797,8 +6854,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6826,8 +6883,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6855,8 +6912,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6884,8 +6941,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6913,8 +6970,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6942,8 +6999,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -6971,8 +7028,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7000,8 +7057,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7029,8 +7086,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7058,8 +7115,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7087,8 +7144,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7116,8 +7173,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7145,8 +7202,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7174,8 +7231,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7203,8 +7260,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7232,8 +7289,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7261,8 +7318,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7290,8 +7347,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7319,8 +7376,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7348,8 +7405,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7377,8 +7434,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7406,8 +7463,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7435,8 +7492,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7464,8 +7521,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7493,8 +7550,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7522,8 +7579,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7551,8 +7608,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7580,8 +7637,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7609,8 +7666,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7638,8 +7695,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7667,8 +7724,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7696,8 +7753,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7716,8 +7773,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7736,8 +7793,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7756,8 +7813,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7785,8 +7842,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7805,8 +7862,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7825,8 +7882,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7845,8 +7902,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7865,8 +7922,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7885,8 +7942,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7914,8 +7971,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7934,8 +7991,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7963,8 +8020,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -7983,8 +8040,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8003,8 +8060,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8023,8 +8080,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8043,8 +8100,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8072,8 +8129,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8092,8 +8149,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8112,8 +8169,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8132,8 +8189,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8152,8 +8209,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8181,8 +8238,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8201,8 +8258,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8221,8 +8278,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8248,8 +8305,8 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 3,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
 	"\/www\/img\/css\/jquery\/jquery.tinycolorbox.less": {
@@ -8266,8 +8323,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8386,8 +8443,8 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
@@ -8547,7 +8604,7 @@
 	},
 "hooks": [
 	],
-"lastSavedByUser": "Radek Zemánek",
+"lastSavedByUser": "sleapy",
 "manualImportLinks": {
 	},
 "projectAttributes": {
@@ -9152,8 +9209,8 @@
 	"sassDecimalPrecision": 10,
 	"sassOutputStyle": 0,
 	"sassUseLibsass": 0,
-	"shouldRunAutoprefixer": 0,
-	"shouldRunBless": 0,
+	"shouldRunAutoprefixer": 1,
+	"shouldRunBless": 1,
 	"skippedItemsString": ".svn, .git, .hg, log, _logs, _cache, cache, logs, node_modules",
 	"slimAutoOutputPathEnabled": 1,
 	"slimAutoOutputPathFilenamePattern": "*.html",
