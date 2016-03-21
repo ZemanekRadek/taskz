@@ -1,0 +1,49 @@
+/* BASIC COLORS ------------------------------- */
+$color-contrast: #332E2A;
+$color-background: #EAEAE9;
+$color-white: #FCFCFC;
+
+/* DOPLNKOVE BARVY ------------------------------- */
+$color-blue: #448AFF;
+$color-blue-dark: #1976D2;
+
+$color-red: #F44336;
+$color-red-dark: #D32F2F;
+
+$color-orange: #FF5722;
+$color-orange-dark: #E64A19;
+
+$color-green: #8BC34A;
+
+
+/* FONT & TEXT SETTINGS ------------------------------- */
+$font-family-base: 'Open Sans', sans-serif;
+
+$body-bg: $color-background;
+
+$text-color-focus: $color-contrast;
+$text-color: rgba($color-contrast, 0.7);
+
+$font-size-base: 14px;
+
+$font-size-large: ceil(($font-size-base * 1.25)); // ~18px
+$font-size-small: ceil(($font-size-base * 0.85)); // ~12px
+
+$font-size-h1: floor(($font-size-base * 2.15)); // ~30px
+$font-size-h2: floor(($font-size-base * 1.75)); // ~24px
+$font-size-h3: ceil(($font-size-base * 1.25)); // ~18px
+$font-size-h4: $font-size-base; // ~14px
+$font-size-h5: ceil(($font-size-base * 0.85)); // ~12px
+$font-size-h6: ceil(($font-size-base * 0.7)); // ~10px
+
+/* By default, this inherits from the `<body>`.------------------------------- */
+$headings-font-family:inherit;
+$headings-font-weight: 500;
+$headings-line-height: 1.1;
+$headings-color: inherit;
+
+/* LINK STYLE SETTINGS ------------------------------- */
+$link-color: $color-blue;
+$link-hover-color: rgba($color-blue, 0.50);
+$link-hover-decoration: none;
+$link-decoration: underline;

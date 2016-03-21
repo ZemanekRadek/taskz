@@ -1,0 +1,15 @@
+body,
+html {
+	///background: $color-background;
+	background: rgba($color-contrast, 0.05);
+	///position: relative;
+	///overflow-x: hidden;
+}
+
+a {
+    font-weight:600;
+    -ms-transition: all 0.7s ease-out;
+    @include transition(all 0.7s ease-out);
+    text-decoration: $link-decoration;
+    cursor: pointer;
+}
