@@ -25,11 +25,15 @@ class Task extends Nette\Object  {
 	private $tableUser = "tasks_user";
 
 	private $data  = array(
-		'ta_ID'      => null,
-		'ta_author'  => null,
-		'ta_timeTo'  => null,
-		'ta_created' => null
+		'ta_ID'          => null,
+		'ta_description' => null,
+		'ta_author'      => null,
+		'ta_timeTo'      => null,
+		'ta_created'     => null,
+		'ta_name'        => null
 	);
+
+	private $tags  = array();
 
 	private $users = array();
 
@@ -66,6 +70,8 @@ class Task extends Nette\Object  {
 		$lists  = new TaskListFactory($this->DB, $this->User, $this->Project);
 		// $tags   = new TagList($this->DB);
 
+		\Tracy\Debugger::barDump($this->TaskList, 'tasklist!');
+
 		$form->addText('ta_name', 'Název úkolu', 128)
 			->addRule(UI\Form::FILLED, 'Vyplňte název úkolu')
 			->addCondition(UI\Form::FILLED);
@@ -73,17 +79,23 @@ class Task extends Nette\Object  {
 		$form->addTextArea('ta_description', 'Popis úkolu');
 
 		$form->addText('ta_timeTo', 'Splnit do')
-			->addRule(UI\Form::PATTERN, 'Špatný formát datumu', '[0-9]{2}\.[0-9]{2}\.[0-9]{4}');
+			->addRule(UI\Form::PATTERN, 'Špatný formát datumu', '[0-9]{2}\. [0-9]{2}\. [0-9]{4}');
 
 		$form->addCheckboxList('ta_users', 'Uživatelé', $users->getAll());
 
 		$form->addCheckboxList('ta_taskLists', 'Seznamy', $lists->getAll());
 
+		$form->addCheckboxList('ta_tags', 'Tagy', array());
+
 		$form->addHidden('ta_ID');
 		$form->addHidden('ta_created');
+		$form->addHidden('ta_taskListID', $this->TaskList->tl_ID);
+		$form->addHidden('ta_projectID', $this->Project->pr_ID);
 		$form->addSubmit('ta_send', 'Uložit');
 
-		$form->onSuccess[] = function($values) {
+		$form->onSuccess[] = function() use ($form) {
+
+			$values = $form->getValues();
 
 			foreach($values as $k => $v) {
 				if (!in_array($k, array_keys($this->data))) {
@@ -102,35 +114,40 @@ class Task extends Nette\Object  {
 
 			$this->data['ta_author'] = $this->User->getIdentity()->getId();
 
-			return $this->save();
+			$this->addUser($this->data['ta_author']);
 		};
 
 		return $form;
 	}
 
 	public function addUser($ID) {
-		$this->users[] = array('us_ID' => $ID);
+		$this->users[$ID] = array('us_ID' => $ID);
 		return $this;
 	}
 
 	public function save() {
 
-		if ($this->data['ta_ID'] > 0) {
+		$values = $this->data;
+		$values['ta_timeTo'] = date('Y-m-d H:i:s', strtotime(str_replace(' ', '', $values['ta_timeTo'])));
 
-			$this->db
+		if ($values['ta_ID'] > 0) {
+			unset($values['ta_created']);
+			$this->DB
 				->table($this->table)
-					->where('ta_ID', $this->data['ta_ID'])
-					->update($this->data);
+					->where('ta_ID', $values['ta_ID'])
+					->update($values);
 
 		}
 		else {
 			unset($values['ta_ID']);
-			$this->db
+			$values['ta_created'] = date('Y-m-d H:i:s');
+			\Tracy\Debugger::barDump($values);
+			$row = $this->DB
 				->table($this->table)
-				->insert($this->data);
+				->insert($values);
 
-			if (!$this->data['ta_ID'] = $this->db->getInsertId()) {
-				throw Nette\InvalidArgumentException('Invalid keys for save');
+			if (!$this->data['ta_ID'] = $row['ta_ID']) {
+				throw new \Nette\InvalidArgumentException('Invalid keys for save');
 			}
 		}
 
