@@ -16,7 +16,7 @@
 	<meta name="apple-mobile-web-app-capable" content="no" />
 	<meta name="mobile-web-app-capable" content="no">
 
-	<title>{ifset title}{include title|striptags} | {/ifset}Taskz</title>
+<title>{ifset title}{include title|striptags} | {/ifset}Tazkie</title>
 
 	{block css}
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/dark-hive/jquery-ui.css">
@@ -30,6 +30,8 @@
 	<script src="{$basePath}/img/js/jquery/jquery.tinycolorpicker.min.js"></script>
 
 	<script src="{$basePath}/img/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="{$basePath}/img/js/bin/materialize.min.js"></script>	
+
 	<script type="text/javascript">
 		$.datepicker.regional['cs'] = {
 			closeText: 'Zavřít',
@@ -66,8 +68,8 @@
 
 	{/block}
 	{block head}{/block}
-	
-	
+
+
 </head>
 
 {block body}

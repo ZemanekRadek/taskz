@@ -1930,7 +1930,7 @@ $(document).ready(function(){
         }
         else {
           // Insert as text;
-          toast.innerHTML = html; 
+          toast.innerHTML = html;
         }
         // Bind hammer
         var hammerHandler = new Hammer(toast, {prevent_default: false});
@@ -2239,7 +2239,7 @@ $(document).ready(function(){
               $('body').css('overflow', 'hidden');
               // Push current drag target on top of DOM tree
               $('body').append(dragTarget);
-              
+
               if (options.edge === 'left') {
                 dragTarget.css({width: '50%', right: 0, left: ''});
                 menu_id.velocity({left: 0}, {duration: 300, queue: false, easing: 'easeOutQuad'});
@@ -2480,9 +2480,9 @@ $(document).ready(function(){
 		    var offset = $(this.hash).offset().top + 1;
 
 //          offset - 200 allows elements near bottom of page to scroll
-			
+
 	    	$('html, body').animate({ scrollTop: offset - 200 }, {duration: 400, queue: false, easing: 'easeOutCubic'});
-			
+
 		  });
 		});
 		options = options || {
@@ -2654,13 +2654,13 @@ $(document).ready(function(){
       var len = object.val().length;
 
       if (object.val().length === 0 && object[0].validity.badInput === false) {
-        if (object.hasClass('validate')) {
+        if (object.hasClass('form-control')) {
           object.removeClass('valid');
           object.removeClass('invalid');
         }
       }
       else {
-        if (object.hasClass('validate')) {
+        if (object.hasClass('form-control')) {
           // Check for character counter attributes
           if ((object.is(':valid') && hasLength && (len <= lenAttr)) || (object.is(':valid') && !hasLength)) {
             object.removeClass('invalid');
@@ -5049,9 +5049,9 @@ function DatePicker( picker, settings ) {
         min: 'measure create',
         max: 'measure create',
         now: 'now create',
-        select: 'parse create validate',
-        highlight: 'parse navigate create validate',
-        view: 'parse create validate viewset',
+        select: 'parse create form-control',
+        highlight: 'parse navigate create form-control',
+        view: 'parse create form-control viewset',
         disable: 'deactivate',
         enable: 'activate'
     }
@@ -5415,7 +5415,7 @@ DatePicker.prototype.viewset = function( type, dateObject/*, options*/ ) {
 /**
  * Validate a date as enabled and shift if needed.
  */
-DatePicker.prototype.validate = function( type, dateObject, options ) {
+DatePicker.prototype.form-control = function( type, dateObject, options ) {
 
     var calendar = this,
 

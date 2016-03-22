@@ -6,10 +6,73 @@ html {
 	///overflow-x: hidden;
 }
 
+/* ==========================================================================
+    HYPERLINKS
+   ========================================================================== */
+
 a {
     font-weight:600;
     -ms-transition: all 0.7s ease-out;
     @include transition(all 0.7s ease-out);
-    text-decoration: $link-decoration;
+    text-decoration: $link-decoration !important;
     cursor: pointer;
+
+		&:hover,
+		&:active {
+			text-decoration: $link-hover-decoration !important;
+		}
+}
+
+/* ==========================================================================
+    LABELS & FORMS
+   ========================================================================== */
+
+
+.label-required {
+    color: $color-requirement;
+    text-transform: lowercase;
+    font-style: italic;
+}
+
+/* ==========================================================================
+    INPUTS
+   ========================================================================== */
+
+.input-field input {
+		border-color: $color-input-border-default !important;
+		color: $color-contrast;
+		font-weight: bold;
+
+		&:focus,
+		&:hover {
+			border-color: $link-color !important;
+			box-shadow: 0 1px 0 0 rgba($link-color, 0.25) !important;
+		}
+
+		& + label{
+			text-transform: uppercase;
+			font-weight:400;
+		}
+		&:focus + label,
+		&:hover + label {
+			color: $link-color !important;
+		}
+	}
+
+
+/* ==========================================================================
+   BUTTONS
+  ========================================================================== */
+
+.btn {
+	&.waves-effect.waves-light {
+		&.custom-primary {
+			background-color: $color-blue;
+			color: $color-button-default;
+
+			&:hover{
+				color: $color-button-hover;
+			}
+		}
+	}
 }

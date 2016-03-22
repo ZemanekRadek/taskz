@@ -43,7 +43,15 @@ $headings-line-height: 1.1;
 $headings-color: inherit;
 
 /* LINK STYLE SETTINGS ------------------------------- */
-$link-color: $color-blue;
-$link-hover-color: rgba($color-blue, 0.50);
+$link-color: rgba($color-blue, 0.75);
+$link-hover-color: $color-blue;
 $link-hover-decoration: none;
 $link-decoration: underline;
+
+/* ADDITIONAL COLOR SETUPS ------------------------------- */
+
+$color-requirement: $color-red-dark;
+$color-input-border-default: rgba($color-contrast, 0.25);
+
+$color-button-default: rgba($color-white, 0.75);
+$color-button-hover: $color-white;

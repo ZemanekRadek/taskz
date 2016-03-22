@@ -12,7 +12,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-					<div class="box box-dialog styled">
+
 						<h2 class="text-center"><strong>Login</strong> and continue your work</h2>
 
 						<a class="btn btn-block btn-social btn-facebook-light" href="#logfcb">
@@ -23,11 +23,7 @@
 							<i class="google-fix icon-google"></i> Login with Google
 						</a>
 
-
-
 						<h2 class="text-center"><strong>or</strong></h2>
-
-
 
 						{form signInForm}
 							<div class="errors" n:if="$form->hasErrors()">
@@ -36,30 +32,28 @@
 							</div>
 
 							<div class="form-group">
-								<input type="email" n:name=us_email class="form-control" />
-								<span class="highlight"></span>
-								<span class="bar"></span>
-	 							<label for="us_email">Login E-mail <span class="label-required">*</span></label>
-	 							<span class="error" n:if="$form['us_email']->hasErrors()">
-	 								{_($form['us_email']->getError())}
-	 							</span>
+								<div class="input-field col s12">
+									 <input id="email" type="email" n:name=us_email class="form-control">
+									 <label for="us_email" data-error="wrong" data-success="right">Login e-mail <span class="label-required">*</span></label>
+									 <span class="error" n:if="$form['us_email']->hasErrors()">
+										 {_($form['us_email']->getError())}
+									 </span>
+								 </div>
 							</div>
 
 							<div class="form-group">
-								<input type="password" n:name=us_password class="form-control" />
-								<span class="highlight"></span>
-								<span class="bar"></span>
-								<label for="us_password">Tazkie Password <span class="label-required">*</span></label>
-
-	 							<span class="error" n:if="$form['us_password']->hasErrors()">
-	 								{_($form['us_password']->getError())}
-	 							</span>
-
+								<div class="input-field col s12">
+									<input id="password" type="password" n:name=us_password class="form-control">
+									<label for="us_password">Password <span class="label-required">*</span></label>
+									<span class="error" n:if="$form['us_password']->hasErrors()">
+										{_($form['us_password']->getError())}
+									</span>
+								</div>
 							</div>
 
 							<p class="hint-text"><span class="label-required">*</span> Oh, yes. You quess right - this is required.</p>
 
-							<button type="submit" class="btn-block btn btn-lg btn-primary">Log me in!</button>
+							<button type="submit" class="btn btn-block waves-effect waves-light custom-primary">Log me in!</button>
 
 							<p class="text-center"><a href="#">Forgot your password?</a></p>
 						{/form}
@@ -67,7 +61,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+
 
 
 
