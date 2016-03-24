@@ -52,7 +52,7 @@ h1, h2 {
 .button--social-login {
 	margin-bottom: $half-spacing-unit;
 	margin-right: $half-spacing-unit;
-	color: $color-button-default;
+	background-color: rgba($color-white, 0.25);
 	height: $button-height;
 	line-height: $button-height - 4;
 	position: relative;
@@ -85,7 +85,7 @@ h1, h2 {
 @each $name, $color in $social-list {
 
     .button--#{$name} {
-		background-color: $color;
+		color: $color;
     border: 1px solid darken($color, 10%);
 
 		.icon {
