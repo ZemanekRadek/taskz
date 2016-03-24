@@ -1,32 +1,67 @@
-body,
-html {
-	///background: $color-background;
-	background: rgba($color-contrast, 0.05);
-	///position: relative;
-	///overflow-x: hidden;
+html,
+body {
+	height: 100%;
+	background: rgba($body-bg, 0.05);
+	position: relative;
+	overflow-x: hidden;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+* {
+	color: $text-color;
+	font-size: $font-size-base;
+}
+
+#tazkie-logo {
+    background:url(/img/tazkie-logo.png) center top;
+    width: 111px;
+    height: 32px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ==========================================================================
-    HYPERLINKS
+    HYPERLINKS & TEXTS & HEADINGS
    ========================================================================== */
 
 a {
-    font-weight:600;
-    -ms-transition: all 0.7s ease-out;
+		color: rgba($color-blue, 0.90);
+		font-weight:600;
     @include transition(all 0.7s ease-out);
+		-ms-transition: all 0.7s ease-out;
     text-decoration: $link-decoration !important;
     cursor: pointer;
 
 		&:hover,
 		&:active {
+			color: darken($color-blue, 10%);
 			text-decoration: $link-hover-decoration !important;
 		}
 }
 
-/* ==========================================================================
-    LABELS & FORMS
-   ========================================================================== */
+/* HEADINGS ------------------------------- */
+h1 {
+	font-size: $font-size-h1;
+}
+h2 {
+	font-size: $font-size-h2;
+}
+h3 {
+	font-size: $font-size-h3;
+}
+h4 {
+	font-size: $font-size-h4;
+}
+h5 {
+	font-size: $font-size-h5;
+}
+h6 {
+	font-size: $font-size-h6;
+}
 
+/* LABELS ------------------------------- */
 
 .label-required {
     color: $color-requirement;
@@ -40,8 +75,9 @@ a {
 
 .input-field input {
 		border-color: $color-input-border-default !important;
-		color: $color-contrast;
-		font-weight: bold;
+		color: $text-color;
+		font-weight: 600;
+		font-size: $font-size-base;
 
 		&:focus,
 		&:hover {
@@ -51,12 +87,35 @@ a {
 
 		& + label{
 			text-transform: uppercase;
-			font-weight:400;
+			font-size: $font-size-h4;
+			font-weight:300;
 		}
 		&:focus + label,
 		&:hover + label {
 			color: $link-color !important;
+			font-size: $font-size-h5;
 		}
+
+		&.valid{
+			border-bottom: 1px solid $color-green !important;
+			box-shadow: 0 1px 0 0 rgba($color-green, 0.25) !important;
+		}
+		&.invalid{
+			border-bottom: 1px solid $color-red !important;
+			box-shadow: 0 1px 0 0 rgba($color-red, 0.25) !important;
+		}
+	}
+
+	.errors {
+		width: 100%;
+		padding: 20px 10px 10px;
+		background-color: $color-red;
+		color: $color-white;
+
+		.ico-validation {
+			font-size: 4em;
+			color: $color-white;
+			}
 	}
 
 
@@ -69,8 +128,10 @@ a {
 		&.custom-primary {
 			background-color: $color-blue;
 			color: $color-button-default;
+			height: 50px;
 
 			&:hover{
+				background-color: darken($color-blue, 5%);
 				color: $color-button-hover;
 			}
 		}

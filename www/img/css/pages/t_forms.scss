@@ -1,0 +1,60 @@
+/* ==========================================================================
+   FORMS - OBECNÉ
+  ========================================================================== */
+
+.form,
+.form-login,
+.form-newproject,
+.form-tasklist,
+.form-registration {
+	padding: 15px;
+	margin: 0 auto;
+
+	button[type="submit"] {
+		margin-top: 15px;
+		margin-bottom: 15px;
+    }
+}
+
+.form-group {
+
+	&.login {
+		position:relative;
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+	&.tight {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    }
+}
+
+/* ==========================================================================
+   LOGIN PAGE
+  ========================================================================== */
+
+.dialog-header,
+.login-header {
+	///height: 100%;
+	width: 100%;
+	font-weight: 600;
+	position: relative;
+
+	.heading {
+		text-align: center !important;
+		padding-top: 7%;
+		padding-top: 7vh;
+	}
+
+	h1 {
+			margin-bottom: 0;
+    }
+}
+
+.form-login h2 {
+	margin-bottom: 20px;
+}
+
+.form-login .row .col {
+	float: none;
+}

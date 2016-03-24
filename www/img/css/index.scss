@@ -11,33 +11,34 @@
 @import '../../../vendor/include-media/include-media-export.scss';
 @import '../../../vendor/include-media/include-media-columns.scss';
 
-/* ==========================================================================
-    INTERNAL BASE EXTENSIONS
-   ========================================================================== */
-
-@import 'base/t_variables.scss';
-
-@import 'base/t_screen.scss'; ///SCREEN SETUP
-@import 'base/t_default.scss'; ///LAYOUT SETUP AND BASIC ELEMENTS
-
-
-/* ==========================================================================
-    INTERNAL PAGES & COMPONENTS
-   ========================================================================== */
-@import 'components/t_placeholders.scss';
-
-@import 'pages/t_login.scss';
-
-
-
 
 /* ==========================================================================
     EXTERNAL FRAMEWORKS
    ========================================================================== */
 
-@import '../../../vendor/twbs/bootstrap/assets/stylesheets/_bootstrap.scss';
 @import '../../../vendor/materialize-src/sass/materialize.scss';
+@import '../../../vendor/twbs/bootstrap/assets/stylesheets/_bootstrap.scss';
 
 /*
 @import 'base/breakpoint-mixins.scss';
 @import 'components/buttons/scss/buttons.scss';*/
+
+/* ==========================================================================
+    INTERNAL PAGES & COMPONENTS
+   ========================================================================== */
+
+	 ///@import 'components/t_placeholders.scss';
+
+	 ///@import 'pages/t_login.scss';
+
+/* ==========================================================================
+   INTERNAL BASE EXTENSIONS
+  ========================================================================== */
+
+	 @import 'base/t_variables.scss';
+	 @import 'components/t_social-buttons.scss';
+
+	 @import 'base/t_screen.scss'; ///SCREEN SETUP
+	 @import 'base/t_default.scss'; ///LAYOUT SETUP AND BASIC ELEMENTS
+
+	 @import 'pages/t_forms.scss'; /// SCREEN FORMS

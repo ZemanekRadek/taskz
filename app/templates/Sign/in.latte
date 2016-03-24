@@ -15,13 +15,9 @@
 
 						<h2 class="text-center"><strong>Login</strong> and continue your work</h2>
 
-						<a class="btn btn-block btn-social btn-facebook-light" href="#logfcb">
-							<i class="icon-facebook"></i> Login with Facebook
-						</a>
+						<a class="btn button button--social-login button--facebook" href="#"><i class="icon icon-facebook"></i>Login With Facebook</a>
 
-						<a class="btn btn-block btn-social btn-google-light" href="#loggog">
-							<i class="google-fix icon-google"></i> Login with Google
-						</a>
+						<a class="btn button button--social-login button--googleplus" href="#"><i class="icon icon-google"></i>Login With Google +</a>
 
 						<h2 class="text-center"><strong>or</strong></h2>
 
@@ -31,9 +27,9 @@
 								 <h3>Something wrong? Sometimes it's just happened</h3>
 							</div>
 
-							<div class="form-group">
+							<div class="form-group login">
 								<div class="input-field col s12">
-									 <input id="email" type="email" n:name=us_email class="form-control">
+									 <input id="email" type="email" n:name=us_email class="form-control validate">
 									 <label for="us_email" data-error="wrong" data-success="right">Login e-mail <span class="label-required">*</span></label>
 									 <span class="error" n:if="$form['us_email']->hasErrors()">
 										 {_($form['us_email']->getError())}
@@ -41,9 +37,9 @@
 								 </div>
 							</div>
 
-							<div class="form-group">
+							<div class="form-group login">
 								<div class="input-field col s12">
-									<input id="password" type="password" n:name=us_password class="form-control">
+									<input id="password" type="password" n:name=us_password class="form-control validate">
 									<label for="us_password">Password <span class="label-required">*</span></label>
 									<span class="error" n:if="$form['us_password']->hasErrors()">
 										{_($form['us_password']->getError())}
@@ -65,7 +61,7 @@
 
 
 
-	<p class="text-center">Don't want social login? <strong><a href="/registration">Create account the old way</a></strong>.</p>
+	<p class="text-center">Don't want social registration? <strong><a href="/registration">Create account the old way</a></strong>.</p>
 
 <script type="text/javascript">
 (function(){

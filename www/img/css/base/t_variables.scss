@@ -1,6 +1,5 @@
 /* BASIC COLORS ------------------------------- */
 $color-contrast: #332E2A;
-$color-background: #EAEAE9;
 $color-white: #FCFCFC;
 
 /* DOPLNKOVE BARVY ------------------------------- */
@@ -14,15 +13,16 @@ $color-orange: #FF5722;
 $color-orange-dark: #E64A19;
 
 $color-green: #8BC34A;
-
+/* background-radek: */
 
 /* FONT & TEXT SETTINGS ------------------------------- */
 $font-family-base: 'Open Sans', sans-serif;
 
-$body-bg: $color-background;
+$body-bg: rgba($color-contrast, 0.5);
 
-$text-color-focus: $color-contrast;
-$text-color: rgba($color-contrast, 0.7);
+///$text-color-focus: $color-contrast;
+$text-color: rgba($color-contrast, 0.75);
+///$text-color: rgba($color-contrast, 0.7);
 
 $font-size-base: 14px;
 
