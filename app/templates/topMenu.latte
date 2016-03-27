@@ -1,113 +1,120 @@
 {block bodyClass}
-<body class="is-navigation">
+<body class="no-top is-navigation">
 {/block}
-	<div class="navbar topnav">
-		<div class="container-fluid">
-			<div class="nav navbar-nav nav-hamburger">
-				<button type="button" class="nav navbar-nav hamburger is-closed" data-toggle="offcanvas">
-						<span class="hamb-top"></span>
-						<span class="hamb-middle"></span>
-						<span class="hamb-bottom"></span>
-				</button>
-	    	</div>
 
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#"><span>Tasks</span></a></li>
-				<li><a href="#"><span>Files</span></a></li>
-				<li><a href="#"><span>Users</span></a></li>
-				<li><a href="#"><span>Progress</span></a></li>
-			</ul>
+<!-- TOPNAV BEGINS -->
+<nav class="topmenu col s12">
+	<div class="nav-wrapper">
+		<div class="nav navbar-nav nav-hamburger">
+			<button type="button" class="nav navbar-nav hamburger is-closed" data-toggle="offcanvas">
+					<span class="hamb-top"></span>
+					<span class="hamb-middle"></span>
+					<span class="hamb-bottom"></span>
+			</button>
+			</div>
+		<ul class="left">
+			<li class="active"><a href="#"><span>Tasks</span></a></li>
+			<li><a href="#"><span>Files</span></a></li>
+			<li><a href="#"><span>Users</span></a></li>
+			<li><a href="#"><span>Progress</span></a></li>
+		</ul>
+		<ul class="right hide-on-med-and-down">
+			<li><a href="{link Project:}"><span>Project Settings</span></a></li>
+			<li><a href="{link Sign:out}"><span>Log out</span></a></li>
+		</ul>
 
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="{link Project:}"><span>Project Settinsg</span></a></li>
-				<li><a href="{link Sign:out}"><span>Log out</span></a></li>
-			</ul>
-		</div>
+		<!-- OFF CANVAS SIDE MENU -->
+		<ul class="side-nav" id="mobile-demo">
+			<li><a href="sass.html">Sass</a></li>
+			<li><a href="badges.html">Components</a></li>
+			<li><a href="collapsible.html">Javascript</a></li>
+			<li><a href="mobile.html">Mobile</a></li>
+		</ul>
 	</div>
+</nav>
+<!-- TOPNAV ENDS -->
 
-	<!-- Sidebar -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+<!-- SIDEBAR BEGINS -->
+	<nav class="topmenu navbar-fixed-top" id="sidebar-wrapper" role="navigation">
 
-			<ul class="nav sidebar-nav">
-				<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-projectname"></i>{if $Project}{$Project->pr_name}{else}No project selected{/if}<span class="caret"></span></a>
-					<ul class="dropdown-menu" role="menu">
-						{foreach $ProjectFactory->getAll() as $pr}
-							<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}"><i class="icon-projectname"></i>{$pr->pr_name}</a></li>
-						{/foreach}
-						<li><a href="{link Dashboard:}"><i class="icon-back"></i> Back to Dashboard</a></li>
-						<li><a href="{link Project:create}"><i class="icon-add_box"></i> New Project</a></li>
+					<ul class="nav sidebar-nav">
+							<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-projectname"></i>{if $Project}{$Project->pr_name}{else}No project selected{/if}<span class="caret"></span></a>
+									<ul class="dropdown-menu" role="menu">
+											{foreach $ProjectFactory->getAll() as $pr}
+													<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}"><i class="icon-projectname"></i>{$pr->pr_name}</a></li>
+											{/foreach}
+											<li><a href="{link Dashboard:}"><i class="icon-back"></i> Back to Dashboard</a></li>
+											<li><a href="{link Project:create}"><i class="icon-add_box"></i> New Project</a></li>
+									</ul>
+							</li>
+
+							{foreach $TaskListFactory->getAll() as $list}
+									<li>
+											<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
+													<i class="{$list->tl_ico}"></i>
+													{$list->tl_name}
+											</a>
+									</li>
+									{/foreach}
+									{if $Project}
+
+									<li class="position-bottom">
+											<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i> New Task List</a>
+									</li>
+
+									<li>
+											<a class="tl-icon" href="{link Task:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i> New Tak</a>
+									</li>
+
+									{if isset($Task)&&$Task}
+									<li>
+									<a href="{link List:list projectID=>$Project->pr_ID, projectName=>$Project->pr_path,taskListID=>$TaskList->tl_ID, taskListName=>$TaskList->tl_path,lang=>$presenter->lang}">{_'back to tasklist'}</a>
+									</li>
+									{/if}
+							{/if}
+
 					</ul>
-				</li>
-
-				{foreach $TaskListFactory->getAll() as $list}
-					<li>
-						<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
-							<i class="{$list->tl_ico}"></i>
-							{$list->tl_name}
-						</a>
-					</li>
-					{/foreach}
-					{if $Project}
-
-					<li class="position-bottom">
-						<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i> New Task List</a>
-					</li>
-
-					<li>
-						<a class="tl-icon" href="{link Task:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i> New Tak</a>
-					</li>
-
-					{if isset($Task)&&$Task}
-					<li>
-					<a href="{link List:list projectID=>$Project->pr_ID, projectName=>$Project->pr_path,taskListID=>$TaskList->tl_ID, taskListName=>$TaskList->tl_path,lang=>$presenter->lang}">{_'back to tasklist'}</a>
-					</li>
-					{/if}
-				{/if}
-
-			</ul>
 	</nav>
-	<!-- /#sidebar-wrapper -->
-
+<!-- SIDEBAR ENDS -->
 
 <!-- JQUERY sideMenu -->
 <script type="text/javascript">
 $(document).ready(function () {
 	var $body = $('body');
 
-  var trigger = $('.hamburger'),
-      overlay = $('.overlay'),
-     isClosed = false;
+var trigger = $('.hamburger'),
+		overlay = $('.overlay'),
+	 isClosed = false;
 
-    trigger.click(function () {
-      hamburger_cross();
-    });
+	trigger.click(function () {
+		hamburger_cross();
+	});
 
-    function hamburger_cross() {
+	function hamburger_cross() {
 
-      if (isClosed == true) {
-        overlay.hide();
-        $body.removeClass('is-open');
-        trigger.removeClass('is-open');
-        trigger.addClass('is-closed');
-        isClosed = false;
-      } else {
-        overlay.show();
-        $body.addClass('is-open');
-        trigger.removeClass('is-closed');
-        trigger.addClass('is-open');
-        isClosed = true;
-      }
-  }
+		if (isClosed == true) {
+			overlay.hide();
+			$body.removeClass('is-open');
+			trigger.removeClass('is-open');
+			trigger.addClass('is-closed');
+			isClosed = false;
+		} else {
+			overlay.show();
+			$body.addClass('is-open');
+			trigger.removeClass('is-closed');
+			trigger.addClass('is-open');
+			isClosed = true;
+		}
+}
 
-  $('[data-toggle="offcanvas"]').click(function () {
-        $('#wrapper').toggleClass('toggled');
-  });
+$('[data-toggle="offcanvas"]').click(function () {
+			$('#wrapper').toggleClass('toggled');
+});
 
-
-  $('.sidebar-nav .dropdown:first-child a:first-child').click(function(E) {
-	  $('.nav-hamburger button.hamburger').trigger('click');
-  });
+$('.sidebar-nav .dropdown:first-child a:first-child').click(function(E) {
+		$('.nav-hamburger button.hamburger').trigger('click');
+});
 });
 </script>
 
@@ -115,27 +122,27 @@ $(document).ready(function () {
 
 <script type="text/javascript">
 	function DropDown(el) {
-		this.dd = el;
-		this.initEvents();
+			this.dd = el;
+			this.initEvents();
 	}
 	DropDown.prototype = {
-		initEvents : function() {
-			var obj = this;
+			initEvents : function() {
+					var obj = this;
 
-			obj.dd.on('click', function(event){
-				$(this).toggleClass('active');
-				event.stopPropagation();
-			});
-		}
+					obj.dd.on('click', function(event){
+							$(this).toggleClass('active');
+							event.stopPropagation();
+					});
+			}
 	}
 
 	$(function() {
 
-		var dd = new DropDown( $('#dd') );
+			var dd = new DropDown( $('#dd') );
 
-		$(document).click(function() {
-			$('.wrapper-dropdown').removeClass('active');
-		});
+			$(document).click(function() {
+					$('.wrapper-dropdown').removeClass('active');
+			});
 
 	});
 </script>
