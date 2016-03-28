@@ -74,9 +74,9 @@ body {
 			.topnav {
 				padding-left: 240px;
 			}
-			.lt-content {
-				padding-left: 240px;
-			}
+			///.lt-content {
+				//padding-left: 240px;
+			//}
 		}
 	}
 
@@ -84,7 +84,63 @@ body {
 		padding-bottom: 18px;
 	}
 
-/*---- SIDERBAR WRAPPER -----------------------------------*/
+
+/* ==========================================================================
+	    TOPMENU & HAMBURGER
+	========================================================================== */
+		 nav.topmenu {
+			 height: 50px;
+			 background: none;
+			 width: 100%;
+			 @include box-shadow(none);
+			 ///font-size: $font-size-h3;
+
+			 & a {
+					display: block;
+					height: 100%;
+					font-size: $font-size-h3;
+			 		line-height: 2.8em;
+					font-weight: 200;
+
+					padding: 0 20px;
+					font-weight: 200;
+					text-align:left;
+					text-decoration: none !important;
+				}
+
+				&	a:hover {
+					font-weight: 400;
+					color: $color-contrast;
+					background: none;
+					@include box-shadow(inset 0px -5px 0px 0px $color-contrast-2Q);
+					text-decoration: none;
+					}
+
+				&	ul li.active {
+					color: $color-contrast;
+					background: none;
+					@include box-shadow(inset 0px -5px 0px 0px $color-contrast);
+					text-decoration: none;
+
+					& a {
+						font-weight: 600;
+					}
+				}
+		 }
+
+	/* SIDEBAR ------------------------------- */
+
+	nav {
+		&.navbar-fixed-top {
+			background: none;
+		}
+		& ul a.btn {
+			margin: 0;
+			background: $color-contrast-0Q;
+		}
+	}
+
+/*---- SIDERBAR WRAPPER ID'S-----------------------------------*/
 	#wrapper {
 		padding-left: 0;
 		@include transition(all 0.5s ease);
@@ -148,13 +204,13 @@ body {
 			z-index: -1;
 			height: 100%;
 			width: 0;
-			background: red;
+			background: $color-contrast-1Q;
       @include transition(width .7s ease-in);
 		}
 
 		& a {
 			display: block;
-			color: green;
+			color: $text-color;
 			text-decoration: none;
 			font-weight: 400;
 			padding: 10px 12px;
@@ -188,9 +244,9 @@ body {
 		&:first-child {
 			a {
 				// padding: 18px 15px 18px 30px;
-				background: none;
+				background: $color-contrast-0Q;
 				line-height: 2.5em;
-				padding: 0; //10px 15px 10px 10px;
+				padding: 0px 15px 0px 0px;
 			}
 		}
 	}
@@ -198,6 +254,7 @@ body {
 	li:hover:before,
 	li.open:hover:before {
 		width: 100%;
+		@include box-shadow(none);
 		@include transition(width .7s ease-in);
     }
 
@@ -256,7 +313,7 @@ body {
 		}
 	}
 
-	.sidebar-nav .dropdown-menu {
+	.sidebar-nav .dropdown {
 		position: relative;
 		width: 100%;
 		padding: 0;
@@ -288,6 +345,7 @@ body {
 	&:focus,
 	&:active {
 		outline: none;
+		background: none !important;
 	}
 
 	&.is-closed:before {
@@ -324,13 +382,13 @@ body {
 	&.is-closed .hamb-top,
 	&.is-closed .hamb-middle,
 	&.is-closed .hamb-bottom {
-		background-color: none;
+		background-color: $color-contrast-3Q;
 	}
 
 	&.is-closed:hover .hamb-top,
 	&.is-closed:hover .hamb-middle,
 	&.is-closed:hover .hamb-bottom {
-		background-color: $color-contrast;;
+		background-color: $color-contrast-3Q;
 	}
 
 	&.is-closed .hamb-top {
@@ -361,7 +419,7 @@ body {
 	&.is-open .hamb-top,
 	&.is-open .hamb-middle,
 	&.is-open .hamb-bottom {
-		background-color: $color-contrast;;
+		background-color: $color-contrast-3Q;
 	}
 
 	&.is-open .hamb-top,

@@ -36,15 +36,15 @@
 
 <!-- SIDEBAR BEGINS -->
 	<nav class="topmenu navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-
 					<ul class="nav sidebar-nav">
 							<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-projectname"></i>{if $Project}{$Project->pr_name}{else}No project selected{/if}<span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
+							<a href="#" class="dropdown-button btn" data-toggle="dropdown" data-activates="dropdown1"><i class="icon-projectname"></i>{if $Project}{$Project->pr_name}{else}No project selected{/if}<span class="caret"></span></a>
+									<ul id="dropdown1" class="dropdown-content" role="menu">
 											{foreach $ProjectFactory->getAll() as $pr}
 													<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}"><i class="icon-projectname"></i>{$pr->pr_name}</a></li>
 											{/foreach}
 											<li><a href="{link Dashboard:}"><i class="icon-back"></i> Back to Dashboard</a></li>
+											<li class="divider"></li>
 											<li><a href="{link Project:create}"><i class="icon-add_box"></i> New Project</a></li>
 									</ul>
 							</li>
@@ -58,14 +58,6 @@
 									</li>
 									{/foreach}
 									{if $Project}
-
-									<li class="position-bottom">
-											<a class="tl-icon" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i> New Task List</a>
-									</li>
-
-									<li>
-											<a class="tl-icon" href="{link Task:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}"><i class="icon-add_box"></i> New Tak</a>
-									</li>
 
 									{if isset($Task)&&$Task}
 									<li>
@@ -112,7 +104,7 @@ $('[data-toggle="offcanvas"]').click(function () {
 			$('#wrapper').toggleClass('toggled');
 });
 
-$('.sidebar-nav .dropdown:first-child a:first-child').click(function(E) {
+$('.sidebar-nav .dropdown-button:first-child a:first-child').click(function(E) {
 		$('.nav-hamburger button.hamburger').trigger('click');
 });
 });
@@ -138,10 +130,10 @@ $('.sidebar-nav .dropdown:first-child a:first-child').click(function(E) {
 
 	$(function() {
 
-			var dd = new DropDown( $('#dd') );
+			var dd = new DropDown( $('#dropdown1') );
 
 			$(document).click(function() {
-					$('.wrapper-dropdown').removeClass('active');
+					$('.dropdown-button').removeClass('active');
 			});
 
 	});
