@@ -22,6 +22,58 @@ body {
     margin-right: auto;
 }
 
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+	&.page-footer {
+		margin: 0px 0px 0px 36px;
+		padding: 0;
+		background: $color-contrast-0Q;
+
+		& .footer-copyright {
+			line-height: 2.5em;
+			height: 30px;
+			text-align: left;
+
+			& .container {
+				padding: 0px 20px 0px 20px;
+				margin: 0;
+			}
+		}
+	}
+}
+
+/* SHADOW SETUP VIA Z-DEPTH ------------------------------- */
+.z-depth-0 {
+  box-shadow: none !important;
+}
+.z-depth-1{
+  box-shadow: 0 2px 5px 0 rgba($box-shadow, 0.16), 0 2px 10px 0 rrgba($box-shadow, 0.12);
+}
+.z-depth-1-half{
+  box-shadow: 0 5px 11px 0 rgba($box-shadow, 0.18), 0 4px 15px 0 rgba($box-shadow, 0.15);
+}
+.z-depth-2{
+  box-shadow: 0 8px 17px 0 rgba($box-shadow, 0.2), 0 6px 20px 0 rgba($box-shadow, 0.19);
+}
+.z-depth-3{
+  box-shadow: 0 12px 15px 0 rgba($box-shadow, 0.24), 0 17px 50px 0 rgba($box-shadow, 0.19);
+}
+.z-depth-4{
+  box-shadow: 0 16px 28px 0 rgba($box-shadow, 0.22), 0 25px 55px 0 rgba($box-shadow, 0.21);
+}
+.z-depth-5{
+  box-shadow: 0 27px 24px 0 rgba($box-shadow, 0.2), 0 40px 77px 0 rgba($box-shadow, 0.22);
+}
+
+.hoverable:hover {
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 17px 0 rgba($box-shadow, 0.2), 0 6px 20px 0 rgba($box-shadow, 0.19);
+}
+
+
 /* ==========================================================================
     HYPERLINKS & TEXTS & HEADINGS
    ========================================================================== */
@@ -130,6 +182,39 @@ h6 {
 		}
 	}
 
+	input,
+	textarea.materialize-textarea {
+
+		&+label:after,
+		&:focus+label.after,
+		&:hover+label.after,
+
+		&+label.active:after,
+		&:focus+label.active:after,
+		&:hover+label.active:after,
+
+		&.valid+label:after,
+		&:focus.valid+label:after,
+		&:hover.valid+label:after,
+
+		&.valid+label.active:after,
+		&:focus.valid+label.active:after,
+		&:hover.valid+label.active:after,
+
+		&.invalid+label:after,
+		&:focus.invalid+label:after,
+		&:hover.invalid+label:after,
+
+		&.invalid+label.active:after,
+		&:focus.invalid+label.active:after,
+		&:hover.invalid+label.active:after {
+			top: 45px;
+			left: -100px;
+			width: 320px;
+			font-weight: 400;
+		}
+	}
+
 	.errors {
 		width: 100%;
 		padding: 20px 10px 10px;
@@ -165,6 +250,7 @@ h6 {
 /* ACTION FLOTING BUTTONS ------------------------------- */
 
 .btn-large {
+
 	&.action-button {
 		padding: 0;
 		border-radius: 50%;
