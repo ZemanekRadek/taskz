@@ -9,16 +9,20 @@ use Nette,
 class ListPresenter extends BasePresenter {
 
 
-	/** @var \App\Model\Project */
+	/** @var \App\Model\Project @inject */
 	private $Project;
 
-	/** @var \App\Model\Task */
+	/** @var \App\Model\Task @inject */
 	private $Task;
 
-	/** @var \App\Model\TaskList */
+	/** @var \App\Model\TaskList @inject */
 	private $TaskListFactory;
 
+	/** @var \App\Model\ProjectFactory @inject */
 	private $ProjectFactory;
+
+	/** @var \App\Model\TaskFactory @inject */
+	private $TaskFactory;
 
 	public $DB;
 
@@ -31,6 +35,7 @@ class ListPresenter extends BasePresenter {
 	public function __construct(
 		\App\Model\ProjectFactory $ProjectFactory,
 		\App\Model\TaskListFactory $TaskListFactory,
+		\App\Model\TaskFactory $TaskFactory,
 		\App\Model\Language $lang,
 		\App\Model\TaskList $TaskList,
 		\App\Model\User $User,
@@ -39,6 +44,7 @@ class ListPresenter extends BasePresenter {
 		parent::__construct($lang, $DB);
 
 		$this->TaskListFactory = $TaskListFactory;
+		$this->TaskFactory     = $TaskFactory;
 		$this->ProjectFactory  = $ProjectFactory;
 		$this->DB              = $DB;
 		$this->User            = $User;
@@ -87,7 +93,7 @@ class ListPresenter extends BasePresenter {
 
 		$List = new \App\Model\TaskList($this->DB, $this->User, $this->Project);
 		$List->addProject($presenter->getParameter('projectID'));
-		
+
 		$form = $List->getForm();
 		$form['projectID']->setValue($presenter->getParameter('projectID'));
 		$form['projectName']->setValue($presenter->getParameter('projectName'));
@@ -106,10 +112,15 @@ class ListPresenter extends BasePresenter {
 		return $form;
 	}
 
+	public function createComponentTaskList() {
+		return $this->TaskFactory->getFromList($this->TaskList);
+	}
 
 	public function beforeRender() {
 		$this->template->Project = $this->Project;
 	}
+
+
 
 	/*
 	protected function createComponentTaskForm() {

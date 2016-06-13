@@ -47,6 +47,7 @@ services:
 	- App\Model\User
 	- App\Model\UserList
 	- App\Model\Task
+	- App\Model\TaskFactory
 	- App\Model\TaskList
 	- App\Model\TaskListFactory
 	- App\Model\Tag
@@ -54,7 +55,7 @@ services:
 	- App\Model\StateList
 	- App\Model\Project
 	- App\Model\ProjectFactory
-	
+
 	translator_nette_storage:
 		class: Nette\Caching\Storages\FileStorage(%appDir%/locale) ## Texts will be saved in %appDir%/Texts as file named by ISO 639-1
 		autowired: false

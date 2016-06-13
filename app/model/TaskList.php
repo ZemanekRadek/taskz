@@ -70,6 +70,10 @@ class TaskList extends Nette\Object  {
 		}
 	}
 
+	public function getTasks() {
+		// $this->DB->table('tasks')->where('')
+	}
+
 	public function & __get($name) {
 		if (in_array($name, array_keys($this->data))) {
 			return $this->data[$name];
