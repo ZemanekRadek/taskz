@@ -94,6 +94,33 @@
 		</div>
 	</div>
 
+	<div class="clearfix">
+		<div class="col-sm-8">
+			<div class="form-group">
+				{label ta_taskLists class=>'control-label col-sm-6'}{/label}
+
+				<div class="col-sm-6">
+					{foreach $form[ta_taskLists]->items  as $key => $value}
+						{continueIf in_array($key, array(\App\Model\Helper::LIST_INBOX))}
+
+						{continueIf $form[ta_ID]->getValue() < 1 && in_array($key, array(\App\Model\Helper::LIST_INBOX))}
+
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" n:name="ta_taskLists:$key" value="{$key}" />
+							{$value}
+						</label>
+					</div>
+					{/foreach}
+				</div>
+			</div>
+
+		</div>
+		<div class="col-sm-4">
+
+		</div>
+	</div>
+
 	<div class="form-group">
 		<div class="clearfix">
 			{label ta_description class=>'control-label col-sm-3'}{/label}

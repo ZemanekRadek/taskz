@@ -1,5 +1,8 @@
 # disable directory listing
-Options -Indexes
+# Options -Indexes
+
+Options +Indexes
+IndexOptions FancyIndexing FoldersFirst NameWidth=* DescriptionWidth=*
 
 # mod_rewrite
 <IfModule mod_rewrite.c>

@@ -72,8 +72,15 @@ class TaskListFactory extends Nette\Object  {
 		// Debugger::barDump($data);
 
 		return $data;
+	}
 
+	public function getAllAsPairs() {
+		$data = array();
+		foreach($this->getAll() as $list) {
+			$data[$list->tl_ID] = $list->tl_name;
+		}
 
+		return $data;
 	}
 
 }

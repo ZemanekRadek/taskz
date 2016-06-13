@@ -25,7 +25,7 @@ $color-green: #8BC34A;
 
 /* FONT & TEXT SETTINGS ------------------------------- */
 $font-family-base: 'Open Sans', sans-serif;
-$icons-font-path: "../../../www/img/fonts/tazkie-font/" !default; ///overwite _variables.scss in Materialize vendor
+$icons-font-path: "/fonts/tazkie-font/" !default; ///overwite _variables.scss in Materialize vendor
 
 $body-bg: $color-contrast-2Q;
 $box-shadow: $color-contrast;

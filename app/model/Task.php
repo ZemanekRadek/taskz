@@ -83,7 +83,7 @@ class Task extends Nette\Object  {
 
 		$form->addCheckboxList('ta_users', 'Uživatelé', $users->getAll());
 
-		$form->addCheckboxList('ta_taskLists', 'Seznamy', $lists->getAll());
+		$form->addCheckboxList('ta_taskLists', 'Seznamy', $lists->getAllAsPairs());
 
 		$form->addCheckboxList('ta_tags', 'Tagy', array());
 
@@ -105,11 +105,19 @@ class Task extends Nette\Object  {
 						}
 					}
 
+					if ($k == 'ta_taskListID') {
+						foreach($v as $list) {
+							$this->addList($list);
+						}
+					}
+
 					continue;
 				}
 
 				$this->data[$k] = $v;
 			}
+
+
 
 
 			$this->data['ta_author'] = $this->User->getIdentity()->getId();
@@ -149,6 +157,8 @@ class Task extends Nette\Object  {
 			if (!$this->data['ta_ID'] = $row['ta_ID']) {
 				throw new \Nette\InvalidArgumentException('Invalid keys for save');
 			}
+
+			// automaticky zaradit do inboxu
 		}
 
 		// uzivatele
