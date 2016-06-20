@@ -24,6 +24,8 @@ class Task extends Nette\Object  {
 
 	private $tableUser = "tasks_user";
 
+	private $tableList = "tasks_list_task";
+
 	private $data  = array(
 		'ta_ID'          => null,
 		'ta_description' => null,
@@ -36,6 +38,8 @@ class Task extends Nette\Object  {
 	private $tags  = array();
 
 	private $users = array();
+
+	private $lists = array();
 
 	/**
 	 * @param Nette\Database\Connection $db
@@ -62,9 +66,10 @@ class Task extends Nette\Object  {
 		}
 	}
 
-	public function getForm() {
+	public function getForm($actionURL = '') {
 
 		$form   = new UI\Form;
+
 		// $states = new StateList($this->DB);
 		$users  = new UserList($this->DB);
 		$lists  = new TaskListFactory($this->DB, $this->User, $this->Project);
@@ -83,7 +88,9 @@ class Task extends Nette\Object  {
 
 		$form->addCheckboxList('ta_users', 'Uživatelé', $users->getAll());
 
-		$form->addCheckboxList('ta_taskLists', 'Seznamy', $lists->getAllAsPairs());
+		$form->addCheckboxList('ta_taskLists', 'Seznamy', $l = $lists->getAllAsPairs($this->TaskList->tl_ID ?  false : true))
+		 	->setRequired();
+
 
 		$form->addCheckboxList('ta_tags', 'Tagy', array());
 
@@ -105,7 +112,7 @@ class Task extends Nette\Object  {
 						}
 					}
 
-					if ($k == 'ta_taskListID') {
+					if ($k == 'ta_taskLists') {
 						foreach($v as $list) {
 							$this->addList($list);
 						}
@@ -133,6 +140,11 @@ class Task extends Nette\Object  {
 		return $this;
 	}
 
+	public function addList($ID) {
+		$this->lists[$ID] = array('tl_ID' => $ID);
+		return $this;
+	}
+
 	public function save() {
 
 		$values = $this->data;
@@ -149,7 +161,7 @@ class Task extends Nette\Object  {
 		else {
 			unset($values['ta_ID']);
 			$values['ta_created'] = date('Y-m-d H:i:s');
-			\Tracy\Debugger::barDump($values);
+
 			$row = $this->DB
 				->table($this->table)
 				->insert($values);
@@ -172,6 +184,19 @@ class Task extends Nette\Object  {
 				));
 			}
 		}
+
+		// Seznamy
+		{
+			$this->DB->table($this->tableList)->where('tlt_ta_ID', $this->data['ta_ID'])->delete();
+
+			foreach($this->lists as $list) {
+				$row = $this->DB->table($this->tableList)->insert(array(
+					'tlt_ta_ID' => $this->data['ta_ID'],
+					'tlt_tl_ID' => $list['tl_ID']
+				));
+			}
+		}
+
 		$this->data = $values;
 
 		return true;

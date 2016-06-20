@@ -462,3 +462,15 @@ body {
 		@include transition(all .35s ease-in-out);
 	}
 }
+
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+text-indent: 0px;
+visibility: visible;
+position: relative;
+top: 0px;
+left: 0px;
+}
