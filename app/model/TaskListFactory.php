@@ -54,9 +54,9 @@ class TaskListFactory extends Nette\Object  {
 			if (isset($options['withoutProject']) && $options['withoutProject']) {
 				foreach($this->DB->table('projects_user')
 					->where('users_us_ID', $this->User->getIdentity()->us_ID) as $pr) {
-						
-					if (!isset($projects[$list->tlu_tl_ID])) {
-						$projects[$list->tlu_tl_ID] = new \App\Model\Project($this->DB, $this->User, $pr->pu_pr_ID);
+
+					if (!isset($projects[$list->tasks_list_tl_ID])) {
+						$projects[$list->tasks_list_tl_ID] = new \App\Model\Project($this->DB, $this->User, $pr->projects_pr_ID);
 					}
 
 					break;
@@ -66,23 +66,23 @@ class TaskListFactory extends Nette\Object  {
 			else {
 
 				foreach($this->DB->table('tasks_list_project')
-					->where('tasks_list_tl_ID', $list->tlu_tl_ID) as $pr) {
+					->where('tasks_list_tl_ID', $list->tasks_list_tl_ID) as $pr) {
 
-					if (!isset($projects[$list->tlu_tl_ID])) {
-						$projects[$list->tlu_tl_ID] = new \App\Model\Project($this->DB, $this->User, $pr->tlp_pr_ID);
+					if (!isset($projects[$list->tasks_list_tl_ID])) {
+						$projects[$list->tasks_list_tl_ID] = new \App\Model\Project($this->DB, $this->User, $pr->projects_pr_ID);
 					}
 
 					break;
 				}
 
 				if ($this->Project && $pr) {
-					if ($pr->tlp_pr_ID != $this->Project->pr_ID) {
+					if ($pr->projects_pr_ID != $this->Project->pr_ID) {
 						continue;
 					}
 				}
 			}
 
-			$data[] = new \App\Model\TaskList($this->DB, $this->User, $projects[$list->tlu_tl_ID], $list->tlu_tl_ID);
+			$data[] = new \App\Model\TaskList($this->DB, $this->User, $projects[$list->tasks_list_tl_ID], $list->tasks_list_tl_ID);
 		}
 
 		// Debugger::barDump($data);

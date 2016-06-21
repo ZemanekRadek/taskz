@@ -37,7 +37,7 @@ class ProjectFactory extends Nette\Object  {
 		$data = array();
 
 		foreach($selection as $list) {
-			$data[] = new \App\Model\Project($this->DB, $this->User, $list->pu_pr_ID);
+			$data[] = new \App\Model\Project($this->DB, $this->User, $list->projects_pr_ID);
 		}
 
 		return $data;

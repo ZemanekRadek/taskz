@@ -58,12 +58,22 @@ class Task extends Nette\Object  {
 		$this->TaskList = $TaskList;
 
 		if ($ID) {
-			/*
-			$this->init($this->DB->table('tasks_list')->where(array(
-				'tl_ID'      => $ID,
-			))->fetch());
-			*/
+			$this->load($ID);
 		}
+	}
+
+
+	public function & __get($name) {
+		if (in_array('ta_' . $name, $s = array_keys($this->data))) {
+			return $this->data['ta_' . $name];
+		}
+		\Tracy\Debugger::barDump($s);
+
+		return parent::__get($name);
+	}
+
+	private function load($ID) {
+		$this->data = (array) $this->DB->table($this->table)->get($ID)->toArray();
 	}
 
 	public function getForm($actionURL = '') {

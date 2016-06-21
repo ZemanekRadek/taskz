@@ -19384,6 +19384,22 @@
 		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
+	"\/www\/img\/css\/components\/t_tasks.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/css\/components\/t_tasks.scss",
+		"outputAbbreviatedPath": "\/www\/img\/css\/css\/t_tasks.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
+		"useLibsass": 0
+		},
 	"\/www\/img\/css\/css\/t_icons.css": {
 		"fileType": 16,
 		"ignore": 1,
