@@ -48,6 +48,10 @@ class TaskFactory extends Nette\Object  {
 		}
 
 
-		public function getAllByTaskListId() {
+		public function getAllByTaskListId($id) {
+
+
+			
+
 		}
 }

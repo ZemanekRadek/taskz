@@ -21,9 +21,11 @@ class TaskList extends Nette\Object  {
 
 	private $tableProjects = 'tasks_list_project';
 
+	private $tableTasks    = 'tasks_list_task';
+
 	// system list identifier
 	public static $system = array(
-		\App\Model\Helper::LIST_INBOX   => array('tl_name' => 'Inbox', 'tl_ico'    => 'icon-inbox', 'tl_systemIdentifier'    => 'inbox', 'tl_path' => 'inbox', 'tl_color' => '0000ff'),
+		\App\Model\Helper::LIST_INBOX     => array('tl_name' => 'Inbox', 'tl_ico'    => 'icon-inbox', 'tl_systemIdentifier'    => 'inbox', 'tl_path' => 'inbox', 'tl_color' => '0000ff'),
 		\App\Model\Helper::LIST_URGENT    => array('tl_name' => 'Urgent', 'tl_ico'   => 'icon-assignment_late', 'tl_systemIdentifier'   => 'urgent', 'tl_path' => 'urgent', 'tl_color' => 'ff0000'),
 		'finished'  => array('tl_name' => 'Finished', 'tl_ico' => 'icon-assignment_turned_in', 'tl_systemIdentifier' => 'finished', 'tl_path' => 'finished', 'tl_color'=>'00ff00'),
 		'deleted'   => array('tl_name' => 'Deleted', 'tl_ico'  => 'icon-broken_image', 'tl_systemIdentifier' => 'finished', 'tl_path' => 'deleted', 'tl_color'=>'000000'),
@@ -68,10 +70,6 @@ class TaskList extends Nette\Object  {
 				'tl_ID'      => $ID,
 			))->fetch());
 		}
-	}
-
-	public function getTasks() {
-		// $this->DB->table('tasks')->where('')
 	}
 
 	public function & __get($name) {
@@ -211,14 +209,14 @@ class TaskList extends Nette\Object  {
 
 		// uzivatele
 		{
-			$this->DB->table($this->tableUser)->where('tlu_tl_ID', $this->data['tl_ID'])->delete();
+			$this->DB->table($this->tableUser)->where('tasks_list_tl_ID', $this->data['tl_ID'])->delete();
 
 			$is = false;
 
 			foreach($this->users as $user) {
 				$row = $this->DB->table($this->tableUser)->insert(array(
-					'tlu_tl_ID' => $this->data['tl_ID'],
-					'tlu_us_ID' => $user['us_ID']
+					'tasks_list_tl_ID' => $this->data['tl_ID'],
+					'users_us_ID' => $user['us_ID']
 				));
 
 				if ($user['us_ID'] == $this->data['tl_author']) {
@@ -229,15 +227,15 @@ class TaskList extends Nette\Object  {
 			// prideleni autora
 			if (!$is) {
 				$row = $this->DB->table($this->tableUser)->insert(array(
-					'tlu_tl_ID' => $this->data['tl_ID'],
-					'tlu_us_ID' => $this->data['tl_author']
+					'tasks_list_tl_ID' => $this->data['tl_ID'],
+					'users_us_ID' => $this->data['tl_author']
 				));
 			}
 		}
 
 		// projects
 		{
-			$this->DB->table($this->tableProjects)->where('tlp_tl_ID', $this->data['tl_ID'])->delete();
+			$this->DB->table($this->tableProjects)->where('tasks_list_tl_ID', $this->data['tl_ID'])->delete();
 
 			foreach($this->projects as $project) {
 				if (!$project['pr_ID']) {
@@ -245,8 +243,8 @@ class TaskList extends Nette\Object  {
 				}
 
 				$row = $this->DB->table($this->tableProjects)->insert(array(
-					'tlp_tl_ID' => $this->data['tl_ID'],
-					'tlp_pr_ID' => $project['pr_ID']
+					'tasks_list_tl_ID' => $this->data['tl_ID'],
+					'projects_pr_ID' => $project['pr_ID']
 				));
 
 			}
@@ -257,5 +255,16 @@ class TaskList extends Nette\Object  {
 
 	public function delete() {
 
+	}
+
+	public function getTasks() {
+		$list = array();
+
+		foreach($this->DB->table($this->tableTasks)->select('tasks_list_task.tasks_ta_ID AS tasks_ta_ID')->where('tasks_list_tl_ID = ? ', $this->data['tl_ID'])->order('tasks.ta_timeTo ASC, tasks.ta_created DESC') as $join) {
+			$list[] = new \App\Model\Task($this->DB, $this->User, $this->Project, $this, $join->tasks_ta_ID);
+		}
+
+
+		return $list;
 	}
 }

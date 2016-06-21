@@ -175,24 +175,24 @@ class Task extends Nette\Object  {
 
 		// uzivatele
 		{
-			$this->DB->table($this->tableUser)->where('tu_ta_ID', $this->data['ta_ID'])->delete();
+			$this->DB->table($this->tableUser)->where('tasks_ta_ID', $this->data['ta_ID'])->delete();
 
 			foreach($this->users as $user) {
 				$row = $this->DB->table($this->tableUser)->insert(array(
-					'tu_ta_ID' => $this->data['ta_ID'],
-					'tu_us_ID' => $user['us_ID']
+					'tasks_ta_ID' => $this->data['ta_ID'],
+					'users_us_ID' => $user['us_ID']
 				));
 			}
 		}
 
 		// Seznamy
 		{
-			$this->DB->table($this->tableList)->where('tlt_ta_ID', $this->data['ta_ID'])->delete();
+			$this->DB->table($this->tableList)->where('tasks_ta_ID', $this->data['ta_ID'])->delete();
 
 			foreach($this->lists as $list) {
 				$row = $this->DB->table($this->tableList)->insert(array(
-					'tlt_ta_ID' => $this->data['ta_ID'],
-					'tlt_tl_ID' => $list['tl_ID']
+					'tasks_ta_ID' => $this->data['ta_ID'],
+					'tasks_list_tl_ID' => $list['tl_ID']
 				));
 			}
 		}

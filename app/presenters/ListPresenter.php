@@ -67,7 +67,6 @@ class ListPresenter extends BasePresenter {
 
 		$this->backlink = $this->storeRequest();
 
-		// Debugger::barDump($this->TaskList);
 	}
 
 	public function actionDefault() {
@@ -80,12 +79,6 @@ class ListPresenter extends BasePresenter {
 	public function actionNew() {
 		$this->template->parameters = $this->getParameters();
 		$presenter = $this;
-		/*
-		$this->TaskList->onSuccess[] = function() use ($presenter) {
-			Debugger::barDump('??');
-			// $presenter->redirect('');
-		};
-		*/
 	}
 
 	public function createComponentNewList() {
@@ -119,23 +112,4 @@ class ListPresenter extends BasePresenter {
 	public function beforeRender() {
 		$this->template->Project = $this->Project;
 	}
-
-
-
-	/*
-	protected function createComponentTaskForm() {
-		return $this->Task->getForm();
-	}
-
-	public function saveTask($form, $values) {
-
-		if (!$this->Task->save($values)) {
-			return false;
-		}
-
-		$this->redirect('Task:list');
-
-		return true;
-	}
-	*/
 }

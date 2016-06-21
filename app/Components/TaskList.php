@@ -14,7 +14,7 @@ class TaskList extends \Nette\Application\UI\Control {
 	public function render() {
 		$template = $this->template;
 		$template->setFile(__DIR__ . '/../templates/controls/taskList.latte');
-		$template->list = $this->List;
+		$template->List = $this->List;
 		$template->render();
 	}
 }
