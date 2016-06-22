@@ -39,6 +39,21 @@ class TaskFactory extends Nette\Object  {
 			return $component;
 		}
 
+		public function getAll() {
+
+			$list = array();
+
+			foreach($this->DB->table('tasks_user')->where('users_us_ID = ? ', $this->User->getIdentity()->id) as $join) {
+				$list[] = new \App\Model\Task($this->DB, $this->User, $this->Project, $this->List, $join->tasks_ta_ID);
+			}
+
+			$component = new \App\Component\TaskList();
+			$component->setTasks(
+				$list
+			);
+
+			return $component;
+		}
 
 		public function getAllByUserId() {
 
@@ -51,7 +66,7 @@ class TaskFactory extends Nette\Object  {
 		public function getAllByTaskListId($id) {
 
 
-			
+
 
 		}
 }

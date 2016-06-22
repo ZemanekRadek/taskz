@@ -2,6 +2,8 @@
 {block topMenu}{include ../topMenu.latte}{/block}
 {block content}
 
+	{control taskList}
+	{*
 		<div class="body-text">
 			<div class="center">
 						<h1><i class="icon-shocked"></i></h1>
@@ -9,6 +11,7 @@
 							... but you can easily <a href="{link Task:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}">create new task</a></p>
 			</div>
 		</div>
+	*}
 
 <!-- ACTION BUTTON TASK LIST OPERATIONS -->
   <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">

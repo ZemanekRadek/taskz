@@ -20,6 +20,9 @@ class Task extends Nette\Object  {
 	/** @var App\Model\Project @inject */
 	private $Project;
 
+	/** @var \Nette\Datbase\ActiveRow */
+	private $model;
+
 	private $table = "tasks";
 
 	private $tableUser = "tasks_user";
@@ -67,13 +70,20 @@ class Task extends Nette\Object  {
 		if (in_array('ta_' . $name, $s = array_keys($this->data))) {
 			return $this->data['ta_' . $name];
 		}
-		\Tracy\Debugger::barDump($s);
 
 		return parent::__get($name);
 	}
 
 	private function load($ID) {
-		$this->data = (array) $this->DB->table($this->table)->get($ID)->toArray();
+		if (!$this->model) {
+			$this->model = $this->DB->table($this->table)->get($ID);
+		}
+
+		$this->data = (array) $this->model->toArray();
+	}
+
+	public function isFinished() {
+		return $this->model->related('tasks_list_task')->where('tasks_list.tl_systemIdentifier = ? ', \App\Model\Helper::LIST_FINISHED)->count() > 0;
 	}
 
 	public function getForm($actionURL = '') {

@@ -16,6 +16,8 @@ class ProjectFactory extends Nette\Object  {
 
 	private $tableUser = 'projects_user';
 
+	protected static $_list = array();
+
 	/**
 	 * @param Nette\Database\Connection $db
 	 * @throws Nette\InvalidStateException
@@ -29,18 +31,24 @@ class ProjectFactory extends Nette\Object  {
 	}
 
 	public function getAll() {
-
-		// Debugger::barDump($this->User->getIdentity());
 		$selection = $this->DB->table($this->tableUser)
 			->where('users_us_ID = ? ', $this->User->getIdentity()->us_ID);
 
 		$data = array();
 
 		foreach($selection as $list) {
-			$data[] = new \App\Model\Project($this->DB, $this->User, $list->projects_pr_ID);
+			$data[] = $this->get($list->projects_pr_ID);
 		}
 
 		return $data;
+	}
+
+	public function get($ID) {
+		if (isset(self::$_list[$ID])) {
+			return self::$_list[$ID];
+		}
+
+		return self::$_list[$ID] = new \App\Model\Project($this->DB, $this->User, $ID);
 	}
 
 }

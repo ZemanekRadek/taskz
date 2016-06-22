@@ -106,7 +106,10 @@ class ListPresenter extends BasePresenter {
 	}
 
 	public function createComponentTaskList() {
-		return $this->TaskFactory->getFromList($this->TaskList);
+		return
+			$this->TaskList->tl_ID
+			? $this->TaskFactory->getFromList($this->TaskList)
+			: $this->TaskFactory->getAll();
 	}
 
 	public function beforeRender() {

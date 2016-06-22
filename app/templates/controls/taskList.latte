@@ -1,9 +1,15 @@
 <div class="task-block">
-{foreach \App\Model\Helper::listDay($List->getTasks()) as $block}
+{if isset($tasks)}
+	{var $list = $tasks}
+{else}
+	{var $list = $List->getTasks()}
+{/if}
+
+{foreach \App\Model\Helper::listDay($list) as $block}
 <div class="task-block-day">
 	<div class="task-block-day-title">
 		<div class="task-block-day-title-name">{$block[day]}</div>
-		<div class="task-block-day-title-counter">{count($block[items])}</div>
+		<div class="task-block-day-title-counter">{count($block[items])}, {$block[finished][avarage]}% done</div>
 	</div>
 	<div class="task-block-day-items">
 	{foreach $block[items] as $item}
