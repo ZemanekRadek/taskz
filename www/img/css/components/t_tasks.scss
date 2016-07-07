@@ -1,0 +1,21 @@
+.task-block {
+	text-align: left;
+
+	.task-block-day {
+		max-width: 980px;
+		margin: 10px auto;
+		padding: 10px;
+
+		border: 1px solid black;
+
+		.task-block-day-items {
+			padding: 10px;
+			border: 1px solid green;
+
+			.task-item {
+				padding: 5px;
+				border: 1px solid blue;
+			}
+		}
+	}
+}

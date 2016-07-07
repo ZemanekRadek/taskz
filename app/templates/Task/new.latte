@@ -101,10 +101,6 @@
 
 				<div class="col-sm-6">
 					{foreach $form[ta_taskLists]->items  as $key => $value}
-						{continueIf in_array($key, array(\App\Model\Helper::LIST_INBOX))}
-
-						{continueIf $form[ta_ID]->getValue() < 1 && in_array($key, array(\App\Model\Helper::LIST_INBOX))}
-
 					<div class="checkbox">
 						<label>
 							<input type="checkbox" n:name="ta_taskLists:$key" value="{$key}" />

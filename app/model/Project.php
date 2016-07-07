@@ -5,29 +5,29 @@ use Nette,
 	Nette\Database\Context,
 	Nette\Application\UI,
 	Tracy\Debugger as Debugger;
-	
+
 class Project extends Nette\Object  {
-	
+
 	/** @var Nette\Database\Context @inject */
 	private $DB;
-	
+
 	private $User;
-	
+
 	private $table = "projects";
-	
+
 	private $tableUser = "projects_user";
-	
+
 	private $data  = array(
 		'pr_ID'     => null,
 		'pr_name'   => null,
 		'pr_path'   => null,
 		'pr_author' => null,
 	);
-	
+
 	private $users = array();
-	
+
 	public static $actualProject = null;
-	
+
 	/**
 	 * @param Nette\Database\Connection $db
 	 * @throws Nette\InvalidStateException
@@ -39,7 +39,7 @@ class Project extends Nette\Object  {
 	) {
 		$this->DB   = $db;
 		$this->User = $User;
-		
+
 		if ($ID) {
 			$this->init($this->DB->table($this->table)->where('pr_ID', $ID)->fetch());
 		}
@@ -52,7 +52,7 @@ class Project extends Nette\Object  {
 		if (in_array($name, array_keys($this->data))) {
 			return $this->data[$name];
 		}
-		
+
 		return parent::__get($name);
 	}
 
@@ -64,20 +64,20 @@ class Project extends Nette\Object  {
 			}
 			$this->data[$k] = $v;
 		}
-		
+
 		$this->data['pr_path'] = \App\Tools::friendly_url($this->data['pr_name']);
-		
+
 		if ($this->data['pr_author']) {
 			$this->addUser($this->data['pr_author']);
 		}
-		
+
 		return $this->data;
 	}
-	
+
 	public function addUser($ID) {
 		$this->users[] = array('us_ID' => $ID);
 	}
-	
+
 	public function getForm() {
 		$form = new UI\Form;;
 		$form->addText('pr_name', 'Jméno', 64)
@@ -86,19 +86,19 @@ class Project extends Nette\Object  {
 		$form->addHidden('pr_ID');
 
 		$form->addSubmit('send', 'Uložit');
-		
+
 		$form->onSuccess[] = function($values) {
 			$this->data = $values->getValues();
 			return $this->save();
 		};
-		
+
 		return $form;
 	}
-	
+
 	public function save() {
 
 		$this->data['pr_path'] = \App\Tools::friendly_url($this->data['pr_name']);
-		
+
 		if ($this->data['pr_ID'] > 0) {
 
 			$this->DB
@@ -109,22 +109,22 @@ class Project extends Nette\Object  {
 		}
 		else {
 			$this->data['pr_ID'] = null;
-			
+
 			$row = $this->DB
 				->table($this->table)
 				->insert($this->data);
-				
+
 			if (!$row['pr_ID']) {
 				throw \Nette\InvalidArgumentException('Invalid keys for save');
 			}
-			
+
 			$this->data['pr_ID'] = $row['pr_ID'];
-			
+
 			// systemove slozky
 			foreach(\App\Model\TaskList::$system as $system) {
-				
+
 				$system['tl_author'] = $this->data['pr_author'];
-				
+
 				$List = new \App\Model\TaskList($this->DB, $this->User, $this);
 				$List
 					->init($system)
@@ -133,59 +133,59 @@ class Project extends Nette\Object  {
 			}
 
 		}
-		
+
 		// uzivatele
 		{
-			$this->DB->table($this->tableUser)->where('pu_pr_ID', $this->data['pr_ID'])->delete();
-			
+			$this->DB->table($this->tableUser)->where('projects_pr_ID', $this->data['pr_ID'])->delete();
+
 			foreach($this->users as $user) {
 				$row = $this->DB->table($this->tableUser)->insert(array(
-					'pu_pr_ID' => $this->data['pr_ID'],
-					'pu_us_ID' => $user['us_ID']
+					'projects_pr_ID' => $this->data['pr_ID'],
+					'users_us_ID' => $user['us_ID']
 				));
 			}
 		}
-		
-		
-		
+
+
+
 		return true;
 	}
-	
+
 	public function existFromName($name) {
 		$p = $this->DB
 			->table($this->table)
 				->where('pr_name', $name)->fetch();
-				
+
 		return isset($p->pr_ID) && $p->pr_ID;
 	}
-	
-	public function delete(){ 
+
+	public function delete(){
 		if (!$this->data['pr_ID']) {
 			return false;
 		}
-		
+
 		if (!$this->data['pr_author'] != $this->User->getIdentity()->getId()) {
 			return false;
 		}
-		
+
 		return $this
 			->DB
 				->table($this->table)
 					->where('pr_ID', $this->data['pr_ID'])
 					->delete();
 	}
-	
+
 	public function loadDefault() {
 		// Debugger::barDump($this->User, 'userload default');
 		// $this->DB->table($this->tableUser)->where('pu_us_ID')
 		if ($row = $this->DB
 			->table($this->tableUser)
-				->where('', $this->User->getIdentity()->getId())
+				->where('users_us_ID', $this->User->getIdentity()->getId())
 				->get(1)) {
 			$this->init($row);
 		}
 		return $this;
 	}
-	
+
 
 }
