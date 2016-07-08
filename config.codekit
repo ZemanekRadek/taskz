@@ -24913,9 +24913,31 @@
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 3332,
+		"initialSize": 24068,
 		"inputAbbreviatedPath": "\/www\/img\/tazkie-logo.png",
 		"outputAbbreviatedPath": "\/www\/img\/tazkie-logo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/www\/img\/tazkie-logo.png.old.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3332,
+		"inputAbbreviatedPath": "\/www\/img\/tazkie-logo.png.old.png",
+		"outputAbbreviatedPath": "\/www\/img\/tazkie-logo.png.old.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/www\/img\/tazkie-logo.png.rev.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6958,
+		"inputAbbreviatedPath": "\/www\/img\/tazkie-logo.png.rev.png",
+		"outputAbbreviatedPath": "\/www\/img\/tazkie-logo.png.rev.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

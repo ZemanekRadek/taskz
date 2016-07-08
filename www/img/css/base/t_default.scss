@@ -19,8 +19,8 @@ body {
 
 #tazkie-logo {
     background:url(/img/tazkie-logo.png) center top;
-    width: 111px;
-    height: 32px;
+    width: 187px;
+    height: 61px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -255,6 +255,17 @@ h6 {
 	}
 }
 
+.btn-medium {
+  @extend .btn;
+  height: $button-height * 0.9;
+  line-height: $button-line-height;
+	padding: 3px 18px 0px 6px;
+
+  i {
+    font-size: $button-large-icon-font-size * 0.9;
+  }
+}
+
 /* ACTION FLOTING BUTTONS ------------------------------- */
 
 .btn-large {
@@ -285,7 +296,7 @@ h6 {
 	line-height: 0;
 	margin-right: 8px;
 	right: 5px;
-	top: 11px;
-	width: 41px;
-	font-size: 32px;
+	top: 9px;
+	width: 38px;
+	font-size: 30px;
 }

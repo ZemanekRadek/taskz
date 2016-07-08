@@ -18,7 +18,8 @@
 
 .form-group {
 
-	&.login {
+	&.login,
+	&.registration {
 		position:relative;
 		margin-top: 10px;
 
@@ -51,7 +52,8 @@
     }
 }
 
-.form-login h2 {
+.form-login h2,
+.form-registration h2 {
 	margin-bottom: 20px;
 }
 

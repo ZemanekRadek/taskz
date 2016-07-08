@@ -2,63 +2,87 @@
 
 {block content}
 
-
-  	<div class="login-header">
-  		<h1><span id="tazkie-logo"></span></h1>
-  	</div>
+	<div class="login-header">
+		  <div class="heading">
+				<h1><span id="tazkie-logo"></span></h1>
+			</div>
+	</div>
 
     <div class="form-registration">
   		<div class="container-fluid">
-  			<div class="row">
-  				<div class="col-md-6 col-md-offset-3">
-  					<div class="box">
-  						<h2 class="text-center"><strong>Create account</strong> <br />takes you only a while</h2>
+				<div class="row">
+					<div class="col s6 offset-s3">
 
+  						<h2 id="hero-title" class="text-center"><strong>Create account</strong> <span class="thin">in seconds</span></h2>
+
+								<div class="col s12">
+									<div class="card-panel">
 						{form registrationForm}
 
-                  <div class="errors" n:if="$form->hasErrors()">
-                     <p class="text-center"><i class="ico-validation icon-evil"></i></p>
-                     <h3>Something wrong? Sometimes it's just happened</h3>
-                     <p class="errors-list"> <!-- tohle musi prijit pod inputy s chybami! -->
-                      <ul>
-                       <li n:foreach="$form->errors as $error">{$error}</li>
-                      </ul>
-                    </p> <!-- tohle musi prijit pod inputy s chybami! -->
-                  </div>
+										<div class="errors" n:if="$form->hasErrors()">
+											<p class="text-center"><i class="ico-validation icon-evil"></i></p>
+												<h3>Something wrong? Sometimes it's just happened</h3>
+													<p class="errors-list"> <!-- tohle musi prijit pod inputy s chybami! -->
+														<ul>
+															<li n:foreach="$form->errors as $error">{$error}</li>
+														</ul>
+													</p> <!-- tohle musi prijit pod inputy s chybami! -->
+												</div>
 
-                  <div class="form-group">
-                    <input type="text" n:name=us_name class="form-control"  required=" " />
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label for="frm-registrationForm-us_name">Name and Surname</label>
-                  </div>
+										<div class="form-group registration">
+											<div class="row">
+												<div class="input-field col s6">
+								          <input id="first_name" type="text" class="validate">
+								          <label for="first_name">First Name</label>
+								        </div>
+												<div class="input-field col s6">
+													<input id="last_name" type="text" class="validate">
+													<label for="last_name">Last Name</label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group registration">
+											<div class="row">
+												<div class="input-field col s12">
+													 <input id="email" type="email" n:name=us_email class="form-control validate">
+													 <label for="frm-registrationForm-us_email" data-error="Is this e-mail correct?" data-success="Great. One more step to go.">E-mail for login <span class="label-required">*</span></label>
+													 <span class="error" n:if="$form['us_email']->hasErrors()">
+														 {_($form['us_email']->getError())}
+													 </span>
+												 </div>
+											</div>
+										</div>
 
-                  <div class="form-group">
-                    <input type="email" n:name=us_email class="form-control" required="reqruired" />
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label for="frm-registrationForm-us_email">Login E-mail <span class="label-required">*</span></label>
-                  </div>
+										<div class="form-group registration">
+											<div class="row">
+												<div class="input-field col s12">
+													<input id="password" type="password" n:name=us_password class="form-control validate">
+													<label for="frm-registrationForm-us_password">Password  <span class="label-required">*</span></label>
+													<span class="error" n:if="$form['us_password']->hasErrors()">
+														{_($form['us_password']->getError())}
+													</span>
+												</div>
+											</div>
+										</div>
 
-                  <div class="form-group">
-                    <input type="password" n:name=us_password class="form-control" />
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label for="frm-registrationForm-us_password">Tazkie Password <span class="label-required">*</span></label>
-                  </div>
+										<div class="form-group registration">
+											<div class="row">
+												<div class="input-field col s12">
+													<input id="password" type="password" n:name=us_password2 class="form-control validate">
+													<label for="frm-registrationForm-us_password2">Re-type password  <span class="label-required">*</span></label>
+													<span class="error" n:if="$form['us_password']->hasErrors()">
+														{_($form['us_password']->getError())}
+													</span>
+												</div>
+											</div>
+										</div>
 
-                  <div class="form-group">
-                    <input type="password" n:name=us_password2 class="form-control" required="reqruired" />
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label for="frm-registrationForm-us_password2">Tazkie Password Verify <span class="label-required">*</span></label>
-                  </div>
 
                   <p class="hint-text"><span class="label-required">*</span> Oh, yes. You quess right - this is required.</p>
 
-                  <button type="submit" class="btn-block btn btn-lg btn-primary">Let's finish it!</button>
+									<button type="submit" class="btn btn-block waves-effect waves-light custom-primary">Let's finish it!</button>
 
-                    <p class="text-center"><a href="/">Have an account? Let's login.</a></p>
+									<p class="text-center"><a href="/">Have an account? Let's login.</a></p>
 
     						{/form}
 
@@ -66,10 +90,11 @@
   				</div>
   			</div>
   		</div>
-  	</div>
 
+	<p class="text-center">Creating account you agreed to the <strong>Terms &amp; Conditions</strong>.</p>
 
-    	<p class="text-center">Creating account you agreed to the <strong>Terms &amp; Conditions</strong>.</p>
+	</div>
+</div>
 
     <script type="text/javascript">
     (function(){
