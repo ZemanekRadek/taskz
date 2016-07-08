@@ -1,17 +1,17 @@
 html,
 body {
 	height: 100%;
-	background: rgba($body-bg, 0.05);
+	background: rgba($body-bg, 0.10);
 	position: relative;
 	overflow-x: hidden;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+
+	color: $text-color;
+	font-size: $base-font-size;
+	font-weight: $base-font-weight;
 }
 
-* {
-	color: $text-color;
-	font-size: $font-size-base;
-}
 
 #tazkie-logo {
     background:url(/img/tazkie-logo.png) center top;
@@ -113,6 +113,11 @@ h6 {
 	font-size: $font-size-h6;
 }
 
+#hero-title{
+	line-height: 1.5em;
+	font-size: 2.8em;
+}
+
 /* LABELS ------------------------------- */
 
 .label-required {
@@ -149,84 +154,83 @@ h6 {
     INPUTS
    ========================================================================== */
 
-.input-field input {
-		border-color: $color-input-border-default !important;
-		color: $text-color;
-		font-weight: 600;
-		font-size: $font-size-base;
+	 .input-field input {
+	 		border-color: $color-input-border-default !important;
+	 		color: $text-color;
+	 		font-weight: 600;
+	 		font-size: $font-size-base;
 
-		&:focus,
-		&:hover {
-			border-color: $link-color !important;
-			box-shadow: 0 1px 0 0 rgba($link-color, 0.25) !important;
-		}
+	 		&:focus,
+	 		&:hover {
+	 			border-color: $link-color !important;
+	 			box-shadow: 0 1px 0 0 rgba($link-color, 0.25) !important;
+	 		}
 
-		& + label{
-			text-transform: uppercase;
-			font-size: $font-size-h4;
-			font-weight:300;
-		}
-		&:focus + label,
-		&:hover + label {
-			color: $link-color !important;
-			font-size: $font-size-h5;
-		}
+	 		& + label{
+	 			font-size: $font-size-h4;
+	 			font-weight:300;
+	 		}
+	 		&:focus + label,
+	 		&:hover + label {
+	 			color: $link-color !important;
+	 			font-size: $font-size-h5;
+	 		}
 
-		&.valid{
-			border-bottom: 1px solid $color-green !important;
-			box-shadow: 0 1px 0 0 rgba($color-green, 0.25) !important;
-		}
-		&.invalid{
-			border-bottom: 1px solid $color-red !important;
-			box-shadow: 0 1px 0 0 rgba($color-red, 0.25) !important;
-		}
-	}
+	 		&.valid{
+	 			border-bottom: 1px solid $color-green !important;
+	 			box-shadow: 0 1px 0 0 rgba($color-green, 0.25) !important;
+	 		}
+	 		&.invalid{
+	 			border-bottom: 1px solid $color-red !important;
+	 			box-shadow: 0 1px 0 0 rgba($color-red, 0.25) !important;
+	 		}
+	 	}
 
-	input,
-	textarea.materialize-textarea {
+		input,
+		textarea.materialize-textarea {
 
-		&+label:after,
-		&:focus+label.after,
-		&:hover+label.after,
+			&+label:after,
+			&:focus+label.after,
+			&:hover+label.after,
 
-		&+label.active:after,
-		&:focus+label.active:after,
-		&:hover+label.active:after,
+			&+label.active:after,
+			&:focus+label.active:after,
+			&:hover+label.active:after,
 
-		&.valid+label:after,
-		&:focus.valid+label:after,
-		&:hover.valid+label:after,
+			&.valid+label:after,
+			&:focus.valid+label:after,
+			&:hover.valid+label:after,
 
-		&.valid+label.active:after,
-		&:focus.valid+label.active:after,
-		&:hover.valid+label.active:after,
+			&.valid+label.active:after,
+			&:focus.valid+label.active:after,
+			&:hover.valid+label.active:after,
 
-		&.invalid+label:after,
-		&:focus.invalid+label:after,
-		&:hover.invalid+label:after,
+			&.invalid+label:after,
+			&:focus.invalid+label:after,
+			&:hover.invalid+label:after,
 
-		&.invalid+label.active:after,
-		&:focus.invalid+label.active:after,
-		&:hover.invalid+label.active:after {
-			top: 45px;
-			left: -100px;
-			width: 320px;
-			font-weight: 400;
-		}
-	}
-
-	.errors {
-		width: 100%;
-		padding: 20px 10px 10px;
-		background-color: $color-red;
-		color: $color-white;
-
-		.ico-validation {
-			font-size: 4em;
-			color: $color-white;
+			&.invalid+label.active:after,
+			&:focus.invalid+label.active:after,
+			&:hover.invalid+label.active:after {
+				top: 45px;
+				left: -100px;
+				width: 320px;
+				font-weight: 400;
 			}
-	}
+		}
 
+
+	 .errors {
+ 		width: 100%;
+ 		padding: 20px 10px 10px;
+ 		background-color: $color-red;
+ 		color: $color-white;
+
+ 		.ico-validation {
+ 			font-size: 4em;
+ 			color: $color-white;
+ 			}
+ 	}
 
 /* ==========================================================================
    BUTTONS
