@@ -10,7 +10,7 @@ body {
 	overflow-x: hidden;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	padding: 12px;
+	//padding: 12px;
 
 	color: $text-color;
 	font-size: $base-font-size;
@@ -167,7 +167,7 @@ h6 {
 
 	 		&:focus,
 	 		&:hover {
-	 			border-color: $link-color !important;
+	 			border-color: $link-hover-color !important;
 	 			box-shadow: 0 1px 0 0 rgba($link-color, 0.25) !important;
 	 		}
 
@@ -177,7 +177,7 @@ h6 {
 	 		}
 	 		&:focus + label,
 	 		&:hover + label {
-	 			color: $link-color !important;
+	 			color: $link-hover-color!important;
 	 			font-size: $font-size-h4;
 	 		}
 
@@ -276,7 +276,7 @@ h6 {
 		background-color: $color-blue;
 
 		&:hover {
-			background-color: darken($color-blue, 5%);
+			background-color: $color-blue-dark; ///darken($color-blue, 5%);
 		}
 	}
 
@@ -284,7 +284,7 @@ h6 {
 		background-color: $color-contrast-1Q;
 
 		&:hover {
-			background-color: darken($color-blue, 5%);
+			background-color: $color-blue-dark; ///darken($color-blue, 5%);
 		}
 	}
 }

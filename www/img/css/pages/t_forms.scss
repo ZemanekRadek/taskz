@@ -74,12 +74,12 @@
 }
 
 body {
-	&.is-navigation {
+	&.no-top .is-navigation {
 			///padding-top: 60px;
 		}
 		&.is-open {
 			.topnav {
-				padding-left: 240px;
+				padding-left: 300px;
 			}
 			///.lt-content {
 				//padding-left: 240px;
@@ -95,10 +95,12 @@ body {
 /* ==========================================================================
 	    TOPMENU & HAMBURGER
 	========================================================================== */
-		 nav.topmenu {
+		 nav {
+			 &.topmenu {
 			 height: 50px;
-			 background: none;
+			 background: $color-contrast-0Q;
 			 width: 100%;
+			 margin-left: 35px;
 			 @include box-shadow(none);
 			 ///font-size: $font-size-h3;
 
@@ -113,13 +115,14 @@ body {
 					font-weight: 200;
 					text-align:left;
 					text-decoration: none !important;
+					color: $color-contrast-3Q;
 				}
 
 				&	a:hover {
 					font-weight: 400;
-					color: $color-contrast;
+					color: $link-hover-color;
 					background: none;
-					@include box-shadow(inset 0px -5px 0px 0px $color-contrast-2Q);
+					@include box-shadow(inset 0px -5px 0px 0px $link-hover-color);
 					text-decoration: none;
 					}
 
@@ -134,6 +137,7 @@ body {
 					}
 				}
 		 }
+	}
 
 	/* SIDEBAR ------------------------------- */
 
@@ -153,15 +157,15 @@ body {
 		@include transition(all 0.5s ease);
 
 		&.toggled {
-			padding-left: 240px;
+			padding-left: 300px; //posun cele obrazvky
 
 			& #sidebar-wrapper {
-				width: 300px;
+				width: 300px; //velikost bocniho panelu
 			}
 
 			& #page-content-wrapper {
 				position: absolute;
-				margin-right: -240px;
+				margin-right: -280px; //posun obsahem stranky
 			}
 		}
 	}
@@ -343,7 +347,7 @@ body {
 	display: block;
 	width: 35px;
 	height: 35px;
-	margin-left: 60px;
+	margin-left: 20px;
 	margin-right: 20px;
 	background: transparent;
 	border: none;
@@ -389,13 +393,13 @@ body {
 	&.is-closed .hamb-top,
 	&.is-closed .hamb-middle,
 	&.is-closed .hamb-bottom {
-		background-color: $color-contrast-3Q;
+		background-color: $color-contrast-1Q;
 	}
 
 	&.is-closed:hover .hamb-top,
 	&.is-closed:hover .hamb-middle,
 	&.is-closed:hover .hamb-bottom {
-		background-color: $color-contrast-3Q;
+		background-color: $link-hover-color;
 	}
 
 	&.is-closed .hamb-top {
@@ -471,9 +475,9 @@ body {
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
-text-indent: 0px;
-visibility: visible;
-position: relative;
-top: 0px;
-left: 0px;
+	text-indent: 0px;
+	visibility: visible;
+	position: relative;
+	top: 0px;
+	left: 0px;
 }
