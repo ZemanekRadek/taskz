@@ -10,6 +10,7 @@ body {
 	overflow-x: hidden;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	padding: 12px;
 
 	color: $text-color;
 	font-size: $base-font-size;
@@ -216,10 +217,9 @@ h6 {
 			&.invalid+label.active:after,
 			&:focus.invalid+label.active:after,
 			&:hover.invalid+label.active:after {
-				top: 45px;
-				left: -100px;
 				width: 320px;
-				font-weight: 400;
+				text-align:left;
+				top: 61px;
 			}
 		}
 
