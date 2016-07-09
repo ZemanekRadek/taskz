@@ -100,7 +100,7 @@ body {
 			 height: 50px;
 			 background: $color-contrast-0Q;
 			 width: 100%;
-			 margin-left: 35px;
+			 //margin-left: 60px;
 			 @include box-shadow(none);
 			 ///font-size: $font-size-h3;
 
@@ -153,7 +153,8 @@ body {
 
 /*---- SIDERBAR WRAPPER ID'S-----------------------------------*/
 	#wrapper {
-		padding-left: 0;
+		width: 100%;	
+		padding-left: 62px;
 		@include transition(all 0.5s ease);
 
 		&.toggled {
@@ -165,7 +166,7 @@ body {
 
 			& #page-content-wrapper {
 				position: absolute;
-				margin-right: -280px; //posun obsahem stranky
+				margin-right: -300px; //posun obsahem stranky
 			}
 		}
 	}
@@ -173,12 +174,12 @@ body {
 	#sidebar-wrapper {
 		z-index: 1000;
 		left: 300px;
-		width: 60px;
+		width: 90px;
 		height: 100%;
 		margin-left: -300px;
 		overflow-y: auto;
 		overflow-x: hidden;
-		background: $color-contrast-0Q;
+		background: $color-contrast-3Q;
     @include transition(all 0.5s ease);
     //@include box-shadow(0px 2px 5px 0px $color-contrast-1Q, 0px 2px 5px 0px $color-contrast-1Q);
 
@@ -215,13 +216,13 @@ body {
 			z-index: -1;
 			height: 100%;
 			width: 0;
-			background: $color-contrast-1Q;
+			background: $link-hover-color;
       @include transition(width .7s ease-in);
 		}
 
 		& a {
 			display: block;
-			color: $text-color;
+			color: $color-white-1Q;
 			text-decoration: none;
 			font-weight: 400;
 			padding: 10px 12px;
@@ -255,7 +256,7 @@ body {
 		&:first-child {
 			a {
 				// padding: 18px 15px 18px 30px;
-				background: $color-contrast-0Q;
+				background: $color-contrast;
 				line-height: 2.5em;
 				padding: 0px 15px 0px 0px;
 			}
@@ -275,7 +276,7 @@ body {
 		li.open a:hover,
 		li.open a:active,
 		li.open a:focus{
-			color: $color-contrast;
+			color: $color-white-3Q;
 			text-decoration: none;
 			background: transparent;
 		}
