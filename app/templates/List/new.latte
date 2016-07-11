@@ -3,66 +3,81 @@
 {block content}
 <div class="dialog-header">
 	<div class="heading">
-		<h1 n:block="title">Create <strong>New Task List</strong></h1>
-		<h2 class="text-center">Too many tasks? Let's manage them</h2>
+  	<h1 id="hero-title" class="center no-bottom"><strong>Create <span class="thin">new</span> task list</strong></h1>
+		<h2 class="center no-bottom"><span class="thin">Too many tasks? Let's manage them!</span></h2>
     </div>
 </div>
 
 {*control newList *}
 
-{form newList}
+
 	<div class="form-tasklist">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
-					<div class="form-group">
-						<input type="text" n:name=tl_name class="form-control"  required=" " />
-						<span class="highlight"></span>
-						<span class="bar"></span>
-						<label for="frm-registrationForm-us_name">Task List Name <span class="label-required">*</span></label>
-					</div>
+				<div class="col s8 offset-s2">
+					<div class="col s12">
+						<div class="card-panel">
 
-					<div class="form-group tight">
-						<label class="static-label outofinput">Task List Icon</label>
-							{foreach $form[tl_ico]->items as $key => $value}
-							<!-- Zdenku tohle tady musi byt jako radio, jinak to nebude fungovat -->
-							<label class="radio" n:name="tl_ico:$key">{$value}</label><input type="radio" n:name="tl_ico:$key" />
+{form newList}
+								<div class="errors" n:if="$form->hasErrors()">
+									<p class="text-center"><i class="ico-validation icon-evil"></i></p>
+										<h3>Something wrong? Sometimes it's just happened</h3>
+											<p class="errors-list"> <!-- tohle musi prijit pod inputy s chybami! -->
+												<ul>
+													<li n:foreach="$form->errors as $error">{$error}</li>
+												</ul>
+											</p> <!-- tohle musi prijit pod inputy s chybami! -->
+										</div>
+
+							<div class="form-group">
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="list_name" type="text" n:name=tl_name class="form-control validate">
+										<label for="frm-registrationForm-us_name" data-error="Did you fill task list name?" data-success="Great! Continue to next step">Task list name <span class="label-required">*</span></label>
+									</div>
+
+						<div class="form-group tight">
+							<label class="static-label outofinput">Task List Icon</label>
+								{foreach $form[tl_ico]->items as $key => $value}
+								<!-- Zdenku tohle tady musi byt jako radio, jinak to nebude fungovat -->
+								<label class="radio" n:name="tl_ico:$key">{$value}</label><input type="radio" n:name="tl_ico:$key" />
+								{/foreach}
+						</div>
+
+						<div class="form-group tight">
+							<label class="static-label outofinput" n:name="tl_color">Task List Color</label>
+							<div class="btn-group" data-toggle="buttons-radio">
+								<button type="button" class="btn btn-radio"><span class="sr-only">COLOR-VALUE list</span><span>&nbsp;</span></button>
+								<button type="button" class="btn btn-radio"><span class="sr-only">COLOR-VALUE list</span><span>{$form[tl_color]->getControl()};</span></button>
+							</div>
+						</div>
+
+						<div class="form-group tight">
+							<label class="static-label outofinput">Members</label>
+							{foreach $form[tl_users]->items as $key=>$value}
+								<label n:name="tl_users:$key"><input n:name="tl_users:$key"/>{$value}</label>
 							{/foreach}
-					</div>
+						 </div>
 
-					<div class="form-group tight">
-						<label class="static-label outofinput" n:name="tl_color">Task List Color</label>
-						<div class="btn-group" data-toggle="buttons-radio">
-							<button type="button" class="btn btn-radio"><span class="sr-only">COLOR-VALUE list</span><span>&nbsp;</span></button>
-							<button type="button" class="btn btn-radio"><span class="sr-only">COLOR-VALUE list</span><span>{$form[tl_color]->getControl()};</span></button>
+						 <p class="hint-text"><span class="label-required">*</span> Oh, yes. You quess right - this is required.</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		<div class="footer controls">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<div class="col-md-6 text-left"><a class="closebox" href="{plink :List:default projectID=>$parameters[projectID],projectName=>$parameters[projectName]}"><i class="icon-navigate_before"></i><span class="sr-only">Cancel and back to task list</span><span class="text">Cancel this</span></a></div>
+						<div class="col-md-6 text-right">
+
+							<button n:name="send" class="btn btn-lg btn-white btn-auto btn-small">Create task list</button>
 						</div>
 					</div>
-
-					<div class="form-group tight">
-						<label class="static-label outofinput">Members</label>
-						{foreach $form[tl_users]->items as $key=>$value}
-							<label n:name="tl_users:$key"><input n:name="tl_users:$key"/>{$value}</label>
-						{/foreach}
-					 </div>
-
-					 <p class="hint-text"><span class="label-required">*</span> Oh, yes. You quess right - this is required.</p>
-
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="footer controls">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
-					<div class="col-md-6 text-left"><a class="closebox" href="{plink :List:default projectID=>$parameters[projectID],projectName=>$parameters[projectName]}"><i class="icon-navigate_before"></i><span class="sr-only">Cancel and back to task list</span><span class="text">Cancel this</span></a></div>
-					<div class="col-md-6 text-right">
-
-						<button n:name="send" class="btn btn-lg btn-white btn-auto btn-small">Create task list</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-{/form}
+	{/form}
