@@ -1,22 +1,27 @@
+/* ==========================================================================
+    GLOBAL SETUPS
+   ========================================================================== */
+
 html,
 body {
 	height: 100%;
-	background: rgba($body-bg, 0.05);
+	background: rgba($body-bg, 0.10);
 	position: relative;
 	overflow-x: hidden;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	//padding: 12px;
+
+	color: $text-color;
+	font-size: $base-font-size;
+	font-weight: $base-font-weight;
 }
 
-* {
-	color: $text-color;
-	font-size: $font-size-base;
-}
 
 #tazkie-logo {
     background:url(/img/tazkie-logo.png) center top;
-    width: 111px;
-    height: 32px;
+    width: 187px;
+    height: 61px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -113,6 +118,11 @@ h6 {
 	font-size: $font-size-h6;
 }
 
+#hero-title{
+	line-height: 1.5em;
+	font-size: 2.8em;
+}
+
 /* LABELS ------------------------------- */
 
 .label-required {
@@ -149,84 +159,82 @@ h6 {
     INPUTS
    ========================================================================== */
 
-.input-field input {
-		border-color: $color-input-border-default !important;
-		color: $text-color;
-		font-weight: 600;
-		font-size: $font-size-base;
+	 .input-field input {
+	 		border-color: $color-input-border-default !important;
+	 		color: $text-color;
+	 		font-weight: 600;
+	 		font-size: $font-size-base;
 
-		&:focus,
-		&:hover {
-			border-color: $link-color !important;
-			box-shadow: 0 1px 0 0 rgba($link-color, 0.25) !important;
-		}
+	 		&:focus,
+	 		&:hover {
+	 			border-color: $link-hover-color !important;
+	 			box-shadow: 0 1px 0 0 rgba($link-color, 0.25) !important;
+	 		}
 
-		& + label{
-			text-transform: uppercase;
-			font-size: $font-size-h4;
-			font-weight:300;
-		}
-		&:focus + label,
-		&:hover + label {
-			color: $link-color !important;
-			font-size: $font-size-h5;
-		}
+	 		& + label{
+	 			font-size: $font-size-h3;
+	 			font-weight:300;
+	 		}
+	 		&:focus + label,
+	 		&:hover + label {
+	 			color: $link-hover-color!important;
+	 			font-size: $font-size-h4;
+	 		}
 
-		&.valid{
-			border-bottom: 1px solid $color-green !important;
-			box-shadow: 0 1px 0 0 rgba($color-green, 0.25) !important;
-		}
-		&.invalid{
-			border-bottom: 1px solid $color-red !important;
-			box-shadow: 0 1px 0 0 rgba($color-red, 0.25) !important;
-		}
-	}
+	 		&.valid{
+	 			border-bottom: 1px solid $color-green !important;
+	 			box-shadow: 0 1px 0 0 rgba($color-green, 0.25) !important;
+	 		}
+	 		&.invalid{
+	 			border-bottom: 1px solid $color-red !important;
+	 			box-shadow: 0 1px 0 0 rgba($color-red, 0.25) !important;
+	 		}
+	 	}
 
-	input,
-	textarea.materialize-textarea {
+		input,
+		textarea.materialize-textarea {
 
-		&+label:after,
-		&:focus+label.after,
-		&:hover+label.after,
+			&+label:after,
+			&:focus+label.after,
+			&:hover+label.after,
 
-		&+label.active:after,
-		&:focus+label.active:after,
-		&:hover+label.active:after,
+			&+label.active:after,
+			&:focus+label.active:after,
+			&:hover+label.active:after,
 
-		&.valid+label:after,
-		&:focus.valid+label:after,
-		&:hover.valid+label:after,
+			&.valid+label:after,
+			&:focus.valid+label:after,
+			&:hover.valid+label:after,
 
-		&.valid+label.active:after,
-		&:focus.valid+label.active:after,
-		&:hover.valid+label.active:after,
+			&.valid+label.active:after,
+			&:focus.valid+label.active:after,
+			&:hover.valid+label.active:after,
 
-		&.invalid+label:after,
-		&:focus.invalid+label:after,
-		&:hover.invalid+label:after,
+			&.invalid+label:after,
+			&:focus.invalid+label:after,
+			&:hover.invalid+label:after,
 
-		&.invalid+label.active:after,
-		&:focus.invalid+label.active:after,
-		&:hover.invalid+label.active:after {
-			top: 45px;
-			left: -100px;
-			width: 320px;
-			font-weight: 400;
-		}
-	}
-
-	.errors {
-		width: 100%;
-		padding: 20px 10px 10px;
-		background-color: $color-red;
-		color: $color-white;
-
-		.ico-validation {
-			font-size: 4em;
-			color: $color-white;
+			&.invalid+label.active:after,
+			&:focus.invalid+label.active:after,
+			&:hover.invalid+label.active:after {
+				width: 320px;
+				text-align:left;
+				top: 61px;
 			}
-	}
+		}
 
+
+	 .errors {
+ 		width: 100%;
+ 		padding: 20px 10px 10px;
+ 		background-color: $color-red;
+ 		color: $color-white;
+
+ 		.ico-validation {
+ 			font-size: 4em;
+ 			color: $color-white;
+ 			}
+ 	}
 
 /* ==========================================================================
    BUTTONS
@@ -247,6 +255,17 @@ h6 {
 	}
 }
 
+.btn-medium {
+  @extend .btn;
+  height: $button-height * 0.9;
+  line-height: $button-line-height;
+	padding: 3px 18px 0px 6px;
+
+  i {
+    font-size: $button-large-icon-font-size * 0.9;
+  }
+}
+
 /* ACTION FLOTING BUTTONS ------------------------------- */
 
 .btn-large {
@@ -257,7 +276,7 @@ h6 {
 		background-color: $color-blue;
 
 		&:hover {
-			background-color: darken($color-blue, 5%);
+			background-color: $color-blue-dark; ///darken($color-blue, 5%);
 		}
 	}
 
@@ -265,9 +284,19 @@ h6 {
 		background-color: $color-contrast-1Q;
 
 		&:hover {
-			background-color: darken($color-blue, 5%);
+			background-color: $color-blue-dark; ///darken($color-blue, 5%);
 		}
 	}
+}
 
+/* SOCIAL BUTTONS ------------------------------- */
 
+.button--social-login .icon {
+	height: 0;
+	line-height: 0;
+	margin-right: 8px;
+	right: 5px;
+	top: 9px;
+	width: 38px;
+	font-size: 30px;
 }

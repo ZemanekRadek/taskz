@@ -1,5 +1,5 @@
 /* BASIC COLORS ------------------------------- */
-$color-contrast: #332E2A;
+$color-contrast: #2C2825; //332E2A;
 $color-contrast-3Q: rgba($color-contrast, 0.75);
 $color-contrast-2Q: rgba($color-contrast, 0.5);
 $color-contrast-1Q: rgba($color-contrast, 0.25);
@@ -10,31 +10,40 @@ $color-white-3Q: rgba($color-white, 0.75);
 $color-white-2Q: rgba($color-white, 0.5);
 $color-white-1Q: rgba($color-white, 0.25);
 
-/* DOPLNKOVE BARVY ------------------------------- */
-$color-blue: #448AFF;
-$color-blue-dark: #1976D2;
+$color-white-bright: #F2EEE9;
 
-$color-red: #F44336;
-$color-red-dark: #D32F2F;
+/* DOPLNKOVE BARVY ------------------------------- */
+$color-blue: #6886F2; //448AFF;
+$color-blue-dark: #4568EA; //1976D2;
+
+$color-red-light: #FF7575;
+$color-red: #FF5252; //F44336;
+$color-red-dark: #EC2A2A; //D32F2F;
 
 $color-orange: #FF5722;
 $color-orange-dark: #E64A19;
 
-$color-green: #8BC34A;
+$color-yellow-light: #FFD37A;
+$color-yellow: #FFC857;
+$color-yellow-dar: #EAAD30;
+
+$color-green: #8BC34A; //9DD86C;
 /* background-radek: */
 
 /* FONT & TEXT SETTINGS ------------------------------- */
-$font-family-base: 'Open Sans', sans-serif;
+$base-font-family: 'Open Sans', sans-serif;
 $icons-font-path: "/fonts/tazkie-font/" !default; ///overwite _variables.scss in Materialize vendor
 
-$body-bg: $color-contrast-2Q;
+$body-bg: $color-white-bright;
 $box-shadow: $color-contrast;
 
 ///$text-color-focus: $color-contrast;
 $text-color: $color-contrast-3Q;
 ///$text-color: rgba($color-contrast, 0.7);
 
-$font-size-base: 14px;
+$base-font-family: inherit;
+$base-font-size: 14px;
+$base-font-weight: 400;
 
 $font-size-large: ceil(($font-size-base * 1.25)); // ~18px
 $font-size-small: ceil(($font-size-base * 0.85)); // ~12px
@@ -47,14 +56,15 @@ $font-size-h5: ceil(($font-size-base * 0.85)); // ~12px
 $font-size-h6: ceil(($font-size-base * 0.7)); // ~10px
 
 /* By default, this inherits from the `<body>`.------------------------------- */
-$headings-font-family:inherit;
-$headings-font-weight: 500;
-$headings-line-height: 1.1;
-$headings-color: inherit;
+$heading-font-family:inherit;
+$heading-font-weight: 200 !important;
+$heading-line-height: 1.1;
+$heading-color: inherit;
 
 /* LINK STYLE SETTINGS ------------------------------- */
-$link-color: rgba($color-blue, 0.75);
-$link-hover-color: $color-blue;
+$link-color: rgba($color-blue-dark, 0.75);
+$link-hover-color: $color-blue-dark;
+//$link-visited-color: none;
 $link-hover-decoration: none;
 $link-decoration: underline;
 

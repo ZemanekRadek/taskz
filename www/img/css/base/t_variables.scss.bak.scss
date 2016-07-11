@@ -1,0 +1,77 @@
+/* BASIC COLORS ------------------------------- */
+$color-contrast: #2C2825; //332E2A;
+$color-contrast-3Q: rgba($color-contrast, 0.75);
+$color-contrast-2Q: rgba($color-contrast, 0.5);
+$color-contrast-1Q: rgba($color-contrast, 0.25);
+$color-contrast-0Q: rgba($color-contrast, 0.1);
+
+$color-white: #FCFCFC;
+$color-white-3Q: rgba($color-white, 0.75);
+$color-white-2Q: rgba($color-white, 0.5);
+$color-white-1Q: rgba($color-white, 0.25);
+
+$color-white-bright: #F2EEE9;
+
+/* DOPLNKOVE BARVY ------------------------------- */
+$color-blue: #6886F2; //448AFF;
+$color-blue-dark: #4568EA; //1976D2;
+
+$color-red-light: #FF7575;
+$color-red: #FF5252; //F44336;
+$color-red-dark: #EC2A2A; //D32F2F;
+
+$color-orange: #FF5722;
+$color-orange-dark: #E64A19;
+
+$color-yellow-light: #FFD37A;
+$color-yellow: #FFC857;
+$color-yellow-dar: #EAAD30;
+
+$color-green: #8BC34A; //9DD86C;
+/* background-radek: */
+
+/* FONT & TEXT SETTINGS ------------------------------- */
+$base-font-family: 'Open Sans', sans-serif;
+$icons-font-path: "/fonts/tazkie-font/" !default; ///overwite _variables.scss in Materialize vendor
+
+$body-bg: $color-white-bright;
+$box-shadow: $color-contrast;
+
+///$text-color-focus: $color-contrast;
+$text-color: $color-contrast-3Q;
+///$text-color: rgba($color-contrast, 0.7);
+
+$base-font-family: inherit;
+$base-font-size: 16px;
+$base-font-weight: 400;
+
+$font-size-large: ceil(($font-size-base * 1.25)); // ~18px
+$font-size-small: ceil(($font-size-base * 0.85)); // ~12px
+
+$font-size-h1: floor(($font-size-base * 2.15)); // ~30px
+$font-size-h2: floor(($font-size-base * 1.75)); // ~24px
+$font-size-h3: ceil(($font-size-base * 1.25)); // ~18px
+$font-size-h4: $font-size-base; // ~14px
+$font-size-h5: ceil(($font-size-base * 0.85)); // ~12px
+$font-size-h6: ceil(($font-size-base * 0.7)); // ~10px
+
+/* By default, this inherits from the `<body>`.------------------------------- */
+$heading-font-family:inherit;
+$heading-font-weight: 200 !important;
+$heading-line-height: 1.1;
+$heading-color: inherit;
+
+/* LINK STYLE SETTINGS ------------------------------- */
+$link-color: rgba($color-blue-dark, 0.75);
+$link-hover-color: $color-blue-dark;
+//$link-visited-color: none;
+$link-hover-decoration: none;
+$link-decoration: underline;
+
+/* ADDITIONAL COLOR SETUPS ------------------------------- */
+
+$color-requirement: $color-red-dark;
+$color-input-border-default: $color-contrast-1Q;
+
+$color-button-default: $color-white-3Q;
+$color-button-hover: $color-white;

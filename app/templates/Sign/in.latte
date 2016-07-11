@@ -11,55 +11,63 @@
 	<div class="form-login">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
+				<div class="col s6 offset-s3">
 
-						<h2 class="text-center"><strong>Login</strong> and continue your work</h2>
+						<h2 id="hero-title" class="text-center"><strong>Login</strong> <span class="thin">and continue your work</span></h2>
 
-						<div class="login-buttons">
-							<a class="btn button button--social-login button--facebook" href="#"><i class="icon icon-facebook"></i>Login With Facebook</a>
+						<div class="col s12">
+							<div class="card-panel">
 
-							<a class="btn button button--social-login button--googleplus" href="#"><i class="icon icon-google"></i>Login With Google&nbsp;+&nbsp;</a>
-						</div>
+								<div class="login-socbuttons">
+									<a class="btn-medium button button--social-login button--facebook" href="#"><i class="icon icon-facebook"></i>Login With Facebook</a>
 
-						<h2 class="text-center"><strong>or</strong></h2>
-
-						{form signInForm}
-							<div class="errors" n:if="$form->hasErrors()">
-								 <p class="text-center"><i class="ico-validation icon-evil"></i></p>
-								 <h3>Something wrong? Sometimes it's just happened</h3>
-							</div>
-
-							<div class="form-group login">
-								<div class="input-field col s12">
-									 <input id="email" type="email" n:name=us_email class="form-control validate">
-									 <label for="us_email" data-error="Is this e-mail correct?" data-success="Great. One more step to go.">Login e-mail <span class="label-required">*</span></label>
-									 <span class="error" n:if="$form['us_email']->hasErrors()">
-										 {_($form['us_email']->getError())}
-									 </span>
-								 </div>
-							</div>
-
-							<div class="form-group login">
-								<div class="input-field col s12">
-									<input id="password" type="password" n:name=us_password class="form-control validate">
-									<label for="us_password">Password <span class="label-required">*</span></label>
-									<span class="error" n:if="$form['us_password']->hasErrors()">
-										{_($form['us_password']->getError())}
-									</span>
+									<a class="btn-medium button button--social-login button--googleplus" href="#"><i class="icon icon-google"></i>Login With Google</a>
 								</div>
+
+								{form signInForm}
+									<div class="errors" n:if="$form->hasErrors()">
+										 <p class="text-center"><i class="ico-validation icon-evil"></i></p>
+										 <h3>Something wrong? Sometimes it's just happened</h3>
+									</div>
+
+								<div class="form-group login">
+									<div class="row">
+										<div class="input-field col s12">
+											 <input id="email" type="email" n:name=us_email class="form-control validate">
+											 <label for="us_email" data-error="Is this e-mail correct?" data-success="Great. One more step to go.">Login e-mail <span class="label-required">*</span></label>
+											 <span class="error" n:if="$form['us_email']->hasErrors()">
+												 {_($form['us_email']->getError())}
+											 </span>
+										 </div>
+									</div>
+								</div>
+
+								<div class="form-group login">
+									<div class="row">
+										<div class="input-field col s12">
+											<input id="password" type="password" n:name=us_password class="form-control validate">
+											<label for="us_password">Password <span class="label-required">*</span></label>
+											<span class="error" n:if="$form['us_password']->hasErrors()">
+												{_($form['us_password']->getError())}
+											</span>
+										</div>
+									</div>
+								</div>
+
+									<p class="hint-text"><span class="label-required">*</span> You quess right, this symbol means it is required.</p>
+
+									<button type="submit" class="btn btn-block waves-effect waves-light custom-primary">Log me in!</button>
+
+									<p class="text-center"><a href="#">Forgot your password?</a></p>
+								{/form}
 							</div>
-
-							<p class="hint-text"><span class="label-required">*</span> Oh, yes. You quess right - this is required.</p>
-
-							<button type="submit" class="btn btn-block waves-effect waves-light custom-primary">Log me in!</button>
-
-							<p class="text-center"><a href="#">Forgot your password?</a></p>
-						{/form}
+						</div>
 					</div>
 				</div>
-			</div>
+
 			<p class="text-center">Don't want social registration? <strong><a href="/registration">Create account the old way</a></strong>.</p>
 		</div>
+	</div>
 
 
 <script type="text/javascript">
