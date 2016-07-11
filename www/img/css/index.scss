@@ -17,7 +17,9 @@
    ========================================================================== */
 
 @import '../../../vendor/materialize-src/sass/materialize.scss';
-@import '../../../vendor/twbs/bootstrap/assets/stylesheets/_bootstrap.scss';
+// @import '../../../vendor/twbs/bootstrap/assets/stylesheets/_bootstrap.scss';
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
 
 /*
 @import 'base/breakpoint-mixins.scss';
