@@ -21956,7 +21956,7 @@
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/www\/img\/css\/base\/breakpoint-mixins.scss",
 		"outputAbbreviatedPath": "\/www\/img\/css\/css\/breakpoint-mixins.css",
