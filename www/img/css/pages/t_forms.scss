@@ -47,17 +47,18 @@
 		padding-top: 1vh;
 	}
 
-	h1 {
-			margin-bottom: 0;
-    }
 }
 
 .form-login h2,
 .form-registration h2 {
-	margin-bottom: 20px;
+	margin-bottom: 0px;
 }
 
 .form-login .row .col {
+	float: none;
+}
+
+.form-registration .row .col {
 	float: none;
 }
 
@@ -70,7 +71,8 @@
    LIST PAGE
   ========================================================================== */
 .no-top {
-	padding: 0px 24px 96px;
+	padding: 0;
+	//padding: 0px 24px 96px;
 }
 
 body {
@@ -107,7 +109,7 @@ body {
 			 & a {
 					display: block;
 					height: 100%;
-					font-size: $font-size-h3;
+					font-size: $font-size-h4;
 			 		line-height: 2.8em;
 					font-weight: 200;
 
@@ -139,6 +141,10 @@ body {
 		 }
 	}
 
+	.nav-wrapper{
+		padding-left: 20px;
+	}
+
 	/* SIDEBAR ------------------------------- */
 
 	nav {
@@ -153,7 +159,7 @@ body {
 
 /*---- SIDERBAR WRAPPER ID'S-----------------------------------*/
 	#wrapper {
-		width: 100%;	
+		width: 100%;
 		padding-left: 62px;
 		@include transition(all 0.5s ease);
 
