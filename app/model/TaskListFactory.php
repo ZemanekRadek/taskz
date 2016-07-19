@@ -40,8 +40,6 @@ class TaskListFactory extends Nette\Object  {
 		$this->Project = $Project;
 	}
 
-
-
 	public function getAll($options = array()) {
 
 //		Debugger::barDump($this->Project);

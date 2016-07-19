@@ -48,8 +48,6 @@ class ListPresenter extends BasePresenter {
 		$this->ProjectFactory  = $ProjectFactory;
 		$this->DB              = $DB;
 		$this->User            = $User;
-
-
 	}
 
 	public function startup() {
@@ -57,6 +55,7 @@ class ListPresenter extends BasePresenter {
 
 		$this->Project = new \App\Model\Project($this->DB, $this->User, $this->getParameter('projectID'));
 		$this->TaskListFactory->setProject($this->Project);
+		$this->TaskFactory->setProject($this->Project);
 
 		$this->TaskList = new \App\Model\TaskList($this->DB, $this->User, $this->Project, $this->getParameter('taskListID'));
 

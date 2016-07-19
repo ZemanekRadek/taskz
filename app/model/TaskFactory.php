@@ -33,9 +33,14 @@ class TaskFactory extends Nette\Object  {
 			$this->List    = $List;
 		}
 
+		public function setProject(\App\Model\Project $Project) {
+			$this->Project = $Project;
+		}
+
 		public function getFromList(\App\Model\TaskList $List) {
 			$component = new \App\Component\TaskList();
 			$component->setList($List);
+			$component->setProject($this->Project);
 			return $component;
 		}
 
@@ -51,7 +56,7 @@ class TaskFactory extends Nette\Object  {
 			$component->setTasks(
 				$list
 			);
-
+			$component->setProject($this->Project);
 			return $component;
 		}
 

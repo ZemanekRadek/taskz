@@ -170,6 +170,10 @@ class TaskList extends Nette\Object  {
 		return $this;
 	}
 
+	public function getProject() {
+		return $this->Project;
+	}
+
 
 	public function addUser($ID) {
 		$this->users[] = array('us_ID' => $ID);

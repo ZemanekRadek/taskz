@@ -21958,22 +21958,6 @@
 		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
-	"\/www\/img\/css\/base\/t_default.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 10,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/www\/img\/css\/base\/t_default.scss",
-		"outputAbbreviatedPath": "\/www\/img\/css\/css\/t_default.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"shouldRunAutoprefixer": 1,
-		"shouldRunBless": 1,
-		"useLibsass": 0
-		},
 	"\/www\/img\/css\/base\/t_default.scss.bak.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -21999,22 +21983,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/www\/img\/css\/base\/t_screen.scss",
 		"outputAbbreviatedPath": "\/www\/img\/css\/css\/t_screen.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"shouldRunAutoprefixer": 1,
-		"shouldRunBless": 1,
-		"useLibsass": 0
-		},
-	"\/www\/img\/css\/base\/t_variables.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 10,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/www\/img\/css\/base\/t_variables.scss",
-		"outputAbbreviatedPath": "\/www\/img\/css\/css\/t_variables.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -24203,15 +24171,6 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/www\/img\/css\/index-blessed1.css",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/www\/img\/css\/index.css": {
-		"fileType": 16,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/www\/img\/css\/index.css",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
