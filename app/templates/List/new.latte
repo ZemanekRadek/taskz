@@ -40,6 +40,12 @@
 										<div class="row">
 											<div class="input-field col s12">
 												<label class="static-label outofinput">Task List Icon</label>
+													<div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default">Left</button>
+  <button type="button" class="btn btn-default">Middle</button>
+  <button type="button" class="btn btn-default">Right</button>
+</div>
+
 													{foreach $form[tl_ico]->items as $key => $value}
 												<input class="with-gap" name="group3" type="radio" id="test5" n:name="tl_ico:$key" />
 <label for="test5" n:name="tl_ico:$key">{$value}</label>
@@ -48,7 +54,7 @@
 										</div>
 									</div>
 
-
+<!--
 						<div class="form-group tight">
 							<label class="static-label outofinput" n:name="tl_color">Task List Color</label>
 							<div class="btn-group" data-toggle="buttons-radio">
@@ -57,16 +63,23 @@
 							</div>
 						</div>
 
-						<div class="form-group tight">
+-->
+
+<!--
+						<div class="form-group">
 							<label class="static-label outofinput">Members</label>
 							{foreach $form[tl_users]->items as $key=>$value}
 								<label n:name="tl_users:$key"><input n:name="tl_users:$key"/>{$value}</label>
 							{/foreach}
 						 </div>
 
+						 -->
+
 						 <p class="hint-text"><span class="label-required">*</span> Oh, yes. You quess right - this is required.</p>
 
 							<button n:name="send" class="btn btn-block waves-effect waves-light custom-primary">Create task list</button>
+
+							{/form}
 					</div>
 				</div>
 			</div>
@@ -85,4 +98,3 @@
 				</div>
 			</div>
 		</div>
-	{/form}
