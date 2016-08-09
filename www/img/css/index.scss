@@ -2,8 +2,10 @@
     LOAD NORMALIZERS / BREAKPOINTS / MIXINS
    ========================================================================== */
 
-@import '../../../vendor/normalize-reset/flavored-reset-and-normalize.scss';
+@import "bourbon";
 @import "bourbon", "neat";
+
+@import '../../../vendor/normalize-reset/flavored-reset-and-normalize.scss';
 @import '../../../vendor/saffron/saffron.scss';
 
 /* --- BREAKPOINTS DETECTORS --- */
@@ -22,6 +24,7 @@
 @import '../../../vendor/materialize-src/sass/materialize.scss';
 
 @import 'base/breakpoint-mixins.scss';
+
 //@import 'components/buttons/scss/buttons.scss';
 
 /* ==========================================================================

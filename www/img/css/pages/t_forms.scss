@@ -98,6 +98,8 @@ body {
 	    TOPMENU & HAMBURGER
 	========================================================================== */
 		 nav {
+			box-shadow: none; //@include box-shadow(none);
+
 			.nav {
 				float: left;
 			}
@@ -107,25 +109,22 @@ body {
 			 background: $color-contrast-0Q;
 			 width: 100%;
 			 //margin-left: 60px;
-			 @include box-shadow(none);
 			 ///font-size: $font-size-h3;
 
 			 & a {
 					display: block;
 					height: 100%;
-					font-size: $font-size-h4;
-			 		line-height: 2.2em; //2.8em;
+					font-size: 1.2rem;
+			 		line-height: 3rem; //2.8em;
 					font-weight: 200;
 
 					padding: 0 20px;
-					font-weight: 200;
 					text-align:left;
 					text-decoration: none !important;
 					color: $color-contrast-3Q;
 				}
 
 				&	a:hover {
-					font-weight: 400;
 					color: $link-hover-color;
 					background: none;
 					@include box-shadow(inset 0px -5px 0px 0px $link-hover-color);
