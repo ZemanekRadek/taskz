@@ -14,10 +14,15 @@
 	<div class="task-block-day-items">
 	{foreach $block[items] as $item}
 		<div class="task-item">
-			<a href="{plink Task:detail id=>$item->ID,projectID=>$Project->pr_ID,projectName=>$Project->pr_name,listID=>$List ? $List->tl_ID : null,listName=>$List ? $List->tl_name : null}">{$item->name}</a>
+			<a class="ajax" n:href="task! $item->ID">{$item->name}</a>
+				{*href="{plink Task:detail id=>$item->ID,projectID=>$Project->pr_ID,projectName=>$Project->pr_name,listID=>$List ? $List->tl_ID : null,listName=>$List ? $List->tl_name : null}"*}
 		</div>
 	{/foreach}
 	</div>
 </div>
 {/foreach}
 </div>
+
+{snippet task}
+	{control taskDetail}
+{/snippet}

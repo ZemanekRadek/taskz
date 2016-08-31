@@ -74,4 +74,10 @@ class TaskFactory extends Nette\Object  {
 
 
 		}
+
+		public function getById($id) {
+			$task = new \App\Model\Task($this->DB, $this->User, $this->Project, $this->List, $id);
+			\Tracy\Debugger::barDump($task);
+			return $task;
+		}
 }

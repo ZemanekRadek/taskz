@@ -22,7 +22,7 @@ class ListPresenter extends BasePresenter {
 	private $ProjectFactory;
 
 	/** @var \App\Model\TaskFactory @inject */
-	private $TaskFactory;
+	public $TaskFactory;
 
 	public $DB;
 
@@ -109,6 +109,9 @@ class ListPresenter extends BasePresenter {
 			$this->TaskList->tl_ID
 			? $this->TaskFactory->getFromList($this->TaskList)
 			: $this->TaskFactory->getAll();
+	}
+
+	public function createComponentTaskDetail() {
 	}
 
 	public function beforeRender() {

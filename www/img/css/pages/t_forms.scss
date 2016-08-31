@@ -98,7 +98,7 @@ body {
 	    TOPMENU & HAMBURGER
 	========================================================================== */
 		 nav {
-			box-shadow: none; //@include box-shadow(none);
+			@include box-shadow(none);
 
 			.nav {
 				float: left;

@@ -17630,7 +17630,6 @@ body.is-open .topnav {
 	    TOPMENU & HAMBURGER
 	========================================================================== */
 nav {
-  box-shadow: none;
   /* SIDEBAR ------------------------------- */ }
   nav .nav {
     float: left; }

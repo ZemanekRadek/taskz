@@ -66,6 +66,15 @@ class TaskPresenter extends BasePresenter {
 		$this->template->Task = $this->Task;
 	}
 
+	public function handleDetail() {
+		$this->Task = new \App\Model\Task($this->DB, $this->User, $this->Project, $this->TaskList, null);
+
+		if ($this->isAjax()) {
+			$this->template->Task = $this->Task;
+		}
+
+	}
+
 	public function actionDetail() {
 		$this->Task = new \App\Model\Task($this->DB, $this->User, $this->Project, $this->TaskList, null);
 		$this->template->Task = $this->Task;
