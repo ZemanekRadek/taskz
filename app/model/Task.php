@@ -20,6 +20,7 @@ class Task extends Nette\Object  {
 	/** @var App\Model\Project @inject */
 	private $Project;
 
+
 	/** @var \Nette\Datbase\ActiveRow */
 	private $model;
 
@@ -55,10 +56,10 @@ class Task extends Nette\Object  {
 		\App\Model\TaskList $TaskList = null,
 		$ID = null
 	) {
-		$this->DB      = $DB;
-		$this->User    = $User;
-		$this->Project = $Project;
-		$this->TaskList = $TaskList;
+		$this->DB             = $DB;
+		$this->User           = $User;
+		$this->Project        = $Project;
+		$this->TaskList       = $TaskList;
 
 		if ($ID) {
 			$this->load($ID);
@@ -92,7 +93,7 @@ class Task extends Nette\Object  {
 
 		// $states = new StateList($this->DB);
 		$users  = new UserList($this->DB);
-		$lists  = new TaskListFactory($this->DB, $this->User, $this->Project);
+		$lists  = new TaskListFactory($this->DB, $this->User, $this->Project, new \App\Model\ProjectFactory($this->DB, $this->User));
 		// $tags   = new TagList($this->DB);
 
 		\Tracy\Debugger::barDump($this->TaskList, 'tasklist!');
