@@ -1,0 +1,6 @@
+.lt-layout-list {
+  display: flex; }
+  .lt-layout-list .lt-list {
+    order: 1; }
+  .lt-layout-list .lt-detail {
+    order: 1; }

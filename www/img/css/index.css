@@ -17131,6 +17131,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 /* By default, this inherits from the `<body>`.------------------------------- */
 /* LINK STYLE SETTINGS ------------------------------- */
 /* ADDITIONAL COLOR SETUPS ------------------------------- */
+/** backgrounds **/
+/** shadows **/
+/* borders **/
 body {
   text-align: center;
   padding: 24px 24px 96px; }
@@ -17352,11 +17355,12 @@ body {
   margin-right: auto; }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%; }
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px; }
   footer.page-footer {
-    margin: 0px 0px 0px 36px;
+    margin: 0px 0px 0px 0px;
     padding: 0;
     background: rgba(44, 40, 37, 0.1); }
     footer.page-footer .footer-copyright {
@@ -17924,3 +17928,53 @@ nav {
       .task-block .task-block-day .task-block-day-items .task-item {
         padding: 5px;
         border: 1px solid blue; }
+
+.lt-task-detail .lt-task-detail-header {
+  background: rgba(252, 252, 252, 0.75);
+  padding: 10px 10px; }
+  .lt-task-detail .lt-task-detail-header a {
+    color: rgba(44, 40, 37, 0.75);
+    text-decoration: none !important;
+    margin: 0 10px 0 0;
+    line-height: 20px; }
+    .lt-task-detail .lt-task-detail-header a:hover {
+      color: #8BC34A; }
+    .lt-task-detail .lt-task-detail-header a .icon-check {
+      font-size: 24px;
+      vertical-align: middle; }
+
+.lt-layout-list {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  .lt-layout-list .lt-list {
+    flex: 1 100%;
+    height: 100%;
+    padding: 20px; }
+  .lt-layout-list .lt-task-detail-window {
+    display: none;
+    transition: 300ms; }
+
+.fixed-action-btn {
+  right: 45px;
+  bottom: 45px; }
+
+body.task-detail-window-open .lt-task-detail-window {
+  display: block;
+  position: relative;
+  text-align: left;
+  flex: 1 100%;
+  height: 100%;
+  min-width: 320px;
+  z-index: 1; }
+  body.task-detail-window-open .lt-task-detail-window .lt-detail {
+    right: 0px;
+    top: 0px;
+    min-width: 320px;
+    position: fixed;
+    background-color: rgba(252, 252, 252, 0.75);
+    box-shadow: -1px 0 4px 2px rgba(44, 40, 37, 0.1);
+    border: solid 1px rgba(75, 65, 60, 0.25);
+    height: 100%; }
+body.task-detail-window-open .fixed-action-btn {
+  right: 340px; }

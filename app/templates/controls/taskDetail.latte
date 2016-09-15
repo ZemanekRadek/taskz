@@ -1,5 +1,24 @@
 {if $Task}
-	{$Task->name}
+<div class="lt-detail">
+	<div class="lt-task-detail">
+		<div class="lt-task-detail-header">
+			<a n:href="resolve $Task->ID"><span class="icon-check"></span></a>{$Task->name}
+		</div>
+		<div class="lt-task-detail-content">
+		</div>
+		<div class="lt-task-footer">
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+(function() {
+	$('body').addClass('task-detail-window-open');
+})(jQuery);
+</script>
 {else}
-
+	<script type="text/javascript">
+	(function() {
+		$('body').removeClass('task-detail-window-open');
+	})(jQuery);
+	</script>
 {/if}

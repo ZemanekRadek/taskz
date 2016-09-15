@@ -19,3 +19,27 @@
 		}
 	}
 }
+
+
+.lt-task-detail {
+	.lt-task-detail-header {
+		background: $backgroundB;
+		padding: 10px 10px;
+
+		a {
+			color: $text-color;
+			text-decoration: none !important;
+			margin: 0 10px 0 0;
+			line-height: 20px;
+
+			&:hover {
+				color: $color-green;
+			}
+
+			.icon-check {
+				font-size: 24px;
+				vertical-align: middle;
+			}
+		}
+	}
+}

@@ -1,28 +1,34 @@
-<div class="task-block">
-{if isset($tasks)}
-	{var $list = $tasks}
-{else}
-	{var $list = $List->getTasks()}
-{/if}
+<div class="lt-layout-list">
+	<div class="lt-list">
+		<div class="task-block">
+		{if isset($tasks)}
+			{var $list = $tasks}
+		{else}
+			{var $list = $List->getTasks()}
+		{/if}
 
-{foreach \App\Model\Helper::listDay($list) as $block}
-<div class="task-block-day">
-	<div class="task-block-day-title">
-		<div class="task-block-day-title-name">{$block[day]}</div>
-		<div class="task-block-day-title-counter">{count($block[items])}, {$block[finished][avarage]}% done</div>
-	</div>
-	<div class="task-block-day-items">
-	{foreach $block[items] as $item}
-		<div class="task-item">
-			<a class="ajax" n:href="task! $item->ID">{$item->name}</a>
-				{*href="{plink Task:detail id=>$item->ID,projectID=>$Project->pr_ID,projectName=>$Project->pr_name,listID=>$List ? $List->tl_ID : null,listName=>$List ? $List->tl_name : null}"*}
+		{foreach \App\Model\Helper::listDay($list) as $block}
+		<div class="task-block-day">
+			<div class="task-block-day-title">
+				<div class="task-block-day-title-name">{$block[day]}</div>
+				<div class="task-block-day-title-counter">{count($block[items])}, {$block[finished][avarage]}% done</div>
+			</div>
+			<div class="task-block-day-items">
+			{foreach $block[items] as $item}
+				<div class="task-item">
+					<a class="ajax" n:href="task! $item->ID">{$item->name}</a>
+						{*href="{plink Task:detail id=>$item->ID,projectID=>$Project->pr_ID,projectName=>$Project->pr_name,listID=>$List ? $List->tl_ID : null,listName=>$List ? $List->tl_name : null}"*}
+				</div>
+			{/foreach}
+			</div>
 		</div>
-	{/foreach}
+		{/foreach}
+		</div>
 	</div>
-</div>
-{/foreach}
-</div>
 
 {snippet task}
+<div class="lt-task-detail-window">
 	{control taskDetail}
+</div>
 {/snippet}
+</div>

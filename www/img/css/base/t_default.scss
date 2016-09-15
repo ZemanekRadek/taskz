@@ -28,12 +28,13 @@ body {
 }
 
 footer {
-	position: absolute;
-	bottom: 0;
 	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
 
 	&.page-footer {
-		margin: 0px 0px 0px 36px;
+		margin: 0px 0px 0px 0px;
 		padding: 0;
 		background: $color-contrast-0Q;
 

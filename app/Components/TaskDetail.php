@@ -12,6 +12,12 @@ class TaskDetail extends \Nette\Application\UI\Control {
 	/** @var \App\Model\Project **/
 	public $Project;
 
+	public function handleresolve($ID) {
+		
+	}
+
+	/*****************************/
+
 	public function setList(\App\Model\TaskList $List) {
 		$this->List = $List;
 	}
