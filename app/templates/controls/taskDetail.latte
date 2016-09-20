@@ -6,13 +6,34 @@
 		</div>
 		<div class="lt-task-detail-content">
 		</div>
-		<div class="lt-task-footer">
+		<div class="lt-task-detail-footer">
+			
+			<div class="line"></div>
+
+			<a class="toRemove" n:href="remove $Task->ID"><span class="icon-delete"></span></a>
+
+			<span class="toClose"><span class="icon-close"></span></span>
+			<span class="toDetail"><span class="icon-enlarge"></span></span>
+
+
+			<div class="created">Created {$Task->created|date:'j. n. Y'}</div>
+
 		</div>
 	</div>
 </div>
 <script type="text/javascript">
 (function() {
 	$('body').addClass('task-detail-window-open');
+
+	var $elm = $('.lt-task-detail');
+
+	$elm.find('.toClose').click(function(E) {
+		E.stopPropagation();
+		E.preventDefault();
+
+		$('body').removeClass('task-detail-window-open');
+	});
+
 })(jQuery);
 </script>
 {else}

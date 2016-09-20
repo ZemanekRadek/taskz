@@ -22,6 +22,14 @@
 
 
 .lt-task-detail {
+
+	.line {
+		width: 80%;
+		height: 1px;
+		border-top: solid 1px $bg_category;
+		margin: 0 auto;
+	}
+
 	.lt-task-detail-header {
 		background: $backgroundB;
 		padding: 10px 10px;
@@ -40,6 +48,56 @@
 				font-size: 24px;
 				vertical-align: middle;
 			}
+		}
+	}
+
+	.lt-task-detail-footer {
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		width: 100%;
+		padding: 10px;
+		border-sizing: border-box;
+
+		.line {
+			margin-bottom: 10px;
+		}
+
+
+		a, span {
+			color: $linkDefault;
+			text-decoration: none;
+			display: inline-block;
+			vertical-align: top;
+			line-height: 28px;
+		}
+
+		.created {
+			text-align: center;
+			line-height: 30px;
+			color: $text-default-75;
+		}
+
+		.toClose {
+			cursor: pointer;
+		}
+
+		.toRemove {
+			float: left;
+		}
+
+		.toDetail,
+		.toClose {
+			float: right;
+		}
+
+		.toRemove {
+			font-size: 25px;
+		}
+
+		.toClose {
+			margin-left: 5px;
+			font-size: 30px;
 		}
 	}
 }

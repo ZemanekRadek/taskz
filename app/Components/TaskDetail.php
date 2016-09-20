@@ -13,6 +13,10 @@ class TaskDetail extends \Nette\Application\UI\Control {
 	public $Project;
 
 	public function handleresolve($ID) {
+
+	}
+
+	public function handleremove($ID) {
 		
 	}
 
