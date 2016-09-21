@@ -7,7 +7,7 @@
 		<div class="lt-task-detail-content">
 		</div>
 		<div class="lt-task-detail-footer">
-			
+
 			<div class="line"></div>
 
 			<a class="toRemove" n:href="remove $Task->ID"><span class="icon-delete"></span></a>
@@ -32,7 +32,11 @@
 		E.preventDefault();
 
 		$('body').removeClass('task-detail-window-open');
+		$('.task-item').removeClass('open');
 	});
+
+	$('.task-item').removeClass('open');
+	$('.task-item[data-task-id={$Task->ID}]').addClass('open');
 
 })(jQuery);
 </script>

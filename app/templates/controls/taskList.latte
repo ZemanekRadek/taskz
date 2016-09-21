@@ -15,10 +15,10 @@
 			</div>
 			<div class="task-block-day-items">
 			{foreach $block[items] as $item}
-				<div class="task-item">
-					<a class="ajax" n:href="task! $item->ID">{$item->name}</a>
+				<a n:href="task! $item->ID" class="ajax task-item" data-task-id="{$item->ID}">
+					<span>{$item->name}</span>
 						{*href="{plink Task:detail id=>$item->ID,projectID=>$Project->pr_ID,projectName=>$Project->pr_name,listID=>$List ? $List->tl_ID : null,listName=>$List ? $List->tl_name : null}"*}
-				</div>
+				</a>
 			{/foreach}
 			</div>
 		</div>

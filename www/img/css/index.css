@@ -17986,14 +17986,22 @@ nav {
   .task-block .task-block-day {
     max-width: 980px;
     margin: 10px auto;
-    padding: 10px;
-    border: 1px solid black; }
-    .task-block .task-block-day .task-block-day-items {
-      padding: 10px;
-      border: 1px solid green; }
-      .task-block .task-block-day .task-block-day-items .task-item {
-        padding: 5px;
-        border: 1px solid blue; }
+    padding: 10px 20px 20px 20px;
+    background: rgba(75, 65, 60, 0.1); }
+    .task-block .task-block-day .task-block-day-items .task-item {
+      padding: 5px;
+      margin: 5px 0 0 0;
+      border-radius: 3px;
+      background-color: rgba(252, 252, 252, 0.75);
+      border: solid 1px rgba(75, 65, 60, 0.25);
+      cursor: pointer;
+      display: block; }
+      .task-block .task-block-day .task-block-day-items .task-item:hover, .task-block .task-block-day .task-block-day-items .task-item.open {
+        color: #fcfcfc;
+        background-color: #4568ea;
+        box-shadow: 0 2px 5px 0 rgba(51, 46, 42, 0.5), 0 0 2px 0 rgba(51, 46, 42, 0.5); }
+        .task-block .task-block-day .task-block-day-items .task-item:hover a, .task-block .task-block-day .task-block-day-items .task-item.open a {
+          color: #fcfcfc; }
 
 .lt-task-detail .line {
   width: 80%;
@@ -18048,7 +18056,8 @@ nav {
 .lt-layout-list {
   display: flex;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  background-color: #f2eee9; }
   .lt-layout-list .lt-list {
     flex: 1 100%;
     height: 100%;

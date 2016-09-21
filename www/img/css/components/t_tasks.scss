@@ -4,17 +4,30 @@
 	.task-block-day {
 		max-width: 980px;
 		margin: 10px auto;
-		padding: 10px;
-
-		border: 1px solid black;
+		padding: 10px 20px 20px 20px;
+		background: $bg_header;
 
 		.task-block-day-items {
-			padding: 10px;
-			border: 1px solid green;
 
 			.task-item {
 				padding: 5px;
-				border: 1px solid blue;
+				margin: 5px 0 0 0;
+				border-radius: 3px;
+				background-color: $white-two-75;
+				border: solid 1px $bg_category;
+				cursor: pointer;
+				display: block;
+
+				&:hover,
+				&.open {
+					color: $white-two;
+					background-color: $dark-sky-blue;
+					box-shadow: 0 2px 5px 0 $black-50, 0 0 2px 0 $black-50;
+
+					a {
+						color: $white-two;
+					}
+				}
 			}
 		}
 	}
@@ -62,7 +75,6 @@
 		.line {
 			margin-bottom: 10px;
 		}
-
 
 		a, span {
 			color: $linkDefault;
