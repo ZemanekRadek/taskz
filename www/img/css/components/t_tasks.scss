@@ -7,25 +7,67 @@
 		padding: 10px 20px 20px 20px;
 		background: $bg_header;
 
+
+
 		.task-block-day-items {
 
-			.task-item {
-				padding: 5px;
-				margin: 5px 0 0 0;
-				border-radius: 3px;
-				background-color: $white-two-75;
-				border: solid 1px $bg_category;
-				cursor: pointer;
-				display: block;
+			.task-item-wrapper {
+				position: relative;
 
-				&:hover,
-				&.open {
-					color: $white-two;
-					background-color: $dark-sky-blue;
-					box-shadow: 0 2px 5px 0 $black-50, 0 0 2px 0 $black-50;
+				a {
+					text-decoration: none !important;
+				}
 
-					a {
+				.task-finish {
+					position: absolute;
+					display: block;
+					top: 5px;
+					left: 10px;
+					color: $greyish-brown-50;
+					font-size: 20px;
+				}
+
+				.task-item {
+					padding: 5px 5px 5px 35px;
+					margin: 5px 0 0 0;
+					border-radius: 3px;
+					background-color: $white-two-75;
+					border: solid 1px $bg_category;
+					cursor: pointer;
+					display: block;
+
+					&:hover {
+						background-color: $white-two;
+						box-shadow: 0 1px 5px 0 $text_default;
+						border: solid 1px $bg_category;
+					}
+
+					&.open {
 						color: $white-two;
+						background-color: $dark-sky-blue;
+						box-shadow: 0 2px 5px 0 $black-50, 0 0 2px 0 $black-50;
+
+						a {
+							color: $white-two;
+						}
+					}
+				}
+
+				&:hover {
+					.task-item {
+						background-color: $white-two;
+						box-shadow: 0 1px 5px 0 $text_default;
+						border: solid 1px $bg_category;
+
+						&.open {
+							color: $white-two;
+							background-color: $dark-sky-blue;
+							box-shadow: 0 2px 5px 0 $black-50, 0 0 2px 0 $black-50;
+
+							a {
+								color: $white-two;
+							}
+						}
 					}
 				}
 			}

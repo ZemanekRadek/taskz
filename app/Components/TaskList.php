@@ -9,7 +9,6 @@ class TaskList extends \Nette\Application\UI\Control {
 	/** @var \App\Model\Project **/
 	public $Project;
 
-
 	/** @var array */
 	protected $tasks;
 
@@ -29,6 +28,20 @@ class TaskList extends \Nette\Application\UI\Control {
 		}
 	}
 
+	public function handletaskDone($id, $blockId) {
+		if ($this->presenter->isAjax()) {
+			$Task = $this->presenter->TaskFactory->getById($this->getParameter('id'));
+			$Task->finish();
+
+			$this->template->tasks = $this->List && $this->List->tl_ID
+			? $this->presenter->TaskFactory->getFromList($this->List)->getTasks()
+			: $this->presenter->TaskFactory->getAll()->getTasks();
+
+			$this->template->List = $this->List;
+			$this->redrawControl('taskList');
+		}
+	}
+
 	public function setList(\App\Model\TaskList $List) {
 		$this->List = $List;
 	}
@@ -39,6 +52,10 @@ class TaskList extends \Nette\Application\UI\Control {
 
 	public function setTasks(array $list) {
 		$this->tasks = $list;
+	}
+
+	public function getTasks() {
+		return $this->tasks;
 	}
 
 	public function render() {

@@ -1,5 +1,5 @@
 <div class="lt-layout-list">
-	<div class="lt-list">
+	<div class="lt-list" n:snippet="taskList">
 		<div class="task-block">
 		{if isset($tasks)}
 			{var $list = $tasks}
@@ -7,7 +7,7 @@
 			{var $list = $List->getTasks()}
 		{/if}
 
-		{foreach \App\Model\Helper::listDay($list) as $block}
+		{foreach \App\Model\Helper::listDay($list) as $id=>$block}
 		<div class="task-block-day">
 			<div class="task-block-day-title">
 				<div class="task-block-day-title-name">{$block[day]}</div>
@@ -15,10 +15,16 @@
 			</div>
 			<div class="task-block-day-items">
 			{foreach $block[items] as $item}
+			<div class="task-item-wrapper">
+				{if !$item->isFinished()}
+				<a n:href="taskDone! $item->ID,$id" class="ajax task-finish"><span class="icon icon-checkmark"></span></a>
+				{/if}
 				<a n:href="task! $item->ID" class="ajax task-item" data-task-id="{$item->ID}">
+
 					<span>{$item->name}</span>
 						{*href="{plink Task:detail id=>$item->ID,projectID=>$Project->pr_ID,projectName=>$Project->pr_name,listID=>$List ? $List->tl_ID : null,listName=>$List ? $List->tl_name : null}"*}
 				</a>
+			</div>
 			{/foreach}
 			</div>
 		</div>

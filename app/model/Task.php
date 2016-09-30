@@ -66,6 +66,10 @@ class Task extends Nette\Object  {
 		}
 	}
 
+	public function getTaskList() {
+		return $this->TaskList;
+	}
+
 
 	public function & __get($name) {
 		if (in_array('ta_' . $name, $s = array_keys($this->data))) {
@@ -81,6 +85,18 @@ class Task extends Nette\Object  {
 		}
 
 		$this->data = (array) $this->model->toArray();
+	}
+
+	public function finish() {
+		if (!$this->isFinished()) {
+			$list = $this->DB->table('tasks_list_user')->where('users_us_ID = ? AND tasks_list.tl_systemIdentifier = ? ', $this->User->getIdentity()->getId(), \App\Model\Helper::LIST_FINISHED)->fetch();
+			if ($list->tl_ID) {
+				$row = $this->DB->table($this->tableList)->insert(array(
+					'tasks_ta_ID'      => $this->data['ta_ID'],
+					'tasks_list_tl_ID' => $list->tl_ID
+				));
+			}
+		}
 	}
 
 	public function isFinished() {
