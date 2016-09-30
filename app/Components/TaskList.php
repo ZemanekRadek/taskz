@@ -28,18 +28,25 @@ class TaskList extends \Nette\Application\UI\Control {
 		}
 	}
 
-	public function handletaskDone($id, $blockId) {
-		if ($this->presenter->isAjax()) {
-			$Task = $this->presenter->TaskFactory->getById($this->getParameter('id'));
-			$Task->finish();
+	public function handletaskDone($id, $blockId, $projectId, $taskListId) {
 
-			$this->template->tasks = $this->List && $this->List->tl_ID
-			? $this->presenter->TaskFactory->getFromList($this->List)->getTasks()
-			: $this->presenter->TaskFactory->getAll()->getTasks();
+		$Task = $this->presenter->TaskFactory->getById($this->getParameter('id'));
+		$Task->finish();
 
-			$this->template->List = $this->List;
-			$this->redrawControl('taskList');
+		if ($taskListId) {
+			$this->List = $this->presenter->TaskList;
+			$this->List->load($taskListId);
+			$this->List->setProject($this->presenter->ProjectFactory->get($projectId));
+			$this->tasks = null;
+			\Tracy\Debugger::barDump($this->List, 'list on tasklistid');
 		}
+		else {
+			$this->tasks = $this->presenter->TaskFactory->getAll()->getTasks();
+			$this->List = null;
+		}
+
+		$this->redrawControl('taskList');
+
 	}
 
 	public function setList(\App\Model\TaskList $List) {
@@ -69,6 +76,7 @@ class TaskList extends \Nette\Application\UI\Control {
 
 	public function createComponentTaskDetail() {
 		\Tracy\Debugger::barDump($this->getParameters(), 'create component');
+		\Tracy\Debugger::barDump($this->List, 'create component');
 		$Component = new TaskDetail();
 		if ($this->Project) {
 			$Component->setProject($this->Project);

@@ -19,7 +19,7 @@ class ListPresenter extends BasePresenter {
 	private $TaskListFactory;
 
 	/** @var \App\Model\ProjectFactory @inject */
-	private $ProjectFactory;
+	public $ProjectFactory;
 
 	/** @var \App\Model\TaskFactory @inject */
 	public $TaskFactory;
@@ -28,7 +28,7 @@ class ListPresenter extends BasePresenter {
 
 	private $User;
 
-	private $TaskList;
+	public $TaskList;
 
 	private $backlink;
 

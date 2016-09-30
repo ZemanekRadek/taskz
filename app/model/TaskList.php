@@ -66,10 +66,14 @@ class TaskList extends Nette\Object  {
 		$this->Project = $Project;
 
 		if ($ID) {
-			$this->init($this->DB->table('tasks_list')->where(array(
-				'tl_ID'      => $ID,
-			))->fetch());
+			$this->load($ID);
 		}
+	}
+
+	public function load($ID) {
+		$this->init($this->DB->table('tasks_list')->where(array(
+			'tl_ID'      => $ID,
+		))->fetch());
 	}
 
 	public function & __get($name) {
