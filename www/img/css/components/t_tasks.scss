@@ -8,6 +8,26 @@
 		background: $bg_header;
 
 
+		.task-block-day-title-counter {
+			.count-finished,
+			.count-total {
+				display: inline-block;
+				border-radius: 100%;
+				vertical-align: top;
+				background: $grapefruit-two;
+				color: $white;
+				min-width: 25px;
+				height: 25px;
+				line-height: 25px;
+				text-align: center;
+				margin: 0 5px;
+
+				&.count-total {
+					background-color: $light-grey;
+					color: $text_default;
+				}
+			}
+		}
 
 		.task-block-day-items {
 

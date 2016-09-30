@@ -17996,6 +17996,22 @@ nav {
     margin: 10px auto;
     padding: 10px 20px 20px 20px;
     background: rgba(75, 65, 60, 0.1); }
+    .task-block .task-block-day .task-block-day-title-counter .count-finished,
+    .task-block .task-block-day .task-block-day-title-counter .count-total {
+      display: inline-block;
+      border-radius: 100%;
+      vertical-align: top;
+      background: #ff5252;
+      color: #ffffff;
+      min-width: 25px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      margin: 0 5px; }
+      .task-block .task-block-day .task-block-day-title-counter .count-finished.count-total,
+      .task-block .task-block-day .task-block-day-title-counter .count-total.count-total {
+        background-color: #f2eee9;
+        color: #4b423c; }
     .task-block .task-block-day .task-block-day-items .task-item-wrapper {
       position: relative; }
       .task-block .task-block-day .task-block-day-items .task-item-wrapper a {

@@ -10,8 +10,11 @@
 		{foreach \App\Model\Helper::listDay($list) as $id=>$block}
 		<div class="task-block-day">
 			<div class="task-block-day-title">
-				<div class="task-block-day-title-name">{$block[day]}</div>
-				<div class="task-block-day-title-counter">{count($block[items])}, {$block[finished][avarage]}% done</div>
+				<span class="task-block-day-title-name">{$block[day]}</span>
+				<span class="task-block-day-title-counter">
+					{if $block[finished][current]>0}<span class="count-finished">{$block[finished][current]}</span>/{/if}<span class="count-total">{count($block[items])}</span>
+					<span class="avarage">{round($block[finished][avarage])}%</span> done
+				</span>
 			</div>
 			<div class="task-block-day-items">
 			{foreach $block[items] as $item}

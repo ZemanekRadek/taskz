@@ -11,9 +11,22 @@ class Helper {
 
 	const LIST_FINISHED = 'finished';
 
+	public static $now = 0;
+
+	public static $days = array(
+		1 => 'Po',
+		2 => 'Út',
+		3 => 'St',
+		4 => 'Čt',
+		5 => 'Pá',
+		6 => 'So',
+		7 => 'Ne'
+	);
 
 	public static function listDay($list) {
 		$return = array();
+
+		self::$now = new \Nette\Utils\DateTime();
 
 		$avarage = array();
 		$total   = array();
@@ -23,7 +36,7 @@ class Helper {
 
 			if (!isset($return[$index])) {
 				$return[$index] = array(
-					'day'   => (string) $item->timeTo,
+					'day'   => self::translateDate( (string) $item->timeTo),
 					'items' => array()
 				);
 
@@ -48,7 +61,28 @@ class Helper {
 			);
 		}
 
-		\Tracy\Debugger::barDump($return);
 		return $return;
+	}
+
+	public static function translateDate($date) {
+		$time = \Nette\Utils\DateTime::from($date);
+
+		$interval = $time->diff(self::$now);
+
+		$y = $time->format('Y') != self::$now->format('Y') ? ' ' . $time->format('Y') : '';
+		$d = $interval->format('%R%a');
+		$n = self::$days[$time->format('N')] . ' ';
+
+		if ($d > 2) {
+			return $n . $time->format('d. m.') . $y;
+		}
+
+		if ($d == 0) {
+			return 'Today';
+		}
+
+		if ($d == 1) {
+			return 'Tomorrow';
+		}
 	}
 }
