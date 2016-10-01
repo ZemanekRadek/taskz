@@ -5,7 +5,7 @@
 		max-width: 980px;
 		margin: 10px auto;
 		padding: 10px 20px 20px 20px;
-		background: $bg_header;
+		background: $color-contrast-0Q;
 
 
 		.task-block-day-title-counter {
@@ -14,7 +14,7 @@
 				display: inline-block;
 				border-radius: 100%;
 				vertical-align: top;
-				background: $grapefruit-two;
+				background: $color-red-light;
 				color: $white;
 				min-width: 25px;
 				height: 25px;
@@ -36,56 +36,65 @@
 
 				a {
 					text-decoration: none !important;
+					font-family: 'open_sanslight' !important;
+					color: $color-contrast-2Q;
+					font-size: 1.15em;
 				}
 
 				.task-finish {
 					position: absolute;
 					display: block;
-					top: 5px;
-					left: 10px;
-					color: $greyish-brown-50;
-					font-size: 20px;
+					top: 17px;
+					left: 18px;
+					color: $color-contrast-1Q;
+					font-size: 1.25em; //20px
 				}
 
 				.task-item {
-					padding: 5px 5px 5px 35px;
+					padding: 16px 5px 5px 50px;
 					margin: 5px 0 0 0;
 					border-radius: 3px;
 					background-color: $white-two-75;
 					border: solid 1px $bg_category;
 					cursor: pointer;
 					display: block;
+					height: 3.2em; //50px
 
 					&:hover {
-						background-color: $white-two;
+						background-color: $color-white;
 						box-shadow: 0 1px 5px 0 $text_default;
 						border: solid 1px $bg_category;
+						color: $color-contrast;
 					}
 
 					&.open {
-						color: $white-two;
-						background-color: $dark-sky-blue;
+						color: $color-white;
+						background-color: $color-blue-dark;
 						box-shadow: 0 2px 5px 0 $black-50, 0 0 2px 0 $black-50;
+						border: none;
 
 						a {
-							color: $white-two;
+							color: $color-white;
+						}
+						.task-finish {
+							color: $color-white-2Q;
 						}
 					}
 				}
 
 				&:hover {
 					.task-item {
-						background-color: $white-two;
+						background-color: $color-white;
 						box-shadow: 0 1px 5px 0 $text_default;
 						border: solid 1px $bg_category;
 
 						&.open {
-							color: $white-two;
-							background-color: $dark-sky-blue;
+							color: $color-white;
+							background-color: $color-blue-dark;
 							box-shadow: 0 2px 5px 0 $black-50, 0 0 2px 0 $black-50;
 
 							a {
-								color: $white-two;
+								color: $color-white;
 							}
 						}
 					}
