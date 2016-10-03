@@ -102,7 +102,9 @@ $borderA: rgba(75, 65, 60, 0.25);
          url('./../fonts/opensans_light_macroman/OpenSans-Light-webfont.svg#open_sanslight') format('svg');
     font-weight: normal;
     font-style: normal;
+}
 
+@font-face {
 		font-family: 'opensans_regular';
 		src: url('./../fonts/opensans_regular_macroman/OpenSans-Regular-webfont.eot');
 		src: url('./../fonts/opensans_regular_macroman/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
@@ -116,6 +118,9 @@ $borderA: rgba(75, 65, 60, 0.25);
 
 h1,h2,h3,h4,h5{
 	font-family: 'open_sanslight' !important;
+	* {
+		font-family: 'open_sanslight' !important;
+	}
 }
 
 p,td,div {
