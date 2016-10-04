@@ -7,7 +7,7 @@ body {
 	height: 100%;
 	background: rgba($body-bg, 0.10);
 	position: relative;
-	overflow-x: hidden;
+	//overflow-x: hidden;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	//padding: 12px;
@@ -28,31 +28,36 @@ body {
 }
 
 footer {
-	width: 100%;
-	position: fixed;
-	bottom: 0px;
-	left: 0px;
+	width:120%;
+  margin-left:-10% !important;
+	//position: fixed;
+	//bottom: 0px;
+	//left: 0px;
 
 	&.page-footer {
 		margin: 0px 0px 0px 0px;
-		padding: 0;
-		background: $color-contrast-0Q;
+		background: $color-white-2Q;
 
 		& .footer-copyright {
-			line-height: 2.5em;
-			height: 30px;
+			padding: 0px 0px 0px 84px;
 			text-align: left;
+			color: $color-contrast-2Q;
+			line-height: 2em;
+			height: 30px;
 
 			& .container {
-				padding: 0px 20px 0px 20px;
+				padding: 0px 40px 0px 40px;
 				margin: 0;
+				width: 100%;
+				font-size: 0.85em;
+
+				& .right {
+					color: $color-contrast-2Q;
+				}
+
 			}
 		}
 	}
-}
-
-.thin{
-	font-weight: 100; //zmensuje font
 }
 
 /* SHADOW SETUP VIA Z-DEPTH ------------------------------- */
@@ -173,7 +178,7 @@ h6 {
 	 .input-field input {
 	 		border-color: $color-input-border-default !important;
 	 		color: $text-color;
-	 		font-weight: 500;
+	 		font-family: 'opensans_bold';
 	 		font-size: $font-size-base;
 			margin-top: 1rem;
 			height: 2rem;
