@@ -1,7 +1,7 @@
 
 
 /* BASIC COLORS ------------------------------- */
-$color-contrast: #2C2825; //332E2A;
+$color-contrast: #4B423C; //2C2825; 332E2A;
 $color-contrast-3Q: rgba($color-contrast, 0.75);
 $color-contrast-2Q: rgba($color-contrast, 0.5);
 $color-contrast-1Q: rgba($color-contrast, 0.25);
@@ -13,6 +13,7 @@ $color-white-2Q: rgba($color-white, 0.5);
 $color-white-1Q: rgba($color-white, 0.25);
 
 $color-white-bright: #F2EEE9;
+$text-color: #281F19;
 
 /* DOPLNKOVE BARVY ------------------------------- */
 $color-blue: #6886F2; //448AFF;
@@ -40,7 +41,6 @@ $body-bg: $color-white-bright;
 $box-shadow: $color-contrast;
 
 ///$text-color-focus: $color-contrast;
-$text-color: $color-contrast-3Q;
 ///$text-color: rgba($color-contrast, 0.7);
 
 $base-font-family: inherit;
@@ -137,19 +137,8 @@ $borderA: rgba(75, 65, 60, 0.25);
 		font-style: normal;
 }
 
-h1,h2,h3,h4,h5{
-	font-family: 'open_sanslight' !important;
-	* {
-		font-family: 'open_sanslight' !important;
-	}
-	strong {
-		font-family: 'opensans_bold' !important;
-	}
-}
 
-p,td,div {
-	font-family: 'opensans_regular' !important;
-}
+
 
 
 /** styleguide **/

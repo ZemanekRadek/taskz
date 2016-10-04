@@ -24286,6 +24286,22 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/www\/img\/css\/components\/t_forms.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/css\/components\/t_forms.scss",
+		"outputAbbreviatedPath": "\/www\/img\/css\/css\/t_forms.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
 	"\/www\/img\/css\/components\/t_icons.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -24464,22 +24480,6 @@
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
-		},
-	"\/www\/img\/css\/pages\/t_forms.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 10,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/www\/img\/css\/pages\/t_forms.scss",
-		"outputAbbreviatedPath": "\/www\/img\/css\/css\/t_forms.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"useLibsass": 0
 		},
 	"\/www\/img\/css\/pages\/t_forms.scss.bak.scss": {
 		"createSourceMap": 0,
