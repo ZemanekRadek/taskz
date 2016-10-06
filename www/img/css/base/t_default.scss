@@ -5,9 +5,9 @@
 html,
 body {
 	height: 100%;
-	background: rgba($body-bg, 0.10);
+	background: rgba($body-bg, 0.50);
 	position: relative;
-	overflow-x: hidden;
+	//overflow-x: hidden;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	//padding: 12px;
@@ -28,31 +28,37 @@ body {
 }
 
 footer {
-	width: 100%;
-	position: fixed;
+	width:120%;
+  margin-left:-10% !important;
+	//position: fixed;
 	bottom: 0px;
-	left: 0px;
+	//left: 0px;
 
 	&.page-footer {
 		margin: 0px 0px 0px 0px;
 		padding: 0;
-		background: $color-contrast-0Q;
+		background: $color-white-2Q;
 
 		& .footer-copyright {
-			line-height: 2.5em;
-			height: 30px;
+			padding: 0px 0px 0px 84px;
 			text-align: left;
+			color: $color-contrast-2Q;
+			line-height: 2em;
+			height: 30px;
 
 			& .container {
-				padding: 0px 20px 0px 20px;
+				padding: 0px 40px 0px 40px;
 				margin: 0;
+				width: 100%;
+				font-size: 0.85em;
+
+				& .right {
+					color: $color-contrast-2Q;
+				}
+
 			}
 		}
 	}
-}
-
-.thin{
-	font-weight: 100; //zmensuje font
 }
 
 /* SHADOW SETUP VIA Z-DEPTH ------------------------------- */
@@ -104,6 +110,17 @@ a {
 }
 
 /* HEADINGS ------------------------------- */
+
+h1,h2,h3,h4,h5 {
+	font-family: 'open_sanslight' !important;
+	* {
+		font-family: 'open_sanslight' !important;
+	}
+	strong {
+		font-family: 'opensans_bold' !important;
+	}
+}
+
 h1 {
 	font-size: $font-size-h1;
 }
@@ -166,6 +183,11 @@ h6 {
 		}
 	}
 
+/* REST ------------------------------- */
+	p,td,div {
+		font-family: 'opensans_regular' !important;
+	}
+
 /* ==========================================================================
     INPUTS
    ========================================================================== */
@@ -173,7 +195,7 @@ h6 {
 	 .input-field input {
 	 		border-color: $color-input-border-default !important;
 	 		color: $text-color;
-	 		font-weight: 500;
+	 		font-family: 'opensans_bold';
 	 		font-size: $font-size-base;
 			margin-top: 1rem;
 			height: 2rem;
@@ -299,10 +321,20 @@ h6 {
 	&.action-button {
 		padding: 0;
 		border-radius: 50%;
-		background-color: $color-blue;
+		background-color:  $color-white;//$color-blue;
+		border: 1px solid $color-contrast-1Q;
+
+		i {
+			color: $color-blue;
+		}
 
 		&:hover {
 			background-color: $color-blue-dark; ///darken($color-blue, 5%);
+			border: none;
+
+			i {
+				color: $color-white;
+			}
 		}
 	}
 
