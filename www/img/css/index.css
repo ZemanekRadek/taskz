@@ -16097,7 +16097,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   font-weight: normal;
   font-style: normal; }
 [class^="icon-"], [class*=" icon-"] {
-  font-family: 'tazkie_final';
+  font-family: 'tazkie_final' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -17148,12 +17148,12 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   font-weight: normal;
   font-style: normal; }
 h1, h2, h3, h4, h5 {
-  font-family: 'open_sanslight' !important; }
+  font-family: 'open_sanslight'; }
   h1 *, h2 *, h3 *, h4 *, h5 * {
-    font-family: 'open_sanslight' !important; }
+    font-family: 'open_sanslight'; }
 
 p, td, div {
-  font-family: 'opensans_regular' !important; }
+  font-family: 'opensans_regular'; }
 
 /** styleguide **/
 .task-list-group-day {
