@@ -115,15 +115,44 @@ $borderA: rgba(75, 65, 60, 0.25);
 		font-style: normal;
 }
 
+@font-face {
+		font-family: 'opensans_semibold';
+		src: url('./../fonts/opensans_semibold_macroman/OpenSans-Semibold-webfont.eot');
+		src: url('./../fonts/opensans_semibold_macroman/OpenSans-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
+				 url('./../fonts/opensans_semibold_macroman/OpenSans-Semibold-webfont.woff') format('woff'),
+				 url('./../fonts/opensans_semibold_macroman/OpenSans-Semibold-webfont.ttf') format('truetype'),
+				 url('./../fonts/opensans_semibold_macroman/OpenSans-Semibold-webfont.svg#opensans_semibold') format('svg');
+		font-weight: 600;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'opensans_bold';
+		src: url('./../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.eot');
+		src: url('./../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+				 url('./../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.woff') format('woff'),
+				 url('./../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.ttf') format('truetype'),
+				 url('./../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.svg#opensans_bold') format('svg');
+		font-weight: 700;
+		font-style: normal;
+}
+
 h1,h2,h3,h4,h5{
 	font-family: 'open_sanslight';
 	* {
 		font-family: 'open_sanslight';
 	}
+	strong {
+		font-family: 'opensans_bold';
+	}
 }
 
 p,td,div {
 	font-family: 'opensans_regular';
+}
+
+input {
+	font-family: 'opensans_semibold';
 }
 
 
