@@ -1,0 +1,414 @@
+
+/* ==========================================================================
+   LIST PAGE
+  ========================================================================== */
+.no-top {
+	padding: 0;
+	//padding: 0px 24px 96px;
+}
+
+body {
+	&.no-top .is-navigation {
+			///padding-top: 60px;
+		}
+		&.is-open {
+			.topnav {
+				padding-left: 300px;
+			}
+			///.lt-content {
+				//padding-left: 240px;
+			//}
+		}
+	}
+
+	.navbar-nav > li > a  {
+		padding-bottom: 18px;
+	}
+
+}
+
+/* ==========================================================================
+	    TOPMENU & HAMBURGER
+	========================================================================== */
+nav {
+	@include box-shadow(none);
+
+	.nav {
+		float: left;
+	}
+
+			 &.topmenu {
+			 height: 50px;
+			 background: $color-contrast-0Q;
+			 width: 100%;
+			 box-shadow: inset 0 -1px 0 0 $color-contrast-1Q;
+			 box-shadow: inset 0 -1px 0 0 $color-contrast-1Q;
+			 //margin-left: 60px;
+			 ///font-size: $font-size-h3;
+
+			 & a {
+					display: block;
+					height: 100%;
+					font-size: 1.2rem;
+			 		line-height: 3rem; //2.8em;
+					font-weight: 200;
+
+					padding: 0 20px;
+					text-align:left;
+					text-decoration: none !important;
+					color: $color-contrast-3Q;
+				}
+
+				&	a:hover {
+					color: $link-hover-color;
+					background: none;
+					@include box-shadow(inset 0px -5px 0px 0px $link-hover-color);
+					text-decoration: none;
+					}
+
+				&	ul li.active {
+					color: $color-contrast;
+					background: none;
+					@include box-shadow(inset 0px -5px 0px 0px $color-contrast);
+					text-decoration: none;
+
+					& a {
+						font-weight: 600;
+					}
+				}
+		 }
+
+		 /* SIDEBAR ------------------------------- */
+	 		&.navbar-fixed-top {
+	 			background: none;
+	 		}
+	 		& ul a.btn {
+	 			margin: 0;
+	 			background: $color-contrast-0Q;
+	 		}
+
+	}
+
+	.nav-wrapper{
+		padding-left: 20px;
+	}
+
+/*---- SIDERBAR WRAPPER ID'S-----------------------------------*/
+	#wrapper {
+		width: 100%;
+		padding-left: 62px;
+		@include transition(all 0.5s ease);
+
+		&.toggled {
+			padding-left: 300px; //posun cele obrazvky
+
+			& #sidebar-wrapper {
+				width: 300px; //velikost bocniho panelu
+			}
+
+			& #page-content-wrapper {
+				position: absolute;
+				margin-right: -300px; //posun obsahem stranky
+			}
+		}
+	}
+
+	#sidebar-wrapper {
+		z-index: 1000;
+		left: 300px;
+		width: 90px;
+		height: 100%;
+		margin-left: -300px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		background: $color-contrast;
+    @include transition(all 0.5s ease);
+    //@include box-shadow(0px 2px 5px 0px $color-contrast-1Q, 0px 2px 5px 0px $color-contrast-1Q);
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	#page-content-wrapper {
+		width: 100%;
+		padding-top: 70px;
+	}
+
+/*---- SIDERBAR NAVIGATION STYLES -----------------------------------*/
+.sidebar-nav {
+	position: absolute;
+	top: 0;
+	width: 300px;
+	padding: 0;
+	margin: 0 0 40px 0;
+	list-style: none;
+
+	& li {
+		position: relative;
+		line-height: 1.42em;
+		display: inline-block;
+		width: 100%;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			height: 100%;
+			width: 0;
+			background: $link-hover-color;
+      @include transition(width .7s ease-in);
+		}
+
+		& a {
+			display: block;
+			color: $color-white-1Q;
+			text-decoration: none;
+			font-weight: 400;
+			padding: 10px 12px;
+			/* padding: 10px 15px 10px 30px; */
+		}
+
+		& i {
+			padding-right: 10px;
+			padding-bottom: 5px;
+			font-size: 2.57em;
+			vertical-align: middle;
+		}
+
+		& .icon-projectname {
+			padding: 15px 20px 15px 20px; ///5px 5px 5px 5px;
+			background: $color-contrast-0Q;
+			vertical-align: middle;
+			line-height: 100%;
+			font-size: $font-size-h3;
+			font-weight: 200;
+			font-style: normal;
+			//margin-right: 15px;
+			display: inline-block;
+			height: 50px;
+
+			&:before {
+				content:"PP";
+			}
+		}
+
+		&:first-child {
+			a {
+				// padding: 18px 15px 18px 30px;
+				background: $color-contrast;
+				line-height: 2.5em;
+				padding: 0px 15px 0px 0px;
+			}
+		}
+	}
+
+	li:hover:before,
+	li.open:hover:before {
+		width: 100%;
+		@include box-shadow(none);
+		@include transition(width .7s ease-in);
+	}
+
+		li a:hover,
+		li a:active,
+		li a:focus,
+		li.open a:hover,
+		li.open a:active,
+		li.open a:focus{
+			color: $color-white-3Q;
+			text-decoration: none;
+			background: transparent;
+		}
+
+		li.open {
+			&:before {
+				background: none !important;
+				color: $color-contrast !important;
+			}
+
+			&:hover {
+				background: none !important;
+				color: $color-contrast !important;
+			}
+
+			a:hover {
+				background: none !important;
+				color: $color-contrast !important;
+			}
+
+			ul li a {
+				background: none !important;
+
+				&:hover {
+					background: none !important;
+				}
+			}
+		}
+
+		.position-bottom {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 240px;
+
+			&.is-closed {
+				width: -240px;
+				overflow-y: auto;
+				overflow-x: hidden;
+			}
+		}
+
+		.caret {
+			border-width: 8px;
+			margin-left: 16px;
+		}
+	}
+
+	.sidebar-nav .dropdown {
+		position: relative;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		border-radius: 0;
+		border: none;
+
+		& li {
+			line-height: 1.42em;
+			background-color: $color-contrast-3Q;
+			@include box-shadow(none);
+		}
+	}
+
+/*---- HAMBURGER CROSS & ANIMATIONS -----------------------------------*/
+.hamburger {
+	position: relative;
+	top: 8px; //10px;
+	z-index: 999;
+	display: block;
+	width: 35px;
+	height: 35px;
+	margin-left: 20px;
+	margin-right: 20px;
+	background: transparent;
+	border: none;
+
+	&:hover,
+	&:focus,
+	&:active {
+		outline: none;
+		background: none !important;
+	}
+
+	&.is-closed:before {
+		content: '';
+		display: block;
+		width: 100px;
+		color: $color-white;
+		line-height: 2em;
+		text-align: center;
+		opacity: 0;
+		@include transform(translate3d(0,0,0));
+		@include transition(all .35s ease-in-out);
+	}
+
+	&.is-closed:hover:before {
+		opacity: 1;
+		display: block;
+		@include transform(translate3d(-100px,0,0));
+		@include transition(all .35s ease-in-out);
+	}
+
+	&.is-closed .hamb-top,
+	&.is-closed .hamb-middle,
+	&.is-closed .hamb-bottom,
+	&.is-open .hamb-top,
+	&.is-open .hamb-middle,
+	&.is-open .hamb-bottom {
+		position: absolute;
+		left: 0;
+		height: 4px;
+		width: 100%;
+	}
+
+	&.is-closed .hamb-top,
+	&.is-closed .hamb-middle,
+	&.is-closed .hamb-bottom {
+		background-color: $color-contrast-1Q;
+	}
+
+	&.is-closed:hover .hamb-top,
+	&.is-closed:hover .hamb-middle,
+	&.is-closed:hover .hamb-bottom {
+		background-color: $link-hover-color;
+	}
+
+	&.is-closed .hamb-top {
+		top: 5px;
+		@include transition(all .35s ease-in-out);
+	}
+
+	&.is-closed .hamb-middle {
+		top: 50%;
+		margin-top: -2px;
+	}
+
+	&.is-closed .hamb-bottom {
+		bottom: 5px;
+		@include transition(all .35s ease-in-out);
+	}
+
+	&.is-closed:hover .hamb-top {
+		top: 0;
+		@include transition(all .35s ease-in-out);
+	}
+
+	&.is-closed:hover .hamb-bottom {
+		bottom: 0;
+		@include transition(all .35s ease-in-out);
+	}
+
+	&.is-open .hamb-top,
+	&.is-open .hamb-middle,
+	&.is-open .hamb-bottom {
+		background-color: $color-contrast-3Q;
+	}
+
+	&.is-open .hamb-top,
+	&.is-open .hamb-bottom {
+		top: 50%;
+		margin-top: -2px;
+	}
+
+	&.is-open .hamb-top {
+		@include transform(rotate(45deg));
+		@include transition(transform .2s cubic-bezier(.73,1,.28,.08));
+	}
+
+	&.is-open .hamb-middle {
+		display: none;
+	}
+
+	&.is-open .hamb-bottom {
+		@include transform(rotate(-45deg));
+		@include transition(transform .2s cubic-bezier(.73,1,.28,.08));
+	}
+
+	&.is-open:before {
+		content: '';
+		display: block;
+		width: 100px;
+		opacity: 0;
+		@include transform(translate3d(0,0,0));
+		@include transition(all .35s ease-in-out);
+	}
+
+	&.is-open:hover:before {
+		opacity: 1;
+		display: block;
+		@include transform(translate3d(-100px,0,0));
+		@include transition(all .35s ease-in-out);
+	}
+}

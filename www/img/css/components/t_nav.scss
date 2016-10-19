@@ -1,0 +1,69 @@
+.topmenu {
+	background: $bg-header-10;
+	color: $ico_lists-hover;
+	box-shadow: inset 0 -1px 0 0 $color-contrast-1Q;
+	height: 50px;
+	line-height: 50px;
+
+	a {
+		color: $ico_lists-hover;
+		text-decoration: none !important;
+		height: 50px;
+		line-height: 50px;
+		transition: 300ms;
+		font-family: 'open_sanslight';
+	}
+
+	li {
+		transition: 300ms;
+		height: 50px;
+		line-height: 50px;
+
+		.icon-cog {
+			font-size: 28px;
+			vertical-align: top;
+			color: $color-contrast-20;
+			display: inline-block;
+			margin: 10px 0 0 0;
+			transition: 300ms;
+		}
+
+		&:hover,
+		&.active {
+			background: none;
+			a {
+				font-family: 'opensans_semibold';
+				background: none;
+				box-shadow: inset 0 -5px 0 0 $ico_lists-hover;
+
+				.icon {
+					color: $ico_lists-hover;
+				}
+
+				&.noline {
+					box-shadow: none;
+				}
+			}
+		}
+	}
+
+	.dropdown-button {
+		border-radius: 100%;
+		background: $bg-header-20;
+		padding: 0px;
+		width: 35px;
+		height: 35px;
+		margin-right: 30px;
+		box-shadow: none;
+		transition: 300ms;
+		line-height: 35px;
+		position: relative;
+
+		.icon {
+			position: absolute;
+			right: -25px;
+			top: 3px;
+			font-size: 30px;
+		}
+	}
+}

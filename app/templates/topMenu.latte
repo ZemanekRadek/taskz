@@ -2,6 +2,76 @@
 <body class="no-top is-navigation">
 {/block}
 
+<nav class="topmenu">
+	{*
+	<div class="nav navbar-nav nav-hamburger">
+		<button type="button" class="nav navbar-nav hamburger is-closed" data-toggle="offcanvas">
+			<span class="hamb-top"></span>
+			<span class="hamb-middle"></span>
+			<span class="hamb-bottom"></span>
+		</button>
+	</div>
+	*}
+	<ul class="left">
+		<li class="active"><a href="#"><span>Tasks</span></a></li>
+		<li><a href="#"><span>Files</span></a></li>
+		<li><a href="#"><span>Users</span></a></li>
+		<li><a href="#"><span>Progress</span></a></li>
+	</ul>
+	<ul class="right hide-on-med-and-down">
+		<li><a href="{link Project:}" class="noline"><span class="icon icon-cog"></span></a></li>
+		<li>
+			<a href="#" class="noline dropdown-button btn" data-toggle="dropdown" data-activates="dropdown1">
+				{\App\Model\Helper::formatUserName($user->getIdentity())}
+				<span class="icon icon-arrow_drop_down"></span>
+			</a>
+
+			<ul class="dropdown-content" id="dropdown1">
+				<li><a href="{link Sign:out}" class="noline"><span>Log out</span></a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+
+{*
+<nav class="sidebar" role="navigation">
+	<ul class="nav sidebar-nav">
+		<li class="dropdown">
+			<a href="#" class="dropdown-button btn" data-toggle="dropdown" data-activates="dropdown1"><i class="icon-projectname"></i>{if $Project}{$Project->pr_name}{else}No project selected{/if}<span class="caret"></span></a>
+			<ul id="dropdown1" class="dropdown-content" role="menu">
+					{foreach $ProjectFactory->getAll() as $pr}
+							<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}"><i class="icon-projectname"></i>{$pr->pr_name}</a></li>
+					{/foreach}
+					<li><a href="{link Dashboard:}"><i class="icon-back"></i> Back to Dashboard</a></li>
+					<li class="divider"></li>
+					<li><a href="{link Project:create}"><i class="icon-add_box"></i> New Project</a></li>
+			</ul>
+		</li>
+		{foreach $TaskListFactory->getAll() as $list}
+		<li>
+			<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
+				<i class="{$list->tl_ico}"></i>
+				{$list->tl_name}
+			</a>
+		</li>
+		{/foreach}
+
+		{if $Project}
+		{if isset($Task)&&$Task}
+		<li>
+			<a href="{link List:list projectID=>$Project->pr_ID, projectName=>$Project->pr_path,taskListID=>$TaskList->tl_ID, taskListName=>$TaskList->tl_path,lang=>$presenter->lang}">{_'back to tasklist'}</a>
+		</li>
+		{/if}
+		{/if}
+	</ul>
+</nav>
+*}
+
+{*
+{block bodyClass}
+<body class="no-top is-navigation">
+{/block}
+
 <!-- TOPNAV BEGINS -->
 <nav class="topmenu col s12">
 	<div class="nav-wrapper">
@@ -138,3 +208,4 @@ $('.sidebar-nav .dropdown-button:first-child a:first-child').click(function(E) {
 
 	});
 </script>
+*}

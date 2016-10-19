@@ -32,6 +32,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-cog:before {
+	content: "\e96f";
+}
 .icon-error:before {
 	content: "\e000";
 }
