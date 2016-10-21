@@ -31,7 +31,7 @@ $color-yellow: #FFC857;
 $color-yellow-dar: #EAAD30;
 
 $color-green: #8BC34A; //9DD86C;
-/* background-radek: */
+
 
 /* FONT & TEXT SETTINGS ------------------------------- */
 //$font-family-base: 'Open Sans', sans-serif !important;
@@ -165,7 +165,7 @@ $grapefruit: #ff5757;
 $text_default: #4b423c;
 $vibrant-green: #07cb07;
 $bg_category: rgba(75, 65, 60, 0.25);
-$bg_header: rgba(75, 65, 60, 0.1); // je $color-contrast-0Q
+$bg_header: $color-contrast-0Q;
 $light-grey: #f2eee9;
 $ico_lists-nohover: rgba(242, 238, 233, 0.5);
 $grapefruit-two: #ff5252;
