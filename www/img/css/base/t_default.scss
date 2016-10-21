@@ -12,7 +12,7 @@ body {
 	background-attachment: fixed;
 	//padding: 12px;
 
-	color: $text-color;
+	color: $color-darkside;
 	font-size: $base-font-size;
 	font-weight: $base-font-weight;
 	padding: 0px;
@@ -196,7 +196,7 @@ h6 {
 
 	 .input-field input {
 	 		border-color: $color-input-border-default !important;
-	 		color: $text-color;
+	 		color: $color-darkside;
 	 		font-family: 'opensans_bold';
 	 		font-size: $font-size-base;
 			margin-top: 1rem;

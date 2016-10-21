@@ -17127,16 +17127,19 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 /* ==========================================================================
    INTERNAL BASE EXTENSIONS
   ========================================================================== */
-/* BASIC COLORS ------------------------------- */
-/* DOPLNKOVE BARVY ------------------------------- */
-/* FONT & TEXT SETTINGS ------------------------------- */
-/* By default, this inherits from the `<body>`.------------------------------- */
-/* LINK STYLE SETTINGS ------------------------------- */
-/* ADDITIONAL COLOR SETUPS ------------------------------- */
-/** backgrounds **/
-/** shadows **/
-/* borders **/
-/* FONTS ------------------------------- */
+/* PALETTE - COLOR PALETTE ------------------------------------------------- */
+/* PALETTE -  COLORED STYLESHEET ------------------------------------------- */
+/* PALETTE - ADDITIONAL COLORS ---------------------------------------------- */
+/* TEXTS ------------------------------------------------------------------- */
+/* LINKS ------------------------------------------------------------------- */
+/* BUTTONS ----------------------------------------------------------------- */
+/* INPUTS ------------------------------------------------------------------ */
+/* BACKGROUNDS ------------------------------------------------------------- */
+/* SHADOWS ----------------------------------------------------------------- */
+/* BORDERS ---------------------------------------------------------------- */
+/* FONTS ------------------------------------------------------------------- */
+/* By default, this inherits from the `<body>`.----------------------------- */
+/* FONTFACE ----------------------------------------------------------------- */
 @font-face {
   font-family: 'open_sanslight';
   src: url("./../fonts/opensans_light_macroman/OpenSans-Light-webfont.eot");
@@ -17161,6 +17164,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   src: url("./../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("./../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.woff") format("woff"), url("./../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.ttf") format("truetype"), url("./../fonts/opensans_bold_macroman/OpenSans-Bold-webfont.svg#opensans_bold") format("svg");
   font-weight: 700;
   font-style: normal; }
+/* FONTS - HTML TAGS STYLES ------------------------------------------------- */
 h1, h2, h3, h4, h5 {
   font-family: 'open_sanslight'; }
   h1 *, h2 *, h3 *, h4 *, h5 * {
@@ -17174,17 +17178,17 @@ p, td, div {
 input {
   font-family: 'opensans_semibold'; }
 
-/** styleguide **/
+/* FONTS - ELEMENTS STYLES ------------------------------------------------- */
 .task-list-group-day {
   font-family: 'open_sanslight';
   font-size: 18px;
-  color: #4b423c; }
+  color: #4B423C; }
 
 .task-list-group-done {
   font-family: 'open_sanslight';
   font-size: 18px;
   font-weight: 300;
-  color: #4b423c; }
+  color: #4B423C; }
 
 .header-navbar-selected {
   font-family: 'open_sanslight';
@@ -17192,12 +17196,12 @@ input {
   font-weight: 600;
   line-height: 1.5;
   text-align: center;
-  color: #281f19; }
+  color: #281F19; }
 
 .text-style {
   font-family: 'open_sanslight';
   font-size: 16px;
-  color: #4b423c; }
+  color: #4B423C; }
 
 .search-input-label {
   font-family: 'open_sanslight';
@@ -17217,19 +17221,20 @@ input {
   font-weight: 300;
   line-height: 1.5;
   text-align: center;
-  color: #4b423c; }
+  color: #4B423C; }
 
 .task-list-days-selected {
   font-family: 'open_sanslight';
   font-size: 14px;
-  color: #fcfcfc; }
+  color: #FCFCFC; }
 
 .task-list-days-nohover {
   font-family: 'open_sanslight';
   font-size: 14px;
   font-weight: 300;
-  color: #4b423c; }
+  color: #4B423C; }
 
+/* OLD STYLEGUIDE TO BE REPLACED -------------------------------------------- */
 body {
   text-align: center;
   padding: 24px 24px 96px; }
@@ -17746,12 +17751,12 @@ textarea.materialize-textarea:hover.invalid + label.active:after {
 
 .topmenu {
   background: rgba(75, 65, 60, 0.1);
-  color: #281f19;
+  color: #281F19;
   box-shadow: inset 0 -1px 0 0 rgba(75, 66, 60, 0.25);
   height: 50px;
   line-height: 50px; }
   .topmenu a {
-    color: #281f19;
+    color: #281F19;
     text-decoration: none !important;
     height: 50px;
     line-height: 50px;
@@ -17773,9 +17778,9 @@ textarea.materialize-textarea:hover.invalid + label.active:after {
       .topmenu li:hover a, .topmenu li.active a {
         font-family: 'opensans_semibold';
         background: none;
-        box-shadow: inset 0 -5px 0 0 #281f19; }
+        box-shadow: inset 0 -5px 0 0 #281F19; }
         .topmenu li:hover a .icon, .topmenu li.active a .icon {
-          color: #281f19; }
+          color: #281F19; }
         .topmenu li:hover a.noline, .topmenu li.active a.noline {
           box-shadow: none; }
   .topmenu .dropdown-button {
@@ -17808,7 +17813,7 @@ textarea.materialize-textarea:hover.invalid + label.active:after {
       border-radius: 100%;
       vertical-align: top;
       background: #FF7575;
-      color: #ffffff;
+      color: #FCFCFC;
       min-width: 25px;
       height: 25px;
       line-height: 25px;
@@ -17817,7 +17822,7 @@ textarea.materialize-textarea:hover.invalid + label.active:after {
       .task-block .task-block-day .task-block-day-title-counter .count-finished.count-total,
       .task-block .task-block-day .task-block-day-title-counter .count-total.count-total {
         background-color: #f2eee9;
-        color: #4b423c; }
+        color: #4B423C; }
     .task-block .task-block-day .task-block-day-items .task-item-wrapper {
       position: relative; }
       .task-block .task-block-day .task-block-day-items .task-item-wrapper a {
@@ -17843,7 +17848,7 @@ textarea.materialize-textarea:hover.invalid + label.active:after {
         height: 3.2em; }
         .task-block .task-block-day .task-block-day-items .task-item-wrapper .task-item:hover {
           background-color: #FCFCFC;
-          box-shadow: 0 1px 5px 0 #4b423c;
+          box-shadow: 0 1px 5px 0 #4B423C;
           border: solid 1px rgba(75, 65, 60, 0.25);
           color: #4B423C; }
         .task-block .task-block-day .task-block-day-items .task-item-wrapper .task-item.open {
@@ -17857,7 +17862,7 @@ textarea.materialize-textarea:hover.invalid + label.active:after {
             color: rgba(252, 252, 252, 0.5); }
       .task-block .task-block-day .task-block-day-items .task-item-wrapper:hover .task-item {
         background-color: #FCFCFC;
-        box-shadow: 0 1px 5px 0 #4b423c;
+        box-shadow: 0 1px 5px 0 #4B423C;
         border: solid 1px rgba(75, 65, 60, 0.25); }
         .task-block .task-block-day .task-block-day-items .task-item-wrapper:hover .task-item.open {
           color: #FCFCFC;
@@ -17947,7 +17952,7 @@ body.task-detail-window-open .lt-task-detail-window {
     position: fixed;
     background-color: rgba(252, 252, 252, 0.75);
     box-shadow: -1px 0 4px 2px rgba(75, 66, 60, 0.1);
-    border: solid 1px rgba(75, 65, 60, 0.25);
+    border: solid 1px rgba(75, 66, 60, 0.25);
     height: 100%; }
 body.task-detail-window-open .fixed-action-btn {
   right: 340px; }
