@@ -23,6 +23,10 @@ class Helper {
 		7 => 'Ne'
 	);
 
+	public static function formatUserName($user) {
+		return substr($user->us_name, 0, 1) . substr($user->us_surname, 0, 1);
+	}
+
 	public static function listDay($list) {
 		$return = array();
 
