@@ -1,14 +1,15 @@
 /* PALETTE - COLOR PALETTE ------------------------------------------------- */
 $color-contrast: #4B423C; //2C2825; 332E2A;
-$color-contrast-3Q: rgba($color-contrast, 0.75);
-$color-contrast-2Q: rgba($color-contrast, 0.5);
-$color-contrast-1Q: rgba($color-contrast, 0.25);
-$color-contrast-0Q: rgba($color-contrast, 0.1);
+$color-contrast-75: rgba($color-contrast, 0.75);
+$color-contrast-50: rgba($color-contrast, 0.5);
+$color-contrast-25: rgba($color-contrast, 0.25);
+$color-contrast-20: rgba($color-contrast, 0.20);
+$color-contrast-10: rgba($color-contrast, 0.1);
 
 $color-white: #FCFCFC;
-$color-white-3Q: rgba($color-white, 0.75);
-$color-white-2Q: rgba($color-white, 0.5);
-$color-white-1Q: rgba($color-white, 0.25);
+$color-white-75: rgba($color-white, 0.75);
+$color-white-50: rgba($color-white, 0.5);
+$color-white-25: rgba($color-white, 0.25);
 
 $color-white-bright: #F2EEE9;
 $color-darkside: #281F19;
@@ -18,7 +19,7 @@ $color-blue: #6886F2; //448AFF;
 $color-blue-dark: #4568EA; //1976D2;
 
 $color-red-light: #FF7575;
-$color-red: #FF5252; //F44336;
+$color-red:  #ff5757; //FF5252; F44336;
 $color-red-dark: #EC2A2A; //D32F2F;
 
 $color-orange: #FF5722;
@@ -29,6 +30,7 @@ $color-yellow: #FFC857;
 $color-yellow-dar: #EAAD30;
 
 $color-green: #8BC34A; //9DD86C;
+$color-green-50: rgba($color-green, 0.5);
 
 /* PALETTE - ADDITIONAL COLORS ---------------------------------------------- */
 $color-fb: #4b70ab;
@@ -52,18 +54,18 @@ $link-decoration: underline;
 
 
 /* BUTTONS ----------------------------------------------------------------- */
-$color-button-default: $color-white-3Q;
+$color-button-default: $color-white-75;
 $color-button-hover: $color-white;
 
 
 /* INPUTS ------------------------------------------------------------------ */
-$color-input-border-default: $color-contrast-1Q;
+$color-input-border-default: $color-contrast-25;
 
 
 /* BACKGROUNDS ------------------------------------------------------------- */
 $body-bg: $color-white-bright;
-$backgroundA: $color-contrast-0Q;
-$backgroundB: $color-white-3Q; //je puvodne barva rgba(252, 252, 252, 0.75);
+$backgroundA: $color-contrast-10;
+$backgroundB: $color-white-75; //je puvodne barva rgba(252, 252, 252, 0.75);
 
 
 /* SHADOWS ----------------------------------------------------------------- */
@@ -72,7 +74,7 @@ $box-shadow: $color-contrast;
 
 
 /* BORDERS ---------------------------------------------------------------- */
-$borderA: $color-contrast-1Q; // je puvodne barva rgba(75, 65, 60, 0.25);
+$borderA: $color-contrast-25; // je puvodne barva rgba(75, 65, 60, 0.25);
 
 
 
@@ -195,14 +197,14 @@ input {
 	font-family: 'open_sanslight';
 	font-size: 16px;
 	font-weight: 300;
-	color: $color-contrast-2Q;
+	color: $color-contrast-50;
 }
 
 .task-input-label {
 	font-family: 'open_sanslight';
 	font-size: 16px;
 	font-weight: 300;
-	color: $color-contrast-2Q;
+	color: $color-contrast-50;
 }
 
 .header-navbar-default {
@@ -231,27 +233,27 @@ input {
 
 
 /* OLD STYLEGUIDE TO BE REPLACED -------------------------------------------- */
-$booger-50: rgba(138, 195, 73, 0.5);
-// $grapefruit: #ff5757; je $color-red-light: #FF7575;
+//$booger-50: rgba(138, 195, 73, 0.5); je $color-green-50
+// $grapefruit: #ff5757; je $color-red: #ff5757;
 
-$vibrant-green: #07cb07;
-$bg_category: rgba(75, 65, 60, 0.25);
-$bg_header: $color-contrast-0Q;
-$light-grey: #f2eee9;
-$ico_lists-nohover: rgba(242, 238, 233, 0.5);
+//$vibrant-green: #07cb07; je $color-green
+//$bg_category: rgba(75, 65, 60, 0.25); je $color-contrast-25
+//$bg_header: $color-contrast-0Q;
+//$light-grey: #f2eee9; je $color-white-bright
+//$ico_lists-nohover: rgba(242, 238, 233, 0.5); je $color-white-50: rgba($color-white, 0.5);
 // $grapefruit-two: #ff5252;je $color-red: #FF5252;
 // $white: #ffffff; nahradit za $color-white
 // $light-gold: #ffc857; nahradit za $color-yellow
 // $white-two: #fcfcfc; nahradit za $color-white
-$white-two-75: rgba(252, 252, 252, 0.75);
-$ico_color-default: rgba(75, 66, 60, 0.25);
+//$white-two-75: rgba(252, 252, 252, 0.75); je $color-white-75: rgba($color-white, 0.75);
+//$ico_color-default: rgba(75, 66, 60, 0.25); je $color-contrast-25: rgba($color-contrast, 0.25);
 // $ico_lists-hover: #281f19;je $color-darkside: #281F19;
 //$greyish-brown-50: rgba(75, 66, 60, 0.5); je $color-contrast-2Q: rgba($color-contrast, 0.5);
-$text-default-75: rgba(75, 66, 60, 0.75);
-$linkDefault: #6886f2; // je $color-blue
+//$text-default-75: rgba(75, 66, 60, 0.75); je $color-contrast-75: rgba($color-contrast, 0.75);
+//$linkDefault: #6886f2; je $color-blue
 // $btn_google-hover: #dd4b39; je $color-gplus: #dd4b39;
-$dark-sky-blue: #4568ea; // je $color-blue-dark
-$black-50: rgba(51, 46, 42, 0.5);
-$bg-header-10: rgba(75, 65, 60, 0.1);
-$color-contrast-20: rgba(75, 66, 60, 0.20);
-$bg-header-20: rgba(75, 65, 60, 0.20);
+//$dark-sky-blue: #4568ea; je $color-blue-dark
+//$black-50: rgba(51, 46, 42, 0.5); je $color-contrast-75: rgba($color-contrast, 0.75);
+//$bg-header-10: rgba(75, 65, 60, 0.1);je $color-contrast-0Q
+//$color-contrast-20: rgba(75, 66, 60, 0.20);
+//$bg-header-20: rgba(75, 65, 60, 0.20); je color-contrast-20
