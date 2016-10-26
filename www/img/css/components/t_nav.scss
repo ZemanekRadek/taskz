@@ -64,6 +64,140 @@
 			right: -25px;
 			top: 3px;
 			font-size: 30px;
+			color: $color-contrast-20;
+		}
+	}
+
+	/*---- HAMBURGER CROSS & ANIMATIONS -----------------------------------*/
+	.hamburger {
+		position: relative;
+		top: 8px; //10px;
+		z-index: 999;
+		display: block;
+		width: 35px;
+		height: 35px;
+		margin-left: 20px;
+		margin-right: 20px;
+		background: transparent;
+		border: none;
+		float: left;
+		margin-right: 20px;
+
+		&:hover,
+		&:focus,
+		&:active {
+			outline: none;
+			background: none !important;
+		}
+
+		&.is-closed:before {
+			content: '';
+			display: block;
+			width: 100px;
+			color: $color-white;
+			line-height: 2em;
+			text-align: center;
+			opacity: 0;
+			@include transform(translate3d(0,0,0));
+			@include transition(all .35s ease-in-out);
+		}
+
+		&.is-closed:hover:before {
+			opacity: 1;
+			display: block;
+			@include transform(translate3d(-100px,0,0));
+			@include transition(all .35s ease-in-out);
+		}
+
+		&.is-closed .hamb-top,
+		&.is-closed .hamb-middle,
+		&.is-closed .hamb-bottom,
+		&.is-open .hamb-top,
+		&.is-open .hamb-middle,
+		&.is-open .hamb-bottom {
+			position: absolute;
+			left: 0;
+			height: 4px;
+			width: 100%;
+		}
+
+		&.is-closed .hamb-top,
+		&.is-closed .hamb-middle,
+		&.is-closed .hamb-bottom {
+			background-color: $color-contrast-1Q;
+		}
+
+		&.is-closed:hover .hamb-top,
+		&.is-closed:hover .hamb-middle,
+		&.is-closed:hover .hamb-bottom {
+			background-color: $link-hover-color;
+		}
+
+		&.is-closed .hamb-top {
+			top: 5px;
+			@include transition(all .35s ease-in-out);
+		}
+
+		&.is-closed .hamb-middle {
+			top: 50%;
+			margin-top: -2px;
+		}
+
+		&.is-closed .hamb-bottom {
+			bottom: 5px;
+			@include transition(all .35s ease-in-out);
+		}
+
+		&.is-closed:hover .hamb-top {
+			top: 0;
+			@include transition(all .35s ease-in-out);
+		}
+
+		&.is-closed:hover .hamb-bottom {
+			bottom: 0;
+			@include transition(all .35s ease-in-out);
+		}
+
+		&.is-open .hamb-top,
+		&.is-open .hamb-middle,
+		&.is-open .hamb-bottom {
+			background-color: $color-contrast-3Q;
+		}
+
+		&.is-open .hamb-top,
+		&.is-open .hamb-bottom {
+			top: 50%;
+			margin-top: -2px;
+		}
+
+		&.is-open .hamb-top {
+			@include transform(rotate(45deg));
+			@include transition(transform .2s cubic-bezier(.73,1,.28,.08));
+		}
+
+		&.is-open .hamb-middle {
+			display: none;
+		}
+
+		&.is-open .hamb-bottom {
+			@include transform(rotate(-45deg));
+			@include transition(transform .2s cubic-bezier(.73,1,.28,.08));
+		}
+
+		&.is-open:before {
+			content: '';
+			display: block;
+			width: 100px;
+			opacity: 0;
+			@include transform(translate3d(0,0,0));
+			@include transition(all .35s ease-in-out);
+		}
+
+		&.is-open:hover:before {
+			opacity: 1;
+			display: block;
+			@include transform(translate3d(-100px,0,0));
+			@include transition(all .35s ease-in-out);
 		}
 	}
 }
