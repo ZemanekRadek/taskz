@@ -5,7 +5,7 @@
 		max-width: 980px;
 		margin: 10px auto;
 		padding: 10px 20px 20px 20px;
-		background: $color-contrast-0Q;
+		background: $color-contrast-10;
 
 
 		.task-block-day-title-counter {
@@ -15,7 +15,7 @@
 				border-radius: 100%;
 				vertical-align: top;
 				background: $color-red-light;
-				color: $white;
+				color: $color-white;
 				min-width: 25px;
 				height: 25px;
 				line-height: 25px;
@@ -23,7 +23,7 @@
 				margin: 0 5px;
 
 				&.count-total {
-					background-color: $light-grey;
+					background-color: $color-white-bright;
 					color: $text_default;
 				}
 			}
@@ -37,7 +37,7 @@
 				a {
 					text-decoration: none !important;
 					font-family: 'open_sanslight' !important;
-					color: $color-contrast-2Q;
+					color: $color-contrast-50;
 					font-size: 1.15em;
 				}
 
@@ -46,7 +46,7 @@
 					display: block;
 					top: 17px;
 					left: 18px;
-					color: $color-contrast-1Q;
+					color: $color-contrast-25;
 					font-size: 1.25em; //20px
 				}
 
@@ -54,8 +54,8 @@
 					padding: 16px 5px 5px 50px;
 					margin: 5px 0 0 0;
 					border-radius: 3px;
-					background-color: $white-two-75;
-					border: solid 1px $bg_category;
+					background-color: $color-white-75;
+					border: solid 1px $color-contrast-25;
 					cursor: pointer;
 					display: block;
 					height: 3.2em; //50px
@@ -63,21 +63,21 @@
 					&:hover {
 						background-color: $color-white;
 						box-shadow: 0 1px 5px 0 $text_default;
-						border: solid 1px $bg_category;
+						border: solid 1px $color-contrast-25;
 						color: $color-contrast;
 					}
 
 					&.open {
 						color: $color-white;
 						background-color: $color-blue-dark;
-						box-shadow: 0 2px 5px 0 $black-50, 0 0 2px 0 $black-50;
+						box-shadow: 0 2px 5px 0 $color-contrast-75, 0 0 2px 0 $color-contrast-75;
 						border: none;
 
 						a {
 							color: $color-white;
 						}
 						.task-finish {
-							color: $color-white-2Q;
+							color: $color-white-50;
 						}
 					}
 				}
@@ -86,12 +86,12 @@
 					.task-item {
 						background-color: $color-white;
 						box-shadow: 0 1px 5px 0 $text_default;
-						border: solid 1px $bg_category;
+						border: solid 1px $color-contrast-25;
 
 						&.open {
 							color: $color-white;
 							background-color: $color-blue-dark;
-							box-shadow: 0 2px 5px 0 $black-50, 0 0 2px 0 $black-50;
+							box-shadow: 0 2px 5px 0 $color-contrast-75, 0 0 2px 0 $color-contrast-75;
 
 							a {
 								color: $color-white;
@@ -110,7 +110,7 @@
 	.line {
 		width: 80%;
 		height: 1px;
-		border-top: solid 1px $bg_category;
+		border-top: solid 1px $color-contrast-25;
 		margin: 0 auto;
 	}
 
@@ -119,7 +119,7 @@
 		padding: 10px 10px;
 
 		a {
-			color: $text-color;
+			color: $color-darkside;
 			text-decoration: none !important;
 			margin: 0 10px 0 0;
 			line-height: 20px;
@@ -148,7 +148,7 @@
 		}
 
 		a, span {
-			color: $linkDefault;
+			color: $color-blue;
 			text-decoration: none;
 			display: inline-block;
 			vertical-align: top;
@@ -158,7 +158,7 @@
 		.created {
 			text-align: center;
 			line-height: 30px;
-			color: $text-default-75;
+			color: $color-contrast-75;
 		}
 
 		.toClose {

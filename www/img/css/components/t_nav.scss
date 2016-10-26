@@ -1,12 +1,12 @@
 .topmenu {
-	background: $bg-header-10;
-	color: $ico_lists-hover;
-	box-shadow: inset 0 -1px 0 0 $color-contrast-1Q;
+	background: $color-contrast-10;
+	color: $color-darkside;
+	box-shadow: inset 0 -1px 0 0 $color-contrast-25;
 	height: 50px;
 	line-height: 50px;
 
 	a {
-		color: $ico_lists-hover;
+		color: $color-darkside;
 		text-decoration: none !important;
 		height: 50px;
 		line-height: 50px;
@@ -34,10 +34,10 @@
 			a {
 				font-family: 'opensans_semibold';
 				background: none;
-				box-shadow: inset 0 -5px 0 0 $ico_lists-hover;
+				box-shadow: inset 0 -5px 0 0 $color-darkside;
 
 				.icon {
-					color: $ico_lists-hover;
+					color: $color-darkside;
 				}
 
 				&.noline {
@@ -49,7 +49,7 @@
 
 	.dropdown-button {
 		border-radius: 100%;
-		background: $bg-header-20;
+		background: $color-contrast-20;
 		padding: 0px;
 		width: 35px;
 		height: 35px;
