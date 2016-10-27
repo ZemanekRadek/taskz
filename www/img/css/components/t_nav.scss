@@ -124,7 +124,7 @@
 		&.is-closed .hamb-top,
 		&.is-closed .hamb-middle,
 		&.is-closed .hamb-bottom {
-			background-color: $color-contrast-1Q;
+			background-color: $color-contrast-25;
 		}
 
 		&.is-closed:hover .hamb-top,
@@ -161,7 +161,7 @@
 		&.is-open .hamb-top,
 		&.is-open .hamb-middle,
 		&.is-open .hamb-bottom {
-			background-color: $color-contrast-3Q;
+			background-color: $color-contrast-75;
 		}
 
 		&.is-open .hamb-top,
