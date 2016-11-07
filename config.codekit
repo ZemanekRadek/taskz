@@ -1,6 +1,6 @@
 {
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
-"creatorBuild": "19102",
+"creatorBuild": "19115",
 "files": {
 	"\/app\/bootstrap.php": {
 		"fileType": 8192,
@@ -11,20 +11,20 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/components\/TaskDetail.php": {
+	"\/app\/Components\/TaskDetail.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/components\/TaskDetail.php",
+		"inputAbbreviatedPath": "\/app\/Components\/TaskDetail.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/components\/TaskList.php": {
+	"\/app\/Components\/TaskList.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/components\/TaskList.php",
+		"inputAbbreviatedPath": "\/app\/Components\/TaskList.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -23582,7 +23582,7 @@
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 10144,
+		"initialSize": 9122,
 		"inputAbbreviatedPath": "\/www\/img\/tazkie-logo.png",
 		"outputAbbreviatedPath": "\/www\/img\/tazkie-logo.png",
 		"outputPathIsOutsideProject": 0,
@@ -23656,7 +23656,7 @@
 	},
 "hooks": [
 	],
-"lastSavedByUser": "Radek Zemánek",
+"lastSavedByUser": "sleapy",
 "manualImportLinks": {
 	},
 "projectAttributes": {
