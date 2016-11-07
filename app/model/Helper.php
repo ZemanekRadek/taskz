@@ -27,6 +27,22 @@ class Helper {
 		return substr($user->us_name, 0, 1) . substr($user->us_surname, 0, 1);
 	}
 
+	public static function formatProjectName($project) {
+
+		$string = '';
+		$data   = explode(' ', $project->pr_name);
+		if (count($data) > 1) {
+			foreach($data as $v) {
+				$string.= substr($v, 0, 1);
+			}
+		}
+		else {
+			$string = substr($project->pr_name,0, 3);
+		}
+
+		return $string;
+	}
+
 	public static function listDay($list) {
 		$return = array();
 

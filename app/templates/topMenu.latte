@@ -4,6 +4,22 @@
 
 <nav class="topmenu">
 
+	<div class="left">
+		<div class="dropdown">
+			<button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				{if $Project}{\App\Model\Helper::formatProjectName($Project)}{else}NPS{/if}
+			</button>
+			<ul class="dropdown-menu" id="dropdownMenu1">
+				{foreach $ProjectFactory->getAll() as $pr}
+				<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}">{$pr->pr_name}</a></li>
+				{/foreach}
+				<li><a href="{link Dashboard:}"><span class="icon-back"></span> Back to Dashboard</a></li>
+				<li class="divider"></li>
+				<li><a href="{link Project:create}"><span class="icon-add_box"></span> New Project</a></li>
+			</ul>
+		</div>
+	</div>
+
 	<div class="nav-hamburger">
 		<button type="button" class="hamburger is-closed" data-toggle="offcanvas">
 			<span class="hamb-top"></span>
@@ -32,6 +48,31 @@
 		</li>
 	</ul>
 </nav>
+
+<nav class="sidebar">
+	<ul class="nav sidebar-nav">
+		{foreach $TaskListFactory->getAll() as $list}
+		<li{if $TaskList && $list->tl_ID == $TaskList->tl_ID} class="selected"{/if}>
+			<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
+				{if $list->tl_ico}
+				<span class="icon {$list->tl_ico}"></span>
+				{/if}
+				{$list->tl_name}
+			</a>
+		</li>
+		{/foreach}
+
+		{*if $Project}
+		{if isset($Task)&&$Task}
+		<li>
+			<a href="{link List:list projectID=>$Project->pr_ID, projectName=>$Project->pr_path,taskListID=>$TaskList->tl_ID, taskListName=>$TaskList->tl_path,lang=>$presenter->lang}">{_'back to tasklist'}</a>
+		</li>
+		{/if}
+		{/if*}
+	</ul>
+</div>
+
+
 
 {*
 <nav class="sidebar" role="navigation">

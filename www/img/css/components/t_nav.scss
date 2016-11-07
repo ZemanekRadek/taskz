@@ -4,6 +4,12 @@
 	box-shadow: inset 0 -1px 0 0 $color-contrast-25;
 	height: 50px;
 	line-height: 50px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+
 
 	a {
 		color: $color-darkside;
@@ -65,6 +71,32 @@
 			top: 3px;
 			font-size: 30px;
 			color: $color-contrast-20;
+		}
+	}
+
+	/*---- Project dropdown -----------------------------------*/
+	.dropdown {
+
+		button.dropdown-toggle {
+			background-color: $color-darkside;
+			border: none;
+			color: $color-white-bright;
+			padding: 0;
+			width: 88px;
+			overflow: hidden;
+			text-align: center;
+		}
+
+		.droopdown-menu {
+			li {
+				display: block;
+				line-height: 100%;
+				float: none;
+				a {
+					display: block;
+					line-height: 100%;
+				}
+			}
 		}
 	}
 
@@ -198,6 +230,46 @@
 			display: block;
 			@include transform(translate3d(-100px,0,0));
 			@include transition(all .35s ease-in-out);
+		}
+	}
+}
+
+.sidebar {
+	position: fixed;
+	left: 0px;
+	height: 100%;
+	width: 88px;
+	z-index: 1;
+	background-color: $color-contrast;
+
+	ul {
+		li {
+			height: 60px;
+			overflow: hidden;
+			text-align: center;
+			float: none;
+
+			a {
+				float: none;
+				display: block;
+				padding: 0px;
+				line-height: 60px;
+				text-decoration: none !important;
+				color: $color-white-50;
+
+				.icon {
+					font-size: 44px;
+					vertical-align: middle;
+					display: inline-block;
+				}
+			}
+
+			&.selected {
+				background-color: $color-white-bright;
+				a {
+					color: $color-darkside;
+				}
+			}
 		}
 	}
 }
