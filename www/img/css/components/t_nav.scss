@@ -1,7 +1,7 @@
 .topmenu {
-	background: $color-contrast-10;
+	background: $color-grey-mixed; //color-contrast-10;
 	color: $color-darkside;
-	box-shadow: inset 0 -1px 0 0 $color-contrast-25;
+	box-shadow: 0 -1px 5px 0 $color-contrast-50, inset 0 -1px 0 0 $color-contrast-25;
 	height: 50px;
 	line-height: 50px;
 	position: fixed;

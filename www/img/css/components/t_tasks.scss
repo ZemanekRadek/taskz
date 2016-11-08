@@ -5,7 +5,7 @@
 		max-width: 980px;
 		margin: 10px auto;
 		padding: 10px 20px 20px 20px;
-		background: $color-contrast-10;
+		background: $color-grey-mixed; //color-contrast-10;
 
 
 		.task-block-day-title-counter {
@@ -55,6 +55,7 @@
 					margin: 5px 0 0 0;
 					border-radius: 3px;
 					background-color: $color-white-75;
+					box-shadow: 0 1px 2px 0 $color-contrast-50;
 					border: solid 1px $color-contrast-25;
 					cursor: pointer;
 					display: block;
@@ -62,7 +63,7 @@
 
 					&:hover {
 						background-color: $color-white;
-						box-shadow: 0 1px 5px 0 $text_default;
+						box-shadow: 0 1px 4px 0 $color-contrast;
 						border: solid 1px $color-contrast-25;
 						color: $color-contrast;
 					}
@@ -70,7 +71,8 @@
 					&.open {
 						color: $color-white;
 						background-color: $color-blue-dark;
-						box-shadow: 0 2px 5px 0 $color-contrast-75, 0 0 2px 0 $color-contrast-75;
+						box-shadow: none;
+						//box-shadow: 0 2px 5px 0 $color-contrast-75, 0 0 2px 0 $color-contrast-75;
 						border: none;
 
 						a {
