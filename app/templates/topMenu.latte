@@ -7,7 +7,13 @@
 	<div class="left">
 		<div class="dropdown">
 			<button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				{if $Project}{\App\Model\Helper::formatProjectName($Project)}{else}NPS{/if}
+			{if $Project}
+				<span class="short-title"><strong>{\App\Model\Helper::formatProjectName($Project)}</strong></span>
+				<span class="long-title"><strong>{\App\Model\Helper::formatProjectName($Project)}</strong> {$Project->pr_name}</span>
+			{else}
+				<span class="short-title"><strong>NPS</strong></span>
+				<span class="long-title"><strong>NPS</strong> Projekt nebyl vybrán</span>
+			{/if}
 			</button>
 			<ul class="dropdown-menu" id="dropdownMenu1">
 				{foreach $ProjectFactory->getAll() as $pr}
@@ -21,7 +27,7 @@
 	</div>
 
 	<div class="nav-hamburger">
-		<button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+		<button id="button-nav-open-sidebar" type="button" class="hamburger is-closed" data-toggle="offcanvas">
 			<span class="hamb-top"></span>
 			<span class="hamb-middle"></span>
 			<span class="hamb-bottom"></span>
@@ -53,7 +59,7 @@
 	<ul class="nav sidebar-nav">
 		{foreach $TaskListFactory->getAll() as $list}
 		<li{if $TaskList && $list->tl_ID == $TaskList->tl_ID} class="selected"{/if}>
-			<a href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
+		<a class="{if $list->tl_ico}is-icon{else}no-icon{/if}" href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
 				{if $list->tl_ico}
 				<span class="icon {$list->tl_ico}"></span>
 				{/if}

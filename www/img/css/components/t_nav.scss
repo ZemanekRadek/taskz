@@ -81,10 +81,41 @@
 			background-color: $color-darkside;
 			border: none;
 			color: $color-white-bright;
-			padding: 0;
+			padding: 0 40px 0 25px;
 			width: 88px;
 			overflow: hidden;
-			text-align: center;
+			text-align: left;
+			white-space: nowrap;
+			@include transition(all .35s ease-in-out);
+
+			.short-title {
+				display: inline-block;
+				@include transition(all .35s ease-in-out);
+				display: none;
+			}
+
+			.long-title {
+				overflow: hidden;
+				display: block;
+				color: $color-white-bright;
+				@include transition(all .35s ease-in-out);
+
+				font-family: 'open_sanslight';
+
+				strong {
+					display: inline-block;
+					margin-right: 100px;
+					@include transition(all .35s ease-in-out);
+					font-family: 'opensans_bold';
+				}
+			}
+
+			&:after {
+				position: absolute;
+				top: 50%;
+				margin-top: -2px;
+				right: 10px;
+			}
 		}
 
 		.droopdown-menu {
@@ -95,6 +126,25 @@
 				a {
 					display: block;
 					line-height: 100%;
+				}
+			}
+		}
+	}
+
+	&.nav-open {
+		.dropdown {
+			button.dropdown-toggle {
+				width: 290px;
+				.short-title {
+					display: none;
+				}
+				.long-title {
+
+					strong {
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						margin-right: 5px;
+					}
 				}
 			}
 		}
@@ -241,26 +291,39 @@
 	width: 88px;
 	z-index: 1;
 	background-color: $color-contrast;
+	@include transition(all .35s ease-in-out);
 
 	ul {
 		li {
 			height: 60px;
-			overflow: hidden;
-			text-align: center;
+			text-align: left;
 			float: none;
 
 			a {
 				float: none;
 				display: block;
-				padding: 0px;
+				padding: 0px 20px;
 				line-height: 60px;
 				text-decoration: none !important;
 				color: $color-white-50;
+				overflow: hidden;
+				white-space: nowrap;
+
+				&.no-icon {
+					text-overflow: ellipsis;
+				}
+
+				&.is-icon {
+					.icon {
+						margin-right: 100px;
+					}
+				}
 
 				.icon {
 					font-size: 44px;
 					vertical-align: middle;
 					display: inline-block;
+					@include transition(all .35s ease-in-out);
 				}
 			}
 
@@ -268,6 +331,23 @@
 				background-color: $color-white-bright;
 				a {
 					color: $color-darkside;
+				}
+			}
+		}
+	}
+
+	&.nav-open {
+		width: 290px;
+
+		ul {
+			li {
+				a {
+					text-overflow: ellipsis;
+					white-space: nowrap;
+
+					.icon {
+						margin-right: 5px;
+					}
 				}
 			}
 		}

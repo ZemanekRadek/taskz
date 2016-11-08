@@ -1,1 +1,1 @@
-$(function(){$.nette.init()});
+$(function(){$.nette.init(),$.nette.ext("topnavigation",{click:function(){console.log("click")}})});
