@@ -67,7 +67,7 @@ $color-input-border-default: $color-contrast-25;
 $body-bg: $color-white-bright;
 $backgroundA: $color-contrast-10;
 $backgroundB: $color-white-75; //je puvodne barva rgba(252, 252, 252, 0.75);
-
+$color-white-bright-25: rgba(242, 238, 233, 0.25);
 
 /* SHADOWS ----------------------------------------------------------------- */
 $shadowA: $backgroundA;
@@ -91,6 +91,7 @@ $base-font-weight: 400;
 $heading-font-family:inherit;
 $headings-font-weight: 200 !important;
 $heading-color: inherit;
+
 
 //$font-size-large: ceil(($font-size-base * 1.25)); // ~18px
 //$font-size-small: ceil(($font-size-base * 0.85)); // ~12px

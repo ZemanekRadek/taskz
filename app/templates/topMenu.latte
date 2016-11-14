@@ -16,12 +16,16 @@
 			{/if}
 			</button>
 			<ul class="dropdown-menu" id="dropdownMenu1">
+				<li><a href="{link Project:create}"><span class="icon icon-cog"></span> Project setting</a></li>
+				<li class="line"><hr /></li>
 				{foreach $ProjectFactory->getAll() as $pr}
-				<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}">{$pr->pr_name}</a></li>
+				{breakIf $iterator->counter > 2}
+				<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}">
+					<strong>{\App\Model\Helper::formatProjectName($pr)}</strong>
+					{$pr->pr_name}</a>
+				</li>
 				{/foreach}
-				<li><a href="{link Dashboard:}"><span class="icon-back"></span> Back to Dashboard</a></li>
-				<li class="divider"></li>
-				<li><a href="{link Project:create}"><span class="icon-add_box"></span> New Project</a></li>
+				<li><a href="{link Project:create}">Switch to another project</a></li>
 			</ul>
 		</div>
 	</div>
