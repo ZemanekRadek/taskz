@@ -64,11 +64,12 @@
 		{foreach $TaskListFactory->getAll() as $list}
 		<li{if $TaskList && $list->tl_ID == $TaskList->tl_ID} class="selected"{/if}>
 		<a class="{if $list->tl_ico}is-icon{else}no-icon{/if}" href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
-				{if $list->tl_ico}
-				<span class="icon {$list->tl_ico}"></span>
-				{/if}
-				{$list->tl_name}
-			</a>
+			{if $list->tl_ico}
+			<span class="icon {$list->tl_ico}"></span>
+			{/if}
+			<span class="icon icon-wrench"></span>
+			{$list->tl_name}
+		</a>
 		</li>
 		{/foreach}
 
