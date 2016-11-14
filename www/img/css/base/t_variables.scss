@@ -25,11 +25,14 @@ $color-red-dark: #EC2A2A; //D32F2F;
 $color-orange: #FF5722;
 $color-orange-dark: #E64A19;
 
-$color-yellow-light: #FFD37A;
-$color-yellow: #FFC857;
-$color-yellow-dar: #EAAD30;
+$color-yellow-light: #ffce5d; //FFD37A;
+$color-yellow: #ffc133; //FFC857;
+$color-yellow-dark: #ffb100; //EAAD30;
 
-$color-green: #8BC34A; //9DD86C;
+$color-green-light: #3fbf5b;
+$color-green: #20b240; //8BC34A //9DD86C;
+$color-green-dark: #0a9428;
+
 $color-green-50: rgba($color-green, 0.5);
 
 /* PALETTE - ADDITIONAL COLORS ---------------------------------------------- */
