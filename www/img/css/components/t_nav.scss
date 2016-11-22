@@ -24,8 +24,9 @@
 		transition: 300ms;
 		height: 50px;
 		line-height: 50px;
+		position: relative;
 
-		.icon-cog {
+		.icon-notifications {
 			font-size: 28px;
 			vertical-align: top;
 			color: $color-contrast-20;
@@ -64,6 +65,8 @@
 		transition: 300ms;
 		line-height: 35px;
 		position: relative;
+		border: solid 1px transparent;
+		font-family: 'opensans_semibold';
 
 		.icon {
 			position: absolute;
@@ -72,11 +75,23 @@
 			font-size: 30px;
 			color: $color-contrast-20;
 		}
+
+		&:hover {
+			background-color: $color-white;
+			border: solid 1px $color-contrast-25;
+		}
+
+		&.active {
+			color: $color-white;
+			background-color: $color-blue;
+			box-shadow: inset 0 1px 3px 0 $color-contrast-25;
+			border: solid 1px $color-contrast-25;
+		}
 	}
 
 	/*---- Project dropdown -----------------------------------*/
 	.dropdown {
-
+		height: 50px;
 		button.dropdown-toggle {
 			background-color: $color-darkside;
 			border: none;
@@ -333,6 +348,83 @@
 			}
 		}
 	}
+
+	#btn-myaccount {
+		position: absolute;
+		top: 52px;
+		right: 20px;
+		background-color: $color-white;
+		box-shadow: 0 2px 4px 0 $color-contrast-25;
+		border: solid 1px $color-contrast-25;
+		white-space: nowrap;
+
+		.body {
+			text-align: left;
+
+			strong {
+				font-family: 'opensans_bold';
+				display: block;
+				font-size: 14px;
+				color: $color-contrast;
+				line-height: 120%;
+				padding: 10px 0 0 0;
+			}
+
+			span {
+				display: block;
+				font-size: 12px;
+				color: $color-contrast;
+				line-height: 120%;
+			}
+
+			&:before {
+				color: $color-contrast;
+				content: '\e815';
+				font-family: 'tazkie_final' !important;
+				float: left;
+				font-size: 36px;
+				margin-right: 10px;
+				margin-left: 15px;
+			}
+		}
+
+		.footer {
+			background: $color-contrast-10;
+
+			.btn {
+				border-radius: 4px;
+				background-color: $color-white-75;
+				box-shadow: 0 1px 2px 0 $color-contrast-10;
+				border: solid 1px $color-contrast-25;
+				font-family: 'opensans_regular';
+				font-size: 16px;
+				padding: 0px 10px;
+				line-height: 34px;
+				height: auto;
+				text-transform: none;
+				display: inline-block;
+
+				&:hover {
+					font-family: 'opensans_regular';
+
+				}
+			}
+		}
+
+		&:before {
+			content: '';
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			top: -6px;
+			right: 22px;
+			transform: rotate(45deg);
+			background-color: $color-white;
+			border: solid 1px $color-contrast-25;
+			border-bottom: none;
+			border-right: none;
+		}
+	}
 }
 
 .sidebar {
@@ -343,6 +435,7 @@
 	z-index: 1;
 	background-color: $color-contrast;
 	@include transition(all .35s ease-in-out);
+	box-shadow: none !important;
 
 	ul {
 		li {

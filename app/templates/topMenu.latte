@@ -45,16 +45,26 @@
 		<li><a href="#"><span>Progress</span></a></li>
 	</ul>
 	<ul class="right hide-on-med-and-down">
-		<li><a href="{link Project:}" class="noline"><span class="icon icon-cog"></span></a></li>
+		<li><a href="{link Project:}" class="noline"><span class="icon icon-notifications"></span></a></li>
 		<li>
-			<a href="#" class="noline dropdown-button btn" data-toggle="dropdown" data-activates="dropdown1">
+			<a href="#" class="noline dropdown-button btn" data-toggle="collapse" data-target="#btn-myaccount">
 				{\App\Model\Helper::formatUserName($user->getIdentity())}
-				<span class="icon icon-arrow_drop_down"></span>
+				{* <span class="icon icon-arrow_drop_down"></span> *}
 			</a>
 
-			<ul class="dropdown-content" id="dropdown1">
-				<li><a href="{link Sign:out}" class="noline"><span>Log out</span></a></li>
-			</ul>
+			<div class="collapse" id="btn-myaccount">
+				<div class="clearfix">
+					<div class="body">
+						<strong>{$user->getIdentity()->us_name} {$user->getIdentity()->us_surname}</strong>
+						<span>{$user->getIdentity()->us_email}</span>
+					</div>
+				</div>
+				<div class="footer">
+					<a href="{link Sign:out}" class="btn btn-slave"><span>My Account</span></a>
+					<a href="{link Sign:out}" class="btn btn-slave"><span>Log Out</span></a>
+				</div>
+			</div>
+
 		</li>
 	</ul>
 </nav>
