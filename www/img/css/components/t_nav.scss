@@ -406,7 +406,9 @@
 
 				&:hover {
 					font-family: 'opensans_regular';
-
+					background-color: $color-blue-dark;
+					border: solid 1px $color-contrast-25;
+					color: $color-white;
 				}
 			}
 		}

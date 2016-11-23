@@ -22329,6 +22329,22 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/www\/img\/css\/components\/t_loader.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/css\/components\/t_loader.scss",
+		"outputAbbreviatedPath": "\/www\/img\/css\/css\/t_loader.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
 	"\/www\/img\/css\/components\/t_nav.bak.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -23259,14 +23275,14 @@
 		},
 	"\/www\/img\/js\/global.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/www\/img\/js\/global.js",
 		"outputAbbreviatedPath": "\/www\/img\/js\/min\/global-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
+		"outputStyle": 0,
+		"syntaxCheckerStyle": 0
 		},
 	"\/www\/img\/js\/hammer.min.js": {
 		"fileType": 64,
@@ -23384,6 +23400,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/www\/img\/js\/materialbox.js",
 		"outputAbbreviatedPath": "\/www\/img\/js\/min\/materialbox-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/www\/img\/js\/min\/global-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/js\/min\/global-min.js",
+		"outputAbbreviatedPath": "\/www\/img\/js\/min\/min\/global-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,

@@ -303,6 +303,13 @@ h6 {
 			}
 		}
 	}
+
+	&.btn-slave {
+		&:hover {
+			background-color: $color-blue-dark;
+			border: solid 1px $color-contrast-25;
+		}
+	}
 }
 
 .btn-medium {

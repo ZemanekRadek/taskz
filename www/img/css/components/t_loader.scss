@@ -1,0 +1,119 @@
+@include keyframes(pulseA) {
+	0% {
+		background-color: rgba(84, 193, 104, 0.33);
+	}
+
+	33% {
+		background-color: rgba(84, 193, 104, 0.66);
+	}
+
+	66% {
+		background-color: $color-green;
+	}
+
+	100% {
+		background-color: rgba(84, 193, 104, 0.66);
+	}
+}
+
+@include keyframes(pulseB) {
+	0% {
+		background-color: rgba(84, 193, 104, 0.66);
+	}
+
+	33% {
+		background-color: $color-green;
+	}
+
+	66% {
+		background-color: rgba(84, 193, 104, 0.66);
+	}
+
+	100% {
+		background-color: rgba(84, 193, 104, 0.33);
+	}
+}
+
+@include keyframes(pulseC) {
+	0% {
+		background-color: $color-green;
+	}
+
+	33% {
+		background-color: rgba(84, 193, 104, 0.66);
+
+	}
+
+	66% {
+		background-color: rgba(84, 193, 104, 0.33);
+	}
+
+	100% {
+		background-color: rgba(84, 193, 104, 0.66);
+	}
+
+}
+
+
+
+$page-loader-classname: 'page-loader';
+
+.#{$page-loader-classname} {
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	background-color: $color-white-bright;
+	text-align: center;
+
+	display: flex;
+	align-items: center;
+
+	color: $color-contrast-50;
+	font-size: 33px;
+	font-family: 'opensans_regular';
+	line-height: 150%;
+
+	.icon {
+		color: $color-contrast-25;
+		font-size: 73px;
+		margin: 0 0 20px 0;
+		display: inline-block;
+	}
+
+	&--wrapper {
+		flex: 1;
+	}
+
+	&--animation {
+		&-item {
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			background-color: $color-green;
+			margin: 15px;
+
+			&:nth-child(1) {
+				background-color: rgba(84, 193, 104, 0.33);
+				animation: pulseC 2s infinite;
+			}
+
+			&:nth-child(2) {
+				background-color: rgba(84, 193, 104, 0.66);
+				animation: pulseB 2s infinite;
+			}
+
+			&:nth-child(3) {
+				background-color: $color-green;
+				animation: pulseA 2s infinite;
+			}
+
+
+		}
+	}
+
+
+
+}
