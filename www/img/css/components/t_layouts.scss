@@ -10,9 +10,10 @@
 	}
 
 	.lt-task-detail-window {
-		display: none;
+		// display: none;
 		transition: 300ms;
 	}
+
 
 }
 
@@ -27,24 +28,28 @@ body.is-navigation {
 
 body.task-detail-window-open {
 
+	.topmenu {
+		padding-right: 320px;
+	}
+
 	.lt-task-detail-window {
 		display: block;
-		position: relative;
 		text-align: left;
 		flex: 1 100%;
 		height: 100%;
 		min-width: 320px;
-		z-index: 1;
+		z-index: 2;
 
-		.lt-detail {
-			right: 0px;
-			top: 0px;
-			min-width: 320px;
+		.lt-task-detail-quick {
 			position: fixed;
+			top: 0px;
+			right: 0px;
+			min-width: 320px;
 			background-color: $backgroundB;
 			box-shadow: -1px 0 4px 2px $shadowA;
 			border: solid 1px $borderA;
 			height: 100%;
+			z-index: 3;
 		}
 	}
 

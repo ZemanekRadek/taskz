@@ -1,5 +1,6 @@
 {if $Task}
-<div class="lt-detail">
+
+<div class="lt-task-detail-quick">
 	<div class="lt-task-detail">
 		<div class="lt-task-detail-header">
 			<a n:href="resolve $Task->ID"><span class="icon-check"></span></a>{$Task->name}
@@ -21,19 +22,91 @@
 		</div>
 	</div>
 </div>
+
+<div class="modal fade modal-task-detail" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+			</div>
+			<div class="modal-body">
+
+				<div class="lt-detail">
+					<div class="lt-task-detail">
+						<div class="lt-task-detail-header">
+							<a n:href="resolve $Task->ID"><span class="icon-check"></span></a>{$Task->name}
+						</div>
+						<div class="lt-task-detail-content">
+						</div>
+						<div class="lt-task-detail-footer">
+
+							<div class="line"></div>
+
+							<a class="toRemove" n:href="remove $Task->ID"><span class="icon-delete"></span></a>
+
+							<span class="toClose"><span class="icon-close"></span></span>
+							<span class="toQuick"><span class="icon-enlarge"></span></span>
+
+
+							<div class="created">Created {$Task->created|date:'j. n. Y'}</div>
+
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
 <script type="text/javascript">
 (function() {
 	$('body').addClass('task-detail-window-open');
 
-	var $elm = $('.lt-task-detail');
+	var $elm      = $('.lt-task-detail');
+	var $elmQuick = $('.lt-task-detail-quick .lt-task-detail');
+	var $elmModal = $('.modal .lt-task-detail');
 
-	$elm.find('.toClose').click(function(E) {
-		E.stopPropagation();
-		E.preventDefault();
+	$elm
+		.find('.toClose')
+			.click(function(E) {
+				E.stopPropagation();
+				E.preventDefault();
 
-		$('body').removeClass('task-detail-window-open');
-		$('.task-item').removeClass('open');
-	});
+				$('body').removeClass('task-detail-window-open');
+				$('.task-item').removeClass('open');
+				$elmQuick.hide();
+			});
+
+	$elm
+		.find('.toQuick')
+			.click(function(E) {
+				E.stopPropagation();
+				E.preventDefault();
+
+				$('body').addClass('task-detail-window-open');
+
+				$('.modal-task-detail').modal('hide');
+				$elmQuick.show();
+			});
+
+	$elmQuick
+		.find('.toDetail')
+			.click(function(E) {
+				E.stopPropagation();
+				E.preventDefault();
+
+				$('.modal-task-detail').modal({
+					show: true
+				})
+				.on('hide.bs.modal', function (e) {
+					$('.task-item').removeClass('open');
+				});
+				$elmQuick.hide();
+				$('body').removeClass('task-detail-window-open');
+			});
+
+	$elmQuick.show();
 
 	$('.task-item').removeClass('open');
 	$('.task-item[data-task-id={$Task->ID}]').addClass('open');
