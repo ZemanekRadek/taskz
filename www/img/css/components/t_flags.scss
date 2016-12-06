@@ -1,0 +1,26 @@
+.flags {
+	.flag {
+		display: inline-block;
+
+		background-color: $color-contrast-25;
+		color: $color-white;
+		line-height: 100%;
+		padding: 5px 10px;
+		margin: 0 2px;
+		font-size: 0.9rem;
+
+		&.flag-icon-inbox {
+			background-color: $color-blue-dark;
+		}
+
+		&.flag-icon-assignment_late,
+		&.flag-icon-urgent {
+			background-color: $color-red-light;
+		}
+
+		&.flag-icon-assignment_turned_in,
+		&.flag-icon-finished {
+			background-color: $color-green;
+		}
+	}
+}

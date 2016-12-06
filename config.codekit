@@ -38,6 +38,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/app\/filters\/Flag.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/app\/filters\/Flag.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/app\/model\/Authenticator.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -22258,6 +22267,22 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/www\/img\/css\/components\/buttons\/scss\/partials\/_options.scss",
 		"outputAbbreviatedPath": "\/www\/img\/css\/components\/buttons\/scss\/css\/_options.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/www\/img\/css\/components\/t_flags.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/www\/img\/css\/components\/t_flags.scss",
+		"outputAbbreviatedPath": "\/www\/img\/css\/css\/t_flags.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,

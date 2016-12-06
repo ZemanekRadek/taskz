@@ -24,7 +24,7 @@ class Task extends Nette\Object  {
 	/** @var \Nette\Datbase\ActiveRow */
 	private $model;
 
-	private $table = "tasks";
+	private $table     = "tasks";
 
 	private $tableUser = "tasks_user";
 
@@ -97,6 +97,11 @@ class Task extends Nette\Object  {
 				));
 			}
 		}
+	}
+
+	public function getTaskLists() {
+		return $this->model->related('tasks_list_task');
+		// return $this->lists;
 	}
 
 	public function isFinished() {

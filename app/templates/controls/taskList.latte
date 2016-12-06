@@ -31,6 +31,7 @@
 				<a n:href="task! $item->ID" class="ajax task-item" data-task-id="{$item->ID}">
 
 					<span>{$item->name}</span>
+					{$item|flags}
 						{*href="{plink Task:detail id=>$item->ID,projectID=>$Project->pr_ID,projectName=>$Project->pr_name,listID=>$List ? $List->tl_ID : null,listName=>$List ? $List->tl_name : null}"*}
 				</a>
 			</div>

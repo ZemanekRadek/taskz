@@ -56,8 +56,14 @@ services:
 	- App\Model\Project
 	- App\Model\ProjectFactory
 
+	- App\Model\Filters\Flag
+
 	translator_nette_storage:
 		class: Nette\Caching\Storages\FileStorage(%appDir%/locale) ## Texts will be saved in %appDir%/Texts as file named by ISO 639-1
 		autowired: false
 
 	translator_simple_nette_storage: l10nNetteTranslator\Storage\SimpleNetteStorage(@translator_nette_storage)
+
+	nette.latteFactory:
+		setup:
+			- addFilter(flags, @App\Model\Filters\Flag)
