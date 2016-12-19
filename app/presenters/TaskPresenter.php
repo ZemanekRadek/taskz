@@ -18,6 +18,9 @@ class TaskPresenter extends BasePresenter {
 	/** @var \App\Model\TaskList */
 	public $TaskList;
 
+	/** @var \App\Model\TaskFactory */
+	public $TaskFactory;
+
 	public $DB;
 
 	public $User;
@@ -29,6 +32,7 @@ class TaskPresenter extends BasePresenter {
 	public function __construct(
 		\App\Model\ProjectFactory $ProjectFactory,
 		\App\Model\TaskListFactory $TaskListFactory,
+		\App\Model\TaskFactory $TaskFactory,
 		\App\Model\Language $lang,
 		\App\Model\User $User,
 		\App\Model\TaskList $TaskList,
@@ -41,6 +45,7 @@ class TaskPresenter extends BasePresenter {
 
 		$this->TaskListFactory = $TaskListFactory;
 		$this->ProjectFactory  = $ProjectFactory;
+		$this->TaskFactory     = $TaskFactory;
 		$this->DB              = $DB;
 		$this->User            = $User;
 	}
@@ -84,7 +89,8 @@ class TaskPresenter extends BasePresenter {
 		// $this->Task = new \App\Model\Task($this->DB, $this->User, $this->Project, $this->TaskList, null);
 		$Task      = $this->Task;
 		$Presenter = $this;
-		$Form      = $this->Task->getForm();
+		$Form      = $this->TaskFactory->getForm();
+		/*
 		$Form->onSuccess[] = function($Form) use ($Task, $Presenter) {
 			if (!$Task->save()) {
 				return;
@@ -93,6 +99,7 @@ class TaskPresenter extends BasePresenter {
 			$Project = new \App\Model\Project($this->DB, $this->User, $Form['ta_projectID']->getValue());
 			$Presenter->redirect('List:default', array('projectID' => $Project->pr_ID, 'projectName' => $Project->pr_name));
 		};
+		*/
 		return $Form;
 	}
 

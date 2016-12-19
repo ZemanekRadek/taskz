@@ -1,8 +1,12 @@
 <?php
 
-
 namespace App\Model\Filters;
 
+/**
+* Flag filter
+*
+* @author zemanek.radek@gmail.com
+*/
 class Flag extends \Nette\Object {
 
 	public function __invoke(\App\Model\Task $Task) {

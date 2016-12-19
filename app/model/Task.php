@@ -79,6 +79,10 @@ class Task extends Nette\Object  {
 		return parent::__get($name);
 	}
 
+	public function set($name, $value) {
+		$this->data[$name] = $value;
+	}
+
 	private function load($ID) {
 		if (!$this->model) {
 			$this->model = $this->DB->table($this->table)->get($ID);
@@ -106,75 +110,6 @@ class Task extends Nette\Object  {
 
 	public function isFinished() {
 		return $this->model->related('tasks_list_task')->where('tasks_list.tl_systemIdentifier = ? ', \App\Model\Helper::LIST_FINISHED)->count() > 0;
-	}
-
-	public function getForm($actionURL = '') {
-
-		$form   = new UI\Form;
-
-		// $states = new StateList($this->DB);
-		$users  = new UserList($this->DB);
-		$lists  = new TaskListFactory($this->DB, $this->User, $this->Project, new \App\Model\ProjectFactory($this->DB, $this->User));
-		// $tags   = new TagList($this->DB);
-
-		\Tracy\Debugger::barDump($this->TaskList, 'tasklist!');
-
-		$form->addText('ta_name', 'Název úkolu', 128)
-			->addRule(UI\Form::FILLED, 'Vyplňte název úkolu')
-			->addCondition(UI\Form::FILLED);
-
-		$form->addTextArea('ta_description', 'Popis úkolu');
-
-		$form->addText('ta_timeTo', 'Splnit do')
-			->addRule(UI\Form::PATTERN, 'Špatný formát datumu', '[0-9]{2}\. [0-9]{2}\. [0-9]{4}');
-
-		$form->addCheckboxList('ta_users', 'Uživatelé', $users->getAll());
-
-		$form->addCheckboxList('ta_taskLists', 'Seznamy', $l = $lists->getAllAsPairs($this->TaskList->tl_ID ?  false : true))
-		 	->setRequired();
-
-
-		$form->addCheckboxList('ta_tags', 'Tagy', array());
-
-		$form->addHidden('ta_ID');
-		$form->addHidden('ta_created');
-		$form->addHidden('ta_taskListID', $this->TaskList->tl_ID);
-		$form->addHidden('ta_projectID', $this->Project->pr_ID);
-		$form->addSubmit('ta_send', 'Uložit');
-
-		$form->onSuccess[] = function() use ($form) {
-
-			$values = $form->getValues();
-
-			foreach($values as $k => $v) {
-				if (!in_array($k, array_keys($this->data))) {
-					if ($k == 'ta_users') {
-						foreach($v as $user) {
-							$this->addUser($user);
-						}
-					}
-
-					if ($k == 'ta_taskLists') {
-						foreach($v as $list) {
-							$this->addList($list);
-						}
-					}
-
-					continue;
-				}
-
-				$this->data[$k] = $v;
-			}
-
-
-
-
-			$this->data['ta_author'] = $this->User->getIdentity()->getId();
-
-			$this->addUser($this->data['ta_author']);
-		};
-
-		return $form;
 	}
 
 	public function addUser($ID) {

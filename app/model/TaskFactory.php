@@ -80,4 +80,10 @@ class TaskFactory extends Nette\Object  {
 			\Tracy\Debugger::barDump($task);
 			return $task;
 		}
+
+		public function getForm() {
+			$form = new \App\Component\TaskForm($this->DB, $this->User, $this->Project, $this->List);
+			return $form;
+		}
+
 }

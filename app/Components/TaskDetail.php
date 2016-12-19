@@ -12,12 +12,15 @@ class TaskDetail extends \Nette\Application\UI\Control {
 	/** @var \App\Model\Project **/
 	public $Project;
 
+	/** @var \App\Model\TaskFormFactory **/
+	public $TaskFormFactory;
+
 	public function handleresolve($ID) {
 
 	}
 
 	public function handleremove($ID) {
-		
+
 	}
 
 	/*****************************/
@@ -34,6 +37,10 @@ class TaskDetail extends \Nette\Application\UI\Control {
 		$this->Task = $Task;
 	}
 
+	public function setTaskFactory(\App\Model\TaskFactory $TaskFactory) {
+		$this->TaskFactory = $TaskFactory;
+	}
+
 	public function render() {
 		\Tracy\Debugger::barDump('reder detail task');
 		$template = $this->template;
@@ -42,5 +49,9 @@ class TaskDetail extends \Nette\Application\UI\Control {
 		$template->Task    = $this->Task;
 		$template->Project = $this->Project;
 		$template->render();
+	}
+
+	public function createComponentTaskForm() {
+		return $this->TaskFactory->getForm();
 	}
 }

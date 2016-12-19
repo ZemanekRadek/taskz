@@ -14,10 +14,6 @@ class TaskList extends \Nette\Application\UI\Control {
 
 	public function handleTask($id) {
 		if ($this->presenter->isAjax()) {
-
-
-
-
 			$this->redrawControl('task');
 		 	\Tracy\Debugger::barDump('is ajax task in list');
 		}
@@ -78,6 +74,9 @@ class TaskList extends \Nette\Application\UI\Control {
 		\Tracy\Debugger::barDump($this->getParameters(), 'create component');
 		\Tracy\Debugger::barDump($this->List, 'create component');
 		$Component = new TaskDetail();
+
+		$Component->setTaskFactory($this->presenter->TaskFactory);
+
 		if ($this->Project) {
 			$Component->setProject($this->Project);
 		}
