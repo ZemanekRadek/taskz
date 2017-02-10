@@ -1,1 +1,82 @@
-taskform
+{form form}
+<ul class="errors" n:if="$form->hasErrors()">
+	<li n:foreach="$form->errors as $error">{$error}</li>
+</ul>
+
+<div>
+	{label $form['ta_name']}{/label}
+	{input $form['ta_name']}
+</div>
+
+<div class="labels">
+	{label $form['ta_taskLists']}{/label}
+	{input $form['ta_taskLists']}
+</div>
+
+<div>
+	{label $form['ta_timeTo']}{/label}
+	{input $form['ta_timeTo']}
+</div>
+
+<div>
+	{label $form['ta_description']}{/label}
+	{input $form['ta_description']}
+</div>
+
+
+<div>
+	{label $form['ta_users']}{/label}
+	{input $form['ta_users']}
+</div>
+
+
+<div>
+	{input $form['ta_send']}
+</div>
+<script type="text/javascript">
+(function() {
+var $elm = $('#' + {$form['ta_taskLists']->getHtmlId()});
+var ids = $elm.val().split(',');
+	$elm.val('');
+	$elm.tokenfield('destroy');
+
+$elm.tokenfield({
+	autocomplete: {
+		source: $.parseJSON($elm.attr('data-source')),
+		delay: 0
+	},
+	showAutocompleteOnFocus: true
+});
+
+{if $form['ta_taskLists']->getValue()}
+var sourceData = $.parseJSON($('#' + {$form['ta_taskLists']->getHtmlId()}).attr('data-source'));
+var data = [];
+for(var i in ids) {
+	for(var j in sourceData) {
+		if (ids[i] == sourceData[j].value) {
+			// $elm.tokenfield('createToken', sourceData[j]);
+			data.push(sourceData[j]);
+		}
+	}
+}
+
+$elm.tokenfield('setTokens', data);
+
+{/if}
+
+$elm.on('tokenfield:createdtoken', function (e) {
+	var data = e.attrs;
+
+	if (e.attrs.color) {
+		$(e.relatedTarget).css({
+			'background-color': '#' + e.attrs.color
+		});
+	}
+})
+.on('tokenfield:edittoken', function (e) {
+	return false;
+});
+
+})(jQuery);
+</script>
+{/form}

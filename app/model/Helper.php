@@ -51,13 +51,15 @@ class Helper {
 		$avarage = array();
 		$total   = array();
 		$current = array();
+
 		foreach($list as $item) {
 			$index = $item->timeTo ? (string) $item->timeTo : 0;
 
 			if (!isset($return[$index])) {
 				$return[$index] = array(
-					'day'   => self::translateDate( (string) $item->timeTo),
-					'items' => array()
+					'timestamp' => $item->timeTo->getTimestamp(),
+					'day'       => self::translateDate((string) $item->timeTo),
+					'items'     => array()
 				);
 
 				$total[$index]   = 0;
@@ -81,11 +83,20 @@ class Helper {
 			);
 		}
 
+		usort($return, function($a, $b) {
+			if ($a['timestamp'] == $b['timestamp']) {
+				return 0;
+			}
+			return $a['timestamp'] < $b['timestamp'] ? -1 : 1;
+		});
+
 		return $return;
 	}
 
 	public static function translateDate($date) {
 		$time = \Nette\Utils\DateTime::from($date);
+
+
 
 		$interval = $time->diff(self::$now);
 
@@ -93,7 +104,8 @@ class Helper {
 		$d = $interval->format('%R%a');
 		$n = self::$days[$time->format('N')] . ' ';
 
-		if ($d > 2) {
+
+		if ($d > 2 || $d < 0) {
 			return $n . $time->format('d. m.') . $y;
 		}
 

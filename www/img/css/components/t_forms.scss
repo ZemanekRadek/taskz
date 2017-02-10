@@ -67,10 +67,12 @@
 	text-align: center;
 }
 
-.radio input[type="radio"],
-.radio-inline input[type="radio"],
-.checkbox input[type="checkbox"],
-.checkbox-inline input[type="checkbox"] {
+input[type="radio"]:not(:checked),
+input[type="radio"]:checked,
+input[type="radio"],
+input[type="checkbox"],
+input[type="checkbox"]:not(:checked),
+input[type="checkbox"]:checked {
 	text-indent: 0px;
 	visibility: visible;
 	position: relative;

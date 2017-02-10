@@ -8,6 +8,7 @@
 @import '../../../vendor/normalize-reset/flavored-reset-and-normalize.scss';
 @import '../../../vendor/saffron/saffron.scss';
 
+
 /* --- BREAKPOINTS DETECTORS --- */
 @import '../../../vendor/include-media/_include-media.scss';
 @import '../../../vendor/include-media/include-media-export.scss';
@@ -62,3 +63,5 @@
 	 @import 'components/t_tasks.scss';
 
 	 @import 'components/t_layouts.scss';
+
+	 @import 'components/t_tokenfield.scss';

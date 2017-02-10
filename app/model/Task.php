@@ -30,7 +30,7 @@ class Task extends Nette\Object  {
 
 	private $tableList = "tasks_list_task";
 
-	private $data  = array(
+	public $data  = array(
 		'ta_ID'          => null,
 		'ta_description' => null,
 		'ta_author'      => null,
@@ -44,6 +44,8 @@ class Task extends Nette\Object  {
 	private $users = array();
 
 	private $lists = array();
+
+	public $onSuccess = array();
 
 	/**
 	 * @param Nette\Database\Connection $db
@@ -104,7 +106,7 @@ class Task extends Nette\Object  {
 	}
 
 	public function getTaskLists() {
-		return $this->model->related('tasks_list_task');
+		return $this->model ? $this->model->related('tasks_list_task') : array();
 		// return $this->lists;
 	}
 
@@ -115,6 +117,24 @@ class Task extends Nette\Object  {
 	public function addUser($ID) {
 		$this->users[$ID] = array('us_ID' => $ID);
 		return $this;
+	}
+
+	public function getUsers() {
+		if (!$this->users && $this->data['ta_ID']) {
+			$data = $this->DB->table($this->tableUser)->where('tasks_ta_ID', $this->data['ta_ID']);
+
+			foreach($data as $user) {
+				\Tracy\Debugger::barDump($user);
+				$this->users[$user->users_us_ID] = array(
+					'us_ID'    => $user->users_us_ID,
+					'us_email' => $user->users->us_email,
+					'us_login'
+				);
+			}
+
+		}
+
+		return $this->users;
 	}
 
 	public function addList($ID) {
@@ -175,6 +195,8 @@ class Task extends Nette\Object  {
 		}
 
 		$this->data = $values;
+
+		$this->onSuccess();
 
 		return true;
 	}

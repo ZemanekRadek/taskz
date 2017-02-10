@@ -55,6 +55,7 @@ class TaskPresenter extends BasePresenter {
 
 		$this->Project = new \App\Model\Project($this->DB, $this->User, $this->getParameter('projectID'));
 		$this->TaskListFactory->setProject($this->Project);
+		$this->TaskFactory->setProject($this->Project);
 
 		$this->TaskList = new \App\Model\TaskList($this->DB, $this->User, $this->Project, $this->getParameter('taskListID'));
 
@@ -63,7 +64,7 @@ class TaskPresenter extends BasePresenter {
 		$this->template->Project         = $this->Project;
 		$this->template->TaskList        = $this->TaskList;
 
-		Debugger::barDump($this->TaskList);
+		// Debugger::barDump($this->TaskList);
 	}
 
 	public function actionNew(){
@@ -90,16 +91,19 @@ class TaskPresenter extends BasePresenter {
 		$Task      = $this->Task;
 		$Presenter = $this;
 		$Form      = $this->TaskFactory->getForm();
-		/*
-		$Form->onSuccess[] = function($Form) use ($Task, $Presenter) {
-			if (!$Task->save()) {
-				return;
-			}
 
-			$Project = new \App\Model\Project($this->DB, $this->User, $Form['ta_projectID']->getValue());
+		if ($this->getParameter('id')) {
+			$Form->setTaskDetail(
+				$this->TaskFactory->getById($this->getParameter('id'))
+			);
+		}
+
+		$Form->onSave[] = function($Task, $values) use ($Presenter) {
+			$Project = new \App\Model\Project($Presenter->DB, $Presenter->User, $values['ta_projectID']);
+
 			$Presenter->redirect('List:default', array('projectID' => $Project->pr_ID, 'projectName' => $Project->pr_name));
 		};
-		*/
+
 		return $Form;
 	}
 

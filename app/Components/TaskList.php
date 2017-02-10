@@ -9,10 +9,19 @@ class TaskList extends \Nette\Application\UI\Control {
 	/** @var \App\Model\Project **/
 	public $Project;
 
+	/** @var \Nette\Database\Context **/
+	public $DB;
+
+	/** @var \App\Model\User **/
+	public $User;
+
 	/** @var array */
 	protected $tasks;
 
-	public function handleTask($id) {
+	public function handleTask($id, $projectId = null) {
+		if ($projectId) {
+			$this->Project->loadFromId($projectId);
+		}
 		if ($this->presenter->isAjax()) {
 			$this->redrawControl('task');
 		 	\Tracy\Debugger::barDump('is ajax task in list');

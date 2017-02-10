@@ -40,11 +40,12 @@ class Project extends Nette\Object  {
 		$this->DB   = $db;
 		$this->User = $User;
 
-		if ($ID) {
-			$this->init($this->DB->table($this->table)->where('pr_ID', $ID)->fetch());
-		}
-		else if (self::$actualProject) {
-			$this->init($this->DB->table($this->table)->where('pr_ID', self::$actualProject)->fetch());
+		$this->loadFromId($ID ? $ID : self::$actualProject);
+	}
+
+	public function loadFromId($id) {
+		if ($id) {
+			$this->init($this->DB->table($this->table)->where('pr_ID', $id)->fetch());
 		}
 	}
 

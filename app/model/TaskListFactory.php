@@ -84,6 +84,10 @@ class TaskListFactory extends Nette\Object  {
 				}
 			}
 
+			if (!isset($projects[$list->tasks_list_tl_ID])) {
+				continue;
+			}
+			
 			$data[] = new \App\Model\TaskList($this->DB, $this->User, $projects[$list->tasks_list_tl_ID], $list->tasks_list_tl_ID);
 		}
 

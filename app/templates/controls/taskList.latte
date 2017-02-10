@@ -28,7 +28,7 @@
 				{if !$item->isFinished()}
 				<a n:href="taskDone! $item->ID,$id,$Project->pr_ID, $List?$List->tl_ID:null" class="ajax task-finish"><span class="icon icon-checkmark"></span></a>
 				{/if}
-				<a n:href="task! $item->ID" class="ajax task-item" data-task-id="{$item->ID}">
+				<a n:href="task! $item->ID,$Project->pr_ID" class="ajax task-item" data-task-id="{$item->ID}">
 
 					<span>{$item->name}</span>
 					{$item|flags}

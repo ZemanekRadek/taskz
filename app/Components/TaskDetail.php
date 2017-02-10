@@ -42,7 +42,6 @@ class TaskDetail extends \Nette\Application\UI\Control {
 	}
 
 	public function render() {
-		\Tracy\Debugger::barDump('reder detail task');
 		$template = $this->template;
 		$template->setFile(__DIR__ . '/../templates/controls/taskDetail.latte');
 		$template->List    = $this->List;
@@ -52,6 +51,10 @@ class TaskDetail extends \Nette\Application\UI\Control {
 	}
 
 	public function createComponentTaskForm() {
-		return $this->TaskFactory->getForm();
+		$form = $this->TaskFactory->getForm();
+		if ($this->Task) {
+			$form->setTask($this->Task);
+		}
+		return $form;
 	}
 }

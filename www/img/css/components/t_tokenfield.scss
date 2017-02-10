@@ -1,0 +1,32 @@
+.tokenfield {
+	position: relative;
+	text-align: left;
+
+	.token-input {
+		width: auto;
+	}
+
+	.token {
+		display: inline-block;
+		white-space: nowrap;
+		background: rgba(0,0,0,0.3);
+		margin: 0 5px;
+		vertical-align: middle;
+
+		.token-label {
+			display: inline-block;
+			margin: 0px;
+			padding: 0px 5px;
+			color: white;
+		}
+
+		a {
+			display: inline-block;
+			text-decoration: none !important;
+			margin: 0px;
+			padding: 0px 5px;
+			vertical-align: middle;
+		}
+
+	}
+}

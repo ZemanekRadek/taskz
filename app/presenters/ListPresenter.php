@@ -10,7 +10,7 @@ class ListPresenter extends BasePresenter {
 
 
 	/** @var \App\Model\Project @inject */
-	private $Project;
+	public $Project;
 
 	/** @var \App\Model\Task @inject */
 	private $Task;
