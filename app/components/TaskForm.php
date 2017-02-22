@@ -91,7 +91,7 @@ class TaskForm extends \Nette\Application\UI\Control {
 		$form->addHidden('ta_ID');
 		$form->addHidden('ta_created');
 		$form->addHidden('ta_taskListID', $this->TaskList->tl_ID);
-		$form->addHidden('ta_projectID', $this->Project->pr_ID);
+		$form->addHidden('ta_projectID',  $this->Project->pr_ID);
 		$form->addSubmit('ta_send', 'Uložit');
 
 		$User       = $this->User;
@@ -151,7 +151,17 @@ class TaskForm extends \Nette\Application\UI\Control {
 			$Task->addUser($User->getIdentity()->getId());
 
 			if ($Task->save()) {
-				$self->onSave($Task, $values);
+
+				$taskList = null;
+				if ($values['ta_projectID']) {
+					$Project = new \App\Model\Project($DB, $User, $values['ta_projectID']);
+				}
+
+				if ($values['ta_taskListID']) {
+					$taskList = new \App\Model\TaskList($DB, $User, $Project, $values['ta_taskListID']);
+				}
+
+				$self->onSave($Task, $values, $Project, $taskList);
 			}
 		};
 

@@ -31,10 +31,18 @@
 
 
 <div>
+	{input $form['ta_projectID']}
+	{input $form['ta_taskListID']}
 	{input $form['ta_send']}
 </div>
 <script type="text/javascript">
 (function() {
+
+$('#' + {$form['ta_timeTo']->getHtmlId()}).datepicker({
+	format: 'dd.mm.YYYY'
+});
+
+
 var $elm = $('#' + {$form['ta_taskLists']->getHtmlId()});
 var ids = $elm.val().split(',');
 	$elm.val('');

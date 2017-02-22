@@ -57,8 +57,8 @@ class TaskList extends Nette\Object  {
 	 */
 	public function __construct(
 		\Nette\Database\Context $DB,
-		\App\Model\User $User,
-		\App\Model\Project $Project = null,
+		\App\Model\User         $User,
+		\App\Model\Project      $Project = null,
 		$ID = null
 	) {
 		$this->DB      = $DB;
