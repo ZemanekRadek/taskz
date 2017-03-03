@@ -1,0 +1,13 @@
+database:
+	default:
+		dsn:          "mysql:host=localhost;dbname=betatazkie"
+		user:         "betatazkie"
+		password:     "dtorVTU6"
+		options:      [PDO::MYSQL_ATTR_COMPRESS = true]
+		debugger:     true        # panel v debugger baru
+		explain:      true        # explain dotazů v debugger bar
+		autowired:    true
+
+nette:
+	application:
+		catchExceptions: true

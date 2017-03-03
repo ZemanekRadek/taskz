@@ -1,0 +1,9 @@
+database:
+	default:
+		dsn:          "mysql:host=217.31.57.185;dbname=corben_2"
+		user:         "corben"
+		password:     "NPVVKcNPJFVnqb"
+		options:      [PDO::MYSQL_ATTR_COMPRESS = true]
+		debugger:     true        # panel v debugger baru
+		explain:      true        # explain dotazů v debugger bar
+		autowired:    true

@@ -1,0 +1,87 @@
+Started at [2017/02/28 21:48]
+Config file is /Users/radekzemanek/Documents/www/localhost/taskz/beta.ini
+
+Deploying beta
+Live mode
+Deleting disabled
+Connecting to server
+Loaded remote .deployment file
+Scanning files in /Users/radekzemanek/Documents/www/localhost/taskz
+Ignoring ./.DS_Store                    
+Ignoring ./.git                         
+Ignoring ./.gitignore                   
+Ignoring ./bower_components             
+Ignoring ./composer.json                
+Ignoring ./composer.lock                
+Ignoring ./composer.phar                
+Ignoring ./deploy.php                   
+Ignoring ./ftp-deployment/.github       
+Ignoring ./ftp-deployment/.gitignore    
+Ignoring ./ftp-deployment/composer.json 
+Ignoring ./ftp-deployment/composer.lock 
+Ignoring ./ftp-deployment/vendor/composer
+Ignoring ./ftp-deployment/vendor/nette/tester/composer.json
+Ignoring ./hosts                        
+Ignoring ./log                          
+Ignoring ./node_modules                 
+Ignoring ./sass                         
+Ignoring ./temp/cache                   
+Ignoring ./vendor/.DS_Store             
+Ignoring ./vendor/Buttons-master/showcase/js/zeroclipboard/.gitignore
+Ignoring ./vendor/Buttons-master/showcase/js/zeroclipboard/composer.json
+Ignoring ./vendor/Buttons-master/showcase/js/zeroclipboard/src/meta/composer.json.tmpl
+Ignoring ./vendor/composer              
+Ignoring ./vendor/nette/application/composer.json
+Ignoring ./vendor/nette/caching/composer.json
+Ignoring ./vendor/nette/component-model/composer.json
+Ignoring ./vendor/nette/di/composer.json
+Ignoring ./vendor/nette/finder/composer.json
+Ignoring ./vendor/nette/http/composer.json
+Ignoring ./vendor/nette/neon/composer.json
+Ignoring ./vendor/nette/php-generator/composer.json
+Ignoring ./vendor/nette/reflection/composer.json
+Ignoring ./vendor/nette/security/composer.json
+Ignoring ./vendor/nette/utils/composer.json
+Ignoring ./vendor/sliptree-bootstrap-tokenfield/.DS_Store
+Ignoring ./vendor/sliptree-bootstrap-tokenfield/.gitignore
+Ignoring ./vendor/tracy/tracy/composer.json
+Ignoring ./vendor/twbs/.DS_Store        
+Ignoring ./vendor/twbs/bootstrap/.DS_Store
+Ignoring ./vendor/twbs/bootstrap/.gitignore
+Ignoring ./vendor/twbs/bootstrap/assets/.DS_Store
+Ignoring ./vendor/twbs/bootstrap/assets/stylesheets/.DS_Store
+Ignoring ./vendor/twbs/bootstrap/composer.json
+Ignoring ./vendor/zemistr/l10n/.gitignore
+Ignoring ./vendor/zemistr/l10n/composer.json
+Ignoring ./vendor/zemistr/l10n-nette-translator/.gitignore
+Ignoring ./vendor/zemistr/l10n-nette-translator/composer.json
+Ignoring ./www/.DS_Store                
+Ignoring ./www/.htaccess                
+Ignoring ./www/img/.DS_Store            
+Ignoring ./www/img/css/.DS_Store        
+Ignoring ./www/img/css/.sass-cache      
+Ignoring ./www/img/fonts/.DS_Store      
+Ignoring ./www/img/fonts/set/.DS_Store  
+Creating remote file .deployment.running
+
+Uploading:
+(1 of 6) /.htaccess
+(2 of 6) /app/bootstrap.php
+(3 of 6) /beta.ini
+(4 of 6) /beta.log
+(5 of 6) /www/index.php
+(6 of 6) /.deployment
+
+Renaming:
+(1 of 6) Renaming /.htaccess
+(2 of 6) Renaming /app/bootstrap.php
+(3 of 6) Renaming /beta.ini
+(4 of 6) Renaming /beta.log
+(5 of 6) Renaming /www/index.php
+(6 of 6) Renaming /.deployment
+
+Cleaning temp/cache
+
+Deleting remote file .deployment.running
+
+Finished at [2017/02/28 21:48] (in 5 seconds)

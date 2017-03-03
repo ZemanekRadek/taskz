@@ -103,6 +103,8 @@ class Task extends Nette\Object  {
 				));
 			}
 		}
+
+		// todo: odstranit inbox stitek
 	}
 
 	public function getTaskLists() {
