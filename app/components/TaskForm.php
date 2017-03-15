@@ -54,8 +54,9 @@ class TaskForm extends \Nette\Application\UI\Control {
 		$form   = new \Nette\Application\UI\Form;
 
 		// $states = new StateList($this->DB);
-		$users  = new \App\Model\UserList($this->DB);
-		$lists  = new \App\Model\TaskListFactory($this->DB, $this->User, $this->Project, new \App\Model\ProjectFactory($this->DB, $this->User));
+		$users      = new \App\Model\UserList($this->DB);
+		$lists      = new \App\Model\TaskListFactory($this->DB, $this->User, $this->Project, new \App\Model\ProjectFactory($this->DB, $this->User));
+		$TagFactory = new \App\Model\TagFactory($this->DB);
 		// $tags   = new TagList($this->DB);
 		$listsArray = array();
 
@@ -64,6 +65,15 @@ class TaskForm extends \Nette\Application\UI\Control {
 				'value'  => $item->tl_ID,
 				'label'  => $item->tl_name,
 				'color'  => $item->tl_color
+			);
+		}
+
+		$tagsArray = array();
+		foreach($TagFactory->getAll() as $item) {
+			$tagsArray[] = array(
+				'value' => $item->tg_ID,
+				'label' => $item->tg_name,
+				'color' => $item->tg_color
 			);
 		}
 
@@ -85,8 +95,10 @@ class TaskForm extends \Nette\Application\UI\Control {
 		// $l = $lists->getAllAsPairs(false))
 		//	->setRequired();
 
+		$form->addText('ta_tags', 'Tagy')
+			->setAttribute('data-source', json_encode($tagsArray));
 
-		$form->addCheckboxList('ta_tags', 'Tagy', array());
+		// $form->addCheckboxList('ta_tags', 'Tagy', array());
 
 		$form->addHidden('ta_ID');
 		$form->addHidden('ta_created');
@@ -99,7 +111,7 @@ class TaskForm extends \Nette\Application\UI\Control {
 		$Project    = $this->Project;
 		$self       = $this;
 
-		$form->onSuccess[] = function() use ($form, $User, $DB, $Project, $self) {
+		$form->onSuccess[] = function() use ($form, $User, $DB, $Project, $TagFactory, $self) {
 
 			$values = $form->getValues();
 			$Task     = new \App\Model\Task($DB, $User, $Project, null, $values['ta_ID']);
@@ -110,6 +122,35 @@ class TaskForm extends \Nette\Application\UI\Control {
 					if ($k == 'ta_users') {
 						foreach($v as $user) {
 							$Task->addUser($user);
+						}
+					}
+
+					if ($k == 'ta_tags') {
+						foreach(explode(',', $v) as $tag) {
+							$tag = trim($tag);
+
+							if (!is_numeric($tag)) {
+
+								if ($is = $TagFactory->getFromName($tag)) {
+									$tag = $is->tg_ID;
+								}
+								else {
+
+									$tagModel = new \App\Model\Tag($DB);
+									$tagModel->init(array(
+										'tg_name' => $tag
+									));
+									$tagModel->save();
+
+									if (!$tagModel->tg_ID) {
+										continue;
+									}
+
+									$tag = $tagMode->tg_ID;
+								}
+							}
+
+							$Task->addTag($tag);
 						}
 					}
 
@@ -176,6 +217,13 @@ class TaskForm extends \Nette\Application\UI\Control {
 				$list[] = $item->tasks_list_tl_ID;
 			}
 			$form['ta_taskLists']->setValue(implode(',', $list));
+
+
+			$list = array();
+			foreach($this->Task->getTags() as $item) {
+				$list[] = $item->tags_tg_ID;
+			}
+			$form['ta_tags']->setValue(implode(',', $list));
 
 			$users = array();
 

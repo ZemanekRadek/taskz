@@ -5,11 +5,21 @@ use Nette,
 	Nette\Application\UI,
 	Nette\Database\Context,
 	Tracy\Debugger as Debugger;
-	
+
 class Tag extends Nette\Object  {
-	
+
 	/** @var Nette\Database\Context @inject */
-	private $DB;	
+	private $DB;
+
+	private $table = "tags";
+
+	private $data = array(
+		'tg_ID'    => null,
+		'tg_name'  => null,
+		'tg_color' => null
+	);
+
+	public $raw = null;
 
 	/**
 	 * @param Nette\Database\Connection $db
@@ -18,71 +28,66 @@ class Tag extends Nette\Object  {
 	 */
 	public function __construct(
 		\Nette\Database\Context $DB,
-		\Nette\Database\Table\ActiveRow $row = null
+		$ID = null
 	) {
 		$this->DB   = $DB;
-		
-		if ($row) {
-			$this->conversion($row);
+
+		if ($ID) {
+			$this->load($ID);
 		}
 	}
 
-	private $table = "tags";
-	
-	private $data = array(
-		'tg_ID', 'tg_title', 'tg_created'
-	);
-	
-	public $raw = null;
-	
+	public function & __get($name) {
+		if (in_array($name, array_keys($this->data))) {
+			return $this->data[$name];
+		}
+
+		return parent::__get($name);
+	}
 	/*********************************************************/
-	
+
+
+
 	public function getForm() {
 
 		$form   = new UI\Form;
 
-		$form->addText('tg_title', 'Název tagu', 128)
+		$form->addText('tg_name', 'Název tagu', 128)
 			->addRule(UI\Form::FILLED, 'Vyplňte název tagu')
 			->addCondition(UI\Form::FILLED);
-		
+
 		$form->addHidden('tg_ID');
-		$form->addHidden('tg_created');
+		$form->addHidden('tg_color');
 
 		$form->addSubmit('tg_send', 'Uložit');
-		
+
 		if ($this->raw) {
 			$controls = $form->getControls();
-			$controls->offsetGet('tg_title')->setValue($this->raw['tg_title']);
+			$controls->offsetGet('tg_name')->setValue($this->raw['tg_name']);
 			$controls->offsetGet('tg_ID')->setValue($this->raw['tg_ID']);
 		}
-		
+
 		return $form;
 	}
 
-	public function save($values) {
-		
-		$dataKeys = array_keys($this->data);
-		
-		foreach(array_keys((array) $values) as $k) {
-			if (!in_array($k, $dataKeys)) {
-				throw Nette\InvalidArgumentException('Invalid keys for save');
+	public function init($data) {
+		$keys = array_keys($this->data);
+		foreach($data as $k => $v) {
+			if (!in_array($k, $keys)) {
+				continue;
 			}
+			$this->data[$k] = $v;
 		}
-		
-		
-		// lokalizace pro tag
-		$localization = new Localization($this->DB);
-		
-		if ($values->tg_ID > 0) {
 
-			unset($values['tg_created']);
-			
-			$this->load($values->tg_ID);
-			
-			if (!$values['tg_title'] = $localization->save($values['tg_title'], $this->raw['localeID'])) {
-				throw Nette\InvalidArgumentException('Invalid create localization');
-			}
-			
+		return $this;
+	}
+
+	public function save() {
+
+		$values = $this->data;
+
+		if ($values['tg_ID'] > 0) {
+
 			$this->DB
 				->table($this->table)
 					->where('tg_ID', $values['tg_ID'])
@@ -90,63 +95,60 @@ class Tag extends Nette\Object  {
 
 		}
 		else {
-			
-			if (!$values['tg_title'] = $localization->save($values['tg_title'])) {
-				throw Nette\InvalidArgumentException('Invalid create localization');
-			}
-			
-			$values['tg_created'] = date('Y-m-d H:i:s');
-			
-			$values = $this->DB
+
+			unset($values['tg_ID']);
+
+			$row = $this->DB
 				->table($this->table)
 				->insert($values);
-				
-			if (!$values->tg_ID) {
+
+			if (!$row['tg_ID']) {
+				return false;
 				throw Nette\InvalidArgumentException('Invalid keys for save');
 			}
+
+			$this->data['tg_ID'] = $row['tg_ID'];
 		}
-		
-		$this->data = $values;
-		
-		return true;
+
 	}
-	
+
 	public function delete() {
 		if (!isset($this->raw['tg_ID']) || !$this->raw['tg_ID']) {
 			throw Nette\InvalidArgumentException('Invalid keys for delete');
 		}
-		
+
 		$this->DB->table($this->table)
 			->where('tg_ID', $this->raw['tg_ID'])
 				->delete();
-				
+
 		$localization = new Localization($this->DB);
 		$localization->delete($this->raw['localeID']);
-		
+
 		$this->raw = null;
-		
+
 		return true;
 	}
-	
+
 	public function load($ID) {
-		
+
 		if (!$row = $this->DB->table($this->table)->where('tg_ID', $ID)->fetch()) {
 			throw Nette\Application\BadRequestException('Tag neexistuje');
 			return false;
 		}
-		
+
 		$this->conversion($row);
-		
+
 		return $this;
 	}
-	
-	
+
+
 	private function conversion(Nette\Database\Table\ActiveRow $row) {
-		$loc = $row->ref('localization', 'tg_title');
-		
+		$loc = $row->ref('localization', 'tg_name');
+
 		$this->raw = array(
 			'tg_ID'    => $row->tg_ID,
-			'tg_title' => $loc[Language::get(Localization::PREFIX)],
+			'tg_name'  => $loc[Language::get(Localization::PREFIX)],
+			'tg_color' => $row->tg_color,
 			'localeID' => $loc->lo_ID
 		);
 	}

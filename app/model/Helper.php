@@ -96,8 +96,6 @@ class Helper {
 	public static function translateDate($date) {
 		$time = \Nette\Utils\DateTime::from($date);
 
-
-
 		$interval = $time->diff(self::$now);
 
 		$y = $time->format('Y') != self::$now->format('Y') ? ' ' . $time->format('Y') : '';

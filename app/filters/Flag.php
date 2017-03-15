@@ -17,7 +17,6 @@ class Flag extends \Nette\Object {
 
 		foreach($Task->getTaskLists() as $list) {
 
-
 			if ($actualList &&  $actualList->tl_ID == $list->tasks_list->tl_ID) {
 				continue;
 			}
@@ -27,6 +26,13 @@ class Flag extends \Nette\Object {
 			$container->add(
 				$flag
 			);
+		}
+
+		foreach($Task->getTags() as $tag) {
+			$flag = \Nette\Utils\Html::el('span', $tag->tags->tg_name);
+			$flag->class[] = 'flag';
+			$flag->style = 'background: ' . ($tag->tags->tg_color ? $tag->tags->tg_color : '#aaa');
+			$container->add($flag);
 		}
 
 		return $container;

@@ -30,6 +30,8 @@ class Task extends Nette\Object  {
 
 	private $tableList = "tasks_list_task";
 
+	private $tableTag  = "tasks_tags";
+
 	public $data  = array(
 		'ta_ID'          => null,
 		'ta_description' => null,
@@ -112,6 +114,10 @@ class Task extends Nette\Object  {
 		// return $this->lists;
 	}
 
+	public function getTags() {
+		return $this->model ? $this->model->related('tasks_tags') : array();
+	}
+
 	public function isFinished() {
 		return $this->model->related('tasks_list_task')->where('tasks_list.tl_systemIdentifier = ? ', \App\Model\Helper::LIST_FINISHED)->count() > 0;
 	}
@@ -141,6 +147,11 @@ class Task extends Nette\Object  {
 
 	public function addList($ID) {
 		$this->lists[$ID] = array('tl_ID' => $ID);
+		return $this;
+	}
+
+	public function addTag($ID) {
+		$this->tags[$ID] = array('tg_ID' => $ID);
 		return $this;
 	}
 
@@ -192,6 +203,18 @@ class Task extends Nette\Object  {
 				$row = $this->DB->table($this->tableList)->insert(array(
 					'tasks_ta_ID' => $this->data['ta_ID'],
 					'tasks_list_tl_ID' => $list['tl_ID']
+				));
+			}
+		}
+
+		// Tagy
+		{
+			$this->DB->table($this->tableTag)->where('tasks_ta_ID', $this->data['ta_ID'])->delete();
+
+			foreach($this->tags as $tag) {
+				$row = $this->DB->table($this->tableTag)->insert(array(
+					'tasks_ta_ID' => $this->data['ta_ID'],
+					'tags_tg_ID' => $tag['tg_ID']
 				));
 			}
 		}
