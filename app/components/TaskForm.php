@@ -146,7 +146,7 @@ class TaskForm extends \Nette\Application\UI\Control {
 										continue;
 									}
 
-									$tag = $tagMode->tg_ID;
+									$tag = $tagModel->tg_ID;
 								}
 							}
 

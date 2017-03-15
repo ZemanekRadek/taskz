@@ -1,4 +1,4 @@
-Started at [2017/02/28 21:48]
+Started at [2017/03/15 21:54]
 Config file is /Users/radekzemanek/Documents/www/localhost/taskz/beta.ini
 
 Deploying beta
@@ -65,23 +65,17 @@ Ignoring ./www/img/fonts/set/.DS_Store
 Creating remote file .deployment.running
 
 Uploading:
-(1 of 6) /.htaccess
-(2 of 6) /app/bootstrap.php
-(3 of 6) /beta.ini
-(4 of 6) /beta.log
-(5 of 6) /www/index.php
-(6 of 6) /.deployment
+(1 of 3) /app/components/TaskForm.php
+(2 of 3) /beta.log
+(3 of 3) /.deployment
 
 Renaming:
-(1 of 6) Renaming /.htaccess
-(2 of 6) Renaming /app/bootstrap.php
-(3 of 6) Renaming /beta.ini
-(4 of 6) Renaming /beta.log
-(5 of 6) Renaming /www/index.php
-(6 of 6) Renaming /.deployment
+(1 of 3) Renaming /app/components/TaskForm.php
+(2 of 3) Renaming /beta.log
+(3 of 3) Renaming /.deployment
 
 Cleaning temp/cache
 
 Deleting remote file .deployment.running
 
-Finished at [2017/02/28 21:48] (in 5 seconds)
+Finished at [2017/03/15 21:54] (in 4 seconds)
