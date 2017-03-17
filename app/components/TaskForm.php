@@ -106,6 +106,8 @@ class TaskForm extends \Nette\Application\UI\Control {
 		$form->addHidden('ta_projectID',  $this->Project->pr_ID);
 		$form->addSubmit('ta_send', 'Uložit');
 
+		$form->getElementPrototype()->onsubmit('tinyMCE.triggerSave()');
+
 		$User       = $this->User;
 		$DB         = $this->DB;
 		$Project    = $this->Project;

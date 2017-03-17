@@ -25,7 +25,7 @@
 
 <div>
 	{label $form['ta_description']}{/label}
-	{input $form['ta_description']}
+	{input $form['ta_description'] class=>'mceEditor'}
 </div>
 
 
@@ -42,6 +42,11 @@
 </div>
 <script type="text/javascript">
 (function() {
+
+tinyMCE.init({
+	mode: "specific_textareas",
+	editor_selector: "mceEditor",
+});
 
 $('#' + {$form['ta_timeTo']->getHtmlId()}).datepicker({
 	format: 'dd.mm.YYYY'

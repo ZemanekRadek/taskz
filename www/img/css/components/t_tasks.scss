@@ -108,6 +108,9 @@
 
 
 .lt-task-detail {
+	height: 100%;
+	overflow: auto;
+	padding-bottom: 50px;
 
 	.line {
 		width: 80%;
@@ -144,6 +147,7 @@
 		width: 100%;
 		padding: 10px;
 		border-sizing: border-box;
+		background: $backgroundB;
 
 		.line {
 			margin-bottom: 10px;
