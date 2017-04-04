@@ -40,10 +40,13 @@ class TaskListFactory extends Nette\Object  {
 		$this->Project = $Project;
 	}
 
-	public function getAll($options = array()) {
+	public function getInbox() {
+		return $this->DB->table('tasks_list_user')
+			->select('tasks_list.tl_ID, tasks_list.tl_name')
+			->where('users_us_ID = ? AND tasks_list.tl_systemIdentifier = ?', $this->User->getIdentity()->us_ID, \App\Model\Helper::LIST_INBOX)->fetch();
+	}
 
-//		Debugger::barDump($this->Project);
-	// return array();
+	public function getAll($options = array()) {
 
 		$selection = $this->DB->table('tasks_list_user')
 			->where('users_us_ID = ? ', $this->User->getIdentity()->us_ID);
@@ -87,7 +90,7 @@ class TaskListFactory extends Nette\Object  {
 			if (!isset($projects[$list->tasks_list_tl_ID])) {
 				continue;
 			}
-			
+
 			$data[] = new \App\Model\TaskList($this->DB, $this->User, $projects[$list->tasks_list_tl_ID], $list->tasks_list_tl_ID);
 		}
 

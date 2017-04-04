@@ -15,8 +15,8 @@ class ListPresenter extends BasePresenter {
 	/** @var \App\Model\Task @inject */
 	private $Task;
 
-	/** @var \App\Model\TaskList @inject */
-	private $TaskListFactory;
+	/** @var \App\Model\TaskListFactory @inject */
+	public $TaskListFactory;
 
 	/** @var \App\Model\ProjectFactory @inject */
 	public $ProjectFactory;

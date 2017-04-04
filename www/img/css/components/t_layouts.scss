@@ -50,7 +50,7 @@ body.task-detail-window-open {
 			box-shadow: -1px 0 4px 2px $shadowA;
 			border: solid 1px $borderA;
 			height: 100%;
-			z-index: 3;
+			z-index: 1000;
 		}
 	}
 

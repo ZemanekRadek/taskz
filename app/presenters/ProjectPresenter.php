@@ -12,7 +12,7 @@ class ProjectPresenter extends BasePresenter {
 	/** @var \App\Model\Project */
 	private $Project;
 
-	private $TaskListFactory;
+	public $TaskListFactory;
 
 	private $ProjectFactory;
 

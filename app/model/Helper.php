@@ -53,12 +53,12 @@ class Helper {
 		$current = array();
 
 		foreach($list as $item) {
-			$index = $item->timeTo ? (string) $item->timeTo : 0;
+			$index = $item->timeTo ? (string) $item->timeTo : '00';
 
 			if (!isset($return[$index])) {
 				$return[$index] = array(
-					'timestamp' => $item->timeTo->getTimestamp(),
-					'day'       => self::translateDate((string) $item->timeTo),
+					'timestamp' => $item->timeTo ? $item->timeTo->getTimestamp() : 0,
+					'day'       => $item->timeTo ? self::translateDate((string) $item->timeTo) : '&infin;',
 					'items'     => array()
 				);
 
@@ -94,6 +94,7 @@ class Helper {
 	}
 
 	public static function translateDate($date) {
+
 		$time = \Nette\Utils\DateTime::from($date);
 
 		$interval = $time->diff(self::$now);

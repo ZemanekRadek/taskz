@@ -106,11 +106,15 @@
 	}
 }
 
+.mceEditor {
+	min-height: 300px;
+}
 
 .lt-task-detail {
 	height: 100%;
 	overflow: auto;
 	padding-bottom: 50px;
+
 
 	.line {
 		width: 80%;

@@ -26,7 +26,8 @@ class TaskPresenter extends BasePresenter {
 	public $User;
 
 	private $ProjectFactory;
-	private $TaskListFactory;
+
+	public $TaskListFactory;
 
 
 	public function __construct(
@@ -98,10 +99,16 @@ class TaskPresenter extends BasePresenter {
 			);
 		}
 
-		$Form->onSave[] = function($Task, $values) use ($Presenter) {
-			$Project = new \App\Model\Project($Presenter->DB, $Presenter->User, $values['ta_projectID']);
+		$Form->onSave[] = function($Task, $values, $Project, $TaskList) use ($Presenter) {
 
-			$Presenter->redirect('List:default', array('projectID' => $Project->pr_ID, 'projectName' => $Project->pr_name));
+			if ($TaskList) {
+				$this->presenter->redirect('List:default', array('taskListID' => $TaskList->tl_ID, 'taskListName' => $TaskList->tl_name, 'projectID' => $Project->pr_ID, 'projectName' => $Project->pr_name));
+			}
+
+			if ($Project) {
+				$this->presenter->redirect('List:default', array('projectID' => $Project->pr_ID, 'projectName' => $Project->pr_name));
+			}
+
 		};
 
 		return $Form;

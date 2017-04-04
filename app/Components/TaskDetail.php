@@ -52,15 +52,14 @@ class TaskDetail extends \Nette\Application\UI\Control {
 
 	public function createComponentTaskForm() {
 		$form = $this->TaskFactory->getForm();
+
 		if ($this->Task) {
 			$form->setTask($this->Task);
 		}
 
 		$form->onSave[] = function($Task, $values, $Project, $TaskList) {
-			\Tracy\Debugger::barDump($Project, 'project');
-			\Tracy\Debugger::barDump($TaskList, 'tasklist');
 			if ($TaskList) {
-				$this->presenter->redirect('List:detail', array('taskListID' => $TaskList->tl_ID, 'taskListName' => $TaskList->tl_name, 'projectID' => $Project->pr_ID, 'projectName' => $Project->pr_name));
+				$this->presenter->redirect('List:default', array('taskListID' => $TaskList->tl_ID, 'taskListName' => $TaskList->tl_name, 'projectID' => $Project->pr_ID, 'projectName' => $Project->pr_name));
 			}
 
 			if ($Project) {

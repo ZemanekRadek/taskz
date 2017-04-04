@@ -41,12 +41,8 @@
 	{input $form['ta_send']}
 </div>
 <script type="text/javascript">
-(function() {
 
-tinyMCE.init({
-	mode: "specific_textareas",
-	editor_selector: "mceEditor",
-});
+(function() {
 
 $('#' + {$form['ta_timeTo']->getHtmlId()}).datepicker({
 	format: 'dd.mm.YYYY'

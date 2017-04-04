@@ -104,9 +104,14 @@ class Task extends Nette\Object  {
 					'tasks_list_tl_ID' => $list->tl_ID
 				));
 			}
+
+			// odstranit inbox
+			$list = $this->DB->table('tasks_list_user')->where('users_us_ID = ? AND tasks_list.tl_systemIdentifier = ? ', $this->User->getIdentity()->getId(), \App\Model\Helper::LIST_INBOX)->fetch();
+			if ($list->tl_ID) {
+				$this->DB->table($this->tableList)->where('tasks_ta_ID = ? AND tasks_list_tl_ID = ? ', array($this->data['ta_ID'], $list->tl_ID))->delete();
+			}
 		}
 
-		// todo: odstranit inbox stitek
 	}
 
 	public function getTaskLists() {
@@ -158,7 +163,13 @@ class Task extends Nette\Object  {
 	public function save() {
 
 		$values = $this->data;
-		$values['ta_timeTo'] = date('Y-m-d H:i:s', strtotime(str_replace(' ', '', $values['ta_timeTo'])));
+
+		if ($values['ta_timeTo']) {
+			$values['ta_timeTo'] = date('Y-m-d H:i:s', strtotime(str_replace(' ', '', $values['ta_timeTo'])));
+		}
+		else {
+			$values['ta_timeTo'] = null;
+		}
 
 		if ($values['ta_ID'] > 0) {
 			unset($values['ta_created']);
@@ -206,6 +217,8 @@ class Task extends Nette\Object  {
 				));
 			}
 		}
+
+		\Tracy\Debugger::barDump($this, 'task on save');
 
 		// Tagy
 		{

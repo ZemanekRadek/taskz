@@ -275,4 +275,10 @@ class TaskList extends Nette\Object  {
 
 		return $list;
 	}
+
+	//
+	public function getInbox() {
+		return $this->DB->table('tasks_list_user')
+			->where('users_us_ID = ? AND tasks_list.tl_systemIdentifier = ? ', $this->User->getIdentity()->us_ID, \App\Model\Helper::LIST_INBOX)->fetch();
+	}
 }

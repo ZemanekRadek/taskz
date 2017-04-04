@@ -16,7 +16,7 @@
 		{foreach \App\Model\Helper::listDay($list) as $id=>$block}
 		<div class="task-block-day">
 			<div class="task-block-day-title">
-				<span class="task-block-day-title-name">{$block[day]}</span>
+				<span class="task-block-day-title-name">{$block[day]|noescape}</span>
 				<span class="task-block-day-title-counter">
 					{if $block[finished][current]>0}<span class="count-finished">{$block[finished][current]}</span>/{/if}<span class="count-total">{count($block[items])}</span>
 					<span class="avarage">{round($block[finished][avarage])}%</span> done

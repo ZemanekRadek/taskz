@@ -51,14 +51,15 @@ class TaskForm extends \Nette\Application\UI\Control {
 
 	protected function createComponentForm() {
 
-		$form   = new \Nette\Application\UI\Form;
+		$form         = new \Nette\Application\UI\Form;
 
 		// $states = new StateList($this->DB);
-		$users      = new \App\Model\UserList($this->DB);
-		$lists      = new \App\Model\TaskListFactory($this->DB, $this->User, $this->Project, new \App\Model\ProjectFactory($this->DB, $this->User));
-		$TagFactory = new \App\Model\TagFactory($this->DB);
+		$users        = new \App\Model\UserList($this->DB);
+		$lists        = new \App\Model\TaskListFactory($this->DB, $this->User, $this->Project, new \App\Model\ProjectFactory($this->DB, $this->User));
+		$TagFactory   = new \App\Model\TagFactory($this->DB);
 		// $tags   = new TagList($this->DB);
-		$listsArray = array();
+		$listsArray   = array();
+		$defaultInbox = array();
 
 		foreach($lists->getAll() as $item) {
 			$listsArray[] = array(
@@ -66,6 +67,10 @@ class TaskForm extends \Nette\Application\UI\Control {
 				'label'  => $item->tl_name,
 				'color'  => $item->tl_color
 			);
+
+			if ($item->tl_systemIdentifier == \App\Model\Helper::LIST_INBOX) {
+				$defaultInbox[] = $item->tl_ID;
+			}
 		}
 
 		$tagsArray = array();
@@ -85,8 +90,9 @@ class TaskForm extends \Nette\Application\UI\Control {
 
 		$form->addTextArea('ta_description', 'Popis úkolu');
 
-		$form->addText('ta_timeTo', 'Splnit do')
-			->addRule(UI\Form::PATTERN, 'Špatný formát datumu', '[0-9]{2}\. [0-9]{2}\. [0-9]{4}');
+		$form->addText('ta_timeTo', 'Splnit do');
+			// ->setRequired(FALSE)
+			// ->addRule(UI\Form::PATTERN, 'Špatný formát datumu', '[0-9]{2}\. [0-9]{2}\. [0-9]{4}');
 
 		$form->addCheckboxList('ta_users', 'Uživatelé', $users->getAll());
 
@@ -113,105 +119,130 @@ class TaskForm extends \Nette\Application\UI\Control {
 		$Project    = $this->Project;
 		$self       = $this;
 
-		$form->onSuccess[] = function() use ($form, $User, $DB, $Project, $TagFactory, $self) {
+		// on succces form
+		{
+			$form->onSuccess[] = function() use ($form, $User, $DB, $Project, $TagFactory, $defaultInbox, $self)  {
 
-			$values = $form->getValues();
-			$Task     = new \App\Model\Task($DB, $User, $Project, null, $values['ta_ID']);
+				$values = $form->getValues();
+				$Task     = new \App\Model\Task($DB, $User, $Project, null, $values['ta_ID']);
 
-			foreach($values as $k => $v) {
+				foreach($values as $k => $v) {
 
-				if (!in_array($k, array_keys($Task->data))) {
-					if ($k == 'ta_users') {
-						foreach($v as $user) {
-							$Task->addUser($user);
+					if (!in_array($k, array_keys($Task->data))) {
+
+						if ($k == 'ta_users' && $v) {
+							foreach($v as $user) {
+								$Task->addUser($user);
+							}
 						}
-					}
 
-					if ($k == 'ta_tags') {
-						foreach(explode(',', $v) as $tag) {
-							$tag = trim($tag);
+						if ($k == 'ta_tags' && $v) {
+							foreach(explode(',', $v) as $tag) {
+								$tag = trim($tag);
 
-							if (!is_numeric($tag)) {
+								if (!is_numeric($tag)) {
 
-								if ($is = $TagFactory->getFromName($tag)) {
-									$tag = $is->tg_ID;
+									if ($is = $TagFactory->getFromName($tag)) {
+										$tag = $is->tg_ID;
+									}
+									else {
+
+										$tagModel = new \App\Model\Tag($DB);
+										$tagModel->init(array(
+											'tg_name' => $tag
+										));
+										$tagModel->save();
+
+										if (!$tagModel->tg_ID) {
+											continue;
+										}
+
+										$tag = $tagModel->tg_ID;
+									}
 								}
-								else {
 
-									$tagModel = new \App\Model\Tag($DB);
-									$tagModel->init(array(
-										'tg_name' => $tag
+								$Task->addTag($tag);
+							}
+						}
+
+						if ($k == 'ta_taskLists' && $v) {
+							foreach(explode(',', $v) as $list) {
+								$list = trim($list);
+
+								if (!is_numeric($list)) {
+									// create list
+									$taskList = new \App\Model\TaskList($DB, $User, $Project);
+									$taskList->init(array(
+										'tl_name'   => $list,
+										'tl_author' => $User->getIdentity()->getId()
 									));
-									$tagModel->save();
 
-									if (!$tagModel->tg_ID) {
+									$taskList->addProject($values['ta_projectID']);
+
+									$taskList->save();
+
+									if (!$taskList->tl_ID) {
 										continue;
 									}
 
-									$tag = $tagModel->tg_ID;
+									$list = $taskList->tl_ID;
 								}
-							}
 
-							$Task->addTag($tag);
+								$Task->addList($list);
+							}
+						}
+
+						continue;
+					}
+
+					$Task->set($k, $v);
+				}
+
+				$Task->set('ta_author', $User->getIdentity()->getId());
+
+				$Task->addUser($User->getIdentity()->getId());
+
+				if ($Task->save()) {
+
+					$taskList = null;
+
+					if ($values['ta_projectID']) {
+						$Project = new \App\Model\Project($DB, $User, $values['ta_projectID']);
+					}
+
+					if ($values['ta_taskListID']) {
+						$taskList = new \App\Model\TaskList($DB, $User, $Project, $values['ta_taskListID']);
+					}
+					else {
+						// prvni tasklist pro redirect v presenteru, mozno vynutit inbox
+						$_list = explode(',', $values['ta_taskLists']);
+						if ($_list) {
+							foreach($_list as $item) {
+								$taskList = new \App\Model\TaskList($DB, $User, $Project, $item);
+								break;
+								/*
+								if ($item->tl_systemIdentifier == \App\Model\Helper::LIST_INBOX) {
+								}
+								*/
+							}
 						}
 					}
 
-					if ($k == 'ta_taskLists') {
-						foreach(explode(',', $v) as $list) {
-							$list = trim($list);
+					\Tracy\Debugger::barDump($taskList, 'default list');
+					\Tracy\Debugger::barDump($defaultInbox, 'default inbox');
 
-							if (!is_numeric($list)) {
-								// create list
-								$taskList = new \App\Model\TaskList($DB, $User, $Project);
-								$taskList->init(array(
-									'tl_name'   => $list,
-									'tl_author' => $User->getIdentity()->getId()
-								));
-
-								$taskList->addProject($values['ta_projectID']);
-
-								$taskList->save();
-
-								if (!$taskList->tl_ID) {
-									continue;
-								}
-
-								$list = $taskList->tl_ID;
-							}
-
-							$Task->addList($list);
-						}
-					}
-
-					continue;
+					$self->onSave($Task, $values, $Project, $taskList);
 				}
+			};
+		}
 
-				$Task->set($k, $v);
-			}
-
-			$Task->set('ta_author', $User->getIdentity()->getId());
-
-			$Task->addUser($User->getIdentity()->getId());
-
-			if ($Task->save()) {
-
-				$taskList = null;
-				if ($values['ta_projectID']) {
-					$Project = new \App\Model\Project($DB, $User, $values['ta_projectID']);
-				}
-
-				if ($values['ta_taskListID']) {
-					$taskList = new \App\Model\TaskList($DB, $User, $Project, $values['ta_taskListID']);
-				}
-
-				$self->onSave($Task, $values, $Project, $taskList);
-			}
-		};
-
+		// set value from detail task
 		if ($this->Task && $this->Task->ID) {
 			$form['ta_ID']->setValue($this->Task->ID);
 			$form['ta_name']->setValue($this->Task->name);
-			$form['ta_timeTo']->setValue($this->Task->timeTo->format('d. m. Y'));
+			if ($this->Task->timeTo) {
+				$form['ta_timeTo']->setValue($this->Task->timeTo->format('d. m. Y'));
+			}
 			$form['ta_description']->setValue($this->Task->description);
 
 			$list = array();
@@ -234,6 +265,12 @@ class TaskForm extends \Nette\Application\UI\Control {
 			}
 			$form['ta_users']->setValue($users);
 
+		}
+		else {
+			if ($defaultInbox) {
+				$form['ta_taskLists']->setValue(implode(',', $defaultInbox));
+			}
+			$form['ta_users']->setValue(array($User->getIdentity()->getId()));
 		}
 
 		return $form;

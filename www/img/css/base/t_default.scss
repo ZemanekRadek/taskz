@@ -367,3 +367,9 @@ h6 {
 	width: 38px;
 	font-size: 30px;
 }
+
+/* jquery widget ----- */
+
+.ui-widget-content {
+	z-index: 1001;
+}

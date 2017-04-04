@@ -18,9 +18,13 @@
 			<ul class="dropdown-menu" id="dropdownMenu1">
 				<li><a href="{link Project:create}"><span class="icon icon-cog"></span> Project setting</a></li>
 				<li class="line"><hr /></li>
+
+				{var $inbox = $TaskListFactory->getInbox()}
+
 				{foreach $ProjectFactory->getAll() as $pr}
 				{breakIf $iterator->counter > 2}
-				<li><a href="{link List:default projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang}">
+
+				<li><a href="{link List:list projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang, taskListID=>$inbox->tl_ID, taskListName=>$inbox->tl_name}">
 					<strong>{\App\Model\Helper::formatProjectName($pr)}</strong>
 					{$pr->pr_name}</a>
 				</li>

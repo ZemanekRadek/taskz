@@ -1,4 +1,5 @@
-Started at [2017/03/15 21:54]
+Creating temporary directory /var/folders/pv/_rj1804n02j07c9tzbrj5j6r0000gn/T/deployment
+Started at [2017/04/04 22:27]
 Config file is /Users/radekzemanek/Documents/www/localhost/taskz/beta.ini
 
 Deploying beta
@@ -25,6 +26,7 @@ Ignoring ./hosts
 Ignoring ./log                          
 Ignoring ./node_modules                 
 Ignoring ./sass                         
+Ignoring ./temp/btfj.dat                
 Ignoring ./temp/cache                   
 Ignoring ./vendor/.DS_Store             
 Ignoring ./vendor/Buttons-master/showcase/js/zeroclipboard/.gitignore
@@ -65,17 +67,25 @@ Ignoring ./www/img/fonts/set/.DS_Store
 Creating remote file .deployment.running
 
 Uploading:
-(1 of 3) /app/components/TaskForm.php
-(2 of 3) /beta.log
-(3 of 3) /.deployment
+(1 of 7) /app/components/TaskDetail.php
+(2 of 7) /app/components/TaskForm.php
+(3 of 7) /app/locale/_cs
+(4 of 7) /app/model/Task.php
+(5 of 7) /app/presenters/TaskPresenter.php
+(6 of 7) /beta.log
+(7 of 7) /.deployment
 
 Renaming:
-(1 of 3) Renaming /app/components/TaskForm.php
-(2 of 3) Renaming /beta.log
-(3 of 3) Renaming /.deployment
+(1 of 7) Renaming /app/components/TaskDetail.php
+(2 of 7) Renaming /app/components/TaskForm.php
+(3 of 7) Renaming /app/locale/_cs
+(4 of 7) Renaming /app/model/Task.php
+(5 of 7) Renaming /app/presenters/TaskPresenter.php
+(6 of 7) Renaming /beta.log
+(7 of 7) Renaming /.deployment
 
 Cleaning temp/cache
 
 Deleting remote file .deployment.running
 
-Finished at [2017/03/15 21:54] (in 4 seconds)
+Finished at [2017/04/04 22:27] (in 8 seconds)
