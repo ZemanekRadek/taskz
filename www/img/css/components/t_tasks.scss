@@ -29,6 +29,23 @@
 			}
 		}
 
+		.task-item-avatar-container {
+			float: right;
+
+			.task-item-avatar {
+				margin: -5px 10px 0 0px;
+				display: inline-block;
+				width: 35px;
+				height: 35px;
+				line-height: 35px;
+				text-align: center;
+				overflow: hidden;
+				border-radius: 100%;
+				background-color: $color-white-bright;
+				border: solid 1px $color-contrast-10;
+			}
+		}
+
 		.task-block-day-items {
 
 			.task-item-wrapper {
