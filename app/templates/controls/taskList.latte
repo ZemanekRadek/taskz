@@ -33,7 +33,7 @@
 					<span>{$item->name}</span>
 					{$item|flags}
 
-					{\App\Model\Helper::avatar($item)}
+					{\App\Model\Helper::avatar($item, $User)}
 						{*href="{plink Task:detail id=>$item->ID,projectID=>$Project->pr_ID,projectName=>$Project->pr_name,listID=>$List ? $List->tl_ID : null,listName=>$List ? $List->tl_name : null}"*}
 				</a>
 			</div>

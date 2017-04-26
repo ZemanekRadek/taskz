@@ -3,14 +3,11 @@
 use Nette\Application\Routers\Route,
 	Nette\Application\Routers\SimpleRouter;
 
-
-// Load Nette Framework
-
-if (@!include __DIR__ . '/../Nette/loader.php') {
+if (!include __DIR__ . '/../Nette/loader.php') {
 	die('Install Nette using `composer update`');
 }
 
-if (@!include __DIR__ . '/../vendor/autoload.php') {
+if (!include __DIR__ . '/../vendor/autoload.php') {
 	die('Install Nette using `composer update`');
 }
 

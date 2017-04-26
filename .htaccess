@@ -1,3 +1,9 @@
 RewriteEngine on
+
 RewriteCond %{HTTP_HOST} ^beta.tazkie.com$
 RewriteRule (.*) /www/$1
+
+# RewriteBase /www/
+
+RewriteCond %{HTTP_HOST} ^tazkie-com.vasestranky.cz$
+RewriteRule (.*) /www/$1 [L]

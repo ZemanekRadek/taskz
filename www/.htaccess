@@ -1,7 +1,7 @@
 # disable directory listing
 # Options -Indexes
 
-SetEnv NETTE_PROJECT_MODULE_CONFIG local
+SetEnv NETTE_PROJECT_MODULE_CONFIG beta
 
 Options +Indexes
 IndexOptions FancyIndexing FoldersFirst NameWidth=* DescriptionWidth=*

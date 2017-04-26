@@ -62,14 +62,15 @@ class TaskForm extends \Nette\Application\UI\Control {
 		$defaultInbox = array();
 
 		foreach($lists->getAll() as $item) {
-			$listsArray[] = array(
-				'value'  => $item->tl_ID,
-				'label'  => $item->tl_name,
-				'color'  => $item->tl_color
-			);
-
 			if ($item->tl_systemIdentifier == \App\Model\Helper::LIST_INBOX) {
 				$defaultInbox[] = $item->tl_ID;
+			}
+			else {
+				$listsArray[] = array(
+					'value'  => $item->tl_ID,
+					'label'  => $item->tl_name,
+					'color'  => $item->tl_color
+				);
 			}
 		}
 
@@ -82,7 +83,12 @@ class TaskForm extends \Nette\Application\UI\Control {
 			);
 		}
 
-		\Tracy\Debugger::barDump($listsArray, 'tasklist!');
+		$usersArray = array();
+		foreach($users->getAll() as $k => $v) {
+			if ($k != $this->User->getIdentity()->getId()) {
+				$usersArray[$k] = $v;
+			}
+		}
 
 		$form->addText('ta_name', 'Název úkolu', 128)
 			->addRule(UI\Form::FILLED, 'Vyplňte název úkolu')
@@ -94,7 +100,7 @@ class TaskForm extends \Nette\Application\UI\Control {
 			// ->setRequired(FALSE)
 			// ->addRule(UI\Form::PATTERN, 'Špatný formát datumu', '[0-9]{2}\. [0-9]{2}\. [0-9]{4}');
 
-		$form->addCheckboxList('ta_users', 'Uživatelé', $users->getAll());
+		$form->addCheckboxList('ta_users', 'Slave(s)', $usersArray);
 
 		$form->addText('ta_taskLists', 'Seznamy')
 			->setAttribute('data-source', json_encode($listsArray));
@@ -121,7 +127,7 @@ class TaskForm extends \Nette\Application\UI\Control {
 
 		// on succces form
 		{
-			$form->onSuccess[] = function() use ($form, $User, $DB, $Project, $TagFactory, $defaultInbox, $self)  {
+			$form->onSuccess[] = function() use ($form, $User, $DB, $Project, $TagFactory, $defaultInbox, $self, $lists)  {
 
 				$values = $form->getValues();
 				$Task     = new \App\Model\Task($DB, $User, $Project, null, $values['ta_ID']);
@@ -202,6 +208,11 @@ class TaskForm extends \Nette\Application\UI\Control {
 
 				$Task->addUser($User->getIdentity()->getId());
 
+				// defaultne pridame inbox, pokud je ale finished tak ne
+				if (!$Task->isFinished()) {
+					$Task->addList($lists->getInbox()->tl_ID);
+				}
+
 				if ($Task->save()) {
 
 					$taskList = null;
@@ -261,6 +272,9 @@ class TaskForm extends \Nette\Application\UI\Control {
 			$users = array();
 
 			foreach($this->Task->getUsers() as $user) {
+				if ($user['us_ID'] == $this->User->getIdentity()->getId()) {
+					continue;
+				}
 				$users[] = $user['us_ID'];
 			}
 			$form['ta_users']->setValue($users);
@@ -270,7 +284,7 @@ class TaskForm extends \Nette\Application\UI\Control {
 			if ($defaultInbox) {
 				$form['ta_taskLists']->setValue(implode(',', $defaultInbox));
 			}
-			$form['ta_users']->setValue(array($User->getIdentity()->getId()));
+			// $form['ta_users']->setValue(array($User->getIdentity()->getId()));
 		}
 
 		return $form;

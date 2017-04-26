@@ -24,11 +24,8 @@ class TaskList extends \Nette\Application\UI\Control {
 		}
 		if ($this->presenter->isAjax()) {
 			$this->redrawControl('task');
-		 	\Tracy\Debugger::barDump('is ajax task in list');
 		}
 		else {
-			\Tracy\Debugger::barDump('no ajax task in list');
-
 			// $this->presenter->redirect('Task:detail', array('id' => $id, 'projectID'=>$this->Project->pr_ID,'projectName'=>$this->Project->pr_name,'listID'=>$this->List ? $this->List->tl_ID : null,'listName'=>$this->List ? $this->List->tl_name : null));
 		}
 	}
@@ -43,7 +40,6 @@ class TaskList extends \Nette\Application\UI\Control {
 			$this->List->load($taskListId);
 			$this->List->setProject($this->presenter->ProjectFactory->get($projectId));
 			$this->tasks = null;
-			\Tracy\Debugger::barDump($this->List, 'list on tasklistid');
 		}
 		else {
 			$this->tasks = $this->presenter->TaskFactory->getAll()->getTasks();
@@ -66,6 +62,10 @@ class TaskList extends \Nette\Application\UI\Control {
 		$this->tasks = $list;
 	}
 
+	public function setUser(\App\Model\User $User) {
+		$this->User = $User;
+	}
+
 	public function getTasks() {
 		return $this->tasks;
 	}
@@ -76,12 +76,11 @@ class TaskList extends \Nette\Application\UI\Control {
 		$template->List    = $this->List;
 		$template->tasks   = $this->tasks;
 		$template->Project = $this->Project;
+		$template->User    = $this->User;
 		$template->render();
 	}
 
 	public function createComponentTaskDetail() {
-		\Tracy\Debugger::barDump($this->getParameters(), 'create component');
-		\Tracy\Debugger::barDump($this->List, 'create component');
 		$Component = new TaskDetail();
 
 		$Component->setTaskFactory($this->presenter->TaskFactory);

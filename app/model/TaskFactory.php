@@ -41,6 +41,7 @@ class TaskFactory extends Nette\Object  {
 			$component = new \App\Component\TaskList();
 			$component->setList($List);
 			$component->setProject($this->Project);
+			$component->setUser($this->User);
 			return $component;
 		}
 
@@ -57,6 +58,7 @@ class TaskFactory extends Nette\Object  {
 				$list
 			);
 			$component->setProject($this->Project);
+			$component->setUser($this->User);
 			return $component;
 		}
 
@@ -70,14 +72,10 @@ class TaskFactory extends Nette\Object  {
 
 		public function getAllByTaskListId($id) {
 
-
-
-
 		}
 
 		public function getById($id) {
 			$task = new \App\Model\Task($this->DB, $this->User, $this->Project, $this->List, $id);
-			\Tracy\Debugger::barDump($task);
 			return $task;
 		}
 

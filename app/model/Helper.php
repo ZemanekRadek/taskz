@@ -23,11 +23,14 @@ class Helper {
 		7 => 'Ne'
 	);
 
-	public static function avatar(\App\Model\Task $item) {
+	public static function avatar(\App\Model\Task $item, \App\Model\User $User) {
 
 		$container = \Nette\Utils\Html::el('span');
 		$container->class[] = 'task-item-avatar-container';
 		foreach($item->getUsers() as $user) {
+			if ($user['us_ID'] == $User->getIdentity()->getId()) {
+				continue;
+			}
 			$elm = \Nette\Utils\Html::el('span');
 			$elm->setText(self::formatUserName((object) $user));
 			$elm->class[] = 'task-item-avatar';

@@ -124,7 +124,7 @@ class Task extends Nette\Object  {
 	}
 
 	public function isFinished() {
-		return $this->model->related('tasks_list_task')->where('tasks_list.tl_systemIdentifier = ? ', \App\Model\Helper::LIST_FINISHED)->count() > 0;
+		return $this->model ? $this->model->related('tasks_list_task')->where('tasks_list.tl_systemIdentifier = ? ', \App\Model\Helper::LIST_FINISHED)->count() > 0 : false;
 	}
 
 	public function addUser($ID) {

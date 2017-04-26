@@ -1,4 +1,4 @@
-Started at [2017/04/04 23:19]
+Started at [2017/04/11 22:37]
 Config file is /Users/radekzemanek/Documents/www/localhost/taskz/beta.ini
 
 Deploying beta
@@ -63,30 +63,6 @@ Ignoring ./www/img/css/.DS_Store
 Ignoring ./www/img/css/.sass-cache      
 Ignoring ./www/img/fonts/.DS_Store      
 Ignoring ./www/img/fonts/set/.DS_Store  
-Creating remote file .deployment.running
+Already synchronized.
 
-Uploading:
-(1 of 8) /app/locale/_cs
-(2 of 8) /app/model/Helper.php
-(3 of 8) /app/model/Task.php
-(4 of 8) /app/templates/controls/taskList.latte
-(5 of 8) /beta.log
-(6 of 8) /www/img/css/components/t_tasks.scss
-(7 of 8) /www/img/css/index.css
-(8 of 8) /.deployment
-
-Renaming:
-(1 of 8) Renaming /app/locale/_cs
-(2 of 8) Renaming /app/model/Helper.php
-(3 of 8) Renaming /app/model/Task.php
-(4 of 8) Renaming /app/templates/controls/taskList.latte
-(5 of 8) Renaming /beta.log
-(6 of 8) Renaming /www/img/css/components/t_tasks.scss
-(7 of 8) Renaming /www/img/css/index.css
-(8 of 8) Renaming /.deployment
-
-Cleaning temp/cache
-
-Deleting remote file .deployment.running
-
-Finished at [2017/04/04 23:19] (in 9 seconds)
+Finished at [2017/04/11 22:37] (in 2 seconds)

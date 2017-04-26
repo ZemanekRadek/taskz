@@ -11,7 +11,6 @@ class TagFactory {
 	}
 
 	public function getAll() {
-		\Tracy\Debugger::barDump('??');
 		return $this->DB->table('tags')->fetchAll();
 	}
 

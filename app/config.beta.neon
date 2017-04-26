@@ -1,8 +1,8 @@
 database:
 	default:
-		dsn:          "mysql:host=localhost;dbname=betatazkie"
-		user:         "betatazkie"
-		password:     "dtorVTU6"
+		dsn:          "mysql:host=sql14.web4u.cz;dbname=tazkie"
+		user:         "tazkie"
+		password:     "4535dadd"
 		options:      [PDO::MYSQL_ATTR_COMPRESS = true]
 		debugger:     true        # panel v debugger baru
 		explain:      true        # explain dotazů v debugger bar
