@@ -24,7 +24,7 @@
 				{foreach $ProjectFactory->getAll() as $pr}
 				{breakIf $iterator->counter > 2}
 
-				<li><a href="{link List:list projectID=>$pr->pr_ID, projectName=>$pr->pr_path,lang=>$presenter->lang, taskListID=>$inbox->tl_ID, taskListName=>$inbox->tl_name}">
+				<li><a href="{link List:list projectID=>$pr->pr_ID, lang=>$presenter->lang, taskListID=>$inbox->tl_ID}">
 					<strong>{\App\Model\Helper::formatProjectName($pr)}</strong>
 					{$pr->pr_name}</a>
 				</li>
@@ -77,7 +77,7 @@
 	<ul class="nav sidebar-nav">
 		{foreach $TaskListFactory->getAll() as $list}
 		<li{if $TaskList && $list->tl_ID == $TaskList->tl_ID} class="selected"{/if}>
-		<a class="{if $list->tl_ico}is-icon{else}no-icon{/if}" href="{link List:list projectID=>$list->Project->pr_ID, projectName=>$list->Project->pr_path,taskListID=>$list->tl_ID, taskListName=>$list->tl_path,lang=>$presenter->lang}">
+		<a class="{if $list->tl_ico}is-icon{else}no-icon{/if}" href="{link List:list projectID=>$list->Project->pr_ID, taskListID=>$list->tl_ID, lang=>$presenter->lang}">
 			{if $list->tl_ico}
 			<span class="icon {$list->tl_ico}"></span>
 			{/if}

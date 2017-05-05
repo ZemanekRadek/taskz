@@ -61,8 +61,7 @@ class ProjectPresenter extends BasePresenter {
 		}
 
 		$this->redirect('List:default', array(
-			'projectID'   => $this->Project->pr_ID,
-			'projectName' => $this->Project->pr_path
+			'projectID'   => $this->Project->pr_ID
 		));
 
 

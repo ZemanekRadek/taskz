@@ -63,7 +63,9 @@ class Helper {
 	public static function listDay($list) {
 		$return = array();
 
-		self::$now = new \Nette\Utils\DateTime();
+		$n         = new \Nette\Utils\DateTime();
+		$n         = $n->format('Y-m-d');
+		self::$now = \Nette\Utils\DateTime::from($n);
 
 		$avarage = array();
 		$total   = array();
@@ -114,11 +116,23 @@ class Helper {
 
 		$time = \Nette\Utils\DateTime::from($date);
 
+
+
 		$interval = $time->diff(self::$now);
 
 		$y = $time->format('Y') != self::$now->format('Y') ? ' ' . $time->format('Y') : '';
 		$d = $interval->format('%R%a');
 		$n = self::$days[$time->format('N')] . ' ';
+
+		if ($d == 1) {
+			if ($time->format('Ymd') > self::$now->format('Ymd')) {
+				return 'Tomorrow';
+
+			}
+			else {
+				return 'Yesterday';
+			}
+		}
 
 
 		if ($d > 2 || $d < 0) {
@@ -129,8 +143,5 @@ class Helper {
 			return 'Today';
 		}
 
-		if ($d == 1) {
-			return 'Tomorrow';
-		}
 	}
 }

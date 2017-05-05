@@ -94,7 +94,7 @@ class TaskPresenter extends BasePresenter {
 		$Form      = $this->TaskFactory->getForm();
 
 		if ($this->getParameter('id')) {
-			$Form->setTaskDetail(
+			$Form->setTask(
 				$this->TaskFactory->getById($this->getParameter('id'))
 			);
 		}
@@ -102,11 +102,11 @@ class TaskPresenter extends BasePresenter {
 		$Form->onSave[] = function($Task, $values, $Project, $TaskList) use ($Presenter) {
 
 			if ($TaskList) {
-				$this->presenter->redirect('List:default', array('taskListID' => $TaskList->tl_ID, 'taskListName' => $TaskList->tl_name, 'projectID' => $Project->pr_ID, 'projectName' => $Project->pr_name));
+				$this->presenter->redirect('List:default', array('taskListID' => $TaskList->tl_ID, 'projectID' => $Project->pr_ID));
 			}
 
 			if ($Project) {
-				$this->presenter->redirect('List:default', array('projectID' => $Project->pr_ID, 'projectName' => $Project->pr_name));
+				$this->presenter->redirect('List:default', array('projectID' => $Project->pr_ID));
 			}
 
 		};

@@ -1,7 +1,9 @@
 {var $robots = noindex}
 
-{block topMenu}{include ../topMenu.latte}{/block}
+{block topMenu}{/block}
 
 {block content}
-	detail
-{/block}
+
+<h1 n:block="title">{_'task detail'}</h1>
+
+{control taskForm}

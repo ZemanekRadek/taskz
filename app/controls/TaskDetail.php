@@ -23,6 +23,10 @@ class TaskDetail extends \Nette\Application\UI\Control {
 
 	}
 
+	public function handledetail($id, $projectID) {
+
+	}
+
 	/*****************************/
 
 	public function setList(\App\Model\TaskList $List) {

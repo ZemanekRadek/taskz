@@ -1,14 +1,14 @@
 <!-- ACTION BUTTON TASK LIST OPERATIONS -->
 <div class="fixed-action-btn">
 	{if isset($TaskList)&&$TaskList}
-		<a class="btn-floating btn-large action-button" href="{link Task:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path, taskListID=>$TaskList->tl_ID, taskListName=>$TaskList->tl_name}" title="Add new task"><i class="large icon-add">new_task</i></a>
+		<a class="btn-floating btn-large action-button" href="{link Task:new projectID=>$Project->pr_ID, taskListID=>$TaskList->tl_ID}" title="Add new task"><i class="large icon-add">new_task</i></a>
 	{else}
-	<a class="btn-floating btn-large action-button" href="{link Task:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}" title="Add new task"><i class="large icon-add">new_task</i></a>
+	<a class="btn-floating btn-large action-button" href="{link Task:new projectID=>$Project->pr_ID}" title="Add new task"><i class="large icon-add">new_task</i></a>
 	{/if}
 	<ul>
 		<li><a class="btn-floating grey" title="Start new chat"><i class="icon-bubble">chat</i></a></li>
 		<li><a class="btn-floating grey" title="Add new file to this project"><i class="icon-attach_file">file</i></a></li>
 		<li><a class="btn-floating grey" title="Add new team member"><i class="icon-person_add">team-member</i></a></li>
-		<li><a class="btn-floating grey" href="{link List:new projectID=>$Project->pr_ID, projectName=>$Project->pr_path}" title="Add new task list"><i class="icon-note_add">task-list</i></a></li>
+		<li><a class="btn-floating grey" href="{link List:new projectID=>$Project->pr_ID}" title="Add new task list"><i class="icon-note_add">task-list</i></a></li>
 	</ul>
 </div>

@@ -6,6 +6,10 @@
 			<a n:href="resolve $Task->ID"><span class="icon-check"></span></a>{$Task->name}
 		</div>
 		<div class="lt-task-detail-content">
+			<div class="lt-task-detail-url">
+				<label>URL:</label>
+				<input onClick="this.setSelectionRange(0, this.value.length)" type="text" value="http://{$_SERVER['HTTP_HOST']}{plink Task:detail id=>$Task->ID, projectID=>$Project->pr_ID}">
+			</div>
 		{control taskForm}
 		</div>
 		<div class="lt-task-detail-footer">

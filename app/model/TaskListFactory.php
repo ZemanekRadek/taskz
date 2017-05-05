@@ -41,6 +41,19 @@ class TaskListFactory extends Nette\Object  {
 	}
 
 	public function getInbox() {
+		if ($this->Project->pr_ID) {
+			return $this->DB->table('tasks_list_project')
+				->select('tasks_list.tl_ID, tasks_list.tl_name')
+				->where('
+					tasks_list.tl_systemIdentifier = ?
+					AND
+					tasks_list_project.projects_pr_ID = ? ',
+					\App\Model\Helper::LIST_INBOX,
+					$this->Project->pr_ID
+				)->fetch();
+
+		}
+
 		return $this->DB->table('tasks_list_user')
 			->select('tasks_list.tl_ID, tasks_list.tl_name')
 			->where('users_us_ID = ? AND tasks_list.tl_systemIdentifier = ?', $this->User->getIdentity()->us_ID, \App\Model\Helper::LIST_INBOX)->fetch();

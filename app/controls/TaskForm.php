@@ -129,8 +129,20 @@ class TaskForm extends \Nette\Application\UI\Control {
 		{
 			$form->onSuccess[] = function() use ($form, $User, $DB, $Project, $TagFactory, $defaultInbox, $self, $lists)  {
 
+
 				$values = $form->getValues();
+
 				$Task     = new \App\Model\Task($DB, $User, $Project, null, $values['ta_ID']);
+
+				if ($values['ta_projectID']) {
+					$Project = new \App\Model\Project($DB, $User, $values['ta_projectID']);
+				}
+
+				if ($values['ta_projectID']) {
+					$lists->setProject($Project);
+				}
+				$inbox = $lists->getInbox();
+
 
 				foreach($values as $k => $v) {
 
@@ -210,37 +222,19 @@ class TaskForm extends \Nette\Application\UI\Control {
 
 				// defaultne pridame inbox, pokud je ale finished tak ne
 				if (!$Task->isFinished()) {
-					$Task->addList($lists->getInbox()->tl_ID);
+					$Task->addList($inbox->tl_ID);
 				}
 
 				if ($Task->save()) {
 
 					$taskList = null;
 
-					if ($values['ta_projectID']) {
-						$Project = new \App\Model\Project($DB, $User, $values['ta_projectID']);
-					}
-
 					if ($values['ta_taskListID']) {
 						$taskList = new \App\Model\TaskList($DB, $User, $Project, $values['ta_taskListID']);
 					}
 					else {
-						// prvni tasklist pro redirect v presenteru, mozno vynutit inbox
-						$_list = explode(',', $values['ta_taskLists']);
-						if ($_list) {
-							foreach($_list as $item) {
-								$taskList = new \App\Model\TaskList($DB, $User, $Project, $item);
-								break;
-								/*
-								if ($item->tl_systemIdentifier == \App\Model\Helper::LIST_INBOX) {
-								}
-								*/
-							}
-						}
+						$taskList = new \App\Model\TaskList($DB, $User, $Project, $inbox->tl_ID);
 					}
-
-					\Tracy\Debugger::barDump($taskList, 'default list');
-					\Tracy\Debugger::barDump($defaultInbox, 'default inbox');
 
 					$self->onSave($Task, $values, $Project, $taskList);
 				}
@@ -284,7 +278,6 @@ class TaskForm extends \Nette\Application\UI\Control {
 			if ($defaultInbox) {
 				$form['ta_taskLists']->setValue(implode(',', $defaultInbox));
 			}
-			// $form['ta_users']->setValue(array($User->getIdentity()->getId()));
 		}
 
 		return $form;

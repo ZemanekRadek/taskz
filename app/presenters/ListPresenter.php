@@ -88,7 +88,7 @@ class ListPresenter extends BasePresenter {
 
 		$form = $List->getForm();
 		$form['projectID']->setValue($presenter->getParameter('projectID'));
-		$form['projectName']->setValue($presenter->getParameter('projectName'));
+		// $form['projectName']->setValue($presenter->getParameter('projectName'));
 
 		// $form->setAction($this->link(':List:new', $this->getParameters()));
 
@@ -96,7 +96,7 @@ class ListPresenter extends BasePresenter {
 
 			$values = $form->getValues();
 
-			$presenter->redirect('List:default', array('projectID' => $values['projectID'], 'projectName' => $values['projectName']));
+			$presenter->redirect('List:default', array('projectID' => $values['projectID']));
 
 		};
 

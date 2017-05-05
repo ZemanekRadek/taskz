@@ -55,6 +55,12 @@ $router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]<projectID>-<projectName>/ne
 $router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]<projectID>-<projectName>/', "List:default");
 $router[] = new Route('//taskz/[<lang=cs [a-z]{2}>/]project/<action>', "Project:default");
 */
+
+$router[] = new Route('/[<lang=cs [a-z]{2}>/]<projectID (\d+)>/list/<taskListID (\d+)>', "List:list");
+$router[] = new Route('/[<lang=cs [a-z]{2}>/]<projectID (\d+)>/list/<taskListID (\d+)>', "List:default");
+$router[] = new Route('/[<lang=cs [a-z]{2}>/]<projectID (\d+)>/task/<id (\d+)>', "Task:detail");
+$router[] = new Route('/[<lang=cs [a-z]{2}>/]<projectID (\d+)>/task/new', "Task:new");
+
 $router[] = new Route('/[<lang=cs [a-z]{2}>/]<presenter>/<action>[/<editID (\d+)>]', "Dashboard:default");
 
 

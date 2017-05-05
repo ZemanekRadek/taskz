@@ -18,7 +18,7 @@ class Task extends Nette\Object  {
 	private $TaskList;
 
 	/** @var App\Model\Project @inject */
-	private $Project;
+	public $Project;
 
 
 	/** @var \Nette\Datbase\ActiveRow */
